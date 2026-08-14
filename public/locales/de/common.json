@@ -20,6 +20,9 @@
         "minutes": "min",
         "seconds": "s"
     },
+    "auth": {
+        "signout": "Sign out"
+    },
     "widget": {
         "missing_type": "Fehlender Widget-Typ: {{type}}",
         "api_error": "API-Fehler",
@@ -71,6 +74,15 @@
         "degraded": "Beeinträchtigt",
         "no_data": "Keine Speicherdaten verfügbar"
     },
+    "duplicati": {
+        "jobs": "Jobs",
+        "stored": "Stored",
+        "lastBackup": "Last Run",
+        "nextRun": "Next Run",
+        "running": "Running",
+        "warnings": "Warnings",
+        "errors": "Errors"
+    },
     "docker": {
         "rx": "RX",
         "tx": "TX",
@@ -120,7 +132,8 @@
         "movies": "Filme",
         "series": "Serien",
         "episodes": "Episoden",
-        "songs": "Titel"
+        "songs": "Titel",
+        "albums": "Albums"
     },
     "esphome": {
         "offline": "Offline",
@@ -465,6 +478,11 @@
         "cpu": "CPU",
         "lxc": "LXC",
         "vms": "VMs"
+    },
+    "pulse": {
+        "nodes": "Nodes",
+        "vms": "VMs",
+        "lxcs": "LXCs"
     },
     "glances": {
         "cpu": "CPU",
@@ -932,6 +950,17 @@
         "mails": "E-Mails",
         "storage": "Speicher"
     },
+    "maintainerr": {
+        "itemsHandled": "Items Handled",
+        "episodesHandled": "Episodes Handled",
+        "moviesHandled": "Movies Handled",
+        "showsHandled": "Shows Handled",
+        "seasonsHandled": "Seasons Handled",
+        "reclaimable": "Reclaimable",
+        "movieReclaimable": "Movie Reclaimable",
+        "showReclaimable": "Show Reclaimable",
+        "totalCapacity": "Total Capacity"
+    },
     "netdata": {
         "warnings": "Warnungen",
         "criticals": "Kritisch"
@@ -1210,5 +1239,16 @@
         "burned": "Verbrannt",
         "remaining": "Verbleibend",
         "steps": "Schritte"
+    },
+    "syncthing": {
+        "connected": "Connected",
+        "synced": "Synced",
+        "errors": "Errors",
+        "storage": "Storage"
+    },
+    "sportarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "leagues": "Leagues"
     }
 }

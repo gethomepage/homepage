@@ -20,6 +20,9 @@
         "minutes": "min",
         "seconds": "s"
     },
+    "auth": {
+        "signout": "Sign out"
+    },
     "widget": {
         "missing_type": "Nedostajuća vrsta widgeta: {{type}}",
         "api_error": "API greška",
@@ -71,6 +74,15 @@
         "degraded": "Degradirano",
         "no_data": "Nema dostupnih podataka spremišta"
     },
+    "duplicati": {
+        "jobs": "Poslovi",
+        "stored": "Spremljeno",
+        "lastBackup": "Zadnje pokretanje",
+        "nextRun": "Sljedeće pokretanje",
+        "running": "Pokreće se",
+        "warnings": "Upozorenja",
+        "errors": "Greške"
+    },
     "docker": {
         "rx": "RX",
         "tx": "TX",
@@ -120,7 +132,8 @@
         "movies": "Filmovi",
         "series": "Serije",
         "episodes": "Epizode",
-        "songs": "Pjesme"
+        "songs": "Pjesme",
+        "albums": "Albums"
     },
     "esphome": {
         "offline": "Offline",
@@ -465,6 +478,11 @@
         "cpu": "CPU",
         "lxc": "Linux kontejner",
         "vms": "Virtualni uređaji"
+    },
+    "pulse": {
+        "nodes": "Čvorovi",
+        "vms": "VM-ovi",
+        "lxcs": "LXC-ovi"
     },
     "glances": {
         "cpu": "CPU",
@@ -932,6 +950,17 @@
         "mails": "Pošta",
         "storage": "Spremište"
     },
+    "maintainerr": {
+        "itemsHandled": "Items Handled",
+        "episodesHandled": "Episodes Handled",
+        "moviesHandled": "Movies Handled",
+        "showsHandled": "Shows Handled",
+        "seasonsHandled": "Seasons Handled",
+        "reclaimable": "Reclaimable",
+        "movieReclaimable": "Movie Reclaimable",
+        "showReclaimable": "Show Reclaimable",
+        "totalCapacity": "Total Capacity"
+    },
     "netdata": {
         "warnings": "Upozorenja",
         "criticals": "Kritično"
@@ -1210,5 +1239,16 @@
         "burned": "Potrošeno",
         "remaining": "Preostalo",
         "steps": "Koraci"
+    },
+    "syncthing": {
+        "connected": "Povezano",
+        "synced": "Sinkronizirano",
+        "errors": "Greške",
+        "storage": "Spremište"
+    },
+    "sportarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "leagues": "Leagues"
     }
 }

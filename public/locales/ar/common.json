@@ -20,6 +20,9 @@
         "minutes": "د",
         "seconds": "ث"
     },
+    "auth": {
+        "signout": "Sign out"
+    },
     "widget": {
         "missing_type": "نوع القطعة مفقود: {{type}}",
         "api_error": "API خطأ",
@@ -45,89 +48,99 @@
         "free": "متاح",
         "used": "مستخدم",
         "load": "الضغط",
-        "temp": "مؤقت",
+        "temp": "الحرارة",
         "max": "الحد الأقصى",
-        "uptime": "تعمل"
+        "uptime": "مُعدّ"
     },
     "unifi": {
         "users": "المستخدمون",
         "uptime": "مدة التشغيل",
         "days": "أيام",
-        "wan": "الشبكة الواسعة",
-        "lan": "الشبكة المحلية",
+        "wan": "شبكة واسعة النّطاق",
+        "lan": "شبكة محلية ظاهرية",
         "wlan": "الشبكة المحلية اللاسلكية",
         "devices": "الأجهزة",
         "lan_devices": "LAN أجهزة",
         "wlan_devices": "WLAN أجهزة",
         "lan_users": "LAN مستخدمين",
-        "wlan_users": "WLAN مستخدمين",
-        "up": "UP",
-        "down": "لا يعمل",
-        "wait": "Please wait",
+        "wlan_users": "مستخدمو الشبكة المحلية اللاسلكيّة",
+        "up": "مُعدّ",
+        "down": "متوقف",
+        "wait": "انتظِر",
         "empty_data": "حالة النظام الفرعي غير معروفة"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "سليم",
+        "degraded": "متدهور",
+        "no_data": "لا يتوفر بيانات تخزين"
+    },
+    "duplicati": {
+        "jobs": "Jobs",
+        "stored": "Stored",
+        "lastBackup": "Last Run",
+        "nextRun": "Next Run",
+        "running": "Running",
+        "warnings": "Warnings",
+        "errors": "Errors"
     },
     "docker": {
         "rx": "استقبال",
         "tx": "ارسال",
-        "mem": "MEM",
-        "cpu": "CPU",
+        "mem": "الذاكرة",
+        "cpu": "المعالج",
         "running": "قيد التشغيل",
         "offline": "غير متصل",
         "error": "خطأ",
         "unknown": "مجهول",
         "healthy": "سليم",
-        "starting": "يبدأ التشغيل",
-        "unhealthy": "غير صحّي",
+        "starting": "قيد التشغيل",
+        "unhealthy": "غير سليم",
         "not_found": "غير موجود",
         "exited": "خرجت",
         "partial": "جزئي"
     },
     "ping": {
-        "error": "Error",
+        "error": "خطأ",
         "ping": "بينغ",
-        "down": "لا يعمل",
+        "down": "متوقف",
         "up": "يعمل",
-        "not_available": "غير مُـتوفـّر"
+        "not_available": "غير متوفر"
     },
     "siteMonitor": {
         "http_status": "حالة HTTP",
-        "error": "Error",
+        "error": "خطأ",
         "response": "الرد",
-        "down": "Down",
-        "up": "Up",
-        "not_available": "Not Available"
+        "down": "متوقف",
+        "up": "مُعدّ",
+        "not_available": "غير متوفر"
     },
     "emby": {
-        "playing": "يعمل الآن",
-        "transcoding": "التحويل",
-        "bitrate": "معدل البت",
+        "playing": "نَشِط",
+        "transcoding": "يُرمِّز",
+        "bitrate": "معدل البيانات",
         "no_active": "لا يوجد بث نشط",
-        "movies": "أفلام",
-        "series": "مسلسلات",
-        "episodes": "حلقات",
-        "songs": "أغاني"
+        "movies": "الأفلام",
+        "series": "المسلسلات",
+        "episodes": "الحلقات",
+        "songs": "الأغاني"
     },
     "jellyfin": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs"
+        "playing": "نَشِط",
+        "transcoding": "يُرمِّز",
+        "bitrate": "معدل البيانات",
+        "no_active": "لا يوجد بث نشيطٌ",
+        "movies": "الأفلام",
+        "series": "المسلسلات",
+        "episodes": "الحلقات",
+        "songs": "الأغاني",
+        "albums": "Albums"
     },
     "esphome": {
-        "offline": "Offline",
-        "offline_alt": "Offline",
+        "offline": "غير متصل",
+        "offline_alt": "غير متصل",
         "online": "مُتّصل",
-        "total": "Total",
-        "unknown": "Unknown"
+        "total": "الإجمالي",
+        "unknown": "مجهول"
     },
     "evcc": {
         "pv_power": "إنتاج",
@@ -135,7 +148,7 @@
         "grid_power": "شبكة",
         "home_power": "الاستهلاك",
         "charge_power": "شاحن",
-        "kilowatt": "kW"
+        "kilowatt": "ك.و"
     },
     "flood": {
         "download": "التنزيل",
@@ -148,7 +161,7 @@
         "unread": "غير مقروءة"
     },
     "fritzbox": {
-        "connectionStatus": "Status",
+        "connectionStatus": "الحالة",
         "connectionStatusUnconfigured": "لم تتم تهيئته",
         "connectionStatusConnecting": "جاري الاتصال",
         "connectionStatusAuthenticating": "جار المصادقة",
@@ -156,16 +169,16 @@
         "connectionStatusDisconnecting": "جار قطع الاتصال",
         "connectionStatusDisconnected": "غير متصل",
         "connectionStatusConnected": "متصل",
-        "uptime": "Uptime",
+        "uptime": "مدة التشغيل",
         "maxDown": "أقصى حد للتنزيل",
         "maxUp": "أقصى حد للتحميل",
-        "down": "Down",
-        "up": "Up",
+        "down": "متوقف",
+        "up": "مُعدّ",
         "received": "تم الإستلام",
         "sent": "تم الإرسال",
         "externalIPAddress": "IP الخارجي",
-        "externalIPv6Address": "Ext. IPv6",
-        "externalIPv6Prefix": "Ext. IPv6-Prefix"
+        "externalIPv6Address": "IPv6 خارجي",
+        "externalIPv6Prefix": "بادئة IPv6 خارجي"
     },
     "caddy": {
         "upstreams": "تدفق",
@@ -183,24 +196,24 @@
         "passes": "تمريرات"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
+        "playing": "نَشِط",
+        "transcoding": "يُرمِّز",
+        "bitrate": "معدل البيانات",
+        "no_active": "لا يوجد بث نشيطٌ",
         "plex_connection_error": "تحقق من الاتصال بـ Plex"
     },
     "tracearr": {
-        "no_active": "No Active Streams",
-        "streams": "Streams",
-        "transcodes": "Transcodes",
-        "directplay": "Direct Play",
-        "bitrate": "Bitrate"
+        "no_active": "لا يوجد بث نشيطٌ",
+        "streams": "البث",
+        "transcodes": "الترميز",
+        "directplay": "تشغيل مباشر",
+        "bitrate": "معدّل البت"
     },
     "omada": {
         "connectedAp": "المتصلة APs",
         "activeUser": "الأجهزة النشطة",
         "alerts": "تنبيهات",
-        "connectedGateways": "Connected gateways",
+        "connectedGateways": "البوابات المتصلة",
         "connectedSwitches": "مفاتيح التبديل المتصلة"
     },
     "nzbget": {
@@ -211,30 +224,30 @@
     "plex": {
         "streams": "بث نشيطٌ",
         "albums": "ألبومات",
-        "movies": "Movies",
+        "movies": "الأفلام",
         "tv": "مسلسلات"
     },
     "sabnzbd": {
-        "rate": "Rate",
+        "rate": "المعدل",
         "queue": "إنتظار",
         "timeleft": "الوقت المتبقي"
     },
     "rutorrent": {
         "active": "نشط",
-        "upload": "Upload",
-        "download": "Download"
+        "upload": "الرفع",
+        "download": "التنزيل"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "التنزيل",
+        "upload": "الرفع",
+        "leech": "المُستهلكون",
+        "seed": "المُزوِّدين"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "التنزيل",
+        "upload": "الرفع",
+        "leech": "المُستهلكون",
+        "seed": "المُزوِّدين"
     },
     "qnap": {
         "cpuUsage": "استهلاك المعالج",
@@ -245,44 +258,44 @@
         "invalid": "غير صحيح"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "التنزيل",
+        "upload": "الرفع",
+        "leech": "المُستهلكون",
+        "seed": "المُزوِّدين"
     },
     "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
+        "cachehitbytes": "بايتات نجاح المخبأ",
+        "cachemissbytes": "بايتات إخفاق المخبأ"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "التنزيل",
+        "upload": "الرفع",
+        "leech": "المُستهلكون",
+        "seed": "المُزوِّدين"
     },
     "sonarr": {
         "wanted": "مطلوب",
         "queued": "في الإنتظار",
-        "series": "Series",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "series": "المسلسلات",
+        "queue": "الطابور",
+        "unknown": "مجهول"
     },
     "radarr": {
-        "wanted": "Wanted",
+        "wanted": "المطلوب",
         "missing": "مفقود",
-        "queued": "Queued",
-        "movies": "Movies",
-        "queue": "Queue",
-        "unknown": "Unknown"
+        "queued": "مصطفّ",
+        "movies": "الأفلام",
+        "queue": "الطابور",
+        "unknown": "مجهول"
     },
     "lidarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "المطلوب",
+        "queued": "مصطفّ",
         "artists": "فنانين"
     },
     "readarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
+        "wanted": "المطلوب",
+        "queued": "مصطفّ",
         "books": "كتب"
     },
     "bazarr": {
@@ -295,16 +308,16 @@
         "available": "متاح"
     },
     "seerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available",
-        "completed": "Completed",
-        "processing": "Processing",
-        "issues": "Open Issues"
+        "pending": "معلّق",
+        "approved": "معتمد",
+        "available": "المتاح",
+        "completed": "المكتمل",
+        "processing": "قيد المعالجة",
+        "issues": "المشكلات المفتوحة"
     },
     "netalertx": {
-        "total": "Total",
-        "connected": "Connected",
+        "total": "الإجمالي",
+        "connected": "متصل",
         "new_devices": "أجهزة جديدة",
         "down_alerts": "تنبيهات تعطل"
     },
@@ -315,45 +328,45 @@
         "gravity": "الجاذبية"
     },
     "adguard": {
-        "queries": "Queries",
-        "blocked": "Blocked",
+        "queries": "الاستعلامات",
+        "blocked": "المحظور",
         "filtered": "مرشح",
         "latency": "الإستجابة"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
-        "ping": "Ping"
+        "upload": "الرفع",
+        "download": "التنزيل",
+        "ping": "الاستجابة"
     },
     "portainer": {
-        "running": "Running",
+        "running": "قيد العمل",
         "stopped": "متوقف",
-        "total": "Total"
+        "total": "الإجمالي"
     },
     "suwayomi": {
-        "download": "Downloaded",
-        "nondownload": "Non-Downloaded",
-        "read": "Read",
-        "unread": "Unread",
-        "downloadedread": "Downloaded & Read",
-        "downloadedunread": "Downloaded & Unread",
-        "nondownloadedread": "Non-Downloaded & Read",
-        "nondownloadedunread": "Non-Downloaded & Unread"
+        "download": "مُنزل",
+        "nondownload": "غير مُنزل",
+        "read": "مقروء",
+        "unread": "غير مقروء",
+        "downloadedread": "مُنزّل ومقروء",
+        "downloadedunread": "مُنزّل وغير مقروء",
+        "nondownloadedread": "غير منزّل ومقروء",
+        "nondownloadedunread": "غير منزّل وغير مقروء"
     },
     "tailscale": {
         "address": "عنوان",
         "expires": "تنتهي",
         "never": "مطلقاً",
-        "user": "User",
-        "hostname": "Hostname",
-        "name": "Name",
-        "client_version": "Client Version",
-        "os": "OS",
-        "created": "Created",
-        "authorized": "Authorized",
-        "is_external": "Is External",
-        "update_available": "Update Available",
-        "tags": "Tags",
+        "user": "المستخدم",
+        "hostname": "اسم المضيف",
+        "name": "الاسم",
+        "client_version": "نسخة العميل",
+        "os": "نظام التشغيل",
+        "created": "أُنشِئ",
+        "authorized": "مُخوّل",
+        "is_external": "أخارجي",
+        "update_available": "يتوفر تحديث",
+        "tags": "الوسوم",
         "last_seen": "آخر ظهور",
         "now": "الآن",
         "years": "{{number}}س",
@@ -363,11 +376,11 @@
         "minutes": "{{number}}د",
         "seconds": "{{number}}ث",
         "ago": "منذ {{value}}",
-        "true": "Yes",
-        "false": "No"
+        "true": "نعم",
+        "false": "لا"
     },
     "technitium": {
-        "totalQueries": "Queries",
+        "totalQueries": "الاستعلامات",
         "totalNoError": "تم بنجاح",
         "totalServerFailure": "فشل",
         "totalNxDomain": "مجالات NX",
@@ -375,12 +388,12 @@
         "totalAuthoritative": "موثوقة",
         "totalRecursive": "عودي",
         "totalCached": "مخبأ",
-        "totalBlocked": "Blocked",
+        "totalBlocked": "المحظور",
         "totalDropped": "أسقطت",
         "totalClients": "العملاء"
     },
     "tdarr": {
-        "queue": "Queue",
+        "queue": "الطابور",
         "processed": "معالجة",
         "errored": "خطأ",
         "saved": "حفظ"
@@ -391,19 +404,19 @@
         "middleware": "الوسيطة"
     },
     "trilium": {
-        "version": "Version",
-        "notesCount": "Notes",
-        "dbSize": "Database Size",
-        "unknown": "Unknown"
+        "version": "الإصدار",
+        "notesCount": "الملاحظات",
+        "dbSize": "حجم قاعدة البيانات",
+        "unknown": "مجهول"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
+        "nothing_streaming": "لا يوجد بث نشيطٌ",
         "please_wait": "الرجاء الإنتظار"
     },
     "npm": {
         "enabled": "مفعل",
         "disabled": "معطل",
-        "total": "Total"
+        "total": "الإجمالي"
     },
     "coinmarketcap": {
         "configure": "قم بأنشاء عملة تشفير واحدة أو أكثر للتتبع",
@@ -414,73 +427,78 @@
     },
     "gotify": {
         "apps": "التطبيقات",
-        "clients": "Clients",
+        "clients": "العملاء",
         "messages": "الرسائل"
     },
     "prowlarr": {
         "enableIndexers": "مفهرسات",
         "numberOfGrabs": "مساكات",
-        "numberOfQueries": "Queries",
+        "numberOfQueries": "الاستعلامات",
         "numberOfFailGrabs": "إخفاقات في الالتقاط",
         "numberOfFailQueries": "فشل الاستعلامات"
     },
     "jackett": {
         "configured": "مهيأ",
-        "errored": "Errored"
+        "errored": "خطأ"
     },
     "strelaysrv": {
         "numActiveSessions": "الجلسات",
         "numConnections": "التوصيلات",
         "dataRelayed": "منقول(ة)",
-        "transferRate": "Rate"
+        "transferRate": "المعدل"
     },
     "mastodon": {
-        "user_count": "Users",
+        "user_count": "المستخدمون",
         "status_count": "منشورات",
         "domain_count": "مجالات"
     },
     "medusa": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "series": "Series"
+        "wanted": "المطلوب",
+        "queued": "مصطفّ",
+        "series": "المسلسلات"
     },
     "minecraft": {
         "players": "مشغلات",
         "version": "الإصدار",
-        "status": "Status",
-        "up": "Online",
-        "down": "Offline"
+        "status": "الحالة",
+        "up": "مُتّصل",
+        "down": "غير متصل"
     },
     "miniflux": {
         "read": "قراءة",
-        "unread": "Unread"
+        "unread": "غير مقروء"
     },
     "authentik": {
-        "users": "Users",
+        "users": "المستخدمون",
         "loginsLast24H": "تسجيلات الدخول (٢٤س)",
         "failedLoginsLast24H": "فشل تسجيلات الدخول (٢٤س)"
     },
     "proxmox": {
-        "mem": "MEM",
-        "cpu": "CPU",
+        "mem": "الذاكرة",
+        "cpu": "المعالج",
         "lxc": "حاويات لينكس",
         "vms": "أجهزة ظاهرية"
     },
+    "pulse": {
+        "nodes": "العقد",
+        "vms": "آلات افتراضيّة",
+        "lxcs": "حاويات LXC"
+    },
     "glances": {
-        "cpu": "CPU",
-        "load": "Load",
-        "wait": "Please wait",
-        "temp": "TEMP",
+        "cpu": "المعالج",
+        "load": "الحمل",
+        "wait": "انتظِر",
+        "temp": "الحرارة",
         "_temp": "درجة الحرارة",
         "warn": "تنبية",
-        "uptime": "UP",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "days": "d",
-        "hours": "h",
+        "uptime": "مُعدّ",
+        "total": "الإجمالي",
+        "free": "المتاح",
+        "used": "المُستغَّل",
+        "days": "ي",
+        "hours": "س",
         "crit": "حساس",
-        "read": "Read",
+        "read": "القراءة",
         "write": "الكتابة",
         "gpu": "كرت الشاشة",
         "mem": "الذاكرة",
@@ -492,7 +510,7 @@
         "search": "البحث",
         "custom": "مُخصّص",
         "visit": "زيارة",
-        "url": "URL",
+        "url": "الرابط",
         "searchsuggestion": "الإقتراحات"
     },
     "wmo": {
@@ -501,57 +519,57 @@
         "1-day": "مشمس غالباً",
         "1-night": "صافي غالباً",
         "2-day": "غائم جزئياً",
-        "2-night": "Partly Cloudy",
+        "2-night": "غائم جزئيًا",
         "3-day": "غائم",
-        "3-night": "Cloudy",
+        "3-night": "غائم",
         "45-day": "ضبابي",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
+        "45-night": "ضبابي",
+        "48-day": "ضبابي",
+        "48-night": "ضبابي",
         "51-day": "رذاذ خفيف",
-        "51-night": "Light Drizzle",
+        "51-night": "رذاذ خفيف",
         "53-day": "رذاذ",
-        "53-night": "Drizzle",
+        "53-night": "رذاذ",
         "55-day": "رذاذ كثيف",
-        "55-night": "Heavy Drizzle",
+        "55-night": "رذاذ كثيف",
         "56-day": "رذاذ متجمد خفيف",
-        "56-night": "Light Freezing Drizzle",
+        "56-night": "رذاذ متجمد خفيف",
         "57-day": "رذاذ متجمد",
-        "57-night": "Freezing Drizzle",
+        "57-night": "رذاذ متجمد",
         "61-day": "مطر خفيف",
-        "61-night": "Light Rain",
+        "61-night": "مطر خفيف",
         "63-day": "مطر",
-        "63-night": "Rain",
+        "63-night": "مطر",
         "65-day": "مطر شديد",
-        "65-night": "Heavy Rain",
+        "65-night": "مطر شديد",
         "66-day": "مطر متجمد",
-        "66-night": "Freezing Rain",
-        "67-day": "Freezing Rain",
-        "67-night": "Freezing Rain",
+        "66-night": "مطر متجمد",
+        "67-day": "مطر متجمد",
+        "67-night": "مطر متجمد",
         "71-day": "ثلج خفيف",
-        "71-night": "Light Snow",
+        "71-night": "ثلج خفيف",
         "73-day": "ثلج",
-        "73-night": "Snow",
+        "73-night": "ثلج",
         "75-day": "ثلج شديد",
-        "75-night": "Heavy Snow",
+        "75-night": "ثلج شديد",
         "77-day": "حبيبات الثلج",
-        "77-night": "Snow Grains",
+        "77-night": "حبيبات الثلج",
         "80-day": "أمطار خفيفة",
-        "80-night": "Light Showers",
+        "80-night": "أمطار خفيفة",
         "81-day": "أمطار",
-        "81-night": "Showers",
+        "81-night": "أمطار",
         "82-day": "أمطار شديدة",
-        "82-night": "Heavy Showers",
+        "82-night": "أمطار غزيرة",
         "85-day": "زخات الثلوج",
-        "85-night": "Snow Showers",
-        "86-day": "Snow Showers",
-        "86-night": "Snow Showers",
+        "85-night": "زخات ثلوج",
+        "86-day": "زخات ثلوج",
+        "86-night": "زخات ثلوج",
         "95-day": "عاصفة رعدية",
-        "95-night": "Thunderstorm",
+        "95-night": "عاصفة رعدية",
         "96-day": "عاصفة رعدية مع مطر",
-        "96-night": "Thunderstorm With Hail",
-        "99-day": "Thunderstorm With Hail",
-        "99-night": "Thunderstorm With Hail"
+        "96-night": "عاصفة رعدية مع بَرَد",
+        "99-day": "عاصفة رعدية مع بَرَد",
+        "99-night": "عاصفة رعدية مع بَرَد"
     },
     "homebridge": {
         "available_update": "نظام",
@@ -560,18 +578,18 @@
         "up_to_date": "حتى الآن",
         "child_bridges": "الجسور الأطفال",
         "child_bridges_status": "{{ok}}/{{total}}",
-        "up": "Up",
-        "pending": "Pending",
-        "down": "Down",
-        "ok": "Ok"
+        "up": "مُعدّ",
+        "pending": "معلّق",
+        "down": "متعطّل",
+        "ok": "موافق"
     },
     "healthchecks": {
         "new": "جديد(ة)",
-        "up": "Up",
+        "up": "مُعدّ",
         "grace": "في فترة السماح",
-        "down": "Down",
+        "down": "متعطّل",
         "paused": "متوقف",
-        "status": "Status",
+        "status": "الحالة",
         "last_ping": "آخر Ping",
         "never": "لا توجد بنغات بعد"
     },
@@ -581,85 +599,85 @@
         "containers_failed": "فشل"
     },
     "autobrr": {
-        "approvedPushes": "Approved",
+        "approvedPushes": "معتمد",
         "rejectedPushes": "مرفوض",
         "filters": "المرشحات",
-        "indexers": "Indexers"
+        "indexers": "مُفهرِسَات"
     },
     "tubearchivist": {
-        "downloads": "Queue",
+        "downloads": "الطابور",
         "videos": "الفيديوهات",
         "channels": "القنوات",
         "playlists": "قوائم التشغيل"
     },
     "truenas": {
         "load": "حمل النظام",
-        "uptime": "Uptime",
-        "alerts": "Alerts"
+        "uptime": "مدة التشغيل",
+        "alerts": "التنبيهات"
     },
     "pyload": {
         "speed": "السرعة",
-        "active": "Active",
-        "queue": "Queue",
-        "total": "Total"
+        "active": "نشط",
+        "queue": "الطابور",
+        "total": "الإجمالي"
     },
     "gluetun": {
         "public_ip": "العام IP",
         "region": "منطقة",
         "country": "الدولة",
-        "port_forwarded": "Port Forwarded"
+        "port_forwarded": "منافذ مُعاد توجيهها"
     },
     "hdhomerun": {
-        "channels": "Channels",
+        "channels": "القنوات",
         "hd": "جودة HD",
         "tunerCount": "التونز",
         "channelNumber": "القناة",
         "channelNetwork": "الشبكة",
         "signalStrength": "القوة",
         "signalQuality": "الجودة",
-        "symbolQuality": "Quality",
-        "networkRate": "Bitrate",
+        "symbolQuality": "الجودة",
+        "networkRate": "معدل البيانات",
         "clientIP": "العميل"
     },
     "scrutiny": {
         "passed": "إجتاز",
-        "failed": "Failed",
-        "unknown": "Unknown"
+        "failed": "فشل",
+        "unknown": "مجهول"
     },
     "paperlessngx": {
         "inbox": "صندوق الوارد",
-        "total": "Total"
+        "total": "الإجمالي"
     },
     "pangolin": {
-        "orgs": "Orgs",
-        "sites": "Sites",
-        "resources": "Resources",
-        "targets": "Targets",
-        "traffic": "Traffic",
-        "in": "In",
-        "out": "Out"
+        "orgs": "المؤسسات",
+        "sites": "المواقع",
+        "resources": "الموارد",
+        "targets": "الأهداف",
+        "traffic": "الحركة",
+        "in": "الداخل",
+        "out": "خارج"
     },
     "peanut": {
         "battery_charge": "شحن البطارية",
         "ups_load": "حمل UPS",
         "ups_status": "حالة UPS",
-        "online": "Online",
+        "online": "مُتّصل",
         "on_battery": "على البطارية",
         "low_battery": "البطارية منخفضة"
     },
     "nextdns": {
-        "wait": "Please Wait",
+        "wait": "انتظِر",
         "no_devices": "لم يتم استلام بيانات الجهاز"
     },
     "mikrotik": {
         "cpuLoad": "حمل المعالج",
         "memoryUsed": "الذاكرة الستخدمة",
-        "uptime": "Uptime",
+        "uptime": "مدة التشغيل",
         "numberOfLeases": "إيجارات"
     },
     "xteve": {
         "streams_all": "جميع البث",
-        "streams_active": "Active Streams",
+        "streams_active": "بث نشيطٌ",
         "streams_xepg": "XEPG قنوات"
     },
     "opendtu": {
@@ -669,7 +687,7 @@
         "limit": "الحد الأقصى"
     },
     "opnsense": {
-        "cpu": "CPU Load",
+        "cpu": "حمل المعالج",
         "memory": "الذاكرة النشطة",
         "wanUpload": "WAN التحميل",
         "wanDownload": "WAN التنزيل"
@@ -681,84 +699,84 @@
         "layers": "طبقات"
     },
     "octoprint": {
-        "printer_state": "Status",
+        "printer_state": "الحالة",
         "temp_tool": "أداة درجة الحرارة",
         "temp_bed": "درجة حرارة السرير",
         "job_completion": "إتمام"
     },
     "cloudflared": {
         "origin_ip": "IP الأصل",
-        "status": "Status"
+        "status": "الحالة"
     },
     "pfsense": {
         "load": "معدل التحميل",
         "memory": "استخدام الذاكرة العشوائية",
         "wanStatus": "حالة الشبكة الواسعة",
-        "up": "Up",
-        "down": "Down",
-        "temp": "Temp",
+        "up": "مُعدّ",
+        "down": "متوقف",
+        "temp": "الحرارة",
         "disk": "استخدام القرص",
         "wanIP": "IP الشبكة الواسعة"
     },
     "proxmoxbackupserver": {
         "datastore_usage": "مخزن البيانات",
         "failed_tasks_24h": "المهام الفاشلة 24 ساعة",
-        "cpu_usage": "CPU",
+        "cpu_usage": "المعالج",
         "memory_usage": "الذاكرة"
     },
     "immich": {
-        "users": "Users",
+        "users": "المستخدمون",
         "photos": "الصور",
-        "videos": "Videos",
+        "videos": "الفيديوهات",
         "storage": "التخزين"
     },
     "uptimekuma": {
         "up": "المواقع تعمل",
         "down": "مواقع لا تعمل",
-        "uptime": "Uptime",
+        "uptime": "مدة التشغيل",
         "incident": "حادثة",
-        "m": "m"
+        "m": "د"
     },
     "atsumeru": {
-        "series": "Series",
+        "series": "المسلسلات",
         "archives": "الأرشيف",
         "chapters": "الفصول",
         "categories": "التصنيفات"
     },
     "komga": {
         "libraries": "المكتبات",
-        "series": "Series",
-        "books": "Books"
+        "series": "المسلسلات",
+        "books": "الكتب"
     },
     "diskstation": {
-        "days": "Days",
-        "uptime": "Uptime",
-        "volumeAvailable": "Available"
+        "days": "أيام",
+        "uptime": "مدة التشغيل",
+        "volumeAvailable": "المتاح"
     },
     "dispatcharr": {
-        "channels": "Channels",
-        "streams": "Streams"
+        "channels": "القنوات",
+        "streams": "البث"
     },
     "mylar": {
-        "series": "Series",
+        "series": "المسلسلات",
         "issues": "المُشكِلات",
-        "wanted": "Wanted"
+        "wanted": "المطلوب"
     },
     "photoprism": {
-        "albums": "Albums",
-        "photos": "Photos",
-        "videos": "Videos",
+        "albums": "الألبومات",
+        "photos": "الصور",
+        "videos": "الفيديوهات",
         "people": "أشخاص"
     },
     "fileflows": {
-        "queue": "Queue",
-        "processing": "Processing",
-        "processed": "Processed",
+        "queue": "الطابور",
+        "processing": "قيد المعالجة",
+        "processed": "مُعَالَج",
         "time": "الوقت"
     },
     "firefly": {
-        "networth": "Net Worth",
-        "budget": "Budget"
+        "networth": "صافي القيمة",
+        "budget": "الميزانية"
     },
     "grafana": {
         "dashboards": "لوحات المعلومات",
@@ -775,11 +793,11 @@
         "numshares": "عناصر مشتركة"
     },
     "kopia": {
-        "status": "Status",
+        "status": "الحالة",
         "size": "حجم",
         "lastrun": "آخر تشغيل",
         "nextrun": "التشغيل التالي",
-        "failed": "Failed"
+        "failed": "فشل"
     },
     "unmanic": {
         "active_workers": "العمال النشطون",
@@ -796,21 +814,21 @@
         "targets_total": "الأهداف الإجمالية"
     },
     "gatus": {
-        "up": "Sites Up",
-        "down": "Sites Down",
-        "uptime": "Uptime"
+        "up": "المواقع المُعدّة",
+        "down": "المواقع المتوقفة",
+        "uptime": "مدة التشغيل"
     },
     "ghostfolio": {
-        "gross_percent_today": "Today",
+        "gross_percent_today": "اليوم",
         "gross_percent_1y": "سنة",
         "gross_percent_max": "كل الوقت",
-        "net_worth": "Net Worth"
+        "net_worth": "صافي القيمة"
     },
     "audiobookshelf": {
         "podcasts": "بودكاست",
-        "books": "Books",
+        "books": "الكتب",
         "podcastsDuration": "المدة",
-        "booksDuration": "Duration"
+        "booksDuration": "المدة"
     },
     "homeassistant": {
         "people_home": "أشخاص في المنزل",
@@ -819,54 +837,54 @@
     },
     "whatsupdocker": {
         "monitoring": "المراقبة",
-        "updates": "Updates"
+        "updates": "التحديثات"
     },
     "calibreweb": {
-        "books": "Books",
+        "books": "الكتب",
         "authors": "المؤلفون",
-        "categories": "Categories",
-        "series": "Series"
+        "categories": "التصنيفات",
+        "series": "المسلسلات"
     },
     "booklore": {
-        "libraries": "Libraries",
-        "books": "Books",
-        "reading": "Reading",
-        "finished": "Finished"
+        "libraries": "المكتبات",
+        "books": "الكتب",
+        "reading": "أقرأُه",
+        "finished": "منتهي"
     },
     "jdownloader": {
-        "downloadCount": "Queue",
-        "downloadBytesRemaining": "Remaining",
-        "downloadTotalBytes": "Size",
-        "downloadSpeed": "Speed"
+        "downloadCount": "الطابور",
+        "downloadBytesRemaining": "متبقِ",
+        "downloadTotalBytes": "الحجم",
+        "downloadSpeed": "السرعة"
     },
     "kavita": {
-        "seriesCount": "Series",
-        "totalFiles": "Files"
+        "seriesCount": "المسلسلات",
+        "totalFiles": "الملفات"
     },
     "azuredevops": {
         "result": "نتيجة",
-        "status": "Status",
+        "status": "الحالة",
         "buildId": "معرف البناء",
         "succeeded": "تم بنجاح",
         "notStarted": "لم يبدأ",
-        "failed": "Failed",
+        "failed": "فشل",
         "canceled": "ملغى",
         "inProgress": "قيد التنفيذ",
         "totalPrs": "المجموع الكلي للPRs",
         "myPrs": "الPRs الشخصية",
-        "approved": "Approved"
+        "approved": "معتمد"
     },
     "gamedig": {
-        "status": "Status",
-        "online": "Online",
-        "offline": "Offline",
+        "status": "الحالة",
+        "online": "مُتّصل",
+        "offline": "غير متصل",
         "name": "الاسم",
         "map": "خريطة",
         "currentPlayers": "المشغلات الحالية",
-        "players": "Players",
+        "players": "المشغلات",
         "maxPlayers": "الحد الأقصى للمشغلات",
         "bots": "بوتات",
-        "ping": "Ping"
+        "ping": "الاستجابة"
     },
     "urbackup": {
         "ok": "تمام",
@@ -876,39 +894,39 @@
     },
     "mealie": {
         "recipes": "وصفات",
-        "users": "Users",
-        "categories": "Categories",
+        "users": "المستخدمون",
+        "categories": "التصنيفات",
         "tags": "التصنيفات"
     },
     "openmediavault": {
         "downloading": "جاري التنزيل",
-        "total": "Total",
-        "running": "Running",
-        "stopped": "Stopped",
-        "passed": "Passed",
-        "failed": "Failed"
+        "total": "الإجمالي",
+        "running": "قيد العمل",
+        "stopped": "أوقِف",
+        "passed": "أُجتِيز",
+        "failed": "فشل"
     },
     "openwrt": {
-        "uptime": "Uptime",
+        "uptime": "مدة التشغيل",
         "cpuLoad": "متوسط حمولة المعالج (5دق)",
-        "up": "Up",
-        "down": "Down",
+        "up": "مُعدّ",
+        "down": "متوقف",
         "bytesTx": "مرسلة",
-        "bytesRx": "Received"
+        "bytesRx": "المُستلَم"
     },
     "uptimerobot": {
-        "status": "Status",
-        "uptime": "Uptime",
+        "status": "الحالة",
+        "uptime": "مدة التشغيل",
         "lastDown": "فترة التعطّل الأخيرة",
         "downDuration": "مدة التعطل",
-        "sitesUp": "Sites Up",
-        "sitesDown": "Sites Down",
-        "paused": "Paused",
+        "sitesUp": "المواقع المُعدّة",
+        "sitesDown": "المواقع المتوقفة",
+        "paused": "مُلبث",
         "notyetchecked": "لم يتم التحقق بعد",
-        "up": "Up",
+        "up": "مُعدّ",
         "seemsdown": "يبدو أنه معطل",
-        "down": "Down",
-        "unknown": "Unknown"
+        "down": "متعطّل",
+        "unknown": "مجهول"
     },
     "calendar": {
         "inCinemas": "في دور السينما",
@@ -916,7 +934,7 @@
         "digitalRelease": "الإصدار الرقمي",
         "noEventsToday": "لا توجد أحداث اليوم!",
         "noEventsFound": "لم يتم العثور على أحداث",
-        "errorWhenLoadingData": "Error when loading calendar data"
+        "errorWhenLoadingData": "حدث خطأ خلال تحميل الرزنامة"
     },
     "romm": {
         "platforms": "المِنصات",
@@ -927,39 +945,50 @@
         "totalfilesize": "الحجم الكلي"
     },
     "mailcow": {
-        "domains": "Domains",
-        "mailboxes": "Mailboxes",
-        "mails": "Mails",
-        "storage": "Storage"
+        "domains": "المجالات",
+        "mailboxes": "عُلب البريد",
+        "mails": "البريد",
+        "storage": "التخزين"
+    },
+    "maintainerr": {
+        "itemsHandled": "Items Handled",
+        "episodesHandled": "Episodes Handled",
+        "moviesHandled": "Movies Handled",
+        "showsHandled": "Shows Handled",
+        "seasonsHandled": "Seasons Handled",
+        "reclaimable": "Reclaimable",
+        "movieReclaimable": "Movie Reclaimable",
+        "showReclaimable": "Show Reclaimable",
+        "totalCapacity": "Total Capacity"
     },
     "netdata": {
         "warnings": "تحذيرات",
         "criticals": "حرج"
     },
     "ntfy": {
-        "title": "Title",
-        "priority": "Priority",
-        "lastReceived": "Last Received",
-        "message": "Message",
-        "tags": "Tags",
-        "none": "None",
-        "min": "Min",
-        "low": "Low",
-        "default": "Default",
-        "high": "High",
-        "urgent": "Urgent"
+        "title": "العنوان",
+        "priority": "الأولوية",
+        "lastReceived": "آخر ما تلقي",
+        "message": "الرسالة",
+        "tags": "الوسوم",
+        "none": "لا شيء",
+        "min": "الأدنى",
+        "low": "منخفض",
+        "default": "الافتراضي",
+        "high": "عالِ",
+        "urgent": "طارئ"
     },
     "plantit": {
         "events": "أحداث",
         "plants": "نباتات",
-        "photos": "Photos",
+        "photos": "الصور",
         "species": "الأنواع"
     },
     "gitea": {
         "notifications": "الإشعارات",
-        "issues": "Issues",
+        "issues": "المُشكِلات",
         "pulls": "طلبات السحب",
-        "repositories": "Repositories"
+        "repositories": "المستودعات"
     },
     "stash": {
         "scenes": "المشاهد",
@@ -973,46 +1002,46 @@
         "galleries": "المعارض",
         "performers": "ممثلين",
         "studios": "استوديوهات",
-        "movies": "Movies",
-        "tags": "Tags",
+        "movies": "الأفلام",
+        "tags": "الوسوم",
         "oCount": "عدد O"
     },
     "tandoor": {
-        "users": "Users",
-        "recipes": "Recipes",
+        "users": "المستخدمون",
+        "recipes": "الوصفات",
         "keywords": "كلمات مفتاح"
     },
     "homebox": {
         "items": "عناصر",
         "totalWithWarranty": "بالضمان",
-        "locations": "Locations",
-        "labels": "Labels",
-        "users": "Users",
-        "totalValue": "Total Value"
+        "locations": "المواقع",
+        "labels": "المُسمّيات",
+        "users": "المستخدمون",
+        "totalValue": "القيمة الإجمالية"
     },
     "crowdsec": {
-        "alerts": "Alerts",
-        "bans": "Bans"
+        "alerts": "التنبيهات",
+        "bans": "المحظور"
     },
     "wgeasy": {
-        "connected": "Connected",
-        "enabled": "Enabled",
-        "disabled": "Disabled",
-        "total": "Total"
+        "connected": "متصل",
+        "enabled": "مفعل",
+        "disabled": "معطّل",
+        "total": "الإجمالي"
     },
     "swagdashboard": {
-        "proxied": "Proxied",
-        "auth": "With Auth",
-        "outdated": "Outdated",
-        "banned": "Banned"
+        "proxied": "عبر الوكيل",
+        "auth": "مُصادَق",
+        "outdated": "قديم",
+        "banned": "محظور"
     },
     "myspeed": {
-        "ping": "Ping",
-        "download": "Download",
-        "upload": "Upload"
+        "ping": "الاستجابة",
+        "download": "التنزيل",
+        "upload": "الرفع"
     },
     "stocks": {
-        "stocks": "Stocks",
+        "stocks": "المخزون",
         "loading": "تحميل",
         "open": "مفتوحة - السوق الأمريكية",
         "closed": "مغلقة - السوق الأمريكية",
@@ -1020,195 +1049,206 @@
     },
     "frigate": {
         "cameras": "كاميرات",
-        "uptime": "Uptime",
-        "version": "Version"
+        "uptime": "مدة التشغيل",
+        "version": "الإصدار"
     },
     "linkwarden": {
         "links": "روابط",
         "collections": "مجموعات",
-        "tags": "Tags"
+        "tags": "الوسوم"
     },
     "zabbix": {
         "unclassified": "غير مصنفة",
-        "information": "Information",
+        "information": "معلومات",
         "warning": "تحذيرات",
         "average": "متوسط",
         "high": "عالي",
         "disaster": "كارثة"
     },
     "lubelogger": {
-        "vehicle": "Vehicle",
-        "vehicles": "Vehicles",
-        "serviceRecords": "Service Records",
-        "reminders": "Reminders",
-        "nextReminder": "Next Reminder",
-        "none": "None"
+        "vehicle": "المركبة",
+        "vehicles": "المركبات",
+        "serviceRecords": "سجلات الصيانة",
+        "reminders": "التذكيرات",
+        "nextReminder": "التذكير القادم",
+        "none": "لا شيء"
     },
     "vikunja": {
-        "projects": "Active Projects",
-        "tasks7d": "Tasks Due This Week",
-        "tasksOverdue": "Overdue Tasks",
-        "tasksInProgress": "Tasks In Progress"
+        "projects": "المشاريع النشطة",
+        "tasks7d": "المهام المستحقة لهذا الأسبوع",
+        "tasksOverdue": "المهام المتأخرة",
+        "tasksInProgress": "مهام قيد التنفيذ"
     },
     "headscale": {
-        "name": "Name",
-        "address": "Address",
-        "last_seen": "Last Seen",
-        "status": "Status",
-        "online": "Online",
-        "offline": "Offline"
+        "name": "الاسم",
+        "address": "العنوان",
+        "last_seen": "آخر ظهور",
+        "status": "الحالة",
+        "online": "مُتّصل",
+        "offline": "غير متصل"
     },
     "beszel": {
-        "name": "Name",
-        "systems": "Systems",
-        "up": "Up",
-        "down": "Down",
-        "paused": "Paused",
-        "pending": "Pending",
-        "status": "Status",
-        "updated": "Updated",
-        "cpu": "CPU",
-        "memory": "MEM",
-        "disk": "Disk",
-        "network": "NET"
+        "name": "الاسم",
+        "systems": "نُظُم",
+        "up": "مُعدّ",
+        "down": "متعطّل",
+        "paused": "مُلبث",
+        "pending": "معلّق",
+        "status": "الحالة",
+        "updated": "محدث",
+        "cpu": "المعالج",
+        "memory": "الذاكرة",
+        "disk": "القرص",
+        "network": "الشبكة"
     },
     "argocd": {
-        "apps": "Apps",
-        "synced": "Synced",
-        "outOfSync": "Out Of Sync",
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "progressing": "Progressing",
-        "missing": "Missing",
-        "suspended": "Suspended"
+        "apps": "التطبيقات",
+        "synced": "المُزامَن",
+        "outOfSync": "خارج المزامنة",
+        "healthy": "سليم",
+        "degraded": "متدهور",
+        "progressing": "قيد التقدّم",
+        "missing": "مفقود",
+        "suspended": "معلّق"
     },
     "spoolman": {
-        "loading": "Loading"
+        "loading": "قيد التحميل"
     },
     "gitlab": {
-        "groups": "Groups",
-        "issues": "Issues",
-        "merges": "Merge Requests",
-        "projects": "Projects"
+        "groups": "المجموعات",
+        "issues": "المشكلات",
+        "merges": "طلبات الدمج",
+        "projects": "المشاريع"
     },
     "apcups": {
-        "status": "Status",
-        "load": "Load",
-        "bcharge": "Battery Charge",
-        "timeleft": "Time Left"
+        "status": "الحالة",
+        "load": "الحمل",
+        "bcharge": "شحن البطارية",
+        "timeleft": "الوقت المتبقي"
     },
     "karakeep": {
-        "bookmarks": "Bookmarks",
-        "favorites": "Favorites",
-        "archived": "Archived",
-        "highlights": "Highlights",
-        "lists": "Lists",
-        "tags": "Tags"
+        "bookmarks": "الإشارات المرجعية",
+        "favorites": "المُفضلات",
+        "archived": "المؤرشف",
+        "highlights": "أهم الأحداث",
+        "lists": "القوائم",
+        "tags": "الوسوم"
     },
     "slskd": {
-        "slskStatus": "Network",
-        "connected": "Connected",
-        "disconnected": "Disconnected",
-        "updateStatus": "Update",
-        "update_yes": "Available",
-        "update_no": "Up to Date",
-        "downloads": "Downloads",
-        "uploads": "Uploads",
-        "sharedFiles": "Files"
+        "slskStatus": "الشبكة",
+        "connected": "متصل",
+        "disconnected": "غير متصل",
+        "updateStatus": "التحديث",
+        "update_yes": "المتاح",
+        "update_no": "محدّث",
+        "downloads": "التنزيلات",
+        "uploads": "المرفوع",
+        "sharedFiles": "الملفات"
     },
     "jellystat": {
-        "songs": "Songs",
-        "movies": "Movies",
-        "episodes": "Episodes",
-        "other": "Other"
+        "songs": "الأغاني",
+        "movies": "الأفلام",
+        "episodes": "الحلقات",
+        "other": "غير ذلك"
     },
     "checkmk": {
-        "serviceErrors": "Service issues",
-        "hostErrors": "Host issues"
+        "serviceErrors": "مشكلات الخدمة",
+        "hostErrors": "مشكلات المضيف"
     },
     "komodo": {
-        "total": "Total",
-        "running": "Running",
-        "stopped": "Stopped",
-        "down": "Down",
-        "unhealthy": "Unhealthy",
-        "unknown": "Unknown",
-        "servers": "Servers",
-        "stacks": "Stacks",
-        "containers": "Containers"
+        "total": "الإجمالي",
+        "running": "قيد العمل",
+        "stopped": "أوقِف",
+        "down": "متعطّل",
+        "unhealthy": "غير سليم",
+        "unknown": "مجهول",
+        "servers": "الخوادم",
+        "stacks": "الأكوام",
+        "containers": "الحاويات"
     },
     "filebrowser": {
-        "available": "Available",
-        "used": "Used",
-        "total": "Total"
+        "available": "المتاح",
+        "used": "المُستغَّل",
+        "total": "الإجمالي"
     },
     "wallos": {
-        "activeSubscriptions": "Subscriptions",
-        "thisMonthlyCost": "This Month",
-        "nextMonthlyCost": "Next Month",
-        "previousMonthlyCost": "Prev. Month",
-        "nextRenewingSubscription": "Next Payment"
+        "activeSubscriptions": "الاشتراكات",
+        "thisMonthlyCost": "هذا الشهر",
+        "nextMonthlyCost": "الشهر المُقبل",
+        "previousMonthlyCost": "الشهر السابق",
+        "nextRenewingSubscription": "الدفعة القادمة"
     },
     "unraid": {
-        "STARTED": "Started",
-        "STOPPED": "Stopped",
-        "NEW_ARRAY": "New Array",
-        "RECON_DISK": "Reconstructing Disk",
-        "DISABLE_DISK": "Disk Disabled",
-        "SWAP_DSBL": "Swap Disable",
-        "INVALID_EXPANSION": "Invalid Expansion",
-        "PARITY_NOT_BIGGEST": "Parity Not Biggest",
-        "TOO_MANY_MISSING_DISKS": "Too Many Missing Disks",
-        "NEW_DISK_TOO_SMALL": "New Disk Too Small",
-        "NO_DATA_DISKS": "No Data Disks",
-        "notifications": "Notifications",
-        "status": "Status",
-        "cpu": "CPU",
-        "memoryUsed": "Memory Used",
-        "memoryAvailable": "Memory Available",
-        "arrayUsed": "Array Used",
-        "arrayFree": "Array Free",
-        "poolUsed": "{{pool}} Used",
-        "poolFree": "{{pool}} Free"
+        "STARTED": "جَارٍ",
+        "STOPPED": "أوقِف",
+        "NEW_ARRAY": "مصفوفة جديدة",
+        "RECON_DISK": "إعادة بناء القرص",
+        "DISABLE_DISK": "قرص مُعطّل",
+        "SWAP_DSBL": "بدّل التعطيل",
+        "INVALID_EXPANSION": "توسيع غير صحيح",
+        "PARITY_NOT_BIGGEST": "التماثل ليس بالأكبر",
+        "TOO_MANY_MISSING_DISKS": "عدد الأقراص المفقودة كبير جدًا",
+        "NEW_DISK_TOO_SMALL": "القرص الجديد صغير جدًا",
+        "NO_DATA_DISKS": "لا يوجد أقراص بيانات",
+        "notifications": "الإشعارات",
+        "status": "الحالة",
+        "cpu": "المعالج",
+        "memoryUsed": "الذاكرة المستخدمة",
+        "memoryAvailable": "الذاكرة المتاحة",
+        "arrayUsed": "المصفوفات المستخدمة",
+        "arrayFree": "المصفوفات المتاحة",
+        "poolUsed": "المُستخدَم {{pool}}",
+        "poolFree": "المتوفر {{pool}}"
     },
     "backrest": {
-        "num_plans": "Plans",
-        "num_success_30": "Successes",
-        "num_failure_30": "Failures",
-        "num_success_latest": "Succeeding",
-        "num_failure_latest": "Failing",
-        "bytes_added_30": "Bytes Added"
+        "num_plans": "الخطط",
+        "num_success_30": "النجاحات",
+        "num_failure_30": "الإخفاقات",
+        "num_success_latest": "نَجح",
+        "num_failure_latest": "أخفق",
+        "bytes_added_30": "البايتات المضافة"
     },
     "yourspotify": {
-        "songs": "Songs",
-        "time": "Time",
-        "artists": "Artists"
+        "songs": "الأغاني",
+        "time": "الزمن",
+        "artists": "الفنانون"
     },
     "arcane": {
-        "containers": "Containers",
-        "images": "Images",
-        "image_updates": "Image Updates",
-        "images_unused": "Unused",
-        "environment_required": "Environment ID Required"
+        "containers": "الحاويات",
+        "images": "الصور",
+        "image_updates": "تحديثات الصورة",
+        "images_unused": "غير المستخدم",
+        "environment_required": "مطلوب معرِّف البيئة"
     },
     "dockhand": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "cpu": "CPU",
-        "memory": "Memory",
-        "images": "Images",
-        "volumes": "Volumes",
-        "events_today": "Events Today",
-        "pending_updates": "Pending Updates",
-        "stacks": "Stacks",
-        "paused": "Paused",
-        "total": "Total",
-        "environment_not_found": "Environment Not Found"
+        "running": "قيد العمل",
+        "stopped": "أوقِف",
+        "cpu": "المعالج",
+        "memory": "الذاكرة",
+        "images": "الصور",
+        "volumes": "وحدات التخزين",
+        "events_today": "أحداث اليوم",
+        "pending_updates": "التحديثات المعلقة",
+        "stacks": "الأكوام",
+        "paused": "مُلبث",
+        "total": "الإجمالي",
+        "environment_not_found": "البيئة غير موجودة"
     },
     "sparkyfitness": {
-        "eaten": "Eaten",
-        "burned": "Burned",
-        "remaining": "Remaining",
-        "steps": "Steps"
+        "eaten": "أُكِل",
+        "burned": "أُحرِق",
+        "remaining": "متبقِ",
+        "steps": "الخطوات"
+    },
+    "syncthing": {
+        "connected": "Connected",
+        "synced": "Synced",
+        "errors": "Errors",
+        "storage": "Storage"
+    },
+    "sportarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "leagues": "Leagues"
     }
 }
