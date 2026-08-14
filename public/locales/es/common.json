@@ -14,11 +14,14 @@
         "date": "{{value, date}}",
         "relativeDate": "{{value, relativeDate}}",
         "duration": "{{value, duration}}",
-        "months": "me",
+        "months": "mes",
         "days": "d",
         "hours": "h",
         "minutes": "m",
         "seconds": "s"
+    },
+    "auth": {
+        "signout": "Cerrar sesión"
     },
     "widget": {
         "missing_type": "Falta el tipo de widget: {{type}}",
@@ -67,9 +70,18 @@
         "empty_data": "Se desconoce el estado del subsistema"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "Saludable",
+        "degraded": "Degradado",
+        "no_data": "Datos de almacenamiento no disponibles"
+    },
+    "duplicati": {
+        "jobs": "Tareas",
+        "stored": "Guardado",
+        "lastBackup": "Última Ejecución",
+        "nextRun": "Siguiente Ejecución",
+        "running": "Activo",
+        "warnings": "Advertencias",
+        "errors": "Errores"
     },
     "docker": {
         "rx": "Recibido",
@@ -120,7 +132,8 @@
         "movies": "Películas",
         "series": "Series",
         "episodes": "Episodios",
-        "songs": "Canciones"
+        "songs": "Canciones",
+        "albums": "Albums"
     },
     "esphome": {
         "offline": "Fuera de línea",
@@ -190,11 +203,11 @@
         "plex_connection_error": "Comprueba la conexión a Plex"
     },
     "tracearr": {
-        "no_active": "No Active Streams",
+        "no_active": "No hay Streams activos",
         "streams": "Streams",
-        "transcodes": "Transcodes",
-        "directplay": "Direct Play",
-        "bitrate": "Bitrate"
+        "transcodes": "Transcodificaciones",
+        "directplay": "Reproducción Directa",
+        "bitrate": "Tasa de Bits"
     },
     "omada": {
         "connectedAp": "AP conectados",
@@ -295,12 +308,12 @@
         "available": "Disponible"
     },
     "seerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available",
-        "completed": "Completed",
-        "processing": "Processing",
-        "issues": "Open Issues"
+        "pending": "Pendiente",
+        "approved": "Aprobado",
+        "available": "Disponible",
+        "completed": "Completado",
+        "processing": "Procesando",
+        "issues": "Incidencias abiertas"
     },
     "netalertx": {
         "total": "Total",
@@ -344,16 +357,16 @@
         "address": "Dirección",
         "expires": "Caduca en",
         "never": "Nunca",
-        "user": "User",
+        "user": "Usuario",
         "hostname": "Hostname",
-        "name": "Name",
-        "client_version": "Client Version",
+        "name": "Nombre",
+        "client_version": "Versión del cliente",
         "os": "OS",
-        "created": "Created",
-        "authorized": "Authorized",
-        "is_external": "Is External",
-        "update_available": "Update Available",
-        "tags": "Tags",
+        "created": "Creado",
+        "authorized": "Autorizado",
+        "is_external": "Es Externo",
+        "update_available": "Actualización disponible",
+        "tags": "Etiquetas",
         "last_seen": "Visto por última vez",
         "now": "Ahora",
         "years": "{{number}}a",
@@ -363,7 +376,7 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "Hace {{value}}",
-        "true": "Yes",
+        "true": "Si",
         "false": "No"
     },
     "technitium": {
@@ -465,6 +478,11 @@
         "cpu": "CPU",
         "lxc": "LXC",
         "vms": "Máquinas Virtuales"
+    },
+    "pulse": {
+        "nodes": "Nodos",
+        "vms": "VMs",
+        "lxcs": "LXCs"
     },
     "glances": {
         "cpu": "CPU",
@@ -932,22 +950,33 @@
         "mails": "Correos",
         "storage": "Almacenamiento"
     },
+    "maintainerr": {
+        "itemsHandled": "Elementos procesados",
+        "episodesHandled": "Episodios procesados",
+        "moviesHandled": "Películas procesadas",
+        "showsHandled": "Series procesadas",
+        "seasonsHandled": "Temporadas procesadas",
+        "reclaimable": "Recuperable",
+        "movieReclaimable": "Película recuperable",
+        "showReclaimable": "Series recuperables",
+        "totalCapacity": "Capacidad total"
+    },
     "netdata": {
         "warnings": "Advertencias",
         "criticals": "Críticos"
     },
     "ntfy": {
-        "title": "Title",
-        "priority": "Priority",
-        "lastReceived": "Last Received",
-        "message": "Message",
-        "tags": "Tags",
-        "none": "None",
-        "min": "Min",
-        "low": "Low",
-        "default": "Default",
-        "high": "High",
-        "urgent": "Urgent"
+        "title": "Título",
+        "priority": "Prioridad",
+        "lastReceived": "Ultimo recibido",
+        "message": "Mensaje",
+        "tags": "Etiquetas",
+        "none": "Nada",
+        "min": "Mín",
+        "low": "Bajo",
+        "default": "Predeterminado",
+        "high": "Alto",
+        "urgent": "Urgente"
     },
     "plantit": {
         "events": "Eventos",
@@ -1185,11 +1214,11 @@
         "artists": "Artistas"
     },
     "arcane": {
-        "containers": "Containers",
-        "images": "Images",
-        "image_updates": "Image Updates",
-        "images_unused": "Unused",
-        "environment_required": "Environment ID Required"
+        "containers": "Contenedores",
+        "images": "Imágenes",
+        "image_updates": "Actualizaciones de imágenes",
+        "images_unused": "Sin usar",
+        "environment_required": "ID de entorno requerido"
     },
     "dockhand": {
         "running": "Activo",
@@ -1206,9 +1235,20 @@
         "environment_not_found": "Entorno no encontrado"
     },
     "sparkyfitness": {
-        "eaten": "Eaten",
-        "burned": "Burned",
-        "remaining": "Remaining",
-        "steps": "Steps"
+        "eaten": "Consumido",
+        "burned": "Grabado",
+        "remaining": "Restante",
+        "steps": "Pasos"
+    },
+    "syncthing": {
+        "connected": "Conectado",
+        "synced": "Sincronizado",
+        "errors": "Errores",
+        "storage": "Almacenamiento"
+    },
+    "sportarr": {
+        "wanted": "Buscado",
+        "queued": "En cola",
+        "leagues": "Ligas"
     }
 }

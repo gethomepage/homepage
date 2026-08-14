@@ -20,6 +20,9 @@
         "minutes": "m",
         "seconds": "s"
     },
+    "auth": {
+        "signout": "Sign out"
+    },
     "widget": {
         "missing_type": "Tipo de Widget ausente: {{type}}",
         "api_error": "Erro da API",
@@ -71,6 +74,15 @@
         "degraded": "Degradado",
         "no_data": "Sem dados de armazenamento disponíveis"
     },
+    "duplicati": {
+        "jobs": "Trabalhos",
+        "stored": "Armazenado",
+        "lastBackup": "Última corrida",
+        "nextRun": "Próxima corrida",
+        "running": "Correndo",
+        "warnings": "Avisos",
+        "errors": "Erros"
+    },
     "docker": {
         "rx": "RX",
         "tx": "TX",
@@ -120,7 +132,8 @@
         "movies": "Filmes",
         "series": "Séries",
         "episodes": "Episódios",
-        "songs": "Músicas"
+        "songs": "Músicas",
+        "albums": "Albums"
     },
     "esphome": {
         "offline": "Offline",
@@ -465,6 +478,11 @@
         "cpu": "CPU",
         "lxc": "LXC",
         "vms": "VMs"
+    },
+    "pulse": {
+        "nodes": "Nodes",
+        "vms": "VMs",
+        "lxcs": "LXCs"
     },
     "glances": {
         "cpu": "CPU",
@@ -932,6 +950,17 @@
         "mails": "Mensagens",
         "storage": "Armazenamento"
     },
+    "maintainerr": {
+        "itemsHandled": "Items Handled",
+        "episodesHandled": "Episodes Handled",
+        "moviesHandled": "Movies Handled",
+        "showsHandled": "Shows Handled",
+        "seasonsHandled": "Seasons Handled",
+        "reclaimable": "Reclaimable",
+        "movieReclaimable": "Movie Reclaimable",
+        "showReclaimable": "Show Reclaimable",
+        "totalCapacity": "Total Capacity"
+    },
     "netdata": {
         "warnings": "Alertas",
         "criticals": "Críticos"
@@ -944,7 +973,7 @@
         "tags": "Marcadores",
         "none": "Nenhum",
         "min": "Mín",
-        "low": "Low",
+        "low": "Baixo",
         "default": "Padrão",
         "high": "Alto",
         "urgent": "Urgente"
@@ -1210,5 +1239,16 @@
         "burned": "Queimado",
         "remaining": "Restante",
         "steps": "Passos"
+    },
+    "syncthing": {
+        "connected": "Conectado",
+        "synced": "Sincronizado",
+        "errors": "Erros",
+        "storage": "Armazenagem"
+    },
+    "sportarr": {
+        "wanted": "Wanted",
+        "queued": "Queued",
+        "leagues": "Leagues"
     }
 }
