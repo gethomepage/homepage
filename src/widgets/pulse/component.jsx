@@ -39,7 +39,8 @@ function formatResourceCount(total, active) {
 export default function Component({ service }) {
   const { widget } = service;
 
-  const { data: resourcesData, error: resourcesError } = useWidgetAPI(widget, "resources");
+  const version = widget.version ?? 1;
+  const { data: resourcesData, error: resourcesError } = useWidgetAPI(widget, version === 2 ? "summary" : "resources");
 
   if (resourcesError) {
     return <Container service={service} error={resourcesError} />;
@@ -51,6 +52,17 @@ export default function Component({ service }) {
         <Block label="pulse.nodes" />
         <Block label="pulse.vms" />
         <Block label="pulse.lxcs" />
+      </Container>
+    );
+  }
+
+  if (version === 2) {
+    // pulse v6 (v2 widget) returns the counts directly in the summary
+    return (
+      <Container service={service}>
+        <Block label="pulse.nodes" value={resourcesData.nodes} />
+        <Block label="pulse.vms" value={resourcesData.vms} />
+        <Block label="pulse.lxcs" value={resourcesData.containers} />
       </Container>
     );
   }
