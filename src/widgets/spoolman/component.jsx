@@ -8,7 +8,6 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
 
-  // eslint-disable-next-line prefer-const
   let { data: spoolData, error: spoolError } = useWidgetAPI(widget, "spools");
 
   if (spoolError) {
@@ -20,7 +19,6 @@ export default function Component({ service }) {
     return (
       <Container service={service}>
         {[...Array(nBlocksGuess)].map((_, i) => (
-          // eslint-disable-next-line react/no-array-index-key
           <Block key={i} label="spoolman.loading" />
         ))}
       </Container>

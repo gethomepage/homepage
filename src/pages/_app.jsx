@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import { SessionProvider } from "next-auth/react";
 import { appWithTranslation } from "next-i18next/pages";
 import Head from "next/head";
@@ -13,7 +12,6 @@ import { ThemeProvider } from "utils/contexts/theme";
 
 import nextI18nextConfig from "../../next-i18next.config";
 
-// eslint-disable-next-line no-unused-vars
 const tailwindSafelist = [
   // TODO: remove pending https://github.com/tailwindlabs/tailwindcss/pull/17147
   "backdrop-blur",

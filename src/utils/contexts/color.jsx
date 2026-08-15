@@ -32,7 +32,6 @@ export function ColorProvider({ initialTheme, children }) {
 
   useEffect(() => {
     if (initialTheme !== undefined) setColor(initialTheme ?? getInitialColor());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialTheme]);
 
   useEffect(() => {
