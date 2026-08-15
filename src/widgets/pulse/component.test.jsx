@@ -27,6 +27,27 @@ describe("widgets/pulse/component", () => {
     expect(screen.getByText("pulse.nodes")).toBeInTheDocument();
     expect(screen.getByText("pulse.vms")).toBeInTheDocument();
     expect(screen.getByText("pulse.lxcs")).toBeInTheDocument();
+    expect(useWidgetAPI).toHaveBeenCalledWith({ type: "pulse" }, "resources");
+  });
+
+  it("renders Pulse v6 summary counts", () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        nodes: 2,
+        vms: 8,
+        containers: 12,
+      },
+      error: undefined,
+    });
+
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "pulse", version: 2 } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(useWidgetAPI).toHaveBeenCalledWith({ type: "pulse", version: 2 }, "summary");
+    expectBlockValue(container, "pulse.nodes", 2);
+    expectBlockValue(container, "pulse.vms", 8);
+    expectBlockValue(container, "pulse.lxcs", 12);
   });
 
   it("renders error UI when the resources endpoint errors", () => {

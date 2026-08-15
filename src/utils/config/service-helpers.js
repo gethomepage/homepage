@@ -589,6 +589,7 @@ export function cleanServiceGroups(groups) {
             "grafana",
             "gluetun",
             "vikunja",
+            "pulse",
           ].includes(type)
         ) {
           widget.version = parseVersionForUrl(version);

@@ -8,6 +8,9 @@ const widget = {
     resources: {
       endpoint: "api/resources",
     },
+    summary: {
+      endpoint: "api/state/summary",
+    },
   },
 };
 
