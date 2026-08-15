@@ -27,7 +27,6 @@ export default function Component({ service }) {
   }
 
   // uptime info
-  // eslint-disable-next-line no-unused-vars
   const [hour, minutes, seconds] = infoData.data.up_time.split(":");
   const days = Math.floor(hour / 24);
   const uptime = `${t("common.number", { value: days })} ${t("diskstation.days")}`;

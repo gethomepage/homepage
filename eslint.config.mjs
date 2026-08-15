@@ -17,6 +17,8 @@ const compat = new FlatCompat({
 
 export default defineConfig([
   {
+    files: ["**/*.{js,mjs,cjs,jsx}"],
+
     extends: fixupConfigRules(compat.extends("next/core-web-vitals", "prettier", "plugin:react-hooks/recommended")),
 
     plugins: {

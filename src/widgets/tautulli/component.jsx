@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 import { BsCpu, BsFillCpuFill, BsFillPlayFill, BsPauseFill } from "react-icons/bs";

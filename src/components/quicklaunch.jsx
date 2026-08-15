@@ -147,7 +147,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
         let descriptionMatch;
         if (searchDescriptions) {
           descriptionMatch = r.description?.toLowerCase().includes(searchString);
-          r.priority = nameMatch ? 2 * +nameMatch : +descriptionMatch; // eslint-disable-line no-param-reassign
+          r.priority = nameMatch ? 2 * +nameMatch : +descriptionMatch;
         }
         return nameMatch || descriptionMatch;
       });
@@ -244,7 +244,6 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
       <span>
         {parts.map((part, i) =>
           part.toLowerCase() === searchString.toLowerCase() ? (
-            // eslint-disable-next-line react/no-array-index-key
             <span key={`${searchString}_${i}`} className="bg-theme-300/10">
               {part}
             </span>
