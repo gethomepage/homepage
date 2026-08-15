@@ -11,7 +11,7 @@ import {
 } from "@headlessui/react";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next/pages";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import { BiLogoBing } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
 import { SiBaidu, SiBrave, SiDuckduckgo, SiGoogle } from "react-icons/si";
@@ -57,12 +57,12 @@ export const searchProviders = {
   },
 };
 
-function getAvailableProviderIds(options) {
-  if (options.provider && Array.isArray(options.provider)) {
-    return options.provider.filter((value) => searchProviders.hasOwnProperty(value));
+function getAvailableProviderIds(provider) {
+  if (provider && Array.isArray(provider)) {
+    return provider.filter((value) => searchProviders.hasOwnProperty(value));
   }
-  if (options.provider && searchProviders[options.provider]) {
-    return [options.provider];
+  if (provider && searchProviders[provider]) {
+    return [provider];
   }
   return null;
 }
@@ -82,7 +82,8 @@ export function getStoredProvider() {
 export default function Search({ options }) {
   const { t } = useTranslation();
 
-  const availableProviderIds = getAvailableProviderIds(options) ?? [];
+  // options is a fresh object each render, so memo on provider itself
+  const availableProviderIds = useMemo(() => getAvailableProviderIds(options.provider) ?? [], [options.provider]);
 
   const [query, setQuery] = useState("");
   const [selectedProvider, setSelectedProvider] = useState(searchProviders[availableProviderIds[0] ?? "google"]);
