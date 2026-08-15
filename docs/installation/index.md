@@ -74,6 +74,6 @@ For OIDC login (overrides password login):
 
     Homepage grants access to any identity that the configured OIDC provider authorizes for this client. Configure client assignments, groups, or access policies at the identity provider. Homepage does not apply additional claim-based authorization.
 
-All app pages and `/api` routes except `/api/healthcheck` will require a signed-in session. Static assets remain public.
+All app pages and `/api` routes except `/api/healthcheck` and `/api/config/custom.css` will require a signed-in session. Static assets remain public.
 
 Configure your OIDC provider with the a callback URI like `https://homepage.example.com/api/auth/callback/homepage-oidc`.
