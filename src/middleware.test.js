@@ -100,6 +100,31 @@ describe("middleware", () => {
     expect(res.type).toBe("next");
   });
 
+  it("allows custom CSS without auth so it can style the signin page", async () => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_SECRET = "secret";
+
+    const middleware = await loadMiddleware();
+    const res = await middleware(createReq("localhost:3000", "http://localhost:3000/api/config/custom.css"));
+
+    expect(getToken).not.toHaveBeenCalled();
+    expect(NextResponse.next).toHaveBeenCalled();
+    expect(res.type).toBe("next");
+  });
+
+  it("continues to require auth for custom JavaScript", async () => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_SECRET = "secret";
+
+    getToken.mockResolvedValueOnce(null);
+
+    const middleware = await loadMiddleware();
+    const res = await middleware(createReq("localhost:3000", "http://localhost:3000/api/config/custom.js"));
+
+    expect(getToken).toHaveBeenCalled();
+    expect(res.type).toBe("redirect");
+  });
+
   it.each(["false", "0", "no", "off", ""])("treats HOMEPAGE_AUTH_ENABLED=%j as disabled", async (value) => {
     process.env.HOMEPAGE_AUTH_ENABLED = value;
 

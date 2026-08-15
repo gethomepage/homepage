@@ -33,7 +33,8 @@ export async function middleware(req) {
   }
 
   const pathname = new URL(req.url).pathname;
-  if (authEnabled && !pathname.startsWith("/api/healthcheck")) {
+  const isPublicAuthPath = pathname.startsWith("/api/healthcheck") || pathname === "/api/config/custom.css";
+  if (authEnabled && !isPublicAuthPath) {
     // The MCP API handler authorizes both bearer tokens and Homepage sessions.
     if (pathname === "/api/mcp") {
       return withPrivateCache(NextResponse.next());
