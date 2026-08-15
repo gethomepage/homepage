@@ -116,4 +116,28 @@ describe("widgets/authentik/component", () => {
     expectBlockValue(container, "authentik.failedLoginsLast24H", 1);
     expectBlockValue(container, "authentik.authorizationsLast24H", 7);
   });
+
+  it("falls back to v1 when no version is configured", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date("2026-01-02T00:00:00Z"));
+
+    const oneHourAgo = Date.now() - 60 * 60 * 1000;
+
+    useWidgetAPI.mockImplementation((widget, endpoint) => {
+      if (endpoint === "users") return { data: { pagination: { count: 5 } }, error: undefined };
+      if (endpoint === "login") return { data: [{ x_cord: oneHourAgo, y_cord: 2 }], error: undefined };
+      if (endpoint === "login_failed") return { data: [{ x_cord: oneHourAgo, y_cord: 1 }], error: undefined };
+      return { data: undefined, error: undefined };
+    });
+
+    // service-helpers sets version to null when the key is absent
+    const { container } = renderWithProviders(
+      <Component service={{ widget: { type: "authentik", version: null } }} />,
+      { settings: { hideErrors: false } },
+    );
+
+    expectBlockValue(container, "authentik.users", 5);
+    expectBlockValue(container, "authentik.loginsLast24H", 2);
+    expectBlockValue(container, "authentik.failedLoginsLast24H", 1);
+  });
 });

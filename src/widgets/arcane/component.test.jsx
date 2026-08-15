@@ -20,11 +20,15 @@ describe("widgets/arcane/component", () => {
   });
 
   it("shows an environment required error when env is missing", () => {
+    useWidgetAPI.mockImplementation(() => ({ data: undefined, error: undefined }));
+
     renderWithProviders(<Component service={{ widget: { type: "arcane" } }} />, {
       settings: { hideErrors: false },
     });
 
-    expect(useWidgetAPI).not.toHaveBeenCalled();
+    // hooks always run; the empty endpoint is what skips the request
+    expect(useWidgetAPI).toHaveBeenCalledTimes(3);
+    useWidgetAPI.mock.calls.forEach((call) => expect(call[1]).toBe(""));
     expect(screen.getByText("arcane.environment_required")).toBeInTheDocument();
   });
 

@@ -16,13 +16,15 @@ export default function Component({ service }) {
     widget.fields = widget.fields.slice(0, MAX_FIELDS);
   }
 
-  if (widget?.env == null || widget.env === "") {
+  const envNotSet = widget.env == null || widget.env === "";
+
+  const { data: containers, error: containersError } = useWidgetAPI(widget, envNotSet ? "" : "containers");
+  const { data: images, error: imagesError } = useWidgetAPI(widget, envNotSet ? "" : "images");
+  const { data: updates, error: updatesError } = useWidgetAPI(widget, envNotSet ? "" : "updates");
+
+  if (envNotSet) {
     return <Container service={service} error={t("arcane.environment_required")} />;
   }
-
-  const { data: containers, error: containersError } = useWidgetAPI(widget, "containers");
-  const { data: images, error: imagesError } = useWidgetAPI(widget, "images");
-  const { data: updates, error: updatesError } = useWidgetAPI(widget, "updates");
 
   const error =
     containersError ?? imagesError ?? updatesError ?? containers?.detail ?? images?.detail ?? updates?.detail;
