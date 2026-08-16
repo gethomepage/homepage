@@ -5,7 +5,7 @@ description: Authentik Widget Configuration
 
 Learn more about [Authentik](https://github.com/goauthentik/authentik).
 
-This widget reads the number of active users in the system, as well as logins and authorizations for the last 24 hours.
+This widget reads the number of active users in the system, as well as logins and authorizations (authorizations is supported only for v2 widget version) for the last 24 hours.
 
 You will need to generate an API token for an existing user under `Admin Portal` > `Directory` > `Tokens & App passwords`.
 Make sure to set Intent to "API Token".

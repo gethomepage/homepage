@@ -18,20 +18,15 @@ export default function Component({ service }) {
   const failedLoginsEndpoint = isV2 ? "" : "login_failed";
   const { data: failedLoginsData, error: failedLoginsError } = useWidgetAPI(widget, failedLoginsEndpoint);
 
-  const authorizationsEndpoint = isV2 ? "" : "authorizations";
-  const { data: authorizationsData, error: authorizationsError } = useWidgetAPI(widget, authorizationsEndpoint);
-
   const eventsDataEndpoint = isV2 ? "datav2" : "";
   const { data: eventsData, error: eventsDataError } = useWidgetAPI(widget, eventsDataEndpoint);
 
-  if (usersError || loginsError || failedLoginsError || authorizationsError || eventsDataError) {
-    const finalError = usersError ?? loginsError ?? failedLoginsError ?? authorizationsError ?? eventsDataError;
+  if (usersError || loginsError || failedLoginsError || eventsDataError) {
+    const finalError = usersError ?? loginsError ?? failedLoginsError ?? eventsDataError;
     return <Container service={service} error={finalError} />;
   }
 
-  const hasNoData = isV2
-    ? !usersData || !eventsData
-    : !usersData || !loginsData || !failedLoginsData || !authorizationsData;
+  const hasNoData = isV2 ? !usersData || !eventsData : !usersData || !loginsData || !failedLoginsData;
 
   if (hasNoData) {
     return (
@@ -39,7 +34,7 @@ export default function Component({ service }) {
         <Block label="authentik.users" />
         <Block label="authentik.loginsLast24H" />
         <Block label="authentik.failedLoginsLast24H" />
-        <Block label="authentik.authorizationsLast24H" />
+        {isV2 && <Block label="authentik.authorizationsLast24H" />}
       </Container>
     );
   }
@@ -59,11 +54,6 @@ export default function Component({ service }) {
         (total, current) => (current.x_cord >= yesterday ? total + current.y_cord : total),
         0,
       );
-      authorizationsLast24H =
-        authorizationsData.reduce?.(
-          (total, current) => (current.x_cord >= yesterday ? total + current.y_cord : total),
-          0,
-        ) || 0;
       break;
     case 2:
       const result = eventsData?.reduce(
@@ -95,7 +85,9 @@ export default function Component({ service }) {
       <Block label="authentik.users" value={t("common.number", { value: usersData.pagination.count })} />
       <Block label="authentik.loginsLast24H" value={t("common.number", { value: loginsLast24H })} />
       <Block label="authentik.failedLoginsLast24H" value={t("common.number", { value: failedLoginsLast24H })} />
-      <Block label="authentik.authorizationsLast24H" value={t("common.number", { value: authorizationsLast24H })} />
+      {isV2 && (
+        <Block label="authentik.authorizationsLast24H" value={t("common.number", { value: authorizationsLast24H })} />
+      )}
     </Container>
   );
 }
