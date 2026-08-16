@@ -8,7 +8,7 @@ import { getSettings } from "utils/config/config";
 
 const PUBLIC_SIGN_IN_SETTINGS = ["theme", "color", "title", "background", "backgroundOpacity"];
 
-export default function SignIn({ providers, settings }) {
+export default function SignIn({ providers, settings, autoLaunchProviderId }) {
   const router = useRouter();
   const [password, setPassword] = useState("");
   const theme = settings?.theme || "dark";
@@ -18,6 +18,13 @@ export default function SignIn({ providers, settings }) {
     const value = router.query?.callbackUrl;
     return typeof value === "string" ? value : "/";
   }, [router.query?.callbackUrl]);
+
+  useEffect(() => {
+    if (autoLaunchProviderId) {
+      signIn(autoLaunchProviderId, { callbackUrl });
+    }
+  }, [autoLaunchProviderId, callbackUrl]);
+
   const error = router.query?.error;
 
   let backgroundImage = "";
@@ -64,6 +71,10 @@ export default function SignIn({ providers, settings }) {
     body.style.backgroundColor = "";
     body.style.backgroundAttachment = "";
   }, [color, theme]);
+
+  if (autoLaunchProviderId) {
+    return null;
+  }
 
   if (!providers || Object.keys(providers).length === 0) {
     return (
@@ -210,7 +221,25 @@ export async function getServerSideProps(context) {
       homepageSettings[key],
     ]),
   );
+
+  const oauthProvider = providers
+    ? Object.values(providers).find((provider) => provider.type === "oauth")
+    : null;
+
+  const autoLaunchParam = context.query?.autoLaunch;
+  const forceShowLogin = autoLaunchParam === "0";
+  const forceAutoLaunch = autoLaunchParam === "1";
+  const autoLaunchDefault =
+    process.env.HOMEPAGE_OIDC_AUTO_LAUNCH === "true" || process.env.HOMEPAGE_OIDC_AUTO_LAUNCH === "1";
+
+  const autoLaunchProviderId =
+    !forceShowLogin && (forceAutoLaunch || autoLaunchDefault) && oauthProvider ? oauthProvider.id : null;
+
   return {
-    props: { providers, settings },
+    props: {
+      providers: providers ?? {},
+      settings,
+      autoLaunchProviderId,
+    },
   };
 }
