@@ -56,7 +56,8 @@ export default function Component({ service }) {
       );
       break;
     case 2:
-      const result = eventsData?.reduce(
+      const events = Array.isArray(eventsData) ? eventsData : [];
+      const result = events.reduce(
         (acc, current) => {
           if (!current?.count || !current?.action) {
             return acc;
@@ -73,7 +74,7 @@ export default function Component({ service }) {
           return acc;
         },
         { logins: 0, failed: 0, authorizations: 0 },
-      ) || { logins: 0, failed: 0, authorizations: 0 };
+      );
       loginsLast24H = result.logins;
       failedLoginsLast24H = result.failed;
       authorizationsLast24H = result.authorizations;
