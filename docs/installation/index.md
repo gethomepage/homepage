@@ -69,6 +69,7 @@ For OIDC login (overrides password login):
 - `HOMEPAGE_OIDC_CLIENT_ID`
 - `HOMEPAGE_OIDC_CLIENT_SECRET`
 - Optional: `HOMEPAGE_OIDC_NAME` (display name), `HOMEPAGE_OIDC_SCOPE` (defaults to `openid email profile`)
+- `HOMEPAGE_OIDC_AUTO_LAUNCH` - when `true`, `/auth/signin` automatically redirects to the OIDC provider's authorization URL instead of showing the login page. Override per-request with `/auth/signin?autoLaunch=1` (force on) or `/auth/signin?autoLaunch=0` (force the login page, e.g. via browser back button or direct navigation). Default: `false`.
 
 !!! warning
 
