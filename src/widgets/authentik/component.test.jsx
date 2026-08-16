@@ -127,6 +127,7 @@ describe("widgets/authentik/component", () => {
       if (endpoint === "users") return { data: { pagination: { count: 5 } }, error: undefined };
       if (endpoint === "login") return { data: [{ x_cord: oneHourAgo, y_cord: 2 }], error: undefined };
       if (endpoint === "login_failed") return { data: [{ x_cord: oneHourAgo, y_cord: 1 }], error: undefined };
+      if (endpoint === "authorizations") return { data: [{ x_cord: oneHourAgo, y_cord: 7 }], error: undefined };
       return { data: undefined, error: undefined };
     });
 
@@ -139,5 +140,6 @@ describe("widgets/authentik/component", () => {
     expectBlockValue(container, "authentik.users", 5);
     expectBlockValue(container, "authentik.loginsLast24H", 2);
     expectBlockValue(container, "authentik.failedLoginsLast24H", 1);
+    expectBlockValue(container, "authentik.authorizationsLast24H", 7);
   });
 });

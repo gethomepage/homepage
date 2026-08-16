@@ -8,43 +8,30 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
+  const isV2 = widget.version === 2;
 
   const { data: usersData, error: usersError } = useWidgetAPI(widget, "users");
 
-  let loginsError;
-  let failedLoginsError;
-  let authorizationsError;
-  let loginsData;
-  let failedLoginsData;
-  let authorizationsData;
+  const loginsEndpoint = isV2 ? "" : "login";
+  const { data: loginsData, error: loginsError } = useWidgetAPI(widget, loginsEndpoint);
 
-  if (widget.version === 2) {
-    const v2DataResult = useWidgetAPI(widget, "datav2");
+  const failedLoginsEndpoint = isV2 ? "" : "login_failed";
+  const { data: failedLoginsData, error: failedLoginsError } = useWidgetAPI(widget, failedLoginsEndpoint);
 
-    loginsError = v2DataResult.error;
-    loginsData = v2DataResult.data;
-  } else {
-    const v1LoginsResult = useWidgetAPI(widget, "login");
-    const v1FailedLoginsResult = useWidgetAPI(widget, "login_failed");
-    const v1AuthsResult = useWidgetAPI(widget, "authorizations");
+  const authorizationsEndpoint = isV2 ? "" : "authorizations";
+  const { data: authorizationsData, error: authorizationsError } = useWidgetAPI(widget, authorizationsEndpoint);
 
-    loginsError = v1LoginsResult.error;
-    loginsData = v1LoginsResult.data;
-    failedLoginsError = v1FailedLoginsResult.error;
-    failedLoginsData = v1FailedLoginsResult.data;
-    authorizationsError = v1AuthsResult.error;
-    authorizationsData = v1AuthsResult.data;
-  }
+  const eventsDataEndpoint = isV2 ? "datav2" : "";
+  const { data: eventsData, error: eventsDataError } = useWidgetAPI(widget, eventsDataEndpoint);
 
-  if (usersError || loginsError || failedLoginsError || authorizationsError) {
-    const finalError = usersError ?? loginsError ?? failedLoginsError ?? authorizationsError;
+  if (usersError || loginsError || failedLoginsError || authorizationsError || eventsDataError) {
+    const finalError = usersError ?? loginsError ?? failedLoginsError ?? authorizationsError ?? eventsDataError;
     return <Container service={service} error={finalError} />;
   }
 
-  const hasNoData =
-    widget.version === 2
-      ? !usersData || !loginsData
-      : !usersData || !loginsData || !failedLoginsData || !authorizationsData;
+  const hasNoData = isV2
+    ? !usersData || !eventsData
+    : !usersData || !loginsData || !failedLoginsData || !authorizationsData;
 
   if (hasNoData) {
     return (
@@ -79,7 +66,7 @@ export default function Component({ service }) {
         ) || 0;
       break;
     case 2:
-      const result = loginsData.reduce(
+      const result = eventsData?.reduce(
         (acc, current) => {
           if (!current?.count || !current?.action) {
             return acc;
@@ -96,7 +83,7 @@ export default function Component({ service }) {
           return acc;
         },
         { logins: 0, failed: 0, authorizations: 0 },
-      );
+      ) || { logins: 0, failed: 0, authorizations: 0 };
       loginsLast24H = result.logins;
       failedLoginsLast24H = result.failed;
       authorizationsLast24H = result.authorizations;
