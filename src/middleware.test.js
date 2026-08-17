@@ -88,6 +88,18 @@ describe("middleware", () => {
     expect(res.type).toBe("next");
   });
 
+  it("allows healthcheck requests even when the host is not in the allowlist", async () => {
+    process.env.PORT = "3000";
+    const errSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+
+    const middleware = await loadMiddleware();
+    const res = await middleware(createReq("evil.com", "http://evil.com/api/healthcheck"));
+
+    expect(errSpy).not.toHaveBeenCalled();
+    expect(NextResponse.next).toHaveBeenCalled();
+    expect(res.type).toBe("next");
+  });
+
   it("allows healthcheck requests without auth when host is allowed", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_SECRET = "secret";
