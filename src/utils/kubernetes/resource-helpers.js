@@ -31,7 +31,7 @@ const getSchemaFromGateway = async (parentRef) => {
       return listener.protocol.toLowerCase();
     })
     .catch((error) => {
-      logger.error("Error getting gateways: %d %s %s", error.statusCode, error.body, error.response);
+      logger.error("Error getting gateways: %s", error.body ?? error.message);
       logger.debug(error);
 
       return "http";
