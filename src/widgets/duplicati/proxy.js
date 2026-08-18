@@ -70,7 +70,7 @@ async function login(widget) {
   return body.AccessToken;
 }
 
-async function apiGet(widget, endpoint, accessToken) {
+async function apiGet(widget, endpoint, accessToken, { allow404 = false } = {}) {
   const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
   const [status, , data] = await httpProxy(url, {
     method: "GET",
@@ -78,6 +78,11 @@ async function apiGet(widget, endpoint, accessToken) {
       Authorization: `Bearer ${accessToken}`,
     },
   });
+
+  // e.g. progressstate 404s until a job has run
+  if (status === 404 && allow404) {
+    return null;
+  }
 
   if (status !== 200) {
     throw new Error(`Duplicati request failed for ${endpoint}`);
@@ -108,7 +113,7 @@ export default async function duplicatiProxyHandler(req, res) {
       apiGet(widget, "backups", accessToken),
       apiGet(widget, "serverstate", accessToken),
       apiGet(widget, "notifications", accessToken),
-      apiGet(widget, "progressstate", accessToken),
+      apiGet(widget, "progressstate", accessToken, { allow404: true }),
     ]);
 
     const summary = buildSummary(
