@@ -169,8 +169,39 @@ describe("utils/kubernetes/resource-helpers", () => {
 
     const service = await constructedServiceFromResource(resource);
     expect(service.href).toBe("http://example.com/r");
-    expect(logger.error).toHaveBeenCalled();
+    expect(logger.error).toHaveBeenCalledWith("Error getting gateways: %s", "boom");
     expect(logger.debug).toHaveBeenCalled();
+  });
+
+  it("logs the message for gateway errors that carry no response body", async () => {
+    const kc = getKubeConfig();
+    const crd = kc.makeApiClient();
+    crd.getNamespacedCustomObject.mockRejectedValueOnce(new Error("Required parameter namespace was null"));
+
+    const base = "gethomepage.dev";
+    const resource = {
+      kind: "HTTPRoute",
+      metadata: {
+        name: "route",
+        namespace: "ns",
+        annotations: {
+          [`${base}/enabled`]: "true",
+        },
+      },
+      spec: {
+        hostnames: ["example.com"],
+        parentRefs: [{ namespace: "ns", name: "gw", sectionName: "web" }],
+        rules: [
+          {
+            matches: [{ path: { type: "PathPrefix", value: "/r" } }],
+          },
+        ],
+      },
+    };
+
+    const service = await constructedServiceFromResource(resource);
+    expect(service.href).toBe("http://example.com/r");
+    expect(logger.error).toHaveBeenCalledWith("Error getting gateways: %s", "Required parameter namespace was null");
   });
 
   it("logs and recovers when environment substitution yields invalid json", async () => {
