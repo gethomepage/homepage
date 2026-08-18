@@ -6,7 +6,7 @@ image:
 config:
   bookmarks:
     - Developer:
-        - Github:
+        - GitHub:
             - abbr: GH
               href: https://github.com/
   services:
