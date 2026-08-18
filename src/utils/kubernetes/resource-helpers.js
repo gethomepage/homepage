@@ -14,13 +14,14 @@ import createLogger from "utils/logger";
 const logger = createLogger("resource-helpers");
 const kc = getKubeConfig();
 
-const getSchemaFromGateway = async (parentRef) => {
+const getSchemaFromGateway = async (parentRef, routeNamespace) => {
   const crd = kc.makeApiClient(CustomObjectsApi);
   const schema = await crd
     .getNamespacedCustomObject({
       group: HTTPROUTE_API_GROUP,
       version: HTTPROUTE_API_VERSION,
-      namespace: parentRef.namespace,
+      // parentRef namespace is optional, defaults to the route's namespace
+      namespace: parentRef.namespace ?? routeNamespace,
       plural: "gateways",
       name: parentRef.name,
     })
@@ -48,7 +49,7 @@ async function getUrlFromHttpRoute(resource) {
     if (resource.spec.rules[0].matches[0].path.type !== "RegularExpression") {
       const urlHost = resource.spec.hostnames[0];
       const urlPath = resource.spec.rules[0].matches[0].path.value;
-      const urlSchema = await getSchemaFromGateway(resource.spec.parentRefs[0]);
+      const urlSchema = await getSchemaFromGateway(resource.spec.parentRefs[0], resource.metadata.namespace);
       url = `${urlSchema}://${urlHost}${urlPath}`;
     }
   }

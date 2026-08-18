@@ -137,6 +137,36 @@ describe("utils/kubernetes/resource-helpers", () => {
     expect(service.href).toBe("https://example.com/r");
   });
 
+  it("falls back to the route namespace when the parentRef omits one", async () => {
+    const kc = getKubeConfig();
+    const crd = kc.makeApiClient();
+
+    const base = "gethomepage.dev";
+    const resource = {
+      kind: "HTTPRoute",
+      metadata: {
+        name: "route",
+        namespace: "ns",
+        annotations: {
+          [`${base}/enabled`]: "true",
+        },
+      },
+      spec: {
+        hostnames: ["example.com"],
+        parentRefs: [{ name: "gw", sectionName: "web" }],
+        rules: [
+          {
+            matches: [{ path: { type: "PathPrefix", value: "/r" } }],
+          },
+        ],
+      },
+    };
+
+    const service = await constructedServiceFromResource(resource);
+    expect(crd.getNamespacedCustomObject).toHaveBeenCalledWith(expect.objectContaining({ namespace: "ns" }));
+    expect(service.href).toBe("https://example.com/r");
+  });
+
   it("falls back to http when the gateway listener protocol cannot be resolved", async () => {
     const kc = getKubeConfig();
     const crd = kc.makeApiClient();
