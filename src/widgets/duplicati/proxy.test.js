@@ -75,6 +75,38 @@ describe("widgets/duplicati/proxy", () => {
     expect(res.body.lastBackup).toBe("2026-07-12T10:00:00.000Z");
   });
 
+  it("tolerates progressstate 404 when no job has run", async () => {
+    getServiceWidget.mockResolvedValue({ type: "duplicati", url: "http://dup", password: "secret" });
+    httpProxy
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ AccessToken: "token" }))])
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify([]))])
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ ActiveTask: null }))])
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify([]))])
+      .mockResolvedValueOnce([
+        404,
+        "application/json",
+        Buffer.from(JSON.stringify({ Error: "No active backup", Code: 404 })),
+      ]);
+
+    const res = createMockRes();
+    await duplicatiProxyHandler({ query: { group: "g", service: "s" } }, res);
+
+    expect(res.statusCode).toBe(200);
+    expect(res.body.running).toBe(0);
+  });
+
+  it("returns 500 when a non-progressstate endpoint 404s", async () => {
+    getServiceWidget.mockResolvedValue({ type: "duplicati", url: "http://dup", password: "secret" });
+    httpProxy
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ AccessToken: "token" }))])
+      .mockResolvedValue([404, "application/json", Buffer.from("{}")]);
+
+    const res = createMockRes();
+    await duplicatiProxyHandler({ query: { group: "g", service: "s" } }, res);
+
+    expect(res.statusCode).toBe(500);
+  });
+
   it("returns 500 when login fails", async () => {
     getServiceWidget.mockResolvedValue({ type: "duplicati", url: "http://dup", password: "secret" });
     httpProxy.mockResolvedValueOnce([401, "application/json", Buffer.from("{}")]);
