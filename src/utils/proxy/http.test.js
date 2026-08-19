@@ -494,4 +494,17 @@ describe("utils/proxy/http httpProxy", () => {
     await httpMod.httpProxy("http://example.com");
     expect(state.lastTimeout).toBeNull();
   });
+
+  it("honours params.timeout and falls back to the default when it is not a finite non-negative number", async () => {
+    const httpMod = await import("./http");
+
+    await httpMod.httpProxy("http://example.com", { timeout: 5000 });
+    expect(state.lastTimeout).toBe(5000);
+
+    for (const timeout of [NaN, -5, Infinity]) {
+      state.lastTimeout = null;
+      await httpMod.httpProxy("http://example.com", { timeout });
+      expect(state.lastTimeout).toBe(30_000);
+    }
+  });
 });

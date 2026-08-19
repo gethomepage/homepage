@@ -17,7 +17,7 @@ const logger = createLogger("httpProxy");
 const DEFAULT_TIMEOUT_MS = 30_000;
 
 function requestTimeout(params) {
-  if (typeof params?.timeout === "number") return params.timeout;
+  if (Number.isFinite(params?.timeout) && params.timeout >= 0) return params.timeout;
   const configured = Number.parseInt(process.env.HOMEPAGE_PROXY_TIMEOUT ?? "", 10);
   return Number.isFinite(configured) && configured >= 0 ? configured : DEFAULT_TIMEOUT_MS;
 }
