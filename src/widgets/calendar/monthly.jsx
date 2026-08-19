@@ -28,14 +28,14 @@ export function Day({ weekNumber, weekday, events, colorVariants, showDate, setS
     // selected same day style
     style +=
       displayDate.startOf("day").ts === showDate.startOf("day").ts
-        ? "text-black-500 bg-theme-100/20 dark:bg-white/10 rounded-md "
+        ? "text-black-500 bg-black/10 dark:bg-white/10 rounded-md "
         : "";
 
     if (displayDate.startOf("day").ts === currentDate.startOf("day").ts) {
       // today style
-      style += "text-black-500 bg-theme-100/20 dark:bg-black/20 rounded-md ";
+      style += "text-black-500 bg-black/20! dark:bg-black/20! rounded-md ";
     } else {
-      style += "hover:bg-theme-100/20 dark:hover:bg-white/5 rounded-md cursor-pointer";
+      style += "calendar-day-hover rounded-md cursor-pointer";
     }
 
     return style;
@@ -110,6 +110,14 @@ export default function Monthly({ service, colorVariants, events, showDate, setS
 
   return (
     <div className="w-full text-center">
+      <style jsx>{`
+        :global(.calendar-day-hover:hover) {
+          background-color: rgb(0 0 0 / 10%);
+        }
+        :global(.dark:not(.theme-white) .calendar-day-hover:hover) {
+          background-color: rgb(255 255 255 / 5%);
+        }
+      `}</style>
       <div className="flex-col">
         <span>
           <button
