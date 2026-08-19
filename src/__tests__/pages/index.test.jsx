@@ -127,7 +127,11 @@ vi.mock("utils/hooks/window-focus", () => ({
 }));
 
 vi.mock("components/bookmarks/group", () => ({
-  default: ({ bookmarks }) => <div data-testid="bookmarks-group">{bookmarks?.name}</div>,
+  default: ({ bookmarks, bookmarksStyle }) => (
+    <div data-testid="bookmarks-group" data-bookmarks-style={bookmarksStyle ?? ""}>
+      {bookmarks?.name}
+    </div>
+  ),
 }));
 
 vi.mock("components/services/group", () => ({
@@ -432,6 +436,23 @@ describe("pages/index Home behavior", () => {
 
     expect(await screen.findByTestId("services-group")).toHaveTextContent("Services");
     expect(screen.getByTestId("bookmarks-group")).toHaveTextContent("Bookmarks");
+  });
+
+  it("passes bookmarksStyle to bookmark groups in both the layout and default sections", async () => {
+    state.bookmarksData = [
+      { name: "Layout Bookmarks", bookmarks: [] },
+      { name: "Bottom Bookmarks", bookmarks: [] },
+    ];
+
+    await renderIndex({
+      initialSettings: { title: "Homepage", layout: { "Layout Bookmarks": {} } },
+      settings: { title: "Homepage", layout: { "Layout Bookmarks": {} }, bookmarksStyle: "icons", language: "en" },
+    });
+
+    const groups = await screen.findAllByTestId("bookmarks-group");
+    const styleByName = Object.fromEntries(groups.map((g) => [g.textContent, g.dataset.bookmarksStyle]));
+    expect(styleByName["Layout Bookmarks"]).toBe("icons");
+    expect(styleByName["Bottom Bookmarks"]).toBe("icons");
   });
 
   it("renders tab navigation and filters groups by active tab", async () => {
