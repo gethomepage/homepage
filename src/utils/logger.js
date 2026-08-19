@@ -6,6 +6,10 @@ import checkAndCopyConfig, { CONF_DIR, getSettings } from "utils/config/config";
 
 let winstonLogger;
 
+// Unbounded by default, which fills the volume on a long-running instance with LOG_LEVEL=debug.
+const LOG_MAX_BYTES = 10 * 1024 * 1024;
+const LOG_MAX_FILES = 5;
+
 function combineMessageAndSplat() {
   return {
     transform: (info, opts) => {
@@ -57,6 +61,9 @@ function getFileLogger() {
       winston.format.printf(messageFormatter),
     ),
     filename: `${logpath}/logs/homepage.log`,
+    maxsize: LOG_MAX_BYTES,
+    maxFiles: LOG_MAX_FILES,
+    tailable: true,
     handleExceptions: true,
     handleRejections: true,
   });
