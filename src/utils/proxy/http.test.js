@@ -12,6 +12,8 @@ const { state, cache, logger, dns, net, cookieJar } = vi.hoisted(() => ({
     lastAgentOptions: null,
     lastRequestParams: null,
     lastWrittenBody: null,
+    lastTimeout: null,
+    hang: false,
   },
   cache: {
     get: vi.fn(),
@@ -59,11 +61,22 @@ vi.mock("follow-redirects", async () => {
       req.write = vi.fn((chunk) => {
         state.lastWrittenBody = chunk;
       });
+      req.setTimeout = vi.fn((ms) => {
+        state.lastTimeout = ms;
+      });
+      req.destroy = vi.fn((err) => {
+        req.emit("error", err);
+      });
       req.end = vi.fn(() => {
         state.lastAgent = params?.agent ?? null;
         state.lastAgentOptions = params?.agent?.opts ?? null;
         if (state.error) {
           req.emit("error", state.error);
+          return;
+        }
+        if (state.hang) {
+          // upstream accepted the connection and never replied
+          req.emit("timeout");
           return;
         }
 
@@ -101,6 +114,9 @@ describe("utils/proxy/http cachedRequest", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     state.error = null;
+    state.hang = false;
+    state.lastTimeout = null;
+    delete process.env.HOMEPAGE_PROXY_TIMEOUT;
     state.response = {
       statusCode: 200,
       headers: { "content-type": "application/json" },
@@ -158,6 +174,9 @@ describe("utils/proxy/http homepageDNSLookupFn", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     state.error = null;
+    state.hang = false;
+    state.lastTimeout = null;
+    delete process.env.HOMEPAGE_PROXY_TIMEOUT;
     state.lastAgentOptions = null;
     net.isIP.mockReturnValue(0);
     dns.lookup.mockImplementation((hostname, options, cb) => cb(null, "127.0.0.1", 4));
@@ -305,6 +324,9 @@ describe("utils/proxy/http httpProxy", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     state.error = null;
+    state.hang = false;
+    state.lastTimeout = null;
+    delete process.env.HOMEPAGE_PROXY_TIMEOUT;
     state.response = {
       statusCode: 200,
       headers: { "content-type": "application/json" },
@@ -440,5 +462,36 @@ describe("utils/proxy/http httpProxy", () => {
     expect(contentType).toBe("application/json");
     expect(data.error.message).toBe("boom");
     expect(data.error.url).toBe("example.com (see logs for details)");
+  });
+
+  it("times out an upstream that never replies", async () => {
+    state.hang = true;
+    const httpMod = await import("./http");
+
+    const [status, , data] = await httpMod.httpProxy("http://example.com");
+
+    expect(status).toBe(500);
+    expect(data.error.rawError.code).toBe("ETIMEDOUT");
+  });
+
+  it("applies the default timeout to every request", async () => {
+    const httpMod = await import("./http");
+
+    await httpMod.httpProxy("http://example.com");
+
+    expect(state.lastTimeout).toBe(30_000);
+  });
+
+  it("honours HOMEPAGE_PROXY_TIMEOUT, and treats 0 as disabled", async () => {
+    process.env.HOMEPAGE_PROXY_TIMEOUT = "1500";
+    let httpMod = await import("./http");
+    await httpMod.httpProxy("http://example.com");
+    expect(state.lastTimeout).toBe(1500);
+
+    state.lastTimeout = null;
+    process.env.HOMEPAGE_PROXY_TIMEOUT = "0";
+    httpMod = await import("./http");
+    await httpMod.httpProxy("http://example.com");
+    expect(state.lastTimeout).toBeNull();
   });
 });

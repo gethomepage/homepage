@@ -12,6 +12,16 @@ import createLogger from "utils/logger";
 
 const logger = createLogger("httpProxy");
 
+// Without this an upstream that accepts the connection and never replies holds a socket and a
+// pending promise forever, and widgets re-poll on a timer. Set HOMEPAGE_PROXY_TIMEOUT=0 to disable.
+const DEFAULT_TIMEOUT_MS = 30_000;
+
+function requestTimeout(params) {
+  if (typeof params?.timeout === "number") return params.timeout;
+  const configured = Number.parseInt(process.env.HOMEPAGE_PROXY_TIMEOUT ?? "", 10);
+  return Number.isFinite(configured) && configured >= 0 ? configured : DEFAULT_TIMEOUT_MS;
+}
+
 function addCookieHandler(url, params) {
   setCookieHeader(url, params);
 
@@ -68,6 +78,15 @@ function handleRequest(requestor, url, params) {
     request.on("error", (error) => {
       reject([500, error]);
     });
+
+    const timeout = requestTimeout(params);
+    if (timeout > 0) {
+      // follow-redirects' setTimeout spans the whole redirect chain, unlike a per-socket timeout.
+      request.setTimeout(timeout);
+      request.on("timeout", () => {
+        request.destroy(Object.assign(new Error(`Request timed out after ${timeout}ms`), { code: "ETIMEDOUT" }));
+      });
+    }
 
     if (params?.body) {
       request.write(params.body);
