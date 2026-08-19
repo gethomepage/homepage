@@ -67,4 +67,26 @@ describe("widgets/linkwarden/component", () => {
     expectBlockValue(container, "linkwarden.collections", 2);
     expectBlockValue(container, "linkwarden.tags", 4);
   });
+
+  it("computes the tags total from the nested Linkwarden API response", () => {
+    useWidgetAPI.mockImplementation((_widget, endpoint) => {
+      if (endpoint === "collections") {
+        return { data: { response: [{ _count: { links: 2 } }] }, error: undefined };
+      }
+
+      if (endpoint === "tags") {
+        return { data: { data: { tags: [{ id: 1 }, { id: 2 }, { id: 3 }] } }, error: undefined };
+      }
+
+      return { data: undefined, error: undefined };
+    });
+
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "linkwarden" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expectBlockValue(container, "linkwarden.links", 2);
+    expectBlockValue(container, "linkwarden.collections", 1);
+    expectBlockValue(container, "linkwarden.tags", 3);
+  });
 });
