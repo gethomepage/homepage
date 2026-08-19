@@ -11,7 +11,7 @@ export default function Component({ service }) {
 
   // Some APIs return raw arrays, others wrap the payload (e.g. { response: [...] }).
   const collections = collectionsStatsData?.response ?? collectionsStatsData;
-  const tags = tagsStatsData?.response ?? tagsStatsData;
+  const tags = tagsStatsData?.response ?? tagsStatsData?.data?.tags ?? tagsStatsData;
 
   const totalLinks = Array.isArray(collections)
     ? collections.reduce((sum, collection) => sum + (collection._count?.links || 0), 0)
