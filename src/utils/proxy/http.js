@@ -44,10 +44,13 @@ function handleRequest(requestor, url, params) {
           finishFlush: zlibConstants.Z_SYNC_FLUSH,
         });
 
-        // zlib errors
+        // zlib errors. Reassigning responseContent here would be dead code: the data/end listeners
+        // below are already bound to the unzip stream, and a failed Unzip never emits "end" -- so
+        // the old "fallback" left this promise pending forever, leaking the socket.
         responseContent.on("error", (e) => {
-          if (e) logger.error(e);
-          responseContent = response; // fallback
+          logger.error(e);
+          response.destroy();
+          reject([500, e]);
         });
         response.pipe(responseContent);
       }

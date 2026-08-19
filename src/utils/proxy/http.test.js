@@ -364,7 +364,7 @@ describe("utils/proxy/http httpProxy", () => {
     expect(Buffer.from(data).toString()).toBe("hello");
   });
 
-  it("logs when gzip decoding emits an error", async () => {
+  it("rejects instead of hanging when gzip decoding emits an error", async () => {
     const { PassThrough } = await import("node:stream");
 
     vi.doMock("node:zlib", async () => {
@@ -375,8 +375,9 @@ describe("utils/proxy/http httpProxy", () => {
           const pt = new PassThrough();
           pt.on("pipe", () => {
             queueMicrotask(() => {
+              // deliberately NOT followed by pt.end(): a real zlib.Unzip that errors never
+              // emits "end". Ending it here is what masked the hang this test now covers.
               pt.emit("error", new Error("bad gzip"));
-              pt.end();
             });
           });
           return pt;
@@ -390,9 +391,11 @@ describe("utils/proxy/http httpProxy", () => {
     state.response.headers["content-encoding"] = "gzip";
     state.response.body = Buffer.from("hello");
 
-    await httpMod.httpProxy("http://example.com");
+    const [status, , data] = await httpMod.httpProxy("http://example.com");
 
     expect(logger.error).toHaveBeenCalled();
+    expect(status).toBe(500);
+    expect(data.error.message).toBe("bad gzip");
 
     vi.unmock("node:zlib");
   });
