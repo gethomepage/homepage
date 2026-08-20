@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { getProviders, signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
 import { BiShieldQuarter } from "react-icons/bi";
@@ -202,7 +202,16 @@ export default function SignIn({ providers, settings }) {
 }
 
 export async function getServerSideProps(context) {
-  const providers = await getProviders();
+  // Avoid getProviders() fetch
+  let providers = {};
+  try {
+    // Dynamic so a bad config throws in here rather than at page load
+    const { authOptions } = await import("pages/api/auth/[...nextauth]");
+    providers = Object.fromEntries(authOptions.providers.map(({ id, name, type }) => [id, { id, name, type }]));
+  } catch (e) {
+    console.error("Unable to load auth providers: %s", e.message);
+  }
+
   const homepageSettings = getSettings();
   const settings = Object.fromEntries(
     PUBLIC_SIGN_IN_SETTINGS.filter((key) => Object.prototype.hasOwnProperty.call(homepageSettings, key)).map((key) => [
