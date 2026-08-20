@@ -3,7 +3,7 @@ import { createHash, timingSafeEqual } from "node:crypto";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-import { isAuthEnabled } from "utils/env";
+import { applyNextAuthEnv, isAuthEnabled } from "utils/env";
 import createLogger from "utils/logger";
 
 const MIN_AUTH_SECRET_LENGTH = 32;
@@ -12,20 +12,13 @@ const authEnabled = isAuthEnabled();
 const issuer = process.env.HOMEPAGE_OIDC_ISSUER;
 const clientId = process.env.HOMEPAGE_OIDC_CLIENT_ID;
 const clientSecret = process.env.HOMEPAGE_OIDC_CLIENT_SECRET;
-const homepageAuthSecret = process.env.HOMEPAGE_AUTH_SECRET;
-const homepageExternalUrl = process.env.HOMEPAGE_EXTERNAL_URL;
 const homepageAuthPassword = process.env.HOMEPAGE_AUTH_PASSWORD;
 const homepageAuthPasswordDigest = homepageAuthPassword
   ? createHash("sha256").update(homepageAuthPassword, "utf8").digest()
   : null;
 
-// Map HOMEPAGE_* envs to what NextAuth expects
-if (!process.env.NEXTAUTH_SECRET && homepageAuthSecret) {
-  process.env.NEXTAUTH_SECRET = homepageAuthSecret;
-}
-if (!process.env.NEXTAUTH_URL && homepageExternalUrl) {
-  process.env.NEXTAUTH_URL = homepageExternalUrl;
-}
+// Also done in instrumentation.js
+applyNextAuthEnv();
 
 const defaultScope = process.env.HOMEPAGE_OIDC_SCOPE || "openid email profile";
 const cleanedIssuer = issuer ? issuer.replace(/\/+$/, "") : issuer;
