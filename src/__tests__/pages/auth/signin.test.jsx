@@ -39,7 +39,7 @@ describe("pages/auth/signin", () => {
       />,
     );
 
-    expect(screen.getByText("Authentication not configured")).toBeInTheDocument();
+    expect(screen.getByText("Authentication error")).toBeInTheDocument();
 
     await waitFor(() => {
       expect(document.documentElement.classList.contains("dark")).toBe(true);
