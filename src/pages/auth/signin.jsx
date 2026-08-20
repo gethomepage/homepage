@@ -94,10 +94,8 @@ export default function SignIn({ providers, settings }) {
             <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-theme-500/15 text-theme-600 dark:text-theme-300">
               <BiShieldQuarter className="h-6 w-6" />
             </div>
-            <h1 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-slate-100">
-              Authentication not configured
-            </h1>
-            <p className="mt-3 text-sm text-gray-600 dark:text-slate-400">OIDC is disabled or misconfigured.</p>
+            <h1 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-slate-100">Authentication error</h1>
+            <p className="mt-3 text-sm text-gray-600 dark:text-slate-400">Auth is disabled or misconfigured.</p>
           </div>
         </main>
       </>
