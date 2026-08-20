@@ -115,4 +115,39 @@ describe("pages/auth/signin", () => {
     expect(consoleError).toHaveBeenCalled();
     consoleError.mockRestore();
   });
+
+  it("getServerSideProps passes only id, name and type from each provider", async () => {
+    authOptionsMock.mockReturnValueOnce({
+      providers: [
+        {
+          id: "homepage-oidc",
+          name: "Homepage OIDC",
+          type: "oauth",
+          issuer: "https://oidc.example",
+          clientId: "canary-client-id",
+          clientSecret: "canary-client-secret",
+          wellKnown: "https://oidc.example/.well-known/openid-configuration",
+          authorization: { params: { scope: "openid email profile" } },
+          profile: () => ({}),
+        },
+        {
+          id: "credentials",
+          name: "Password",
+          type: "credentials",
+          credentials: { password: { label: "Password", type: "password" } },
+          authorize: () => null,
+        },
+      ],
+    });
+    getSettingsMock.mockReturnValueOnce({ theme: "dark" });
+
+    const res = await getServerSideProps({});
+
+    expect(res.props.providers).toEqual({
+      "homepage-oidc": { id: "homepage-oidc", name: "Homepage OIDC", type: "oauth" },
+      credentials: { id: "credentials", name: "Password", type: "credentials" },
+    });
+    // These props get serialized into the sign-in page, which is unauthenticated
+    expect(JSON.stringify(res.props)).not.toMatch(/canary-client-secret|canary-client-id|oidc\.example/);
+  });
 });
