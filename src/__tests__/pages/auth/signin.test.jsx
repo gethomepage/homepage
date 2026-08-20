@@ -3,12 +3,19 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
-const { getSettingsMock } = vi.hoisted(() => ({
+const { getSettingsMock, authOptionsMock } = vi.hoisted(() => ({
   getSettingsMock: vi.fn(),
+  authOptionsMock: vi.fn(),
 }));
 
 vi.mock("utils/config/config", () => ({
   getSettings: getSettingsMock,
+}));
+
+vi.mock("pages/api/auth/[...nextauth]", () => ({
+  get authOptions() {
+    return authOptionsMock();
+  },
 }));
 
 vi.mock("next/router", () => ({
@@ -17,7 +24,6 @@ vi.mock("next/router", () => ({
   }),
 }));
 
-import { getProviders } from "next-auth/react";
 import SignInPage, { getServerSideProps } from "pages/auth/signin";
 
 describe("pages/auth/signin", () => {
@@ -33,7 +39,7 @@ describe("pages/auth/signin", () => {
       />,
     );
 
-    expect(screen.getByText("Authentication not configured")).toBeInTheDocument();
+    expect(screen.getByText("Authentication error")).toBeInTheDocument();
 
     await waitFor(() => {
       expect(document.documentElement.classList.contains("dark")).toBe(true);
@@ -61,7 +67,7 @@ describe("pages/auth/signin", () => {
   });
 
   it("getServerSideProps returns providers and only public sign-in settings", async () => {
-    getProviders.mockResolvedValueOnce({ foo: { id: "foo", name: "Foo" } });
+    authOptionsMock.mockReturnValueOnce({ providers: [{ id: "foo", name: "Foo", type: "oauth" }] });
     getSettingsMock.mockReturnValueOnce({
       theme: "dark",
       color: "slate",
@@ -79,11 +85,10 @@ describe("pages/auth/signin", () => {
 
     const res = await getServerSideProps({});
 
-    expect(getProviders).toHaveBeenCalled();
     expect(getSettingsMock).toHaveBeenCalled();
     expect(res).toEqual({
       props: {
-        providers: { foo: { id: "foo", name: "Foo" } },
+        providers: { foo: { id: "foo", name: "Foo", type: "oauth" } },
         settings: {
           theme: "dark",
           color: "slate",
@@ -95,5 +100,19 @@ describe("pages/auth/signin", () => {
     });
     expect(res.props.settings).not.toHaveProperty("providers");
     expect(res.props.settings).not.toHaveProperty("layout");
+  });
+
+  it("getServerSideProps falls back to no providers when auth options fail to load", async () => {
+    const consoleError = vi.spyOn(console, "error").mockImplementation(() => {});
+    authOptionsMock.mockImplementationOnce(() => {
+      throw new Error("Homepage auth is enabled but HOMEPAGE_EXTERNAL_URL (or NEXTAUTH_URL) is missing.");
+    });
+    getSettingsMock.mockReturnValueOnce({ theme: "dark" });
+
+    const res = await getServerSideProps({});
+
+    expect(res.props.providers).toEqual({});
+    expect(consoleError).toHaveBeenCalled();
+    consoleError.mockRestore();
   });
 });
