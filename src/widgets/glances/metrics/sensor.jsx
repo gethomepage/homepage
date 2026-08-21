@@ -37,15 +37,12 @@ export default function Component({ service }) {
           }
           return newDataPoints;
         });
-      } else {
-        data.error = true;
       }
     }
   }, [data, sensorName, pointsLimit]);
 
-  if (error || (data && data.error)) {
-    const finalError = error || data.error;
-    return <Container error={finalError} widget={widget} />;
+  if (error || data?.error) {
+    return <Container error={error || data.error} widget={widget} />;
   }
 
   if (!data) {

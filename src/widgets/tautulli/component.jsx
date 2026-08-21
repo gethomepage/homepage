@@ -166,7 +166,7 @@ export default function Component({ service }) {
     );
   }
 
-  const playing = activityData.response.data.sessions.sort((a, b) => {
+  const playing = [...activityData.response.data.sessions].sort((a, b) => {
     if (a.view_offset > b.view_offset) {
       return 1;
     }

@@ -232,7 +232,7 @@ export default function Component({ service }) {
     );
   }
 
-  const playing = activityData.data.sort((a, b) => a.progressMs - b.progressMs);
+  const playing = [...activityData.data].sort((a, b) => a.progressMs - b.progressMs);
   const { summary } = activityData;
 
   if (view === "summary") {

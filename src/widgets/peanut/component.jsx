@@ -25,18 +25,12 @@ export default function Component({ service }) {
   }
 
   // backwards compatibility with peanut v1
-  if ("battery.charge" in upsData) {
-    upsData.battery_charge = upsData["battery.charge"];
-  }
-  if ("ups.load" in upsData) {
-    upsData.ups_load = upsData["ups.load"];
-  }
-  if ("ups.status" in upsData) {
-    upsData.ups_status = upsData["ups.status"];
-  }
+  const batteryCharge = "battery.charge" in upsData ? upsData["battery.charge"] : upsData.battery_charge;
+  const upsLoad = "ups.load" in upsData ? upsData["ups.load"] : upsData.ups_load;
+  const upsStatus = "ups.status" in upsData ? upsData["ups.status"] : upsData.ups_status;
 
   let status;
-  switch (upsData.ups_status) {
+  switch (upsStatus) {
     case "OL":
       status = t("peanut.online");
       break;
@@ -47,21 +41,17 @@ export default function Component({ service }) {
       status = t("peanut.low_battery");
       break;
     default:
-      status = upsData.ups_status;
+      status = upsStatus;
   }
 
   return (
     <Container service={service}>
       <Block
         label="peanut.battery_charge"
-        value={t("common.percent", { value: upsData.battery_charge })}
-        highlightValue={upsData.battery_charge}
+        value={t("common.percent", { value: batteryCharge })}
+        highlightValue={batteryCharge}
       />
-      <Block
-        label="peanut.ups_load"
-        value={t("common.percent", { value: upsData.ups_load })}
-        highlightValue={upsData.ups_load}
-      />
+      <Block label="peanut.ups_load" value={t("common.percent", { value: upsLoad })} highlightValue={upsLoad} />
       <Block label="peanut.ups_status" value={status} />
     </Container>
   );
