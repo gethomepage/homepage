@@ -71,7 +71,8 @@ describe("widgets/authentik/component", () => {
 
   it("computes v1 login/failed counts for entries within the last 24h window", () => {
     vi.useFakeTimers();
-    vi.setSystemTime(new Date("2026-01-02T00:00:00Z"));
+    // Use midday so a mistaken previous-midnight cutoff would include the 25-hour-old entries.
+    vi.setSystemTime(new Date("2026-01-02T12:00:00Z"));
 
     const now = Date.now();
     const oneHourAgo = now - 60 * 60 * 1000;

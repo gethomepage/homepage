@@ -2,10 +2,14 @@ import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
+import useCurrentTime from "utils/hooks/use-current-time";
 import useWidgetAPI from "utils/proxy/use-widget-api";
+
+const WEEK = 7 * 24 * 60 * 60 * 1000;
 
 export default function Component({ service }) {
   const { t } = useTranslation();
+  const currentTime = useCurrentTime();
   const { widget } = service;
 
   const version = widget.version ?? 1;
@@ -32,10 +36,10 @@ export default function Component({ service }) {
 
   const projects = projectsData.filter((project) => project.id > 0); // saved filters have id < 0
 
-  const oneWeekFromNow = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+  const oneWeekFromNow = new Date(currentTime + WEEK);
   const tasksWithDueDate = tasksData.filter((task) => !task.dueDateIsDefault);
   const tasks7d = tasksWithDueDate.filter((task) => new Date(task.dueDate) <= oneWeekFromNow);
-  const tasksOverdue = tasksWithDueDate.filter((task) => new Date(task.dueDate) <= new Date(Date.now()));
+  const tasksOverdue = tasksWithDueDate.filter((task) => new Date(task.dueDate) <= new Date(currentTime));
   const tasksInProgress = tasksData.filter((task) => task.inProgress);
 
   return (
