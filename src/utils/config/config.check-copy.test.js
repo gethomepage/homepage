@@ -13,7 +13,7 @@ const { fs, yaml } = vi.hoisted(() => ({
 }));
 
 vi.mock("fs", () => fs);
-vi.mock("js-yaml", () => ({ default: yaml, ...yaml }));
+vi.mock("utils/config/yaml", () => ({ loadYaml: yaml.load }));
 
 describe("utils/config/config checkAndCopyConfig", () => {
   const originalEnv = process.env;

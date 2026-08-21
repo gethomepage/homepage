@@ -18,10 +18,7 @@ vi.mock("fs", () => ({
   readFileSync: fs.readFileSync,
 }));
 
-vi.mock("js-yaml", () => ({
-  default: yaml,
-  ...yaml,
-}));
+vi.mock("utils/config/yaml", () => ({ loadYaml: yaml.load }));
 
 vi.mock("utils/config/config", () => ({
   default: checkAndCopyConfig,
