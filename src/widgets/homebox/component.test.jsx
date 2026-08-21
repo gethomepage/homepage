@@ -9,7 +9,7 @@ import { expectBlockValue } from "test-utils/widget-assertions";
 const { useWidgetAPI } = vi.hoisted(() => ({ useWidgetAPI: vi.fn() }));
 vi.mock("utils/proxy/use-widget-api", () => ({ default: useWidgetAPI }));
 
-import Component, { homeboxDefaultFields } from "./component";
+import Component from "./component";
 
 describe("widgets/homebox/component", () => {
   beforeEach(() => {
@@ -22,7 +22,7 @@ describe("widgets/homebox/component", () => {
     const service = { widget: { type: "homebox", url: "http://x" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(homeboxDefaultFields);
+    expect(service.widget.fields).toBeUndefined();
     expect(container.querySelectorAll(".service-block")).toHaveLength(3);
     expect(screen.getByText("homebox.items")).toBeInTheDocument();
     expect(screen.getByText("homebox.locations")).toBeInTheDocument();

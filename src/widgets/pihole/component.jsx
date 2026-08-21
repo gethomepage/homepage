@@ -3,20 +3,20 @@ import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
-export default function Component({ service }) {
+const DEFAULT_FIELDS = ["queries", "blocked", "gravity"];
+
+export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
 
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
 
   const { data: piholeData, error: piholeError } = useWidgetAPI(widget);
 
   if (piholeError) {
     return <Container service={service} error={piholeError} />;
-  }
-
-  if (!widget.fields) {
-    widget.fields = ["queries", "blocked", "gravity"];
   }
 
   if (!piholeData) {

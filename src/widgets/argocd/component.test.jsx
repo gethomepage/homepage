@@ -25,7 +25,7 @@ describe("widgets/argocd/component", () => {
     const service = { widget: { type: "argocd", fields: ["apps", "synced", "outOfSync", "healthy", "extra"] } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["apps", "synced", "outOfSync", "healthy"]);
+    expect(service.widget.fields).toEqual(["apps", "synced", "outOfSync", "healthy", "extra"]);
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("argocd.apps")).toBeInTheDocument();
     expect(screen.getByText("argocd.synced")).toBeInTheDocument();

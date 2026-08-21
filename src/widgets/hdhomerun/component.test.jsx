@@ -58,7 +58,7 @@ describe("widgets/hdhomerun/component", () => {
 
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["channels", "hd", "tunerCount", "channelNumber"]);
+    expect(service.widget.fields).toEqual(["channels", "hd", "tunerCount", "channelNumber", "signalStrength"]);
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("hdhomerun.channels")).toBeInTheDocument();
     expect(screen.getByText("hdhomerun.hd")).toBeInTheDocument();

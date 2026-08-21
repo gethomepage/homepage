@@ -6,6 +6,9 @@ import { MdOutlineSmartDisplay } from "react-icons/md";
 
 import { getURLSearchParams } from "utils/proxy/api-helpers";
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
+
+const DEFAULT_FIELDS = ["movies", "series", "episodes", "songs"];
 
 function ticksToTime(ticks) {
   const milliseconds = ticks / 10000;
@@ -178,12 +181,6 @@ function CountBlocks({ service, countData }) {
   const { t } = useTranslation();
   const { widget } = service;
 
-  if (!widget.fields || widget.fields.length === 0) {
-    widget.fields = ["movies", "series", "episodes", "songs"];
-  } else if (widget.fields?.length > 4) {
-    widget.fields = widget.fields.slice(0, 4);
-  }
-
   if (!countData) {
     return (
       <Container service={service}>
@@ -207,9 +204,10 @@ function CountBlocks({ service, countData }) {
   );
 }
 
-export default function Component({ service }) {
+export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
 
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
   const version = widget?.version ?? 1;
   const useJellyfinV2 = version === 2;
