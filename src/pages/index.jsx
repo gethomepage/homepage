@@ -263,6 +263,10 @@ function Home({ initialSettings }) {
           e.key.match(/([à-ü]|[À-Ü]|!)/g) ||
           (e.key === "v" && (e.ctrlKey || e.metaKey))
         ) {
+          if (e.key.length === 1 && !(e.key === "v" && (e.ctrlKey || e.metaKey))) {
+            e.preventDefault();
+            setSearchString((currentSearchString) => currentSearchString + e.key);
+          }
           setSearching(true);
         } else if (e.key === "Escape") {
           setSearchString("");

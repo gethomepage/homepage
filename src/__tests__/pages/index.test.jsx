@@ -426,6 +426,7 @@ describe("pages/index Home behavior", () => {
 
     fireEvent.keyDown(document.body, { key: "a" });
     expect(screen.getByTestId("quicklaunch")).toHaveTextContent("open:3");
+    expect(state.quickLaunchProps.searchString).toBe("a");
 
     fireEvent.keyDown(document.body, { key: "Escape" });
     expect(screen.getByTestId("quicklaunch")).toHaveTextContent("closed:3");
