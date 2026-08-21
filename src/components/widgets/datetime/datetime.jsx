@@ -1,8 +1,9 @@
 import { useTranslation } from "next-i18next/pages";
-import { useEffect, useState } from "react";
 
 import Container from "../widget/container";
 import Raw from "../widget/raw";
+
+import useCurrentTime from "utils/hooks/use-current-time";
 
 const textSizes = {
   "4xl": "text-4xl",
@@ -18,17 +19,9 @@ const textSizes = {
 export default function DateTime({ options }) {
   const { text_size: textSize, locale, format } = options;
   const { i18n } = useTranslation();
-  const [date, setDate] = useState("");
   const dateLocale = locale ?? i18n.language;
-
-  useEffect(() => {
-    const dateFormat = new Intl.DateTimeFormat(dateLocale, { ...format });
-    setDate(dateFormat.format(new Date()));
-    const interval = setInterval(() => {
-      setDate(dateFormat.format(new Date()));
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [date, setDate, dateLocale, format]);
+  const currentTime = useCurrentTime(1000);
+  const date = new Intl.DateTimeFormat(dateLocale, { ...format }).format(new Date(currentTime));
 
   return (
     <Container options={options} additionalClassNames="information-widget-datetime">
