@@ -25,7 +25,7 @@ describe("widgets/komodo/component", () => {
     const service = { widget: { type: "komodo", showStacks: true, showSummary: false } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["total", "running", "down", "unhealthy"]);
+    expect(service.widget.fields).toBeUndefined();
     expect(useWidgetAPI.mock.calls[0][1]).toBe(""); // containersEndpoint
     expect(useWidgetAPI.mock.calls[1][1]).toBe("stacks");
     expect(useWidgetAPI.mock.calls[2][1]).toBe(""); // serversEndpoint
@@ -37,6 +37,20 @@ describe("widgets/komodo/component", () => {
     expect(screen.getByText("komodo.down")).toBeInTheDocument();
     expect(screen.getByText("komodo.unhealthy")).toBeInTheDocument();
     expect(screen.queryByText("komodo.unknown")).toBeNull();
+  });
+
+  it("defaults fields for the containers view without modifying the service", () => {
+    useWidgetAPI.mockReturnValue({ data: undefined, error: undefined });
+
+    const service = { widget: { type: "komodo", showStacks: false, showSummary: false } };
+    const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
+
+    expect(service.widget.fields).toBeUndefined();
+    expect(container.querySelectorAll(".service-block")).toHaveLength(4);
+    expect(screen.getByText("komodo.total")).toBeInTheDocument();
+    expect(screen.getByText("komodo.running")).toBeInTheDocument();
+    expect(screen.getByText("komodo.stopped")).toBeInTheDocument();
+    expect(screen.getByText("komodo.unhealthy")).toBeInTheDocument();
   });
 
   it("renders computed down=stopped+down for stacks view", () => {
