@@ -471,7 +471,8 @@
     "authentik": {
         "users": "Utenti",
         "loginsLast24H": "Accessi (24h)",
-        "failedLoginsLast24H": "Accessi Falliti (24h)"
+        "failedLoginsLast24H": "Accessi Falliti (24h)",
+        "authorizationsLast24H": "Auths (24h)"
     },
     "proxmox": {
         "mem": "MEM",

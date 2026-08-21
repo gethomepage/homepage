@@ -133,7 +133,7 @@
         "series": "Series",
         "episodes": "Episodios",
         "songs": "Canciones",
-        "albums": "Albums"
+        "albums": "Álbumes"
     },
     "esphome": {
         "offline": "Fuera de línea",
@@ -471,7 +471,8 @@
     "authentik": {
         "users": "Usuarios",
         "loginsLast24H": "Inicios de sesión (24h)",
-        "failedLoginsLast24H": "Inicios de sesión fallidos (24h)"
+        "failedLoginsLast24H": "Inicios de sesión fallidos (24h)",
+        "authorizationsLast24H": "Auths (24h)"
     },
     "proxmox": {
         "mem": "MEM",

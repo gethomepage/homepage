@@ -21,7 +21,7 @@
         "seconds": "s"
     },
     "auth": {
-        "signout": "Sign out"
+        "signout": "Odhlásiť sa"
     },
     "widget": {
         "missing_type": "Chýba typ widgetu: {{type}}",
@@ -133,7 +133,7 @@
         "series": "Seriálov",
         "episodes": "Epizód",
         "songs": "Skladieb",
-        "albums": "Albums"
+        "albums": "Albumov"
     },
     "esphome": {
         "offline": "Nedostupné",
@@ -471,7 +471,8 @@
     "authentik": {
         "users": "Používateľov",
         "loginsLast24H": "Prihlás. (24 hod.)",
-        "failedLoginsLast24H": "Neúspešné prihlás. (24 hod.)"
+        "failedLoginsLast24H": "Neúspešné prihlás. (24 hod.)",
+        "authorizationsLast24H": "Auths (24h)"
     },
     "proxmox": {
         "mem": "RAM",
@@ -959,7 +960,7 @@
         "reclaimable": "Reclaimable",
         "movieReclaimable": "Movie Reclaimable",
         "showReclaimable": "Show Reclaimable",
-        "totalCapacity": "Total Capacity"
+        "totalCapacity": "Celková kapacita"
     },
     "netdata": {
         "warnings": "Upozornenia",
@@ -1248,7 +1249,7 @@
     },
     "sportarr": {
         "wanted": "Wanted",
-        "queued": "Queued",
+        "queued": "V poradí",
         "leagues": "Leagues"
     }
 }

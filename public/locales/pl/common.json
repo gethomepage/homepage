@@ -21,7 +21,7 @@
         "seconds": "s"
     },
     "auth": {
-        "signout": "Sign out"
+        "signout": "Wyloguj się"
     },
     "widget": {
         "missing_type": "Brakujący typ widżetu: {{type}}",
@@ -133,7 +133,7 @@
         "series": "Seriale",
         "episodes": "Odcinki",
         "songs": "Piosenki",
-        "albums": "Albums"
+        "albums": "Albumy"
     },
     "esphome": {
         "offline": "Offline",
@@ -471,7 +471,8 @@
     "authentik": {
         "users": "Użytkownicy",
         "loginsLast24H": "Logowania (24h)",
-        "failedLoginsLast24H": "Nieudane logowania (24h)"
+        "failedLoginsLast24H": "Nieudane logowania (24h)",
+        "authorizationsLast24H": "Auths (24h)"
     },
     "proxmox": {
         "mem": "RAM",

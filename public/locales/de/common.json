@@ -471,7 +471,8 @@
     "authentik": {
         "users": "Benutzer",
         "loginsLast24H": "Anmeldungen (24 h)",
-        "failedLoginsLast24H": "Fehlversuche (24 h)"
+        "failedLoginsLast24H": "Fehlversuche (24 h)",
+        "authorizationsLast24H": "Auths (24h)"
     },
     "proxmox": {
         "mem": "RAM",

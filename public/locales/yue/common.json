@@ -471,7 +471,8 @@
     "authentik": {
         "users": "Users",
         "loginsLast24H": "登錄（ 24小时）",
-        "failedLoginsLast24H": "登錄失敗（ 24鐘頭）"
+        "failedLoginsLast24H": "登錄失敗（ 24鐘頭）",
+        "authorizationsLast24H": "Auths (24h)"
     },
     "proxmox": {
         "mem": "MEM",

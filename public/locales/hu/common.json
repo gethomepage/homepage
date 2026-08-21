@@ -471,7 +471,8 @@
     "authentik": {
         "users": "Felhasználók",
         "loginsLast24H": "Bejelentkezések (24 óra)",
-        "failedLoginsLast24H": "Sikertelen bejelentkezések (24h)"
+        "failedLoginsLast24H": "Sikertelen bejelentkezések (24h)",
+        "authorizationsLast24H": "Auths (24h)"
     },
     "proxmox": {
         "mem": "MEM",
