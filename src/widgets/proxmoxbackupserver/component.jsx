@@ -13,7 +13,8 @@ export default function Component({ service }) {
   const taskQueryParams = {
     errors: true,
     limit: 100,
-    since: Math.floor(currentTime / 1000) - 24 * 60 * 60,
+    // omitted until mounted, so the request key doesn't churn during hydration
+    ...(currentTime !== null && { since: Math.floor(currentTime / 1000) - 24 * 60 * 60 }),
   };
 
   const { data: datastoreData, error: datastoreError } = useWidgetAPI(widget, "status/datastore-usage");

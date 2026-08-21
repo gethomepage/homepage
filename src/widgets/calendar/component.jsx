@@ -2,7 +2,7 @@ import Container from "components/services/widget/container";
 import { DateTime } from "luxon";
 import { useTranslation } from "next-i18next/pages";
 import dynamic from "next/dynamic";
-import { useContext, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { SettingsContext } from "utils/contexts/settings";
 
 import Agenda from "./agenda";
@@ -41,8 +41,14 @@ export default function Component({ service }) {
   const [events, setEvents] = useState({});
   const nowDate = DateTime.now().setLocale(i18n.language);
   const currentDate = widget?.timezone ? nowDate.setZone(widget?.timezone).startOf("day") : nowDate;
-  const [showDate, setShowDate] = useState(currentDate);
+  const [showDate, setShowDate] = useState(null);
   const { settings } = useContext(SettingsContext);
+
+  useEffect(() => {
+    // seeded after mount, not during render: "today" is client-only and would break hydration
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (!showDate) setShowDate(currentDate);
+  }, [showDate, currentDate]);
 
   // params for API fetch
   const params = useMemo(() => {

@@ -23,7 +23,7 @@ export default function DateTime({ options }) {
   const dateLocale = locale ?? i18n.language;
   const currentTime = useCurrentTime(1000);
   const dateFormatter = useMemo(() => new Intl.DateTimeFormat(dateLocale, { ...format }), [dateLocale, format]);
-  const date = dateFormatter.format(new Date(currentTime));
+  const date = currentTime === null ? "" : dateFormatter.format(new Date(currentTime));
 
   return (
     <Container options={options} additionalClassNames="information-widget-datetime">
