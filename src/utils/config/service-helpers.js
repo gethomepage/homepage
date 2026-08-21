@@ -270,6 +270,9 @@ export function cleanServiceGroups(groups) {
           // beszel
           systemId,
 
+          // bookorbit
+          libraries,
+
           // calendar
           firstDayInWeek,
           integrations,
@@ -483,6 +486,10 @@ export function cleanServiceGroups(groups) {
 
         if (type === "beszel") {
           if (systemId) widget.systemId = systemId;
+        }
+
+        if (type === "bookorbit") {
+          if (libraries) widget.libraries = libraries;
         }
 
         if (type === "coinmarketcap") {
