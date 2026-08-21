@@ -104,7 +104,7 @@ function Index({ initialSettings, fallback }) {
   const { error: validateError } = errorsData || {};
 
   const handleHashData = useCallback((hashData) => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || !hashData?.hash) return;
 
     const previousHash = localStorage.getItem("hash");
 

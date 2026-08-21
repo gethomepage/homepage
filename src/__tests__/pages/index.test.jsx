@@ -391,6 +391,18 @@ describe("pages/index Index routing + SWR branches", () => {
       expect(localStorage.getItem("hash")).toBe("first-hash");
     });
   });
+
+  it("ignores a hash response without a hash", async () => {
+    state.validateData = [];
+    localStorage.setItem("hash", "old-hash");
+
+    await renderIndex({ initialSettings: { title: "Homepage", layout: {} }, settings: { layout: {} } });
+
+    expect(() => act(() => state.hashConfig.onSuccess(null))).not.toThrow();
+    expect(() => act(() => state.hashConfig.onSuccess({}))).not.toThrow();
+    expect(localStorage.getItem("hash")).toBe("old-hash");
+    expect(document.querySelector(".animate-spin")).toBeFalsy();
+  });
 });
 
 describe("pages/index Home behavior", () => {
