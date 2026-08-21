@@ -72,7 +72,6 @@ export default defineConfig([
       "react-hooks/exhaustive-deps": "warn",
       "react-hooks/gating": "off",
       "react-hooks/globals": "off",
-      "react-hooks/immutability": "off",
       "react-hooks/incompatible-library": "off",
       "react-hooks/preserve-manual-memoization": "off",
       "react-hooks/refs": "off",
