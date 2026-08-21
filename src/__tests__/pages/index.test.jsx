@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { ColorContext } from "utils/contexts/color";
@@ -25,6 +25,7 @@ const {
     throwIn: null,
     validateData: [],
     hashData: null,
+    hashConfig: null,
     mutateHash: vi.fn(),
     servicesData: [],
     bookmarksData: [],
@@ -59,9 +60,12 @@ const {
   const serverSideTranslations = vi.fn(async (language) => ({ _translations: language }));
   const logger = { error: vi.fn() };
 
-  const useSWR = vi.fn((key) => {
+  const useSWR = vi.fn((key, config) => {
     if (key === "/api/validate") return { data: state.validateData };
-    if (key === "/api/hash") return { data: state.hashData, mutate: state.mutateHash };
+    if (key === "/api/hash") {
+      state.hashConfig = config;
+      return { data: state.hashData, mutate: state.mutateHash };
+    }
     if (key === "/api/services") return { data: state.servicesData };
     if (key === "/api/bookmarks") return { data: state.bookmarksData };
     if (key === "/api/widgets") return { data: state.widgetsData };
@@ -172,6 +176,7 @@ describe("pages/index getStaticProps", () => {
     state.throwIn = null;
     state.validateData = [];
     state.hashData = null;
+    state.hashConfig = null;
     state.servicesData = [];
     state.bookmarksData = [];
     state.widgetsData = [];
@@ -351,6 +356,7 @@ describe("pages/index Index routing + SWR branches", () => {
     }
 
     await renderIndex({ initialSettings: { title: "Homepage", layout: {} }, settings: { layout: {} } });
+    act(() => state.hashConfig.onSuccess(state.hashData));
 
     await waitFor(() => {
       expect(fetchSpy).toHaveBeenCalledWith("/api/revalidate");
@@ -379,6 +385,7 @@ describe("pages/index Index routing + SWR branches", () => {
     localStorage.removeItem("hash");
 
     await renderIndex({ initialSettings: { title: "Homepage", layout: {} }, settings: { layout: {} } });
+    act(() => state.hashConfig.onSuccess(state.hashData));
 
     await waitFor(() => {
       expect(localStorage.getItem("hash")).toBe("first-hash");
