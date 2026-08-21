@@ -22,7 +22,7 @@ describe("widgets/zabbix/component", () => {
     const service = { widget: { type: "zabbix" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["warning", "average", "high", "disaster"]);
+    expect(service.widget.fields).toBeUndefined();
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("zabbix.warning")).toBeInTheDocument();
     expect(screen.getByText("zabbix.average")).toBeInTheDocument();

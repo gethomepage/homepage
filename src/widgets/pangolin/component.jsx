@@ -3,18 +3,15 @@ import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
 const MAX_ALLOWED_FIELDS = 4;
+const DEFAULT_FIELDS = ["sites", "resources", "targets", "traffic"];
 
-export default function Component({ service }) {
+export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS, MAX_ALLOWED_FIELDS);
   const { widget } = service;
-
-  if (!widget.fields) {
-    widget.fields = ["sites", "resources", "targets", "traffic"];
-  } else if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
-    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
-  }
 
   const { data: sitesData, error: sitesError } = useWidgetAPI(widget, "sites");
   const { data: resourcesData, error: resourcesError } = useWidgetAPI(widget, "resources");
