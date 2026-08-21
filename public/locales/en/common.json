@@ -854,6 +854,15 @@
         "reading": "Reading",
         "finished": "Finished"
     },
+    "bookorbit": {
+        "libraries": "Libraries",
+        "books": "Books",
+        "audiobooks": "Audiobooks",
+        "comics": "Comics",
+        "reading": "Reading",
+        "listening": "Listening",
+        "finished": "Finished"
+    },
     "jdownloader": {
         "downloadCount": "Queue",
         "downloadBytesRemaining": "Remaining",
