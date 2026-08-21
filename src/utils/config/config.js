@@ -1,7 +1,7 @@
 import { copyFileSync, existsSync, mkdirSync, readFileSync } from "fs";
 import { join } from "path";
 
-import yaml from "js-yaml";
+import * as yaml from "js-yaml";
 import cache from "memory-cache";
 
 const cacheKey = "homepageEnvironmentVariables";

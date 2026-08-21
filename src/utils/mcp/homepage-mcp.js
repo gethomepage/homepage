@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { createHash, timingSafeEqual } from "node:crypto";
 import { join } from "path";
 
-import yaml from "js-yaml";
+import * as yaml from "js-yaml";
 
 import { CONF_DIR } from "utils/config/config";
 

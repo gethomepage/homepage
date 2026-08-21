@@ -2,7 +2,7 @@ import { promises as fs } from "fs";
 import path from "path";
 
 import Docker from "dockerode";
-import yaml from "js-yaml";
+import * as yaml from "js-yaml";
 
 import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";

@@ -2,7 +2,7 @@ import { readFileSync } from "fs";
 import path from "path";
 
 import { ApiextensionsV1Api, KubeConfig } from "@kubernetes/client-node";
-import yaml from "js-yaml";
+import * as yaml from "js-yaml";
 
 import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
 
