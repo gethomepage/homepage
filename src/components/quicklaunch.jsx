@@ -15,6 +15,16 @@ const MOBILE_BUTTON_POSITIONS = {
   "bottom-right": "bottom-4 right-4",
 };
 
+function parseUrl(searchString) {
+  if (!/.+[.:].+/.test(searchString)) return null; // basic test for probably a url
+
+  try {
+    return new URL(searchString.toLowerCase().startsWith("http") ? searchString : `https://${searchString}`);
+  } catch {
+    return null;
+  }
+}
+
 function getSearchResults({
   hideVisitURL,
   searchDescriptions,
@@ -77,7 +87,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
   const searchField = useRef();
 
   const [currentItemIndex, setCurrentItemIndex] = useState(null);
-  const [url, setUrl] = useState(null);
+  const url = parseUrl(searchString);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
 
   const { data: widgets } = useSWR("/api/widgets");
@@ -134,17 +144,8 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
   function handleSearchChange(event) {
     const rawSearchString = event.target.value;
     setCurrentItemIndex(null);
-    try {
-      if (!/.+[.:].+/g.test(rawSearchString)) throw new Error(); // basic test for probably a url
-      let urlString = rawSearchString;
-      if (urlString.toLowerCase().indexOf("http") !== 0) urlString = `https://${rawSearchString}`;
-      setUrl(new URL(urlString)); // basic validation
-      setSearchString(rawSearchString);
-      return;
-    } catch (e) {
-      setUrl(null);
-    }
-    setSearchString(rawSearchString.toLowerCase());
+    // urls keep their casing, everything else is lowercased for matching
+    setSearchString(parseUrl(rawSearchString) ? rawSearchString : rawSearchString.toLowerCase());
   }
 
   function handleSearchKeyDown(event) {

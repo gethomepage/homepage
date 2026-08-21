@@ -46,13 +46,25 @@ function Wrapper({ servicesAndBookmarks = [], initialOpen = true } = {}) {
   const [isOpen, setSearching] = useState(initialOpen);
 
   return (
-    <QuickLaunch
-      servicesAndBookmarks={servicesAndBookmarks}
-      searchString={searchString}
-      setSearchString={setSearchString}
-      isOpen={isOpen}
-      setSearching={setSearching}
-    />
+    <>
+      <button
+        type="button"
+        data-testid="seed-key"
+        onClick={() => {
+          setSearchString((current) => `${current}g`);
+          setSearching(true);
+        }}
+      >
+        seed
+      </button>
+      <QuickLaunch
+        servicesAndBookmarks={servicesAndBookmarks}
+        searchString={searchString}
+        setSearchString={setSearchString}
+        isOpen={isOpen}
+        setSearching={setSearching}
+      />
+    </>
   );
 }
 
@@ -149,6 +161,35 @@ describe("components/quicklaunch", () => {
     expect(openSpy).toHaveBeenCalledWith("https://example.com/", "_self", "noreferrer");
 
     openSpy.mockRestore();
+  });
+
+  it("does not carry a previous url result into a search seeded by a keypress", async () => {
+    renderWithProviders(<Wrapper />, {
+      settings: {
+        target: "_self",
+        quicklaunch: {
+          provider: "duckduckgo",
+          showSearchSuggestions: false,
+        },
+      },
+    });
+
+    const input = screen.getByPlaceholderText("Search");
+    await waitFor(() => expect(input).toHaveFocus());
+
+    fireEvent.change(input, { target: { value: "example.com" } });
+    expect(await screen.findByText("quicklaunch.visit URL")).toBeInTheDocument();
+
+    fireEvent.keyDown(input, { key: "Escape" });
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 350));
+    });
+
+    // reopen by "typing" a character, the way pages/index does
+    fireEvent.click(screen.getByTestId("seed-key"));
+
+    expect(input).toHaveValue("g");
+    expect(screen.queryByText("quicklaunch.visit URL")).not.toBeInTheDocument();
   });
 
   it("closes on Escape and clears the search string after the timeout", async () => {
