@@ -1,7 +1,7 @@
 import * as yaml from "js-yaml";
 
 const EMPTY_DOCUMENT_ERROR = "expected a document, but the input is empty";
-const DEFAULT_SCHEMA = yaml.CORE_SCHEMA.withTags(yaml.timestampTag, yaml.mergeTag);
+const DEFAULT_SCHEMA = yaml.CORE_SCHEMA.withTags(yaml.timestampTag, yaml.mergeTag, yaml.legacyMapTag);
 
 export function loadYaml(input, options) {
   try {
