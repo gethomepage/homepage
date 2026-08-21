@@ -472,7 +472,7 @@
         "users": "Usuarios",
         "loginsLast24H": "Inicios de sesión (24h)",
         "failedLoginsLast24H": "Inicios de sesión fallidos (24h)",
-        "authorizationsLast24H": "Auths (24h)"
+        "authorizationsLast24H": "Autenticaciones (24 h)"
     },
     "proxmox": {
         "mem": "MEM",
