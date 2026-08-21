@@ -22,10 +22,12 @@ describe("components/widgets/resources/network", () => {
 
   it("normalizes options.network=true to default interfaceName in the request", () => {
     useSWR.mockReturnValue({ data: undefined, error: undefined });
+    const options = Object.freeze({ network: true });
 
-    render(<Network options={{ network: true }} />);
+    render(<Network options={options} />);
 
     expect(useSWR).toHaveBeenCalledWith(expect.stringContaining("interfaceName=default"), expect.any(Object));
+    expect(options.network).toBe(true);
   });
 
   it("renders rates and usage percentage when data is present", () => {
