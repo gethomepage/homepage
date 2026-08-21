@@ -3,24 +3,18 @@ import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
-export default function Component({ service }) {
+const DEFAULT_FIELDS = ["map", "currentPlayers", "ping"];
+
+export default function Component({ service: configuredService }) {
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
   const { data: serverData, error: serverError } = useWidgetAPI(widget, "status");
   const { t } = useTranslation();
 
   if (serverError) {
     return <Container service={service} error={serverError} />;
-  }
-
-  // Default fields
-  if (widget.fields == null || widget.fields.length === 0) {
-    widget.fields = ["map", "currentPlayers", "ping"];
-  }
-  const MAX_ALLOWED_FIELDS = 4;
-  // Limits max number of displayed fields
-  if (widget.fields != null && widget.fields.length > MAX_ALLOWED_FIELDS) {
-    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
 
   if (!serverData) {

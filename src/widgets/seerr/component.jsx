@@ -2,13 +2,13 @@ import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
 export const seerrDefaultFields = ["pending", "approved", "completed"];
-const MAX_ALLOWED_FIELDS = 4;
 
-export default function Component({ service }) {
+export default function Component({ service: configuredService }) {
+  const service = withWidgetFields(configuredService, seerrDefaultFields);
   const { widget } = service;
-  widget.fields = widget?.fields?.length ? widget.fields.slice(0, MAX_ALLOWED_FIELDS) : seerrDefaultFields;
   const isIssueEnabled = widget.fields.includes("issues");
 
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "request/count");
@@ -30,16 +30,20 @@ export default function Component({ service }) {
     );
   }
 
-  if (
-    statsData.completed === undefined &&
-    (widget.fields.includes("completed") || widget.fields.includes("available"))
-  ) {
-    // Fallback to "available" if "completed" requested but not available
-    widget.fields = widget.fields.map((field) => (field === "completed" ? "available" : field));
+  // Older Seerr versions expose "available" instead of "completed".
+  let renderedService = service;
+  if (statsData.completed === undefined && service.widget.fields.includes("completed")) {
+    renderedService = {
+      ...service,
+      widget: {
+        ...service.widget,
+        fields: service.widget.fields.map((field) => (field === "completed" ? "available" : field)),
+      },
+    };
   }
 
   return (
-    <Container service={service}>
+    <Container service={renderedService}>
       <Block field="seerr.pending" label="seerr.pending" value={statsData.pending} />
       <Block field="seerr.approved" label="seerr.approved" value={statsData.approved} />
       <Block field="seerr.available" label="seerr.available" value={statsData.available} />

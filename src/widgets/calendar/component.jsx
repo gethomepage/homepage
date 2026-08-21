@@ -38,16 +38,16 @@ const colorVariants = {
 export default function Component({ service }) {
   const { widget } = service;
   const { i18n } = useTranslation();
-  const [showDate, setShowDate] = useState(null);
   const [events, setEvents] = useState({});
   const nowDate = DateTime.now().setLocale(i18n.language);
   const currentDate = widget?.timezone ? nowDate.setZone(widget?.timezone).startOf("day") : nowDate;
+  const [showDate, setShowDate] = useState(null);
   const { settings } = useContext(SettingsContext);
 
   useEffect(() => {
-    if (!showDate) {
-      setShowDate(currentDate);
-    }
+    // seeded after mount, not during render: "today" is client-only and would break hydration
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (!showDate) setShowDate(currentDate);
   }, [showDate, currentDate]);
 
   // params for API fetch

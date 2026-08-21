@@ -3,25 +3,20 @@ import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
 const BACKREST_DEFAULT_FIELDS = ["num_success_latest", "num_failure_latest", "num_failure_30", "bytes_added_30"];
-const MAX_ALLOWED_FIELDS = 4;
 
-export default function Component({ service }) {
+export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
 
+  const service = withWidgetFields(configuredService, BACKREST_DEFAULT_FIELDS);
   const { widget } = service;
 
   const { data, error } = useWidgetAPI(widget, "summary");
 
   if (error) {
     return <Container service={service} error={error} />;
-  }
-
-  if (!widget.fields?.length) {
-    widget.fields = BACKREST_DEFAULT_FIELDS;
-  } else if (widget.fields.length > MAX_ALLOWED_FIELDS) {
-    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
 
   if (!data) {

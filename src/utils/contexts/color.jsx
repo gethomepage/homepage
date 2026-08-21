@@ -31,10 +31,6 @@ export function ColorProvider({ initialTheme, children }) {
   };
 
   useEffect(() => {
-    if (initialTheme !== undefined) setColor(initialTheme ?? getInitialColor());
-  }, [initialTheme]);
-
-  useEffect(() => {
     rawSetColor(color);
   }, [color]);
 

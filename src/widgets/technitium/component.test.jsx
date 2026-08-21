@@ -9,7 +9,7 @@ import { expectBlockValue, findServiceBlockByLabel } from "test-utils/widget-ass
 const { useWidgetAPI } = vi.hoisted(() => ({ useWidgetAPI: vi.fn() }));
 vi.mock("utils/proxy/use-widget-api", () => ({ default: useWidgetAPI }));
 
-import Component, { technitiumDefaultFields } from "./component";
+import Component from "./component";
 
 describe("widgets/technitium/component", () => {
   beforeEach(() => {
@@ -22,7 +22,7 @@ describe("widgets/technitium/component", () => {
     const service = { widget: { type: "technitium" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(technitiumDefaultFields);
+    expect(service.widget.fields).toBeUndefined();
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("technitium.totalQueries")).toBeInTheDocument();
     expect(screen.getByText("technitium.totalAuthoritative")).toBeInTheDocument();

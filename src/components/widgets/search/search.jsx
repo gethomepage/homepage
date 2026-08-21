@@ -11,7 +11,7 @@ import {
 } from "@headlessui/react";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next/pages";
-import { Fragment, useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { BiLogoBing } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
 import { SiBaidu, SiBrave, SiDuckduckgo, SiGoogle } from "react-icons/si";
@@ -79,24 +79,32 @@ export function getStoredProvider() {
   return null;
 }
 
+function subscribeToStoredProvider(onStoreChange) {
+  const handleStorage = (event) => {
+    if (event.key === localStorageKey) onStoreChange();
+  };
+
+  window.addEventListener("storage", handleStorage);
+  return () => window.removeEventListener("storage", handleStorage);
+}
+
 export default function Search({ options }) {
   const { t } = useTranslation();
 
   // options is a fresh object each render, so memo on provider itself
   const availableProviderIds = useMemo(() => getAvailableProviderIds(options.provider) ?? [], [options.provider]);
+  const storedProvider = useSyncExternalStore(subscribeToStoredProvider, getStoredProvider, () => null);
+  const storedProviderId = Object.keys(searchProviders).find(
+    (providerId) => searchProviders[providerId] === storedProvider,
+  );
+  const initialProvider = availableProviderIds.includes(storedProviderId)
+    ? storedProvider
+    : searchProviders[availableProviderIds[0] ?? "google"];
 
   const [query, setQuery] = useState("");
-  const [selectedProvider, setSelectedProvider] = useState(searchProviders[availableProviderIds[0] ?? "google"]);
+  const [providerOverride, setProviderOverride] = useState(null);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
-
-  useEffect(() => {
-    const storedProvider = getStoredProvider();
-    let storedProviderKey = null;
-    storedProviderKey = Object.keys(searchProviders).find((pkey) => searchProviders[pkey] === storedProvider);
-    if (storedProvider && availableProviderIds.includes(storedProviderKey)) {
-      setSelectedProvider(storedProvider);
-    }
-  }, [availableProviderIds]);
+  const selectedProvider = providerOverride ?? initialProvider;
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -130,8 +138,6 @@ export default function Search({ options }) {
     };
   }, [selectedProvider, options, query, searchSuggestions]);
 
-  let currentSuggestion;
-
   function doSearch(value) {
     const q = encodeURIComponent(value);
     const { url } = selectedProvider;
@@ -142,13 +148,11 @@ export default function Search({ options }) {
     }
 
     setQuery("");
-    currentSuggestion = null;
   }
 
   const handleSearchKeyDown = (event) => {
-    const useSuggestion = searchSuggestions.length && currentSuggestion;
-    if (event.key === "Enter") {
-      doSearch(useSuggestion ? currentSuggestion : event.target.value);
+    if (event.key === "Enter" && !searchSuggestions[1]?.length) {
+      doSearch(event.target.value);
     }
   };
 
@@ -157,7 +161,7 @@ export default function Search({ options }) {
   }
 
   const onChangeProvider = (provider) => {
-    setSelectedProvider(provider);
+    setProviderOverride(provider);
     localStorage.setItem(localStorageKey, provider.name);
   };
 
@@ -166,7 +170,7 @@ export default function Search({ options }) {
       <Raw>
         <div className="flex-col relative h-8 my-4 min-w-fit z-20">
           <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none w-full text-theme-800 dark:text-white" />
-          <Combobox value={query}>
+          <Combobox value={query} onChange={doSearch}>
             <ComboboxInput
               type="text"
               className="
@@ -250,30 +254,20 @@ export default function Search({ options }) {
                 <div className="p-1 bg-white/50 dark:bg-white/10 text-theme-900/90 dark:text-white/90 text-xs">
                   <ComboboxOption key={query} value={query} />
                   {searchSuggestions[1].map((suggestion) => (
-                    <ComboboxOption
-                      key={suggestion}
-                      value={suggestion}
-                      onMouseDown={() => {
-                        doSearch(suggestion);
-                      }}
-                      className="flex w-full"
-                    >
-                      {({ active }) => {
-                        if (active) currentSuggestion = suggestion;
-                        return (
-                          <div
-                            className={classNames(
-                              "px-2 py-1 rounded-md w-full flex-nowrap",
-                              active ? "bg-theme-300/20 dark:bg-white/10" : "",
-                            )}
-                          >
-                            <span className="whitespace-pre">{suggestion.indexOf(query) === 0 ? query : ""}</span>
-                            <span className="mr-4 whitespace-pre opacity-50">
-                              {suggestion.indexOf(query) === 0 ? suggestion.substring(query.length) : suggestion}
-                            </span>
-                          </div>
-                        );
-                      }}
+                    <ComboboxOption key={suggestion} value={suggestion} className="flex w-full">
+                      {({ active }) => (
+                        <div
+                          className={classNames(
+                            "px-2 py-1 rounded-md w-full flex-nowrap",
+                            active ? "bg-theme-300/20 dark:bg-white/10" : "",
+                          )}
+                        >
+                          <span className="whitespace-pre">{suggestion.indexOf(query) === 0 ? query : ""}</span>
+                          <span className="mr-4 whitespace-pre opacity-50">
+                            {suggestion.indexOf(query) === 0 ? suggestion.substring(query.length) : suggestion}
+                          </span>
+                        </div>
+                      )}
                     </ComboboxOption>
                   ))}
                 </div>

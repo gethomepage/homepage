@@ -22,7 +22,7 @@ describe("widgets/portainer/component", () => {
     const service = { widget: { type: "portainer", kubernetes: false } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["running", "stopped", "total"]);
+    expect(service.widget.fields).toBeUndefined();
     expect(container.querySelectorAll(".service-block")).toHaveLength(3);
     expect(screen.getByText("portainer.running")).toBeInTheDocument();
     expect(screen.getByText("portainer.stopped")).toBeInTheDocument();
@@ -50,7 +50,7 @@ describe("widgets/portainer/component", () => {
     const service = { widget: { type: "portainer", kubernetes: true } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["applications", "services", "namespaces"]);
+    expect(service.widget.fields).toBeUndefined();
     expect(container.querySelectorAll(".service-block")).toHaveLength(3);
     expect(screen.getByText("portainer.applications")).toBeInTheDocument();
     expect(screen.getByText("portainer.services")).toBeInTheDocument();

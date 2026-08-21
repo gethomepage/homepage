@@ -15,16 +15,20 @@ vi.mock("utils/proxy/use-widget-api", () => ({
 
 import Component from "./component";
 
+const empty = { data: undefined, error: undefined };
+
+// keyed by endpoint rather than call order, since the component renders more than once
+function mockEndpoints(byEndpoint = {}) {
+  useWidgetAPI.mockImplementation((widget, endpoint) => byEndpoint[endpoint] ?? empty);
+}
+
 describe("widgets/proxmoxbackupserver/component", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
   it("renders placeholders while loading", () => {
-    useWidgetAPI
-      .mockReturnValueOnce({ data: undefined, error: undefined }) // datastore
-      .mockReturnValueOnce({ data: undefined, error: undefined }) // tasks
-      .mockReturnValueOnce({ data: undefined, error: undefined }); // host
+    mockEndpoints();
 
     const { container } = renderWithProviders(<Component service={{ widget: { type: "proxmoxbackupserver" } }} />, {
       settings: { hideErrors: false },
@@ -38,10 +42,7 @@ describe("widgets/proxmoxbackupserver/component", () => {
   });
 
   it("renders error UI when any endpoint errors", () => {
-    useWidgetAPI
-      .mockReturnValueOnce({ data: undefined, error: undefined })
-      .mockReturnValueOnce({ data: undefined, error: { message: "nope" } })
-      .mockReturnValueOnce({ data: undefined, error: undefined });
+    mockEndpoints({ "nodes/localhost/tasks": { data: undefined, error: { message: "nope" } } });
 
     renderWithProviders(<Component service={{ widget: { type: "proxmoxbackupserver" } }} />, {
       settings: { hideErrors: false },
@@ -51,8 +52,8 @@ describe("widgets/proxmoxbackupserver/component", () => {
   });
 
   it("renders computed values and caps failed tasks at 99+", () => {
-    useWidgetAPI
-      .mockReturnValueOnce({
+    mockEndpoints({
+      "status/datastore-usage": {
         data: {
           data: [
             { store: "ds1", used: 50, total: 100 },
@@ -60,9 +61,10 @@ describe("widgets/proxmoxbackupserver/component", () => {
           ],
         },
         error: undefined,
-      })
-      .mockReturnValueOnce({ data: { total: 1000 }, error: undefined })
-      .mockReturnValueOnce({ data: { data: { cpu: 0.2, memory: { used: 1, total: 4 } } }, error: undefined });
+      },
+      "nodes/localhost/tasks": { data: { total: 1000 }, error: undefined },
+      "nodes/localhost/status": { data: { data: { cpu: 0.2, memory: { used: 1, total: 4 } } }, error: undefined },
+    });
 
     renderWithProviders(<Component service={{ widget: { type: "proxmoxbackupserver", datastore: "ds2" } }} />, {
       settings: { hideErrors: false },
@@ -78,19 +80,21 @@ describe("widgets/proxmoxbackupserver/component", () => {
   it("requests failed tasks with a 24 hour since filter in epoch seconds", () => {
     vi.spyOn(Date, "now").mockReturnValue(1_776_519_498_000);
 
-    useWidgetAPI
-      .mockReturnValueOnce({ data: undefined, error: undefined })
-      .mockReturnValueOnce({ data: undefined, error: undefined })
-      .mockReturnValueOnce({ data: undefined, error: undefined });
+    mockEndpoints();
 
     renderWithProviders(<Component service={{ widget: { type: "proxmoxbackupserver" } }} />, {
       settings: { hideErrors: false },
     });
 
-    expect(useWidgetAPI).toHaveBeenNthCalledWith(2, { type: "proxmoxbackupserver" }, "nodes/localhost/tasks", {
-      errors: true,
-      limit: 100,
-      since: 1_776_433_098,
-    });
+    expect(useWidgetAPI).toHaveBeenCalledWith(
+      { type: "proxmoxbackupserver" },
+      "nodes/localhost/tasks",
+      {
+        errors: true,
+        limit: 100,
+        since: 1_776_433_098,
+      },
+      { keepPreviousData: true },
+    );
   });
 });

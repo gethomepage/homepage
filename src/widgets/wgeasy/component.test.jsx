@@ -28,7 +28,7 @@ describe("widgets/wgeasy/component", () => {
     const service = { widget: { type: "wgeasy" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["connected", "enabled", "total"]);
+    expect(service.widget.fields).toBeUndefined();
     // Container filters by widget.fields; "disabled" is not included by default.
     expect(container.querySelectorAll(".service-block")).toHaveLength(3);
     expect(screen.getByText("wgeasy.connected")).toBeInTheDocument();

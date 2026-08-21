@@ -1,9 +1,11 @@
 import { useTranslation } from "next-i18next/pages";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useCallback } from "react";
 
 import Block from "../components/block";
 import Container from "../components/container";
+
+import useDataPoints from "./use-data-points";
 
 import { parseVersionForUrl } from "utils/proxy/api-helpers";
 import useWidgetAPI from "utils/proxy/use-widget-api";
@@ -20,38 +22,36 @@ export default function Component({ service }) {
   const apiVersion = parseVersionForUrl(version, 3);
   const [, diskName] = widget.metric.split(":");
 
-  const [dataPoints, setDataPoints] = useState(
-    new Array(pointsLimit).fill({ read_bytes: 0, write_bytes: 0, time_since_update: 0 }, 0, pointsLimit),
-  );
-  const [ratePoints, setRatePoints] = useState(new Array(pointsLimit).fill({ a: 0, b: 0 }, 0, pointsLimit));
-
-  const { data, error } = useWidgetAPI(service.widget, `${apiVersion}/diskio`, {
-    refreshInterval: Math.max(defaultInterval, refreshInterval),
+  const [dataPoints, addDataPoint] = useDataPoints(pointsLimit, {
+    read_bytes: 0,
+    write_bytes: 0,
+    time_since_update: 0,
   });
+
+  const handleData = useCallback(
+    (newData) => {
+      if (!newData?.error) {
+        const diskData = newData.find((item) => item.disk_name === diskName);
+        if (diskData) addDataPoint(diskData);
+      }
+    },
+    [addDataPoint, diskName],
+  );
+
+  const { data, error } = useWidgetAPI(
+    service.widget,
+    `${apiVersion}/diskio`,
+    {
+      refreshInterval: Math.max(defaultInterval, refreshInterval),
+    },
+    { onSuccess: handleData },
+  );
 
   const calculateRates = (d) =>
     d.map((item) => ({
       a: item.read_bytes / item.time_since_update,
       b: item.write_bytes / item.time_since_update,
     }));
-
-  useEffect(() => {
-    if (data && !data.error) {
-      const diskData = data.find((item) => item.disk_name === diskName);
-
-      setDataPoints((prevDataPoints) => {
-        const newDataPoints = [...prevDataPoints, diskData];
-        if (newDataPoints.length > pointsLimit) {
-          newDataPoints.shift();
-        }
-        return newDataPoints;
-      });
-    }
-  }, [data, diskName, pointsLimit]);
-
-  useEffect(() => {
-    setRatePoints(calculateRates(dataPoints));
-  }, [dataPoints]);
 
   if (error || (data && data.error)) {
     const finalError = error || data.error;
@@ -83,7 +83,7 @@ export default function Component({ service }) {
     <Container chart={chart}>
       {chart && (
         <ChartDual
-          dataPoints={ratePoints}
+          dataPoints={diskRates}
           label={[t("glances.read"), t("glances.write")]}
           max={diskData.critical}
           formatter={(value) =>

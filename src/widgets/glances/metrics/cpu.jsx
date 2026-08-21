@@ -1,9 +1,11 @@
 import { useTranslation } from "next-i18next/pages";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useCallback } from "react";
 
 import Block from "../components/block";
 import Container from "../components/container";
+
+import useDataPoints from "./use-data-points";
 
 import { parseVersionForUrl } from "utils/proxy/api-helpers";
 import useWidgetAPI from "utils/proxy/use-widget-api";
@@ -19,25 +21,25 @@ export default function Component({ service }) {
   const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit, version = 3 } = widget;
   const apiVersion = parseVersionForUrl(version, 3);
 
-  const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
+  const [dataPoints, addDataPoint] = useDataPoints(pointsLimit, { value: 0 });
 
-  const { data, error } = useWidgetAPI(service.widget, `${apiVersion}/cpu`, {
-    refreshInterval: Math.max(defaultInterval, refreshInterval),
-  });
+  const handleData = useCallback(
+    (newData) => {
+      if (newData) addDataPoint({ value: newData.total });
+    },
+    [addDataPoint],
+  );
+
+  const { data, error } = useWidgetAPI(
+    service.widget,
+    `${apiVersion}/cpu`,
+    {
+      refreshInterval: Math.max(defaultInterval, refreshInterval),
+    },
+    { onSuccess: handleData },
+  );
 
   const { data: quicklookData, error: quicklookError } = useWidgetAPI(service.widget, `${apiVersion}/quicklook`);
-
-  useEffect(() => {
-    if (data) {
-      setDataPoints((prevDataPoints) => {
-        const newDataPoints = [...prevDataPoints, { value: data.total }];
-        if (newDataPoints.length > pointsLimit) {
-          newDataPoints.shift();
-        }
-        return newDataPoints;
-      });
-    }
-  }, [data, pointsLimit]);
 
   if (error) {
     return <Container error={error} widget={widget} />;

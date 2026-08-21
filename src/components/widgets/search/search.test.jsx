@@ -9,6 +9,7 @@ import { renderWithProviders } from "test-utils/render-with-providers";
 vi.mock("@headlessui/react", async () => {
   const React = await import("react");
   const { Fragment, createContext, useContext } = React;
+  const ComboboxContext = createContext(null);
   const ListboxContext = createContext(null);
 
   function passthrough({ as: As = "div", children, ...props }) {
@@ -18,9 +19,21 @@ vi.mock("@headlessui/react", async () => {
   }
 
   return {
-    Combobox: passthrough,
+    Combobox: ({ onChange, children }) => (
+      <ComboboxContext.Provider value={{ onChange }}>
+        <div>{children}</div>
+      </ComboboxContext.Provider>
+    ),
     ComboboxInput: (props) => <input {...props} />,
-    ComboboxOption: passthrough,
+    ComboboxOption: ({ as: As = "div", value, children, ...props }) => {
+      const ctx = useContext(ComboboxContext);
+      const content = typeof children === "function" ? children({ active: false }) : children;
+      return (
+        <As value={value} onMouseDown={() => ctx?.onChange?.(value)} {...props}>
+          {content}
+        </As>
+      );
+    },
     ComboboxOptions: passthrough,
     Listbox: ({ value, onChange, children, ...props }) => (
       <ListboxContext.Provider value={{ value, onChange }}>

@@ -3,26 +3,18 @@ import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
 export const fritzboxDefaultFields = ["connectionStatus", "uptime", "maxDown", "maxUp"];
 
-export default function Component({ service }) {
+export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
+  const service = withWidgetFields(configuredService, fritzboxDefaultFields);
   const { widget } = service;
   const { data: fritzboxData, error: fritzboxError } = useWidgetAPI(widget, "status");
 
   if (fritzboxError) {
     return <Container service={service} error={fritzboxError} />;
-  }
-
-  // Default fields
-  if (!widget.fields?.length > 0) {
-    widget.fields = fritzboxDefaultFields;
-  }
-  const MAX_ALLOWED_FIELDS = 4;
-  // Limits max number of displayed fields
-  if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
-    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
 
   if (!fritzboxData) {

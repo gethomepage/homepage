@@ -12,7 +12,7 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Script from "next/script";
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { BiError } from "react-icons/bi";
 import useSWR, { SWRConfig } from "swr";
 import { ColorContext } from "utils/contexts/color";
@@ -102,36 +102,35 @@ function Index({ initialSettings, fallback }) {
   const [stale, setStale] = useState(false);
   const { data: errorsData } = useSWR("/api/validate");
   const { error: validateError } = errorsData || {};
-  const { data: hashData, mutate: mutateHash } = useSWR("/api/hash");
+
+  const handleHashData = useCallback((hashData) => {
+    if (typeof window === "undefined" || !hashData?.hash) return;
+
+    const previousHash = localStorage.getItem("hash");
+
+    if (!previousHash) {
+      localStorage.setItem("hash", hashData.hash);
+    }
+
+    if (previousHash && previousHash !== hashData.hash) {
+      setStale(true);
+      localStorage.setItem("hash", hashData.hash);
+
+      fetch("/api/revalidate").then((res) => {
+        if (res.ok) {
+          window.location.reload();
+        }
+      });
+    }
+  }, []);
+
+  const { mutate: mutateHash } = useSWR("/api/hash", { onSuccess: handleHashData });
 
   useEffect(() => {
     if (windowFocused) {
       mutateHash();
     }
   }, [windowFocused, mutateHash]);
-
-  useEffect(() => {
-    if (hashData) {
-      if (typeof window !== "undefined") {
-        const previousHash = localStorage.getItem("hash");
-
-        if (!previousHash) {
-          localStorage.setItem("hash", hashData.hash);
-        }
-
-        if (previousHash && previousHash !== hashData.hash) {
-          setStale(true);
-          localStorage.setItem("hash", hashData.hash);
-
-          fetch("/api/revalidate").then((res) => {
-            if (res.ok) {
-              window.location.reload();
-            }
-          });
-        }
-      }
-    }
-  }, [hashData]);
 
   if (validateError) {
     return (
@@ -264,6 +263,13 @@ function Home({ initialSettings }) {
           e.key.match(/([à-ü]|[À-Ü]|!)/g) ||
           (e.key === "v" && (e.ctrlKey || e.metaKey))
         ) {
+          if (e.key.length === 1 && !(e.key === "v" && (e.ctrlKey || e.metaKey))) {
+            e.preventDefault();
+            // whitespace opens the search but shouldn't be in it
+            if (e.key.trim()) {
+              setSearchString((currentSearchString) => currentSearchString + e.key);
+            }
+          }
           setSearching(true);
         } else if (e.key === "Escape") {
           setSearchString("");

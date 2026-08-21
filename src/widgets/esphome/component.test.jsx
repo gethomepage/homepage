@@ -22,7 +22,7 @@ describe("widgets/esphome/component", () => {
     const service = { widget: { type: "esphome" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["online", "offline", "offline_alt", "total"]);
+    expect(service.widget.fields).toBeUndefined();
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("esphome.online")).toBeInTheDocument();
     expect(screen.getByText("esphome.offline")).toBeInTheDocument();

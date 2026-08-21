@@ -2,20 +2,28 @@ import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
+import useCurrentTime from "utils/hooks/use-current-time";
 import useWidgetAPI from "utils/proxy/use-widget-api";
+
+const HOUR = 60 * 60 * 1000;
 
 export default function Component({ service }) {
   const { t } = useTranslation();
+  // hourly is plenty of precision for a 24 hour window, and `since` is part of the request key
+  const currentTime = useCurrentTime(HOUR);
 
   const { widget } = service;
   const taskQueryParams = {
     errors: true,
     limit: 100,
-    since: Math.floor(Date.now() / 1000) - 24 * 60 * 60,
+    // omitted until mounted, so the request key doesn't churn during hydration
+    ...(currentTime !== null && { since: Math.floor(currentTime / 1000) - 24 * 60 * 60 }),
   };
 
   const { data: datastoreData, error: datastoreError } = useWidgetAPI(widget, "status/datastore-usage");
-  const { data: tasksData, error: tasksError } = useWidgetAPI(widget, "nodes/localhost/tasks", taskQueryParams);
+  const { data: tasksData, error: tasksError } = useWidgetAPI(widget, "nodes/localhost/tasks", taskQueryParams, {
+    keepPreviousData: true, // `since` rotates the key, don't blank the whole widget while it refetches
+  });
   const { data: hostData, error: hostError } = useWidgetAPI(widget, "nodes/localhost/status");
 
   if (datastoreError || tasksError || hostError) {

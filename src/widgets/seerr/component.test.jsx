@@ -8,7 +8,7 @@ import { renderWithProviders } from "test-utils/render-with-providers";
 const { useWidgetAPI } = vi.hoisted(() => ({ useWidgetAPI: vi.fn() }));
 vi.mock("utils/proxy/use-widget-api", () => ({ default: useWidgetAPI }));
 
-import Component, { seerrDefaultFields } from "./component";
+import Component from "./component";
 
 describe("widgets/seerr/component", () => {
   beforeEach(() => {
@@ -23,7 +23,7 @@ describe("widgets/seerr/component", () => {
     const service = { widget: { type: "seerr", url: "http://x" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(seerrDefaultFields);
+    expect(service.widget.fields).toBeUndefined();
     expect(useWidgetAPI.mock.calls[1][1]).toBe("");
     expect(container.querySelectorAll(".service-block")).toHaveLength(3);
     expect(screen.getByText("seerr.pending")).toBeInTheDocument();
@@ -42,7 +42,7 @@ describe("widgets/seerr/component", () => {
     const service = { widget: { type: "jellyseerr", url: "http://x" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(seerrDefaultFields);
+    expect(service.widget.fields).toBeUndefined();
     expect(useWidgetAPI.mock.calls[1][1]).toBe("");
     expect(container.querySelectorAll(".service-block")).toHaveLength(3);
     expect(screen.getByText("seerr.pending")).toBeInTheDocument();
@@ -58,7 +58,7 @@ describe("widgets/seerr/component", () => {
     const service = { widget: { type: "overseerr", url: "http://x" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(seerrDefaultFields);
+    expect(service.widget.fields).toBeUndefined();
     expect(useWidgetAPI.mock.calls[1][1]).toBe("");
     expect(container.querySelectorAll(".service-block")).toHaveLength(3);
     expect(screen.getByText("seerr.pending")).toBeInTheDocument();
@@ -110,7 +110,7 @@ describe("widgets/seerr/component", () => {
 
     renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["pending", "approved", "available"]);
+    expect(service.widget.fields).toEqual(["pending", "approved", "completed"]);
     expect(screen.getByText("3")).toBeInTheDocument();
     expect(screen.queryByText("seerr.completed")).toBeNull();
   });

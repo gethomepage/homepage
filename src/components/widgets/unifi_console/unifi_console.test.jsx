@@ -40,32 +40,41 @@ describe("components/widgets/unifi_console", () => {
 
   it("renders a wait state when no site is available yet", () => {
     useWidgetAPI.mockReturnValue({ data: undefined, error: undefined });
+    const options = Object.freeze({ index: 0 });
 
-    renderWithProviders(<UnifiConsole options={{ index: 0 }} />, { settings: { target: "_self" } });
+    renderWithProviders(<UnifiConsole options={options} />, { settings: { target: "_self" } });
 
     expect(screen.getByText("unifi.wait")).toBeInTheDocument();
+    expect(useWidgetAPI).toHaveBeenCalledWith(
+      { index: 0, service_group: "unifi_console", service_name: "unifi_console" },
+      "stat/sites",
+      { index: 0 },
+    );
+    expect(options).toEqual({ index: 0 });
   });
 
   it("renders site name and uptime when data is available", () => {
+    const data = {
+      data: [
+        {
+          name: "default",
+          desc: "Home",
+          health: [
+            {
+              subsystem: "wan",
+              status: "ok",
+              gw_name: "Router",
+              "gw_system-stats": { uptime: 172800 },
+            },
+            { subsystem: "lan", status: "unknown" },
+            { subsystem: "wlan", status: "unknown" },
+          ],
+        },
+      ],
+    };
+    const originalData = structuredClone(data);
     useWidgetAPI.mockReturnValue({
-      data: {
-        data: [
-          {
-            name: "default",
-            desc: "Home",
-            health: [
-              {
-                subsystem: "wan",
-                status: "ok",
-                gw_name: "Router",
-                "gw_system-stats": { uptime: 172800 },
-              },
-              { subsystem: "lan", status: "unknown" },
-              { subsystem: "wlan", status: "unknown" },
-            ],
-          },
-        ],
-      },
+      data,
       error: undefined,
     });
 
@@ -75,6 +84,7 @@ describe("components/widgets/unifi_console", () => {
     // common.number is mocked to return the numeric value as a string.
     expect(screen.getByText("2")).toBeInTheDocument();
     expect(screen.getByText("unifi.days")).toBeInTheDocument();
+    expect(data).toEqual(originalData);
   });
 
   it("selects a site by description when options.site is set", () => {

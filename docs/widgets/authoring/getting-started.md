@@ -85,6 +85,7 @@ To ensure cohesiveness of various widgets, the following should be used as a gui
 - Note that we reserve the right to decline widgets for projects that are very young (eg < ~1y) or those with a small reach (eg low GitHub stars). Again, this is in an effort to keep overall widget maintenance under control.
 - Widgets should be only one row of blocks
 - Widgets should be no more than 4 blocks wide and generally conform to the styling / design choices of other widgets
+- Use `withWidgetFields(service, defaultFields)` from `utils/widget-fields` to apply default fields and cap configured fields without mutating the service. The helper limits widgets to 4 fields.
 - Minimize the number of API calls
 - Avoid the use of custom proxy unless absolutely necessary
 - Widgets should be 'read-only', as in they should not make write changes using the relevant tool's API. Homepage widgets are designed to surface information, not to be a (usually worse) replacement for the tool itself.

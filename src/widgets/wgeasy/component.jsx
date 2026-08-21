@@ -2,17 +2,17 @@ import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
-export default function Component({ service }) {
+const DEFAULT_FIELDS = ["connected", "enabled", "total"];
+
+export default function Component({ service: configuredService }) {
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
 
   const endpoint = widget.version === 2 ? "clientv2" : "client";
 
   const { data: infoData, error: infoError } = useWidgetAPI(widget, endpoint);
-
-  if (!widget.fields) {
-    widget.fields = ["connected", "enabled", "total"];
-  }
 
   if (infoError || infoData?.statusCode > 400) {
     return <Container service={service} error={infoError ?? { message: infoData.statusMessage, data: infoData }} />;

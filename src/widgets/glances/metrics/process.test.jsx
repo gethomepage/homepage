@@ -19,4 +19,20 @@ describe("widgets/glances/metrics/process", () => {
     });
     expect(screen.getByText("-")).toBeInTheDocument();
   });
+
+  it("limits displayed processes without modifying the response", () => {
+    const data = [
+      { pid: 1, status: "R", name: "first", cpu_percent: 1, memory_info: [100] },
+      { pid: 2, status: "S", name: "second", cpu_percent: 2, memory_info: [200] },
+    ];
+    useWidgetAPI.mockReturnValue({ data, error: undefined });
+
+    renderWithProviders(<Component service={{ widget: { chart: false, version: 3 } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(screen.getByText("first")).toBeInTheDocument();
+    expect(screen.queryByText("second")).not.toBeInTheDocument();
+    expect(data).toHaveLength(2);
+  });
 });

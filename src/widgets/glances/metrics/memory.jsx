@@ -1,9 +1,11 @@
 import { useTranslation } from "next-i18next/pages";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useCallback } from "react";
 
 import Block from "../components/block";
 import Container from "../components/container";
+
+import useDataPoints from "./use-data-points";
 
 import { parseVersionForUrl } from "utils/proxy/api-helpers";
 import useWidgetAPI from "utils/proxy/use-widget-api";
@@ -20,23 +22,23 @@ export default function Component({ service }) {
   const { refreshInterval = defaultInterval(chart), pointsLimit = defaultPointsLimit, version = 3 } = widget;
   const apiVersion = parseVersionForUrl(version, 3);
 
-  const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
+  const [dataPoints, addDataPoint] = useDataPoints(pointsLimit, { a: 0, b: 0 });
 
-  const { data, error } = useWidgetAPI(service.widget, `${apiVersion}/mem`, {
-    refreshInterval: Math.max(defaultInterval(chart), refreshInterval),
-  });
+  const handleData = useCallback(
+    (newData) => {
+      if (newData) addDataPoint({ a: newData.used, b: newData.available });
+    },
+    [addDataPoint],
+  );
 
-  useEffect(() => {
-    if (data) {
-      setDataPoints((prevDataPoints) => {
-        const newDataPoints = [...prevDataPoints, { a: data.used, b: data.available }];
-        if (newDataPoints.length > pointsLimit) {
-          newDataPoints.shift();
-        }
-        return newDataPoints;
-      });
-    }
-  }, [data, pointsLimit]);
+  const { data, error } = useWidgetAPI(
+    service.widget,
+    `${apiVersion}/mem`,
+    {
+      refreshInterval: Math.max(defaultInterval(chart), refreshInterval),
+    },
+    { onSuccess: handleData },
+  );
 
   if (error) {
     return <Container error={error} widget={widget} />;

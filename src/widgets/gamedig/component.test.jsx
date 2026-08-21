@@ -22,7 +22,7 @@ describe("widgets/gamedig/component", () => {
     const service = { widget: { type: "gamedig", url: "http://x" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["map", "currentPlayers", "ping"]);
+    expect(service.widget.fields).toBeUndefined();
     expect(container.querySelectorAll(".service-block")).toHaveLength(3);
     expect(screen.getByText("gamedig.map")).toBeInTheDocument();
     expect(screen.getByText("gamedig.currentPlayers")).toBeInTheDocument();
@@ -54,7 +54,7 @@ describe("widgets/gamedig/component", () => {
 
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["status", "name", "map", "currentPlayers"]);
+    expect(service.widget.fields).toEqual(["status", "name", "map", "currentPlayers", "ping"]);
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
 
     expectBlockValue(container, "gamedig.status", "gamedig.online");

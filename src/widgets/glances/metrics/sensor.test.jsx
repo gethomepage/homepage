@@ -22,4 +22,17 @@ describe("widgets/glances/metrics/sensor", () => {
     );
     expect(screen.getByText("-")).toBeInTheDocument();
   });
+
+  it("renders a placeholder for a missing sensor without modifying the response", () => {
+    const data = [{ label: "Other", value: 42 }];
+    useWidgetAPI.mockReturnValue({ data, error: undefined });
+
+    renderWithProviders(
+      <Component service={{ widget: { chart: false, version: 3, pointsLimit: 3, metric: "sensor:CPU" } }} />,
+      { settings: { hideErrors: false } },
+    );
+
+    expect(screen.getByText("-")).toBeInTheDocument();
+    expect(data).toEqual([{ label: "Other", value: 42 }]);
+  });
 });

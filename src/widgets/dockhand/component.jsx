@@ -3,18 +3,14 @@ import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
-const MAX_FIELDS = 4;
+const DEFAULT_FIELDS = ["running", "total", "cpu", "memory"];
 
-export default function Component({ service }) {
+export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
-
-  if (!widget.fields) {
-    widget.fields = ["running", "total", "cpu", "memory"];
-  } else if (widget.fields.length > MAX_FIELDS) {
-    widget.fields = widget.fields.slice(0, MAX_FIELDS);
-  }
 
   const { data: stats, error: statsError } = useWidgetAPI(widget, "dashboard/stats");
 

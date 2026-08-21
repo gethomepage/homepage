@@ -3,12 +3,13 @@ import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
 const slskdDefaultFields = ["slskStatus", "downloads", "uploads", "sharedFiles"];
-const MAX_ALLOWED_FIELDS = 4;
 
-export default function Component({ service }) {
+export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
+  const service = withWidgetFields(configuredService, slskdDefaultFields);
   const { widget } = service;
 
   const { data: appData, error: appError } = useWidgetAPI(widget, "application");
@@ -17,12 +18,6 @@ export default function Component({ service }) {
 
   if (appError || downError || upError) {
     return <Container service={service} error={appError ?? downError ?? upError} />;
-  }
-
-  if (!widget.fields || widget.fields.length === 0) {
-    widget.fields = slskdDefaultFields;
-  } else if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
-    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
 
   if (!appData || !downData || !upData) {

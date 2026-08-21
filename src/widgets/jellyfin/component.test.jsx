@@ -109,7 +109,7 @@ describe("widgets/jellyfin/component", () => {
 
     renderWithProviders(<Component service={service} />);
 
-    expect(service.widget.fields).toEqual(["movies", "series", "episodes", "albums"]);
+    expect(service.widget.fields).toEqual(["movies", "series", "episodes", "albums", "songs"]);
     expect(screen.getByText("jellyfin.albums")).toBeInTheDocument();
     expect(screen.getByText("5")).toBeInTheDocument();
     expect(screen.queryByText("jellyfin.songs")).not.toBeInTheDocument();
