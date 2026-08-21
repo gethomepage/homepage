@@ -524,7 +524,7 @@ describe("pages/index Home behavior", () => {
     state.widgetsData = [];
 
     const { setTheme, setColor, setSettings } = await renderIndex({
-      initialSettings: { title: "Homepage", layout: {} },
+      initialSettings: { title: "Homepage", layout: {}, favicon: "/x.ico" },
       settings: {
         title: "Homepage",
         layout: {},
@@ -533,7 +533,6 @@ describe("pages/index Home behavior", () => {
         color: "emerald",
         disableIndexing: true,
         base: "/base/",
-        favicon: "/x.ico",
       },
       theme: "dark",
       color: "slate",
@@ -549,6 +548,20 @@ describe("pages/index Home behavior", () => {
     expect(document.querySelector('meta[name="robots"][content="noindex, nofollow"]')).toBeTruthy();
     expect(document.querySelector("base")?.getAttribute("href")).toBe("/base/");
     expect(document.querySelector('link[rel="icon"]')?.getAttribute("href")).toBe("/x.ico");
+  });
+
+  // Safari reads the head without running JS, so the favicon has to be there before the
+  // settings context is populated, and mask-icon must not be
+  it("renders a custom favicon before the settings context is populated", async () => {
+    await renderIndex({
+      initialSettings: { title: "Homepage", layout: {}, favicon: "/x.ico" },
+      settings: {},
+    });
+
+    expect(document.querySelector('link[rel="icon"]')?.getAttribute("href")).toBe("/x.ico");
+    expect(document.querySelector('link[rel="apple-touch-icon"]')?.getAttribute("href")).toBe("/x.ico");
+    expect(document.querySelector('link[rel="mask-icon"]')).toBeNull();
+    expect(document.querySelector('link[rel="shortcut icon"]')).toBeNull();
   });
 
   it("marks information widgets as right-aligned for known widget types", async () => {
