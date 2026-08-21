@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { useTranslation } from "next-i18next/pages";
-import { useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import useSWR from "swr";
 import { SettingsContext } from "utils/contexts/settings";
@@ -14,6 +14,59 @@ const MOBILE_BUTTON_POSITIONS = {
   "bottom-left": "bottom-4 left-4",
   "bottom-right": "bottom-4 right-4",
 };
+
+function getSearchResults({
+  hideVisitURL,
+  searchDescriptions,
+  searchProvider,
+  searchString,
+  searchSuggestions,
+  servicesAndBookmarks,
+  t,
+  url,
+}) {
+  if (searchString.trim().length === 0) return [];
+
+  const results = servicesAndBookmarks.flatMap((result) => {
+    const nameMatch = result.name.toLowerCase().includes(searchString);
+    const descriptionMatch = searchDescriptions && result.description?.toLowerCase().includes(searchString);
+
+    if (!nameMatch && !descriptionMatch) return [];
+    return [{ ...result, ...(searchDescriptions && { priority: nameMatch ? 2 : +descriptionMatch }) }];
+  });
+
+  if (searchDescriptions) {
+    results.sort((a, b) => b.priority - a.priority);
+  }
+
+  if (searchProvider) {
+    results.push({
+      href: searchProvider.url + encodeURIComponent(searchString),
+      name: `${searchProvider.name ?? t("quicklaunch.custom")} ${t("quicklaunch.search")}`,
+      type: "search",
+    });
+
+    if (searchProvider.showSearchSuggestions && searchProvider.suggestionUrl && searchSuggestions[1]) {
+      results.push(
+        ...searchSuggestions[1].map((suggestion) => ({
+          href: searchProvider.url + encodeURIComponent(suggestion),
+          name: suggestion,
+          type: "searchSuggestion",
+        })),
+      );
+    }
+  }
+
+  if (!hideVisitURL && url) {
+    results.unshift({
+      href: url.toString(),
+      name: `${t("quicklaunch.visit")} URL`,
+      type: "url",
+    });
+  }
+
+  return results;
+}
 
 export default function QuickLaunch({ servicesAndBookmarks, searchString, setSearchString, isOpen, setSearching }) {
   const { t } = useTranslation();
@@ -171,49 +224,16 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     return () => abortController.abort();
   }, [searchProvider, searchString, searchSuggestions]);
 
-  const results = useMemo(() => {
-    if (searchString.trim().length === 0) return [];
-
-    let newResults = servicesAndBookmarks.flatMap((result) => {
-      const nameMatch = result.name.toLowerCase().includes(searchString);
-      const descriptionMatch = searchDescriptions && result.description?.toLowerCase().includes(searchString);
-
-      if (!nameMatch && !descriptionMatch) return [];
-      return [{ ...result, ...(searchDescriptions && { priority: nameMatch ? 2 : +descriptionMatch }) }];
-    });
-
-    if (searchDescriptions) {
-      newResults.sort((a, b) => b.priority - a.priority);
-    }
-
-    if (searchProvider) {
-      newResults.push({
-        href: searchProvider.url + encodeURIComponent(searchString),
-        name: `${searchProvider.name ?? t("quicklaunch.custom")} ${t("quicklaunch.search")}`,
-        type: "search",
-      });
-
-      if (searchProvider.showSearchSuggestions && searchProvider.suggestionUrl && searchSuggestions[1]) {
-        newResults.push(
-          ...searchSuggestions[1].map((suggestion) => ({
-            href: searchProvider.url + encodeURIComponent(suggestion),
-            name: suggestion,
-            type: "searchSuggestion",
-          })),
-        );
-      }
-    }
-
-    if (!hideVisitURL && url) {
-      newResults.unshift({
-        href: url.toString(),
-        name: `${t("quicklaunch.visit")} URL`,
-        type: "url",
-      });
-    }
-
-    return newResults;
-  }, [hideVisitURL, searchDescriptions, searchProvider, searchString, searchSuggestions, servicesAndBookmarks, t, url]);
+  const results = getSearchResults({
+    hideVisitURL,
+    searchDescriptions,
+    searchProvider,
+    searchString,
+    searchSuggestions,
+    servicesAndBookmarks,
+    t,
+    url,
+  });
 
   const activeItemIndex = currentItemIndex ?? (results.length ? 0 : null);
 
