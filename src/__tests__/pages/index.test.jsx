@@ -432,6 +432,21 @@ describe("pages/index Home behavior", () => {
     expect(screen.getByTestId("quicklaunch")).toHaveTextContent("closed:3");
   });
 
+  it("opens search on space without seeding the query with whitespace", async () => {
+    await renderIndex({
+      initialSettings: { title: "Homepage", layout: {} },
+      settings: { title: "Homepage", layout: {}, language: "en" },
+    });
+
+    await waitFor(() => {
+      expect(state.quickLaunchProps).toBeTruthy();
+    });
+
+    fireEvent.keyDown(document.body, { key: " " });
+    expect(screen.getByTestId("quicklaunch")).toHaveTextContent("open:3");
+    expect(state.quickLaunchProps.searchString).toBe("");
+  });
+
   it("renders services and bookmark groups when present", async () => {
     await renderIndex({
       initialSettings: { title: "Homepage", layout: {} },

@@ -265,7 +265,10 @@ function Home({ initialSettings }) {
         ) {
           if (e.key.length === 1 && !(e.key === "v" && (e.ctrlKey || e.metaKey))) {
             e.preventDefault();
-            setSearchString((currentSearchString) => currentSearchString + e.key);
+            // whitespace opens the search but shouldn't be in it
+            if (e.key.trim()) {
+              setSearchString((currentSearchString) => currentSearchString + e.key);
+            }
           }
           setSearching(true);
         } else if (e.key === "Escape") {
