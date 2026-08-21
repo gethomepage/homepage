@@ -9,7 +9,7 @@ import { expectBlockValue } from "test-utils/widget-assertions";
 const { useWidgetAPI } = vi.hoisted(() => ({ useWidgetAPI: vi.fn() }));
 vi.mock("utils/proxy/use-widget-api", () => ({ default: useWidgetAPI }));
 
-import Component, { karakeepDefaultFields } from "./component";
+import Component from "./component";
 
 describe("widgets/karakeep/component", () => {
   beforeEach(() => {
@@ -22,7 +22,7 @@ describe("widgets/karakeep/component", () => {
     const service = { widget: { type: "karakeep", url: "http://x" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(karakeepDefaultFields);
+    expect(service.widget.fields).toBeUndefined();
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("karakeep.bookmarks")).toBeInTheDocument();
     expect(screen.getByText("karakeep.favorites")).toBeInTheDocument();
@@ -38,7 +38,7 @@ describe("widgets/karakeep/component", () => {
     const service = { widget: { type: "karakeep", fields: ["tags", "lists", "bookmarks", "favorites", "archived"] } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["tags", "lists", "bookmarks", "favorites"]);
+    expect(service.widget.fields).toEqual(["tags", "lists", "bookmarks", "favorites", "archived"]);
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("karakeep.tags")).toBeInTheDocument();
     expect(screen.getByText("karakeep.lists")).toBeInTheDocument();

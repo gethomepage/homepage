@@ -9,7 +9,7 @@ import { expectBlockValue } from "test-utils/widget-assertions";
 const { useWidgetAPI } = vi.hoisted(() => ({ useWidgetAPI: vi.fn() }));
 vi.mock("utils/proxy/use-widget-api", () => ({ default: useWidgetAPI }));
 
-import Component, { fritzboxDefaultFields } from "./component";
+import Component from "./component";
 
 describe("widgets/fritzbox/component", () => {
   beforeEach(() => {
@@ -22,7 +22,7 @@ describe("widgets/fritzbox/component", () => {
     const service = { widget: { type: "fritzbox", url: "http://x" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(fritzboxDefaultFields);
+    expect(service.widget.fields).toBeUndefined();
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("fritzbox.connectionStatus")).toBeInTheDocument();
     expect(screen.getByText("fritzbox.uptime")).toBeInTheDocument();
@@ -43,7 +43,14 @@ describe("widgets/fritzbox/component", () => {
 
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["down", "up", "received", "sent"]);
+    expect(service.widget.fields).toEqual([
+      "down",
+      "up",
+      "received",
+      "sent",
+      "externalIPAddress",
+      "externalIPv6Prefix",
+    ]);
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("fritzbox.down")).toBeInTheDocument();
     expect(screen.getByText("fritzbox.up")).toBeInTheDocument();

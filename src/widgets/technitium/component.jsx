@@ -3,14 +3,16 @@ import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
 const MAX_ALLOWED_FIELDS = 4;
 
 export const technitiumDefaultFields = ["totalQueries", "totalAuthoritative", "totalCached", "totalServerFailure"];
 
-export default function Component({ service }) {
+export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
 
+  const service = withWidgetFields(configuredService, technitiumDefaultFields, MAX_ALLOWED_FIELDS);
   const { widget } = service;
 
   const params = {
@@ -19,16 +21,6 @@ export default function Component({ service }) {
   };
 
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "stats", params);
-
-  // Default fields
-  if (!widget.fields?.length > 0) {
-    widget.fields = technitiumDefaultFields;
-  }
-
-  // Limits max number of displayed fields
-  if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
-    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
-  }
 
   if (statsError) {
     return <Container service={service} error={statsError} />;
