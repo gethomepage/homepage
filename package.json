@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.10",
-    "@kubernetes/client-node": "^1.4.0",
+    "@kubernetes/client-node": "^2.0.0",
     "classnames": "^2.5.1",
     "compare-versions": "^6.1.1",
     "dockerode": "^5.0.0",
