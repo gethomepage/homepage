@@ -2,12 +2,12 @@ import { promises as fs } from "fs";
 import path from "path";
 
 import Docker from "dockerode";
-import yaml from "js-yaml";
 
 import checkAndCopyConfig, { CONF_DIR, getSettings, substituteEnvironmentVars } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
 import { getKubeConfig } from "utils/config/kubernetes";
 import * as shvl from "utils/config/shvl";
+import { loadYaml } from "utils/config/yaml";
 import kubernetes from "utils/kubernetes/export";
 import createLogger from "utils/logger";
 import { parseVersionForUrl } from "utils/proxy/api-helpers";
@@ -56,7 +56,7 @@ export async function servicesFromConfig() {
   const servicesYaml = path.join(CONF_DIR, "services.yaml");
   const rawFileContents = await fs.readFile(servicesYaml, "utf8");
   const fileContents = substituteEnvironmentVars(rawFileContents);
-  const services = yaml.load(fileContents);
+  const services = loadYaml(fileContents);
   return parseServicesToGroups(services);
 }
 
@@ -66,7 +66,7 @@ export async function servicesFromDocker() {
   const dockerYaml = path.join(CONF_DIR, "docker.yaml");
   const rawDockerFileContents = await fs.readFile(dockerYaml, "utf8");
   const dockerFileContents = substituteEnvironmentVars(rawDockerFileContents);
-  const servers = yaml.load(dockerFileContents);
+  const servers = loadYaml(dockerFileContents);
 
   if (!servers) {
     return [];

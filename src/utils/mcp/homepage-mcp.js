@@ -2,9 +2,10 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { createHash, timingSafeEqual } from "node:crypto";
 import { join } from "path";
 
-import yaml from "js-yaml";
+import * as yaml from "js-yaml";
 
 import { CONF_DIR } from "utils/config/config";
+import { loadYaml } from "utils/config/yaml";
 
 const PROTOCOL_VERSION = "2025-11-25";
 const SERVER_INFO = {
@@ -118,7 +119,7 @@ function readConfig(file) {
 }
 
 function parseYamlConfig(file) {
-  const parsed = yaml.load(readConfig(file) || "");
+  const parsed = loadYaml(readConfig(file) || "");
   return parsed ?? [];
 }
 
@@ -128,7 +129,7 @@ function validateYaml(file, content) {
   }
 
   try {
-    yaml.load(content || "");
+    loadYaml(content || "");
     return { valid: true };
   } catch (error) {
     return {

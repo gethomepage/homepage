@@ -70,10 +70,7 @@ vi.mock("fs", () => ({
   promises: fs,
 }));
 
-vi.mock("js-yaml", () => ({
-  default: yaml,
-  ...yaml,
-}));
+vi.mock("utils/config/yaml", () => ({ loadYaml: yaml.load }));
 
 vi.mock("utils/config/config", () => config);
 vi.mock("dockerode", () => ({ default: Docker }));

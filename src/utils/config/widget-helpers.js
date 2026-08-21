@@ -1,9 +1,8 @@
 import { promises as fs } from "fs";
 import path from "path";
 
-import yaml from "js-yaml";
-
 import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
+import { loadYaml } from "utils/config/yaml";
 
 export async function widgetsFromConfig() {
   checkAndCopyConfig("widgets.yaml");
@@ -11,7 +10,7 @@ export async function widgetsFromConfig() {
   const widgetsYaml = path.join(CONF_DIR, "widgets.yaml");
   const rawFileContents = await fs.readFile(widgetsYaml, "utf8");
   const fileContents = substituteEnvironmentVars(rawFileContents);
-  const widgets = yaml.load(fileContents);
+  const widgets = loadYaml(fileContents);
 
   if (!widgets) return [];
 

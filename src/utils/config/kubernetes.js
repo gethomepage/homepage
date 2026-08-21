@@ -2,16 +2,16 @@ import { readFileSync } from "fs";
 import path from "path";
 
 import { ApiextensionsV1Api, KubeConfig } from "@kubernetes/client-node";
-import yaml from "js-yaml";
 
 import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
+import { loadYaml } from "utils/config/yaml";
 
 export function getKubernetes() {
   checkAndCopyConfig("kubernetes.yaml");
   const configFile = path.join(CONF_DIR, "kubernetes.yaml");
   const rawConfigData = readFileSync(configFile, "utf8");
   const configData = substituteEnvironmentVars(rawConfigData);
-  return yaml.load(configData);
+  return loadYaml(configData);
 }
 
 export const getKubeConfig = () => {

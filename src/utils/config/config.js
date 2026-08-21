@@ -1,8 +1,9 @@
 import { copyFileSync, existsSync, mkdirSync, readFileSync } from "fs";
 import { join } from "path";
 
-import yaml from "js-yaml";
 import cache from "memory-cache";
+
+import { loadYaml } from "utils/config/yaml";
 
 const cacheKey = "homepageEnvironmentVariables";
 const homepageVarPrefix = "HOMEPAGE_VAR_";
@@ -42,7 +43,7 @@ export default function checkAndCopyConfig(config) {
   }
 
   try {
-    yaml.load(readFileSync(configYaml, "utf8"));
+    loadYaml(readFileSync(configYaml, "utf8"));
     return true;
   } catch (e) {
     return { ...e, config };
@@ -85,7 +86,7 @@ export function getSettings() {
   const settingsYaml = join(CONF_DIR, "settings.yaml");
   const rawFileContents = readFileSync(settingsYaml, "utf8");
   const fileContents = substituteEnvironmentVars(rawFileContents);
-  const initialSettings = yaml.load(fileContents) ?? {};
+  const initialSettings = loadYaml(fileContents) ?? {};
 
   if (initialSettings.layout) {
     // support yaml list but old spec was object so convert to that
