@@ -5,14 +5,12 @@ import { useTranslation } from "next-i18next/pages";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 import withWidgetFields from "utils/widget-fields";
 
-const MAX_ALLOWED_FIELDS = 4;
-
 export const technitiumDefaultFields = ["totalQueries", "totalAuthoritative", "totalCached", "totalServerFailure"];
 
 export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
 
-  const service = withWidgetFields(configuredService, technitiumDefaultFields, MAX_ALLOWED_FIELDS);
+  const service = withWidgetFields(configuredService, technitiumDefaultFields);
   const { widget } = service;
 
   const params = {

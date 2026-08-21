@@ -6,11 +6,10 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 import withWidgetFields from "utils/widget-fields";
 
 export const karakeepDefaultFields = ["bookmarks", "favorites", "archived", "highlights"];
-const MAX_ALLOWED_FIELDS = 4;
 
 export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
-  const service = withWidgetFields(configuredService, karakeepDefaultFields, MAX_ALLOWED_FIELDS);
+  const service = withWidgetFields(configuredService, karakeepDefaultFields);
   const { widget } = service;
 
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "stats");

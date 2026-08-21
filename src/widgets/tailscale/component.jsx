@@ -6,12 +6,11 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 import withWidgetFields from "utils/widget-fields";
 
 const DEFAULT_FIELDS = ["address", "last_seen", "expires"];
-const MAX_ALLOWED_FIELDS = 4;
 
 export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
 
-  const service = withWidgetFields(configuredService, DEFAULT_FIELDS, MAX_ALLOWED_FIELDS);
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
 
   const { data: tailscaleData, error: tailscaleError } = useWidgetAPI(widget, "device");

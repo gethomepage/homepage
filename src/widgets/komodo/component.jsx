@@ -5,7 +5,6 @@ import { useTranslation } from "next-i18next/pages";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 import withWidgetFields from "utils/widget-fields";
 
-const MAX_ALLOWED_FIELDS = 4;
 const SUMMARY_FIELDS = ["servers", "stacks", "containers"];
 const STACK_FIELDS = ["total", "running", "down", "unhealthy"];
 const CONTAINER_FIELDS = ["total", "running", "stopped", "unhealthy"];
@@ -18,7 +17,7 @@ export default function Component({ service: configuredService }) {
     : configuredWidget.showStacks
       ? STACK_FIELDS
       : CONTAINER_FIELDS;
-  const service = withWidgetFields(configuredService, defaultFields, MAX_ALLOWED_FIELDS);
+  const service = withWidgetFields(configuredService, defaultFields);
   const { widget } = service;
   const containersEndpoint = !(!widget.showSummary && widget.showStacks) ? "containers" : "";
   const { data: containersData, error: containersError } = useWidgetAPI(widget, containersEndpoint);

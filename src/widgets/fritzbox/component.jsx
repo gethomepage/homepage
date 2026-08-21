@@ -6,11 +6,10 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 import withWidgetFields from "utils/widget-fields";
 
 export const fritzboxDefaultFields = ["connectionStatus", "uptime", "maxDown", "maxUp"];
-const MAX_ALLOWED_FIELDS = 4;
 
 export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
-  const service = withWidgetFields(configuredService, fritzboxDefaultFields, MAX_ALLOWED_FIELDS);
+  const service = withWidgetFields(configuredService, fritzboxDefaultFields);
   const { widget } = service;
   const { data: fritzboxData, error: fritzboxError } = useWidgetAPI(widget, "status");
 

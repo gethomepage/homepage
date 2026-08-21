@@ -3,9 +3,9 @@ import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
 const UNRAID_DEFAULT_FIELDS = ["status", "cpu", "memoryPercent", "notifications"];
-const MAX_ALLOWED_FIELDS = 4;
 
 const POOLS = ["pool1", "pool2", "pool3", "pool4"];
 const POOL_FIELDS = [
@@ -14,20 +14,15 @@ const POOL_FIELDS = [
   { param: "UsedPercent", label: "poolUsed", valueKey: "fsUsedPercent", valueType: "common.percent" },
 ];
 
-export default function Component({ service }) {
+export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
+  const service = withWidgetFields(configuredService, UNRAID_DEFAULT_FIELDS);
   const { widget } = service;
 
   const { data, error } = useWidgetAPI(widget);
 
   if (error) {
     return <Container service={service} error={error} />;
-  }
-
-  if (!widget.fields?.length) {
-    widget.fields = UNRAID_DEFAULT_FIELDS;
-  } else if (widget.fields.length > MAX_ALLOWED_FIELDS) {
-    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
 
   if (!data) {

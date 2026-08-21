@@ -20,14 +20,17 @@ describe("widgets/unraid/component", () => {
     vi.clearAllMocks();
   });
 
-  it("defaults widget.fields and filters down to 4 visible blocks while loading", () => {
+  it("defaults fields and filters down to 4 visible blocks while loading", () => {
     useWidgetAPI.mockReturnValue({ data: undefined, error: undefined });
 
     const service = { widget: { type: "unraid" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    // Component sets default fields
-    expect(service.widget.fields).toEqual(["status", "cpu", "memoryPercent", "notifications"]);
+    expect(service.widget.fields).toBeUndefined();
+    expect(useWidgetAPI).toHaveBeenCalledWith({
+      type: "unraid",
+      fields: ["status", "cpu", "memoryPercent", "notifications"],
+    });
 
     // Container filters the many placeholder Blocks down to the selected fields.
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);

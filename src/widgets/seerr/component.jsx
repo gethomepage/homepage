@@ -5,10 +5,9 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 import withWidgetFields from "utils/widget-fields";
 
 export const seerrDefaultFields = ["pending", "approved", "completed"];
-const MAX_ALLOWED_FIELDS = 4;
 
 export default function Component({ service: configuredService }) {
-  const service = withWidgetFields(configuredService, seerrDefaultFields, MAX_ALLOWED_FIELDS);
+  const service = withWidgetFields(configuredService, seerrDefaultFields);
   const { widget } = service;
   const isIssueEnabled = widget.fields.includes("issues");
 

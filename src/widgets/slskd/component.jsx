@@ -6,11 +6,10 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 import withWidgetFields from "utils/widget-fields";
 
 const slskdDefaultFields = ["slskStatus", "downloads", "uploads", "sharedFiles"];
-const MAX_ALLOWED_FIELDS = 4;
 
 export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
-  const service = withWidgetFields(configuredService, slskdDefaultFields, MAX_ALLOWED_FIELDS);
+  const service = withWidgetFields(configuredService, slskdDefaultFields);
   const { widget } = service;
 
   const { data: appData, error: appError } = useWidgetAPI(widget, "application");

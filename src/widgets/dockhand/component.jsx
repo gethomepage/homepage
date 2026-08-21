@@ -5,12 +5,11 @@ import { useTranslation } from "next-i18next/pages";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 import withWidgetFields from "utils/widget-fields";
 
-const MAX_FIELDS = 4;
 const DEFAULT_FIELDS = ["running", "total", "cpu", "memory"];
 
 export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
-  const service = withWidgetFields(configuredService, DEFAULT_FIELDS, MAX_FIELDS);
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
 
   const { data: stats, error: statsError } = useWidgetAPI(widget, "dashboard/stats");

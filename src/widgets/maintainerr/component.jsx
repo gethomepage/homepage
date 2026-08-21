@@ -6,11 +6,10 @@ import useWidgetAPI from "utils/proxy/use-widget-api";
 import withWidgetFields from "utils/widget-fields";
 
 const DEFAULT_FIELDS = ["itemsHandled", "episodesHandled", "moviesHandled", "reclaimable"];
-const MAX_FIELDS = 4;
 
 export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
-  const service = withWidgetFields(configuredService, DEFAULT_FIELDS, MAX_FIELDS);
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
 
   const { data, error } = useWidgetAPI(widget);
