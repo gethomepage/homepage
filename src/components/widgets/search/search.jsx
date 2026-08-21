@@ -11,7 +11,7 @@ import {
 } from "@headlessui/react";
 import classNames from "classnames";
 import { useTranslation } from "next-i18next/pages";
-import { Fragment, useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { BiLogoBing } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
 import { SiBaidu, SiBrave, SiDuckduckgo, SiGoogle } from "react-icons/si";
@@ -79,24 +79,32 @@ export function getStoredProvider() {
   return null;
 }
 
+function subscribeToStoredProvider(onStoreChange) {
+  const handleStorage = (event) => {
+    if (event.key === localStorageKey) onStoreChange();
+  };
+
+  window.addEventListener("storage", handleStorage);
+  return () => window.removeEventListener("storage", handleStorage);
+}
+
 export default function Search({ options }) {
   const { t } = useTranslation();
 
   // options is a fresh object each render, so memo on provider itself
   const availableProviderIds = useMemo(() => getAvailableProviderIds(options.provider) ?? [], [options.provider]);
+  const storedProvider = useSyncExternalStore(subscribeToStoredProvider, getStoredProvider, () => null);
+  const storedProviderId = Object.keys(searchProviders).find(
+    (providerId) => searchProviders[providerId] === storedProvider,
+  );
+  const initialProvider = availableProviderIds.includes(storedProviderId)
+    ? storedProvider
+    : searchProviders[availableProviderIds[0] ?? "google"];
 
   const [query, setQuery] = useState("");
-  const [selectedProvider, setSelectedProvider] = useState(searchProviders[availableProviderIds[0] ?? "google"]);
+  const [providerOverride, setProviderOverride] = useState(null);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
-
-  useEffect(() => {
-    const storedProvider = getStoredProvider();
-    let storedProviderKey = null;
-    storedProviderKey = Object.keys(searchProviders).find((pkey) => searchProviders[pkey] === storedProvider);
-    if (storedProvider && availableProviderIds.includes(storedProviderKey)) {
-      setSelectedProvider(storedProvider);
-    }
-  }, [availableProviderIds]);
+  const selectedProvider = providerOverride ?? initialProvider;
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -153,7 +161,7 @@ export default function Search({ options }) {
   }
 
   const onChangeProvider = (provider) => {
-    setSelectedProvider(provider);
+    setProviderOverride(provider);
     localStorage.setItem(localStorageKey, provider.name);
   };
 
