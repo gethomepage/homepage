@@ -1,9 +1,8 @@
 import { readFileSync } from "fs";
 import path from "path";
 
-import * as yaml from "js-yaml";
-
 import checkAndCopyConfig, { CONF_DIR, substituteEnvironmentVars } from "utils/config/config";
+import { loadYaml } from "utils/config/yaml";
 
 export function getDefaultDockerArgs(platform = process.platform) {
   if (platform !== "win32" && platform !== "darwin") {
@@ -19,7 +18,7 @@ export default function getDockerArguments(server) {
   const configFile = path.join(CONF_DIR, "docker.yaml");
   const rawConfigData = readFileSync(configFile, "utf8");
   const configData = substituteEnvironmentVars(rawConfigData);
-  const servers = yaml.load(configData);
+  const servers = loadYaml(configData);
 
   if (!server) {
     return getDefaultDockerArgs();
