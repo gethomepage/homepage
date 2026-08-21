@@ -22,7 +22,11 @@ describe("widgets/dockhand/component", () => {
     const service = { widget: { type: "dockhand" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["running", "total", "cpu", "memory"]);
+    expect(service.widget.fields).toBeUndefined();
+    expect(useWidgetAPI).toHaveBeenCalledWith(
+      { type: "dockhand", fields: ["running", "total", "cpu", "memory"] },
+      "dashboard/stats",
+    );
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("dockhand.running")).toBeInTheDocument();
     expect(screen.getByText("dockhand.total")).toBeInTheDocument();

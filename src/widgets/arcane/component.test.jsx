@@ -66,6 +66,7 @@ describe("widgets/arcane/component", () => {
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
     // sliced to first four entries
+    expect(service.widget.fields).toEqual(["running", "stopped", "total", "images", "images_unused"]);
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("docker.running")).toBeInTheDocument();
     expect(screen.getByText("dockhand.stopped")).toBeInTheDocument();
