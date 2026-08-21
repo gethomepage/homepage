@@ -5,9 +5,12 @@ import { useTranslation } from "next-i18next/pages";
 import useCurrentTime from "utils/hooks/use-current-time";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
+const HOUR = 60 * 60 * 1000;
+
 export default function Component({ service }) {
   const { t } = useTranslation();
-  const currentTime = useCurrentTime();
+  // hourly is plenty of precision for a 24 hour window, and `since` is part of the request key
+  const currentTime = useCurrentTime(HOUR);
 
   const { widget } = service;
   const taskQueryParams = {
@@ -18,7 +21,9 @@ export default function Component({ service }) {
   };
 
   const { data: datastoreData, error: datastoreError } = useWidgetAPI(widget, "status/datastore-usage");
-  const { data: tasksData, error: tasksError } = useWidgetAPI(widget, "nodes/localhost/tasks", taskQueryParams);
+  const { data: tasksData, error: tasksError } = useWidgetAPI(widget, "nodes/localhost/tasks", taskQueryParams, {
+    keepPreviousData: true, // `since` rotates the key, don't blank the whole widget while it refetches
+  });
   const { data: hostData, error: hostError } = useWidgetAPI(widget, "nodes/localhost/status");
 
   if (datastoreError || tasksError || hostError) {

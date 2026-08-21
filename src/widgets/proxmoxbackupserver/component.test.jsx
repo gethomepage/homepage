@@ -86,10 +86,15 @@ describe("widgets/proxmoxbackupserver/component", () => {
       settings: { hideErrors: false },
     });
 
-    expect(useWidgetAPI).toHaveBeenCalledWith({ type: "proxmoxbackupserver" }, "nodes/localhost/tasks", {
-      errors: true,
-      limit: 100,
-      since: 1_776_433_098,
-    });
+    expect(useWidgetAPI).toHaveBeenCalledWith(
+      { type: "proxmoxbackupserver" },
+      "nodes/localhost/tasks",
+      {
+        errors: true,
+        limit: 100,
+        since: 1_776_433_098,
+      },
+      { keepPreviousData: true },
+    );
   });
 });
