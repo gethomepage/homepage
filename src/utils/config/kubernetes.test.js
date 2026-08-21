@@ -46,6 +46,7 @@ vi.mock("@kubernetes/client-node", () => ({
   ApiextensionsV1Api: class ApiextensionsV1Api {},
   KubeConfig: class KubeConfig {
     loadFromCluster() {
+      this.clusters = [{ name: "inCluster", server: "https://host:443", skipTLSVerify: false }];
       return kube.loadFromCluster();
     }
     loadFromDefault() {
@@ -86,6 +87,27 @@ describe("utils/config/kubernetes", () => {
     const kc2 = getKubeConfig();
     expect(kube.loadFromDefault).toHaveBeenCalled();
     expect(kc2).not.toBeNull();
+  });
+
+  it("getKubeConfig sets tlsServerName when the in-cluster host is IPv6", () => {
+    vi.stubEnv("KUBERNETES_SERVICE_HOST", "fd00:1018:2000::1");
+    yaml.load.mockReturnValueOnce({ mode: "cluster" });
+
+    expect(getKubeConfig().clusters[0]).toMatchObject({
+      name: "inCluster",
+      tlsServerName: "kubernetes.default.svc",
+    });
+
+    vi.unstubAllEnvs();
+  });
+
+  it("getKubeConfig leaves tlsServerName unset for non-IPv6 in-cluster hosts", () => {
+    vi.stubEnv("KUBERNETES_SERVICE_HOST", "10.43.0.1");
+    yaml.load.mockReturnValueOnce({ mode: "cluster" });
+
+    expect(getKubeConfig().clusters[0].tlsServerName).toBeUndefined();
+
+    vi.unstubAllEnvs();
   });
 
   it("checkCRD returns true when the CRD exists", async () => {
