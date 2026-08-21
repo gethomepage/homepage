@@ -21,7 +21,7 @@
         "seconds": "s"
     },
     "auth": {
-        "signout": "Sign out"
+        "signout": "Odhlásit se"
     },
     "widget": {
         "missing_type": "Chybí typ widgetu: {{type}}",
@@ -75,13 +75,13 @@
         "no_data": "Nejsou k dispozici žádná data úložiště"
     },
     "duplicati": {
-        "jobs": "Jobs",
-        "stored": "Stored",
-        "lastBackup": "Last Run",
-        "nextRun": "Next Run",
-        "running": "Running",
-        "warnings": "Warnings",
-        "errors": "Errors"
+        "jobs": "Úlohy",
+        "stored": "Uloženo",
+        "lastBackup": "Naposledy spuštěno",
+        "nextRun": "Další spuštění",
+        "running": "Běží",
+        "warnings": "Upozornění",
+        "errors": "Chyby"
     },
     "docker": {
         "rx": "RX",
@@ -133,7 +133,7 @@
         "series": "Seriály",
         "episodes": "Epizody",
         "songs": "Skladby",
-        "albums": "Albums"
+        "albums": "Alba"
     },
     "esphome": {
         "offline": "Offline",
@@ -471,7 +471,8 @@
     "authentik": {
         "users": "Uživatelé",
         "loginsLast24H": "Příhlášení (24h)",
-        "failedLoginsLast24H": "Neúspěšná přihlášení (24h)"
+        "failedLoginsLast24H": "Neúspěšná přihlášení (24h)",
+        "authorizationsLast24H": "Autorizace (24h)"
     },
     "proxmox": {
         "mem": "Využití paměti",
@@ -951,15 +952,15 @@
         "storage": "Úložiště"
     },
     "maintainerr": {
-        "itemsHandled": "Items Handled",
-        "episodesHandled": "Episodes Handled",
-        "moviesHandled": "Movies Handled",
-        "showsHandled": "Shows Handled",
-        "seasonsHandled": "Seasons Handled",
-        "reclaimable": "Reclaimable",
-        "movieReclaimable": "Movie Reclaimable",
-        "showReclaimable": "Show Reclaimable",
-        "totalCapacity": "Total Capacity"
+        "itemsHandled": "Zpracované položky",
+        "episodesHandled": "Zpracované epizody",
+        "moviesHandled": "Zpracované filmy",
+        "showsHandled": "Zpracované seriály",
+        "seasonsHandled": "Zpracované série",
+        "reclaimable": "Uvolnitelné",
+        "movieReclaimable": "Uvolnitelné filmy",
+        "showReclaimable": "Uvolnitelné seriály",
+        "totalCapacity": "Celková kapacita"
     },
     "netdata": {
         "warnings": "Upozornění",
@@ -1241,14 +1242,14 @@
         "steps": "Kroky"
     },
     "syncthing": {
-        "connected": "Connected",
-        "synced": "Synced",
-        "errors": "Errors",
-        "storage": "Storage"
+        "connected": "Připojeno",
+        "synced": "Synchronizováno",
+        "errors": "Chyby",
+        "storage": "Úložiště"
     },
     "sportarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "leagues": "Leagues"
+        "wanted": "Požadované",
+        "queued": "Ve frontě",
+        "leagues": "Ligy"
     }
 }

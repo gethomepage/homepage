@@ -471,7 +471,8 @@
     "authentik": {
         "users": "Gebruikers",
         "loginsLast24H": "Aantekenings (24h)",
-        "failedLoginsLast24H": "Mislukte Aantekenings (24h)"
+        "failedLoginsLast24H": "Mislukte Aantekenings (24h)",
+        "authorizationsLast24H": "Auths (24h)"
     },
     "proxmox": {
         "mem": "GEH",

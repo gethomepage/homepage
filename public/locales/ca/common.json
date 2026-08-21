@@ -471,7 +471,8 @@
     "authentik": {
         "users": "Usuaris",
         "loginsLast24H": "Inicis de sessió (24h)",
-        "failedLoginsLast24H": "Errors d'inici de sessió (24h)"
+        "failedLoginsLast24H": "Errors d'inici de sessió (24h)",
+        "authorizationsLast24H": "Auths (24h)"
     },
     "proxmox": {
         "mem": "MEM",

@@ -21,7 +21,7 @@
         "seconds": "s"
     },
     "auth": {
-        "signout": "Sign out"
+        "signout": "Se déconnecter"
     },
     "widget": {
         "missing_type": "Type de widget manquant : {{type}}",
@@ -471,7 +471,8 @@
     "authentik": {
         "users": "Utilisateurs",
         "loginsLast24H": "Connexions (24 h)",
-        "failedLoginsLast24H": "Connexions échouées (24 h)"
+        "failedLoginsLast24H": "Connexions échouées (24 h)",
+        "authorizationsLast24H": "Authentifications (24h)"
     },
     "proxmox": {
         "mem": "RAM",
