@@ -1,26 +1,17 @@
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 const hasFocus = () => typeof document !== "undefined" && document.hasFocus();
 
-const useWindowFocus = () => {
-  const [focused, setFocused] = useState(hasFocus);
+const subscribe = (onFocusChange) => {
+  window.addEventListener("focus", onFocusChange);
+  window.addEventListener("blur", onFocusChange);
 
-  useEffect(() => {
-    setFocused(hasFocus());
-
-    const onFocus = () => setFocused(true);
-    const onBlur = () => setFocused(false);
-
-    window.addEventListener("focus", onFocus);
-    window.addEventListener("blur", onBlur);
-
-    return () => {
-      window.removeEventListener("focus", onFocus);
-      window.removeEventListener("blur", onBlur);
-    };
-  }, []);
-
-  return focused;
+  return () => {
+    window.removeEventListener("focus", onFocusChange);
+    window.removeEventListener("blur", onFocusChange);
+  };
 };
+
+const useWindowFocus = () => useSyncExternalStore(subscribe, hasFocus, () => false);
 
 export default useWindowFocus;

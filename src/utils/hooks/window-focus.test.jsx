@@ -12,15 +12,17 @@ function Fixture() {
 
 describe("utils/hooks/window-focus", () => {
   it("tracks focus/blur events", async () => {
-    vi.spyOn(document, "hasFocus").mockReturnValue(true);
+    const hasFocus = vi.spyOn(document, "hasFocus").mockReturnValue(true);
 
     render(<Fixture />);
 
     expect(screen.getByTestId("focused")).toHaveTextContent("true");
 
+    hasFocus.mockReturnValue(false);
     window.dispatchEvent(new Event("blur"));
     await waitFor(() => expect(screen.getByTestId("focused")).toHaveTextContent("false"));
 
+    hasFocus.mockReturnValue(true);
     window.dispatchEvent(new Event("focus"));
     await waitFor(() => expect(screen.getByTestId("focused")).toHaveTextContent("true"));
   });
