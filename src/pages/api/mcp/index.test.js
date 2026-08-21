@@ -214,4 +214,38 @@ describe("pages/api/mcp", () => {
     expect(res.status).toHaveBeenCalledWith(405);
     expect(res.setHeader).toHaveBeenCalledWith("Allow", "POST");
   });
+
+  it("answers unauthenticated CORS preflights with 405 rather than 401", async () => {
+    process.env.HOMEPAGE_MCP_ENABLED = "true";
+    process.env.HOMEPAGE_MCP_TOKEN = "mcp-tok-0123456789abcdefghijklmnopqrstuv";
+    const handler = await loadHandler();
+    const res = mockResponse();
+
+    // a preflight never carries the Authorization header the browser strips
+    await handler(
+      {
+        method: "OPTIONS",
+        headers: {
+          origin: "https://claude.ai",
+          "access-control-request-method": "POST",
+          "access-control-request-headers": "authorization,content-type",
+        },
+      },
+      res,
+    );
+
+    expect(res.status).toHaveBeenCalledWith(405);
+    expect(res.setHeader).toHaveBeenCalledWith("Allow", "POST");
+    expect(getServerSession).not.toHaveBeenCalled();
+  });
+
+  it("still returns 404 for non-POST requests while disabled", async () => {
+    delete process.env.HOMEPAGE_MCP_ENABLED;
+    const handler = await loadHandler();
+    const res = mockResponse();
+
+    await handler({ method: "OPTIONS", headers: {} }, res);
+
+    expect(res.status).toHaveBeenCalledWith(404);
+  });
 });

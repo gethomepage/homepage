@@ -15,6 +15,12 @@ export default async function handler(req, res) {
     return res.status(404).end("Not Found");
   }
 
+  // Method check precedes auth so CORS preflights aren't answered with a 401.
+  if (req.method !== "POST") {
+    res.setHeader("Allow", "POST");
+    return res.status(405).end("Method Not Allowed");
+  }
+
   const tokenError = mcpTokenConfigError();
   if (tokenError) {
     createLogger("mcp").error(tokenError);
@@ -23,11 +29,6 @@ export default async function handler(req, res) {
 
   if (!mcpTokenAuthorized(req) && !(await hasHomepageSession(req, res))) {
     return res.status(401).json({ error: "Unauthorized" });
-  }
-
-  if (req.method !== "POST") {
-    res.setHeader("Allow", "POST");
-    return res.status(405).end("Method Not Allowed");
   }
 
   const response = handleMcpRequest(req.body);
