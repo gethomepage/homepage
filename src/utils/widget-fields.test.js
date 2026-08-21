@@ -15,6 +15,14 @@ describe("utils/widget-fields", () => {
     expect(service).toEqual({ name: "Example", widget: { type: "example" } });
   });
 
+  it("treats an explicitly empty fields list as unset", () => {
+    const service = { widget: { type: "example", fields: [] } };
+
+    const normalizedService = withWidgetFields(service, ["one", "two"]);
+
+    expect(normalizedService.widget.fields).toEqual(["one", "two"]);
+  });
+
   it("copies and limits configured fields", () => {
     const service = { widget: { type: "example", fields: ["one", "two", "three"] } };
 
