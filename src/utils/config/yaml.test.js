@@ -25,6 +25,16 @@ describe("utils/config/yaml", () => {
     });
   });
 
+  it("preserves v4 handling of non-string keys", () => {
+    // an unsubstituted {{HOMEPAGE_VAR_*}} parses as a flow mapping key
+    expect(loadYaml("- Plex:\n    widget:\n      key: {{HOMEPAGE_VAR_PLEX_KEY}}\n")).toEqual([
+      { Plex: { widget: { key: { "[object Object]": null } } } },
+    ]);
+    expect(loadYaml("- Backups:\n    - 2024-01-01:\n        href: http://x\n")).toEqual([
+      { Backups: [{ [String(new Date("2024-01-01T00:00:00.000Z"))]: { href: "http://x" } }] },
+    ]);
+  });
+
   it("still rejects invalid YAML", () => {
     expect(() => loadYaml("value: [\n")).toThrow();
   });
