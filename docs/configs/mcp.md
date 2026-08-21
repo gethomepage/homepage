@@ -49,6 +49,23 @@ environment:
   HOMEPAGE_MCP_TOKEN: "generate-with-openssl-rand-base64-32"
 ```
 
+## Connecting Claude Desktop
+
+Claude Desktop can use [`mcp-remote`](https://www.npmjs.com/package/mcp-remote) to communicate with the homepage MCP endpoint in `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "homepage": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "http://localhost:3000/api/mcp", "--header", "X-Homepage-MCP-Token: your-token"]
+    }
+  }
+}
+```
+
+The **Add custom connector** option will not work: remote connectors authenticate with OAuth and cannot supply `HOMEPAGE_MCP_TOKEN`.
+
 ## Read-only by default
 
 The MCP endpoint exposes tools for reading and validating supported Homepage config files. File writes are disabled unless you opt in with:
