@@ -170,6 +170,16 @@ describe("utils/logger", () => {
     });
     expect(plainMsg).toBe("[t] info: hello");
 
+    const causeMsg = formatter({
+      timestamp: "t",
+      level: "error",
+      label: "x",
+      stack: "STACK",
+      message: "fetch failed",
+      cause: { stack: "CAUSE STACK" },
+    });
+    expect(causeMsg).toBe("[t] error: <x> STACK\ncaused by: CAUSE STACK");
+
     const out = splat.transform(
       {
         message: "Hello %s",

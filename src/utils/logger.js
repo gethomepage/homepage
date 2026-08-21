@@ -18,23 +18,16 @@ function combineMessageAndSplat() {
 }
 
 function messageFormatter(logInfo) {
-  if (logInfo.label) {
-    if (logInfo.stack) {
-      return `[${logInfo.timestamp}] ${logInfo.level}: <${logInfo.label}> ${logInfo.stack}`;
-    }
-    return `[${logInfo.timestamp}] ${logInfo.level}: <${logInfo.label}> ${logInfo.message}`;
-  }
-
-  if (logInfo.stack) {
-    return `[${logInfo.timestamp}] ${logInfo.level}: ${logInfo.stack}`;
-  }
-  return `[${logInfo.timestamp}] ${logInfo.level}: ${logInfo.message}`;
+  const label = logInfo.label ? `<${logInfo.label}> ` : "";
+  // e.g. fetch errors say nothing useful without the cause
+  const cause = logInfo.cause ? `\ncaused by: ${logInfo.cause.stack ?? logInfo.cause}` : "";
+  return `[${logInfo.timestamp}] ${logInfo.level}: ${label}${logInfo.stack || logInfo.message}${cause}`;
 }
 
 function getConsoleLogger() {
   return new winston.transports.Console({
     format: winston.format.combine(
-      winston.format.errors({ stack: true }),
+      winston.format.errors({ stack: true, cause: true }),
       combineMessageAndSplat(),
       winston.format.timestamp(),
       winston.format.colorize(),
@@ -51,7 +44,7 @@ function getFileLogger() {
 
   return new winston.transports.File({
     format: winston.format.combine(
-      winston.format.errors({ stack: true }),
+      winston.format.errors({ stack: true, cause: true }),
       combineMessageAndSplat(),
       winston.format.timestamp(),
       winston.format.printf(messageFormatter),
