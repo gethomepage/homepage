@@ -5,10 +5,7 @@ on:
     - cron: '0 3 * * *'
   workflow_dispatch:
 
-permissions:
-  issues: write
-  pull-requests: write
-  discussions: write
+permissions: {}
 
 concurrency:
   group: lock
@@ -17,6 +14,9 @@ jobs:
   stale:
     name: 'Stale'
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
     steps:
       - uses: actions/stale@1e223db275d687790206a7acac4d1a11bd6fe629 # v10
         with:
@@ -31,6 +31,10 @@ jobs:
   lock-threads:
     name: 'Lock Old Threads'
     runs-on: ubuntu-latest
+    permissions:
+      discussions: write
+      issues: write
+      pull-requests: write
     steps:
       - uses: dessant/lock-threads@89ae32b08ed1a541efecbab17912962a5e38981c # v6.0.2
         with:
@@ -56,6 +60,8 @@ jobs:
   close-answered-discussions:
     name: 'Close Answered Discussions'
     runs-on: ubuntu-latest
+    permissions:
+      discussions: write
     steps:
       - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
@@ -112,6 +118,8 @@ jobs:
   close-outdated-discussions:
     name: 'Close Outdated Discussions'
     runs-on: ubuntu-latest
+    permissions:
+      discussions: write
     steps:
       - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
@@ -203,6 +211,8 @@ jobs:
   close-unsupported-feature-requests:
     name: 'Close Unsupported Feature Requests'
     runs-on: ubuntu-latest
+    permissions:
+      discussions: write
     steps:
       - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:

@@ -6,15 +6,15 @@ on:
   discussion:
     types: [labeled]
 
-permissions:
-  discussions: write
-  issues: write
+permissions: {}
 
 jobs:
   close-needs-discussion:
     name: Issues Need Discussion
     if: github.event_name == 'issues' && github.event.label.name == 'needs-discussion'
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
@@ -49,6 +49,8 @@ jobs:
     name: Discussions Need Information
     if: github.event_name == 'discussion' && github.event.label.name == 'needs-information'
     runs-on: ubuntu-latest
+    permissions:
+      discussions: write
     steps:
       - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
