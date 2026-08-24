@@ -28,7 +28,7 @@ describe("widgets/factorio/proxy", () => {
   });
 
   it("returns online=true with player count and tick when the query succeeds", async () => {
-    getServiceWidget.mockResolvedValue({ url: "http://127.0.0.1:27015", password: "secret" });
+    getServiceWidget.mockResolvedValue({ url: "http://127.0.0.1:27015", "rcon-password": "secret" });
     rconInstance.send.mockResolvedValue(JSON.stringify({ tick: 12000, players: 3 }));
 
     const req = { query: { group: "g", service: "svc", index: "0" } };
@@ -43,7 +43,7 @@ describe("widgets/factorio/proxy", () => {
   });
 
   it("returns online=false when the RCON connection fails", async () => {
-    getServiceWidget.mockResolvedValue({ url: "http://127.0.0.1:27015", password: "wrong" });
+    getServiceWidget.mockResolvedValue({ url: "http://127.0.0.1:27015", "rcon-password": "wrong" });
     RconConnect.mockRejectedValue(new Error("Authentication failed"));
 
     const req = { query: { group: "g", service: "svc", index: "0" } };
