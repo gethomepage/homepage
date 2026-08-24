@@ -182,6 +182,7 @@ export default function Search({ options }) {
               focus:border-theme-500 dark:focus:border-white/50
               border border-theme-300 dark:border-theme-200/50"
               placeholder={t("search.placeholder")}
+              aria-label={t("search.placeholder")}
               onChange={(event) => {
                 setQuery(event.target.value);
               }}
@@ -208,8 +209,8 @@ export default function Search({ options }) {
                   bg-theme-600/40 dark:bg-white/10
                   focus:ring-theme-500 dark:focus:ring-white/50"
                 >
-                  <selectedProvider.icon className="text-white w-3 h-3" />
-                  <span className="sr-only">{t("search.search")}</span>
+                  <selectedProvider.icon className="text-white w-3 h-3" aria-hidden="true" />
+                  <span className="sr-only">{t("search.provider", { name: selectedProvider.name })}</span>
                 </ListboxButton>
               </div>
               <Transition
@@ -222,6 +223,7 @@ export default function Search({ options }) {
                 leaveTo="transform opacity-0 scale-95"
               >
                 <ListboxOptions
+                  aria-label={t("search.select_provider")}
                   className="absolute right-0 z-10 mt-1 origin-top-right rounded-md
                   bg-theme-100 dark:bg-theme-600 shadow-lg
                   ring-1 ring-black ring-opacity-5 focus:outline-hidden"
@@ -238,7 +240,8 @@ export default function Search({ options }) {
                                 active ? "bg-theme-600/10 dark:bg-white/10 dark:text-gray-900" : "dark:text-gray-100",
                               )}
                             >
-                              <p.icon className="h-4 w-4 mx-4 my-2" />
+                              <p.icon className="h-4 w-4 mx-4 my-2" aria-hidden="true" />
+                              <span className="sr-only">{p.name}</span>
                             </li>
                           )}
                         </ListboxOption>
@@ -252,7 +255,9 @@ export default function Search({ options }) {
             {searchSuggestions[1]?.length > 0 && (
               <ComboboxOptions className="mt-1 rounded-md bg-theme-50 dark:bg-theme-800 border border-theme-300 dark:border-theme-200/30 cursor-pointer shadow-lg">
                 <div className="p-1 bg-white/50 dark:bg-white/10 text-theme-900/90 dark:text-white/90 text-xs">
-                  <ComboboxOption key={query} value={query} />
+                  <ComboboxOption key={query} value={query}>
+                    <span className="sr-only">{query}</span>
+                  </ComboboxOption>
                   {searchSuggestions[1].map((suggestion) => (
                     <ComboboxOption key={suggestion} value={suggestion} className="flex w-full">
                       {({ active }) => (

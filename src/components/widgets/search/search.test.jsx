@@ -178,6 +178,28 @@ describe("components/widgets/search", () => {
     openSpy.mockRestore();
   });
 
+  it("gives every provider option an accessible name", () => {
+    renderWithProviders(
+      <Search options={{ provider: ["google", "duckduckgo", "brave"], showSearchSuggestions: false }} />,
+      { settings: {} },
+    );
+
+    expect(screen.getAllByRole("option").map((option) => option.textContent)).toEqual([
+      "Google",
+      "DuckDuckGo",
+      "Brave",
+    ]);
+  });
+
+  it("labels the search input and the provider button", () => {
+    renderWithProviders(<Search options={{ provider: ["google", "duckduckgo"], showSearchSuggestions: false }} />, {
+      settings: {},
+    });
+
+    expect(screen.getByRole("textbox")).toHaveAccessibleName("search.placeholder");
+    expect(screen.getByRole("button")).toHaveAccessibleName(/search\.provider/);
+  });
+
   it("fetches search suggestions and triggers a search when a suggestion is selected", async () => {
     const openSpy = vi.spyOn(window, "open").mockImplementation(() => null);
 
