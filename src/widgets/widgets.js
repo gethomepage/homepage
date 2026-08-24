@@ -31,6 +31,7 @@ import duplicati from "./duplicati/widget";
 import emby from "./emby/widget";
 import esphome from "./esphome/widget";
 import evcc from "./evcc/widget";
+import factorio from "./factorio/widget";
 import filebrowser from "./filebrowser/widget";
 import fileflows from "./fileflows/widget";
 import firefly from "./firefly/widget";
@@ -191,6 +192,7 @@ const widgets = {
   emby,
   esphome,
   evcc,
+  factorio,
   filebrowser,
   fileflows,
   firefly,

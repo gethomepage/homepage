@@ -152,6 +152,13 @@
         "charge_power": "Charger",
         "kilowatt": "kW"
     },
+    "factorio": {
+        "status": "Status",
+        "online": "Online",
+        "offline": "Offline",
+        "players": "Players",
+        "playtime": "Playtime"
+    },
     "flood": {
         "download": "Download",
         "upload": "Upload",

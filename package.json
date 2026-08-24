@@ -34,6 +34,7 @@
     "ping": "^1.0.0",
     "pretty-bytes": "^7.1.1",
     "raw-body": "^4.0.0",
+    "rcon-client": "^4.2.5",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-i18next": "^17.0.11",
