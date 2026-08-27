@@ -15,5 +15,5 @@ widget:
   url: https://proxmoxbackupserver.host:port
   username: api_token_id
   password: api_token_secret
-  datastore: datastore_name #optional; if ommitted, will display a combination of all datastores used / total
+  datastore: datastore_name #optional; if omitted, will display a combination of all datastores used / total
 ```
