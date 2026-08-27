@@ -23,7 +23,7 @@ jobs:
         with:
           python-version-file: ".python-version"
       - name: Install uv
-        uses: astral-sh/setup-uv@ae62891fec2bb8e7d6c99fc78c9fec3a63790f8d # v10.0.0
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
       - run: sudo apt-get install pngquant
       - name: Test Docs Build
         run: uv run --frozen zensical build --clean
@@ -45,7 +45,7 @@ jobs:
         with:
           python-version-file: ".python-version"
       - name: Install uv
-        uses: astral-sh/setup-uv@ae62891fec2bb8e7d6c99fc78c9fec3a63790f8d # v10.0.0
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
       - run: sudo apt-get install pngquant
       - name: Build Docs
         run: uv run --frozen zensical build --clean
