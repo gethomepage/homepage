@@ -11,9 +11,11 @@ export default function Component({ service }) {
     return <Container service={service} error={error} />;
   }
 
+  const items = Array.isArray(data) ? data : [];
+
   return (
     <Container service={service}>
-      {data?.map((d) => (
+      {items.filter(Boolean).map((d) => (
         <Block label={d.label} value={d.value} key={d.label} />
       ))}
     </Container>
