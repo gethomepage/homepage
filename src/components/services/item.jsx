@@ -136,6 +136,28 @@ export default function Item({ service, groupName, useEqualHeights }) {
           </div>
         </div>
 
+        {service.links?.length > 0 && (
+          <div className="flex flex-wrap gap-1 px-1 pb-1 z-10 service-links">
+            {service.links.map((link) => (
+              <a
+                key={link.name ?? link.href}
+                href={link.href}
+                target={link.target ?? service.target ?? settings.target ?? "_blank"}
+                rel="noreferrer"
+                title={link.description ?? link.name ?? link.href}
+                className="flex items-center gap-1 px-2 py-1 rounded-sm text-xs bg-theme-200/50 dark:bg-theme-900/20 hover:bg-theme-300/70 dark:hover:bg-theme-900/40 service-link"
+              >
+                {link.icon && (
+                  <div className="shrink-0 flex items-center justify-center service-link-icon">
+                    <ResolvedIcon icon={link.icon} width={16} height={16} />
+                  </div>
+                )}
+                <span className="service-link-name">{link.name ?? link.href}</span>
+              </a>
+            ))}
+          </div>
+        )}
+
         {service.container && service.server && (
           <div
             className={classNames(

@@ -227,6 +227,81 @@ describe("components/services/item", () => {
     expect(screen.getByTestId("proxmoxvm-widget")).toBeInTheDocument();
   });
 
+  it("renders related links as buttons alongside the primary href", () => {
+    renderWithProviders(
+      <Item
+        groupName="G"
+        useEqualHeights={false}
+        service={{
+          id: "svc1",
+          name: "Portainer",
+          description: "Container Management",
+          href: "https://portainer.example.com",
+          icon: "portainer.png",
+          links: [
+            { name: "Documentation", href: "https://docs.example.com", icon: "si-readthedocs" },
+            { name: "GitHub", href: "https://github.com/example" },
+          ],
+          widgets: [],
+        }}
+      />,
+      { settings: { target: "_self", showStats: false, statusStyle: "basic" } },
+    );
+
+    const docs = screen.getByText("Documentation").closest("a");
+    expect(docs).toHaveAttribute("href", "https://docs.example.com");
+    expect(docs).toHaveAttribute("target", "_self");
+
+    const github = screen.getByText("GitHub").closest("a");
+    expect(github).toHaveAttribute("href", "https://github.com/example");
+
+    // the primary link is untouched
+    const links = screen.getAllByRole("link");
+    expect(links.some((l) => l.getAttribute("href") === "https://portainer.example.com")).toBe(true);
+  });
+
+  it("prefers a per-link target and falls back to the service target", () => {
+    renderWithProviders(
+      <Item
+        groupName="G"
+        useEqualHeights={false}
+        service={{
+          id: "svc1",
+          name: "Portainer",
+          href: "https://portainer.example.com",
+          target: "_parent",
+          links: [
+            { name: "Documentation", href: "https://docs.example.com", target: "_blank" },
+            { name: "GitHub", href: "https://github.com/example" },
+          ],
+          widgets: [],
+        }}
+      />,
+      { settings: { target: "_self", showStats: false, statusStyle: "basic" } },
+    );
+
+    expect(screen.getByText("Documentation").closest("a")).toHaveAttribute("target", "_blank");
+    expect(screen.getByText("GitHub").closest("a")).toHaveAttribute("target", "_parent");
+  });
+
+  it("renders no links row when the service has none", () => {
+    const { container } = renderWithProviders(
+      <Item
+        groupName="G"
+        useEqualHeights={false}
+        service={{
+          id: "svc1",
+          name: "My Service",
+          href: "https://example.com",
+          widgets: [],
+        }}
+      />,
+      { settings: { showStats: false, statusStyle: "basic" } },
+    );
+
+    expect(container.querySelector(".service-links")).toBeNull();
+  });
+
   it("does not render the app status tag when the service is marked external", () => {
     renderWithProviders(
       <Item

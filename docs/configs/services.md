@@ -60,6 +60,45 @@ Services are defined as array entries on groups,
 
 <img width="1038" alt="Service Services" src="https://user-images.githubusercontent.com/82196/187040763-038023a2-8bee-4d87-b5cc-13447e7365a4.png">
 
+### Multiple Links
+
+A service can point at more than one URL. In addition to its own `href`, add a `links` list to show
+related links as buttons on the same card, which keeps a service and (for example) its documentation
+together instead of spread across separate cards.
+
+```yaml
+- Portainer:
+    icon: portainer.png
+    href: https://portainer.host.or.ip/
+    description: Portainer Container Management
+    links:
+      - Documentation:
+          icon: si-readthedocs
+          href: https://docs.portainer.io/v2.0/
+          description: Portainer Documentation
+
+      - GitHub:
+          icon: si-github
+          href: https://github.com/portainer/portainer
+```
+
+Each entry supports:
+
+| Field         | Required | Description                                                                                                   |
+| ------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| `href`        | yes      | The URL to open. Entries without one are skipped.                                                             |
+| `icon`        | no       | Same icon options as a service icon, rendered at 16x16.                                                       |
+| `description` | no       | Used as the button's tooltip, falling back to the link name.                                                  |
+| `target`      | no       | Per-link [link target](settings.md#link-target). Falls back to the service's target, then the global setting. |
+
+The service's own `href`, widgets, ping and status indicators are unaffected — `links` only adds
+extra buttons to the card.
+
+!!! note
+
+    This is different from a [nested group](#nested-groups). Writing a list directly under a name
+    creates a subgroup of separate cards; `links` adds URLs to a single card.
+
 ### Service Widgets
 
 Each service can have widgets attached to it (often matching the service type, but that's not forced).

@@ -154,6 +154,49 @@ describe("utils/config/service-helpers", () => {
     expect(state.logger.warn).toHaveBeenCalled();
   });
 
+  it("cleanServiceGroups normalizes service links and drops invalid entries", async () => {
+    const mod = await import("./service-helpers");
+    const { cleanServiceGroups } = mod;
+
+    const cleaned = cleanServiceGroups([
+      {
+        name: "Group",
+        services: [
+          {
+            name: "Portainer",
+            href: "https://portainer.example.com",
+            widgets: [],
+            links: [
+              // the services.yaml shape: a single-key object per link
+              { Documentation: { href: "https://docs.example.com", icon: "si-readthedocs" } },
+              // already flat, as produced by docker/kubernetes labels
+              { name: "GitHub", href: "https://github.com/example" },
+              // invalid entries are dropped
+              { Broken: { icon: "no-href.png" } },
+              { Empty: null },
+              "nonsense",
+            ],
+          },
+          // an empty result removes the key entirely
+          { name: "OnlyBad", widgets: [], links: [{ Broken: {} }] },
+          // a non-list is rejected
+          { name: "NotAList", widgets: [], links: "https://example.com" },
+        ],
+        groups: [],
+      },
+    ]);
+
+    const [portainer, onlyBad, notAList] = cleaned[0].services;
+    expect(portainer.links).toEqual([
+      { name: "Documentation", href: "https://docs.example.com", icon: "si-readthedocs" },
+      { name: "GitHub", href: "https://github.com/example" },
+    ]);
+    // the primary link is left alone
+    expect(portainer.href).toBe("https://portainer.example.com");
+    expect(onlyBad.links).toBeUndefined();
+    expect(notAList.links).toBeUndefined();
+  });
+
   it("cleanServiceGroups normalizes weights, moves widget->widgets, and parses per-widget settings", async () => {
     const mod = await import("./service-helpers");
     const { cleanServiceGroups } = mod;

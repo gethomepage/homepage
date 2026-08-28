@@ -14,6 +14,39 @@ import { parseVersionForUrl } from "utils/proxy/api-helpers";
 
 const logger = createLogger("service-helpers");
 
+// normalize the optional `links` entry of a service into a flat array of links.
+// supports the YAML `- Name: { href: ... }` shape used by services.yaml as well as
+// plain `{ name, href }` objects, which is what docker and kubernetes labels produce.
+function parseServiceLinks(links) {
+  if (!Array.isArray(links)) {
+    logger.warn("Error parsing service links from config. Ensure links is a list.");
+    return [];
+  }
+
+  return links
+    .map((link) => {
+      if (!link || typeof link !== "object") {
+        logger.warn("Error parsing service link from config. Ensure required fields are present.");
+        return null;
+      }
+
+      // already flat, e.g. from docker labels
+      if (link.href) {
+        return { ...link };
+      }
+
+      const name = Object.keys(link)[0];
+      const properties = link[name];
+      if (!properties || typeof properties !== "object" || !properties.href) {
+        logger.warn(`Error parsing service link "${name}" from config. Ensure an href is present.`);
+        return null;
+      }
+
+      return { name, ...properties };
+    })
+    .filter((link) => link?.href);
+}
+
 function parseServicesToGroups(services) {
   if (!services) {
     return [];
@@ -233,6 +266,10 @@ export function cleanServiceGroups(groups) {
     name: serviceGroup.name,
     services: serviceGroup.services.map((service) => {
       const cleanedService = { ...service };
+      if (cleanedService.links) {
+        cleanedService.links = parseServiceLinks(cleanedService.links);
+        if (!cleanedService.links.length) delete cleanedService.links;
+      }
       if (cleanedService.showStats !== undefined) cleanedService.showStats = JSON.parse(cleanedService.showStats);
       if (typeof service.weight === "string") {
         const weight = parseInt(service.weight, 10);
