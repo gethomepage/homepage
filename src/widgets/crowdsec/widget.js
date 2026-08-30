@@ -13,7 +13,7 @@ const widget = {
       endpoint: "alerts?limit=0&since=24h&with_decisions=false",
     },
     bans: {
-      endpoint: "alerts?decision_type=ban&origin=crowdsec&has_active_decision=1&with_decisions=false",
+      endpoint: "alerts?decision_type=ban&include_capi=false&has_active_decision=1&with_decisions=false",
     },
   },
 };
