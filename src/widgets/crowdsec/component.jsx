@@ -4,6 +4,8 @@ import { useTranslation } from "next-i18next/pages";
 
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
+const ALERTS_LIMIT = 500;
+
 export default function Component({ service }) {
   const { t } = useTranslation();
 
@@ -11,6 +13,9 @@ export default function Component({ service }) {
 
   const { data: alerts, error: alertsError } = useWidgetAPI(widget, "alerts");
   const { data: bans, error: bansError } = useWidgetAPI(widget, "bans");
+
+  const alertsCount = alerts?.length ?? 0;
+  const alertsValue = t("common.number", { value: alertsCount });
 
   if (alertsError || bansError) {
     return <Container service={service} error={alertsError ?? bansError} />;
@@ -27,7 +32,7 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="crowdsec.alerts" value={t("common.number", { value: alerts?.length ?? 0 })} />
+      <Block label="crowdsec.alerts" value={alertsCount >= ALERTS_LIMIT ? `${alertsValue}+` : alertsValue} />
       <Block label="crowdsec.bans" value={t("common.number", { value: bans?.length ?? 0 })} />
     </Container>
   );

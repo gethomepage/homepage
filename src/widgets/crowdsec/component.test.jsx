@@ -62,4 +62,28 @@ describe("widgets/crowdsec/component", () => {
     expectBlockValue(container, "crowdsec.alerts", 0);
     expectBlockValue(container, "crowdsec.bans", 0);
   });
+
+  it("marks the alert count as truncated at the API limit", () => {
+    useWidgetAPI
+      .mockReturnValueOnce({ data: new Array(500).fill({}), error: undefined })
+      .mockReturnValueOnce({ data: [], error: undefined });
+
+    renderWithProviders(<Component service={{ widget: { type: "crowdsec" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(screen.getByText("500+")).toBeInTheDocument();
+  });
+
+  it("does not mark the alert count below the API limit", () => {
+    useWidgetAPI
+      .mockReturnValueOnce({ data: new Array(499).fill({}), error: undefined })
+      .mockReturnValueOnce({ data: [], error: undefined });
+
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "crowdsec" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expectBlockValue(container, "crowdsec.alerts", 499);
+  });
 });
