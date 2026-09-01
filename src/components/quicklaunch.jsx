@@ -3,10 +3,11 @@ import { useTranslation } from "next-i18next/pages";
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import useSWR from "swr";
-import { SettingsContext } from "utils/contexts/settings";
 
 import ResolvedIcon from "./resolvedicon";
 import { getStoredProvider, searchProviders } from "./widgets/search/search";
+
+import { SettingsContext } from "utils/contexts/settings";
 
 const MOBILE_BUTTON_POSITIONS = {
   "top-left": "top-4 left-4",

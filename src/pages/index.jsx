@@ -1,11 +1,4 @@
 import classNames from "classnames";
-import BookmarksGroup from "components/bookmarks/group";
-import ErrorBoundary from "components/errorboundry";
-import QuickLaunch from "components/quicklaunch";
-import ServicesGroup from "components/services/group";
-import Tab, { slugifyAndEncode } from "components/tab";
-import Revalidate from "components/toggles/revalidate";
-import Widget from "components/widgets/widget";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import dynamic from "next/dynamic";
@@ -15,13 +8,20 @@ import Script from "next/script";
 import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { BiError } from "react-icons/bi";
 import useSWR, { SWRConfig } from "swr";
+
+import BookmarksGroup from "components/bookmarks/group";
+import ErrorBoundary from "components/errorboundry";
+import QuickLaunch from "components/quicklaunch";
+import ServicesGroup from "components/services/group";
+import Tab, { slugifyAndEncode } from "components/tab";
+import Revalidate from "components/toggles/revalidate";
+import Widget from "components/widgets/widget";
+import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
+import { getSettings } from "utils/config/config";
 import { ColorContext } from "utils/contexts/color";
 import { SettingsContext } from "utils/contexts/settings";
 import { TabContext } from "utils/contexts/tab";
 import { ThemeContext } from "utils/contexts/theme";
-
-import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
-import { getSettings } from "utils/config/config";
 import useWindowFocus from "utils/hooks/window-focus";
 import createLogger from "utils/logger";
 import themes from "utils/styles/themes";
