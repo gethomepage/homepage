@@ -1,6 +1,5 @@
 import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
 import prettierConfig from "eslint-config-prettier/flat";
-import prettier from "eslint-plugin-prettier";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
@@ -8,10 +7,6 @@ export default defineConfig([
   prettierConfig,
   {
     files: ["**/*.{js,mjs,cjs,jsx}"],
-
-    plugins: {
-      prettier,
-    },
 
     languageOptions: {
       ecmaVersion: 6,
