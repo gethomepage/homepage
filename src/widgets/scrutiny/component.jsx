@@ -1,6 +1,5 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 // @see https://github.com/AnalogJ/scrutiny/blob/d8d56f77f9e868127c4849dac74d65512db658e8/webapp/frontend/src/app/shared/device-status.pipe.ts

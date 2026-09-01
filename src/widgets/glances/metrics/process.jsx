@@ -1,9 +1,9 @@
-import ResolvedIcon from "components/resolvedicon";
 import { useTranslation } from "next-i18next/pages";
 
 import Block from "../components/block";
 import Container from "../components/container";
 
+import ResolvedIcon from "components/resolvedicon";
 import { parseVersionForUrl } from "utils/proxy/api-helpers";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 

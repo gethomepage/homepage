@@ -1,9 +1,9 @@
 import { useContext, useMemo } from "react";
-import { SettingsContext } from "utils/contexts/settings";
 
 import Error from "./error";
 import { BlockHighlightContext } from "./highlight-context";
 
+import { SettingsContext } from "utils/contexts/settings";
 import { buildHighlightConfig } from "utils/highlights";
 
 const ALIASED_WIDGETS = {
