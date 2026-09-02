@@ -39,7 +39,9 @@
         "wait": "Even geduld"
     },
     "search": {
-        "placeholder": "Zoeken…"
+        "placeholder": "Zoeken…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "CPU",

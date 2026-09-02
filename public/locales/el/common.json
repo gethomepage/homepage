@@ -39,7 +39,9 @@
         "wait": "Παρακαλώ περιμένετε"
     },
     "search": {
-        "placeholder": "Αναζήτηση…"
+        "placeholder": "Αναζήτηση…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "Επεξεργαστής",

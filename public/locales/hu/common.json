@@ -39,7 +39,9 @@
         "wait": "Kérjük várjon"
     },
     "search": {
-        "placeholder": "Keresés…"
+        "placeholder": "Keresés…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "Processzor",

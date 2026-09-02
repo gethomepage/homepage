@@ -39,7 +39,9 @@
         "wait": "Itxaron mesedez"
     },
     "search": {
-        "placeholder": "Bilatu…"
+        "placeholder": "Bilatu…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "CPU",

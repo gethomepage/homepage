@@ -39,7 +39,9 @@
         "wait": "Vennligst vent"
     },
     "search": {
-        "placeholder": "Søk…"
+        "placeholder": "Søk…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "CPU",

@@ -39,7 +39,9 @@
         "wait": "Harap tunggu"
     },
     "search": {
-        "placeholder": "Telusuri…"
+        "placeholder": "Telusuri…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "CPU",

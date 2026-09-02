@@ -39,7 +39,9 @@
         "wait": "Wag asseblief"
     },
     "search": {
-        "placeholder": "Soek…"
+        "placeholder": "Soek…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "SVE",

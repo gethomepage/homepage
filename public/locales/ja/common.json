@@ -39,7 +39,9 @@
         "wait": "お待ちください"
     },
     "search": {
-        "placeholder": "検索…"
+        "placeholder": "検索…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "CPU",
