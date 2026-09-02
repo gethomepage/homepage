@@ -1,5 +1,6 @@
-import ErrorBoundary from "components/errorboundry";
 import dynamic from "next/dynamic";
+
+import ErrorBoundary from "components/errorboundry";
 
 const widgetMappings = {
   weatherapi: dynamic(() => import("components/widgets/weather/weather")),

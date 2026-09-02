@@ -39,7 +39,9 @@
         "wait": "Por favor aguarde"
     },
     "search": {
-        "placeholder": "Pesquisar…"
+        "placeholder": "Pesquisar…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "CPU",

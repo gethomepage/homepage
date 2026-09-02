@@ -22,7 +22,7 @@ describe("widgets/slskd/component", () => {
     const service = { widget: { type: "slskd" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["slskStatus", "downloads", "uploads", "sharedFiles"]);
+    expect(service.widget.fields).toBeUndefined();
     // Container filters children by widget.fields.
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("slskd.slskStatus")).toBeInTheDocument();
@@ -38,7 +38,7 @@ describe("widgets/slskd/component", () => {
     const service = { widget: { type: "slskd", fields: ["a", "b", "c", "d", "e"] } };
     renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["a", "b", "c", "d"]);
+    expect(service.widget.fields).toEqual(["a", "b", "c", "d", "e"]);
   });
 
   it("renders status and counts when loaded", () => {

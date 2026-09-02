@@ -73,6 +73,7 @@ describe("pages/api/auth/[...nextauth]", () => {
   it("routes sanitized NextAuth logs through the Homepage logger", async () => {
     const mod = await import("pages/api/auth/[...nextauth]");
     const sensitiveMetadata = {
+      error: Object.assign(new Error("State cookie was missing."), { access_token: "sensitive-access-token" }),
       clientSecret: "sensitive-client-secret",
       access_token: "sensitive-access-token",
       id_token: "sensitive-id-token",
@@ -82,7 +83,7 @@ describe("pages/api/auth/[...nextauth]", () => {
     mod.authOptions.logger.warn("NEXTAUTH_URL", sensitiveMetadata);
     mod.authOptions.logger.debug("OAUTH_CALLBACK_RESPONSE", sensitiveMetadata);
 
-    expect(errorMock).toHaveBeenCalledWith("%s", "OAUTH_CALLBACK_ERROR");
+    expect(errorMock).toHaveBeenCalledWith("%s: %s", "OAUTH_CALLBACK_ERROR", "State cookie was missing.");
     expect(warnMock).toHaveBeenCalledWith("%s", "NEXTAUTH_URL");
     expect(debugMock).toHaveBeenCalledWith("%s", "OAUTH_CALLBACK_RESPONSE");
     expect(JSON.stringify([...errorMock.mock.calls, ...warnMock.mock.calls, ...debugMock.mock.calls])).not.toContain(

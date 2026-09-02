@@ -1,26 +1,30 @@
-import Block from "components/services/widget/block";
-import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 import { useEffect, useState } from "react";
 
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
+import withWidgetFields from "utils/widget-fields";
 
-export default function Component({ service }) {
+const DEFAULT_FIELDS = ["scenes", "images"];
+
+export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
 
-  const { widget } = service;
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
+  const requestWidget = configuredService.widget;
   const [stats, setStats] = useState(null);
 
   useEffect(() => {
     async function fetchStats() {
-      const url = formatProxyUrl(widget, "stats");
+      const url = formatProxyUrl(requestWidget, "stats");
       const res = await fetch(url, { method: "POST" });
       setStats(await res.json());
     }
     if (!stats) {
       fetchStats();
     }
-  }, [widget, stats]);
+  }, [requestWidget, stats]);
 
   if (!stats) {
     return (
@@ -29,16 +33,6 @@ export default function Component({ service }) {
         <Block label="stash.images" />
       </Container>
     );
-  }
-
-  // Provide a default if not set in the config
-  if (!widget.fields) {
-    widget.fields = ["scenes", "images"];
-  }
-
-  // Limit to a maximum of 4 at a time
-  if (widget.fields.length > 4) {
-    widget.fields = widget.fields.slice(0, 4);
   }
 
   return (

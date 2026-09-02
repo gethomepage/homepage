@@ -39,7 +39,9 @@
         "wait": "దయచేసి వేచి ఉండండి"
     },
     "search": {
-        "placeholder": "వెతకండి…"
+        "placeholder": "వెతకండి…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "సీపియూ",

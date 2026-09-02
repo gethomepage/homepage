@@ -1,10 +1,10 @@
 import classNames from "classnames";
-import Dropdown from "components/services/dropdown";
-import Block from "components/services/widget/block";
-import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 import { useState } from "react";
 
+import Dropdown from "components/services/dropdown";
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {

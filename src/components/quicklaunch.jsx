@@ -3,10 +3,11 @@ import { useTranslation } from "next-i18next/pages";
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import useSWR from "swr";
-import { SettingsContext } from "utils/contexts/settings";
 
 import ResolvedIcon from "./resolvedicon";
 import { getStoredProvider, searchProviders } from "./widgets/search/search";
+
+import { SettingsContext } from "utils/contexts/settings";
 
 const MOBILE_BUTTON_POSITIONS = {
   "top-left": "top-4 left-4",
@@ -14,6 +15,69 @@ const MOBILE_BUTTON_POSITIONS = {
   "bottom-left": "bottom-4 left-4",
   "bottom-right": "bottom-4 right-4",
 };
+
+function parseUrl(searchString) {
+  if (!/.+[.:].+/.test(searchString)) return null; // basic test for probably a url
+
+  try {
+    return new URL(searchString.toLowerCase().startsWith("http") ? searchString : `https://${searchString}`);
+  } catch {
+    return null;
+  }
+}
+
+function getSearchResults({
+  hideVisitURL,
+  searchDescriptions,
+  searchProvider,
+  searchString,
+  searchSuggestions,
+  servicesAndBookmarks,
+  t,
+  url,
+}) {
+  if (searchString.trim().length === 0) return [];
+
+  const results = servicesAndBookmarks.flatMap((result) => {
+    const nameMatch = result.name.toLowerCase().includes(searchString);
+    const descriptionMatch = searchDescriptions && result.description?.toLowerCase().includes(searchString);
+
+    if (!nameMatch && !descriptionMatch) return [];
+    return [{ ...result, ...(searchDescriptions && { priority: nameMatch ? 2 : +descriptionMatch }) }];
+  });
+
+  if (searchDescriptions) {
+    results.sort((a, b) => b.priority - a.priority);
+  }
+
+  if (searchProvider) {
+    results.push({
+      href: searchProvider.url + encodeURIComponent(searchString),
+      name: `${searchProvider.name ?? t("quicklaunch.custom")} ${t("quicklaunch.search")}`,
+      type: "search",
+    });
+
+    if (searchProvider.showSearchSuggestions && searchProvider.suggestionUrl && searchSuggestions[1]) {
+      results.push(
+        ...searchSuggestions[1].map((suggestion) => ({
+          href: searchProvider.url + encodeURIComponent(suggestion),
+          name: suggestion,
+          type: "searchSuggestion",
+        })),
+      );
+    }
+  }
+
+  if (!hideVisitURL && url) {
+    results.unshift({
+      href: url.toString(),
+      name: `${t("quicklaunch.visit")} URL`,
+      type: "url",
+    });
+  }
+
+  return results;
+}
 
 export default function QuickLaunch({ servicesAndBookmarks, searchString, setSearchString, isOpen, setSearching }) {
   const { t } = useTranslation();
@@ -23,9 +87,8 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
 
   const searchField = useRef();
 
-  const [results, setResults] = useState([]);
   const [currentItemIndex, setCurrentItemIndex] = useState(null);
-  const [url, setUrl] = useState(null);
+  const url = parseUrl(searchString);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
 
   const { data: widgets } = useSWR("/api/widgets");
@@ -62,7 +125,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     : null;
 
   function openCurrentItem(newWindow) {
-    const result = results[currentItemIndex];
+    const result = results[activeItemIndex];
     window.open(
       result.href,
       newWindow ? "_blank" : (result.target ?? searchProvider?.target ?? settings.target ?? "_blank"),
@@ -81,17 +144,9 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
 
   function handleSearchChange(event) {
     const rawSearchString = event.target.value;
-    try {
-      if (!/.+[.:].+/g.test(rawSearchString)) throw new Error(); // basic test for probably a url
-      let urlString = rawSearchString;
-      if (urlString.toLowerCase().indexOf("http") !== 0) urlString = `https://${rawSearchString}`;
-      setUrl(new URL(urlString)); // basic validation
-      setSearchString(rawSearchString);
-      return;
-    } catch (e) {
-      setUrl(null);
-    }
-    setSearchString(rawSearchString.toLowerCase());
+    setCurrentItemIndex(null);
+    // urls keep their casing, everything else is lowercased for matching
+    setSearchString(parseUrl(rawSearchString) ? rawSearchString : rawSearchString.toLowerCase());
   }
 
   function handleSearchKeyDown(event) {
@@ -103,18 +158,19 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     } else if (event.key === "Enter" && results.length) {
       closeAndReset();
       openCurrentItem(event.metaKey);
-    } else if (event.key === "ArrowDown" && results[currentItemIndex + 1]) {
-      setCurrentItemIndex(currentItemIndex + 1);
+    } else if (event.key === "ArrowDown" && results[activeItemIndex + 1]) {
+      setCurrentItemIndex(activeItemIndex + 1);
       event.preventDefault();
-    } else if (event.key === "ArrowUp" && currentItemIndex > 0) {
-      setCurrentItemIndex(currentItemIndex - 1);
+    } else if (event.key === "ArrowUp" && activeItemIndex > 0) {
+      setCurrentItemIndex(activeItemIndex - 1);
       event.preventDefault();
     } else if (
       event.key === "ArrowRight" &&
-      results[currentItemIndex] &&
-      results[currentItemIndex].type === "searchSuggestion"
+      results[activeItemIndex] &&
+      results[activeItemIndex].type === "searchSuggestion"
     ) {
-      setSearchString(results[currentItemIndex].name);
+      setCurrentItemIndex(null);
+      setSearchString(results[activeItemIndex].name);
     }
   }
 
@@ -138,88 +194,51 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
   }
 
   useEffect(() => {
-    const abortController = new AbortController();
-
-    if (searchString.trim().length === 0) setResults([]);
-    else {
-      let newResults = servicesAndBookmarks.filter((r) => {
-        const nameMatch = r.name.toLowerCase().includes(searchString);
-        let descriptionMatch;
-        if (searchDescriptions) {
-          descriptionMatch = r.description?.toLowerCase().includes(searchString);
-          r.priority = nameMatch ? 2 * +nameMatch : +descriptionMatch;
-        }
-        return nameMatch || descriptionMatch;
-      });
-
-      if (searchDescriptions) {
-        newResults = newResults.sort((a, b) => b.priority - a.priority);
-      }
-
-      if (searchProvider) {
-        newResults.push({
-          href: searchProvider.url + encodeURIComponent(searchString),
-          name: `${searchProvider.name ?? t("quicklaunch.custom")} ${t("quicklaunch.search")}`,
-          type: "search",
-        });
-
-        if (searchProvider.showSearchSuggestions && searchProvider.suggestionUrl) {
-          if (searchString.trim() !== searchSuggestions[0]?.trim()) {
-            fetch(
-              `/api/search/searchSuggestion?query=${encodeURIComponent(searchString)}&providerName=${
-                searchProvider.name ?? "Custom"
-              }`,
-              { signal: abortController.signal },
-            )
-              .then(async (searchSuggestionResult) => {
-                const newSearchSuggestions = await searchSuggestionResult.json();
-
-                if (newSearchSuggestions) {
-                  if (newSearchSuggestions[1].length > 4) {
-                    newSearchSuggestions[1] = newSearchSuggestions[1].splice(0, 4);
-                  }
-                  setSearchSuggestions(newSearchSuggestions);
-                }
-              })
-              .catch(() => {
-                // If there is an error, just ignore it. There just will be no search suggestions.
-              });
-          }
-
-          if (searchSuggestions[1]) {
-            newResults = newResults.concat(
-              searchSuggestions[1].map((suggestion) => ({
-                href: searchProvider.url + encodeURIComponent(suggestion),
-                name: suggestion,
-                type: "searchSuggestion",
-              })),
-            );
-          }
-        }
-      }
-
-      if (!hideVisitURL && url) {
-        newResults.unshift({
-          href: url.toString(),
-          name: `${t("quicklaunch.visit")} URL`,
-          type: "url",
-        });
-      }
-
-      setResults(newResults);
-
-      if (newResults.length) {
-        setCurrentItemIndex(0);
-      }
+    if (
+      searchString.trim().length === 0 ||
+      !searchProvider?.showSearchSuggestions ||
+      !searchProvider.suggestionUrl ||
+      searchString.trim() === searchSuggestions[0]?.trim()
+    ) {
+      return undefined;
     }
 
-    return () => {
-      abortController.abort();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchString, servicesAndBookmarks, searchDescriptions, hideVisitURL, searchSuggestions, searchProvider, url]);
+    const abortController = new AbortController();
 
-  const [hidden, setHidden] = useState(true);
+    fetch(
+      `/api/search/searchSuggestion?query=${encodeURIComponent(searchString)}&providerName=${
+        searchProvider.name ?? "Custom"
+      }`,
+      { signal: abortController.signal },
+    )
+      .then(async (searchSuggestionResult) => {
+        const newSearchSuggestions = await searchSuggestionResult.json();
+
+        if (newSearchSuggestions) {
+          setCurrentItemIndex(null);
+          setSearchSuggestions([newSearchSuggestions[0], newSearchSuggestions[1].slice(0, 4)]);
+        }
+      })
+      .catch(() => {
+        // If there is an error, just ignore it. There just will be no search suggestions.
+      });
+
+    return () => abortController.abort();
+  }, [searchProvider, searchString, searchSuggestions]);
+
+  const results = getSearchResults({
+    hideVisitURL,
+    searchDescriptions,
+    searchProvider,
+    searchString,
+    searchSuggestions,
+    servicesAndBookmarks,
+    t,
+    url,
+  });
+
+  const activeItemIndex = currentItemIndex ?? (results.length ? 0 : null);
+
   useEffect(() => {
     function handleBackdropClick(event) {
       if (event.target?.tagName === "DIV") closeAndReset();
@@ -228,14 +247,11 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     if (isOpen) {
       searchField.current.focus();
       document.body.addEventListener("click", handleBackdropClick);
-      setHidden(false);
     } else {
-      document.body.removeEventListener("click", handleBackdropClick);
       searchField.current.blur();
-      setTimeout(() => {
-        setHidden(true);
-      }, 300); // disable on close
     }
+
+    return () => document.body.removeEventListener("click", handleBackdropClick);
   }, [isOpen, closeAndReset]);
 
   function highlightText(text) {
@@ -259,13 +275,17 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     <>
       <div
         className={classNames(
-          "relative z-40 ease-in-out duration-300 transition-opacity",
-          hidden && !isOpen && "hidden",
-          !hidden && isOpen && "opacity-100",
-          !isOpen && "opacity-0",
+          "relative z-40 ease-in-out",
+          isOpen ? "visible opacity-100" : "invisible opacity-0 pointer-events-none",
         )}
+        style={{
+          transitionProperty: "opacity, visibility",
+          transitionDuration: "300ms, 0s",
+          transitionDelay: isOpen ? "0s, 0s" : "0s, 300ms",
+        }}
         role="dialog"
         aria-modal="true"
+        aria-hidden={!isOpen}
       >
         <div className="fixed inset-0 bg-gray-500 opacity-50" />
         <div className="fixed inset-0 z-20 overflow-y-auto">
@@ -297,7 +317,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
                         onKeyDown={handleItemKeyDown}
                         className={classNames(
                           "flex flex-row w-full items-center justify-between rounded-md text-sm md:text-xl py-2 px-4 cursor-pointer text-theme-700 dark:text-theme-200",
-                          i === currentItemIndex && "bg-theme-300/50 dark:bg-theme-700/50",
+                          i === activeItemIndex && "bg-theme-300/50 dark:bg-theme-700/50",
                         )}
                       >
                         <div className="flex flex-row items-center mr-4 pointer-events-none">

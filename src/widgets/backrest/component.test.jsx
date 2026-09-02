@@ -24,12 +24,7 @@ describe("widgets/backrest/component", () => {
     const service = { widget: { type: "backrest" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual([
-      "num_success_latest",
-      "num_failure_latest",
-      "num_failure_30",
-      "bytes_added_30",
-    ]);
+    expect(service.widget.fields).toBeUndefined();
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
 
     expect(screen.getByText("backrest.num_success_latest")).toBeInTheDocument();
@@ -48,7 +43,7 @@ describe("widgets/backrest/component", () => {
 
     renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["a", "b", "c", "d"]);
+    expect(service.widget.fields).toEqual(["a", "b", "c", "d", "e"]);
   });
 
   it("renders values and respects field filtering", () => {

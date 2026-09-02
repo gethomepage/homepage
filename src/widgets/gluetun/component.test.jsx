@@ -22,7 +22,7 @@ describe("widgets/gluetun/component", () => {
     const service = { widget: { type: "gluetun", url: "http://x" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["public_ip", "region", "country"]);
+    expect(service.widget.fields).toBeUndefined();
     expect(container.querySelectorAll(".service-block")).toHaveLength(3);
     expect(screen.getByText("gluetun.public_ip")).toBeInTheDocument();
     expect(screen.getByText("gluetun.region")).toBeInTheDocument();

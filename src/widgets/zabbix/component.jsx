@@ -1,8 +1,9 @@
-import Block from "components/services/widget/block";
-import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
 const PriorityUnclassified = "0";
 const PriorityInformation = "1";
@@ -10,21 +11,17 @@ const PriorityWarning = "2";
 const PriorityAverage = "3";
 const PriorityHigh = "4";
 const PriorityDisaster = "5";
+const DEFAULT_FIELDS = ["warning", "average", "high", "disaster"];
 
-export default function Component({ service }) {
+export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
 
   const { data: zabbixData, error: zabbixError } = useWidgetAPI(widget, "trigger");
 
   if (zabbixError) {
     return <Container service={service} error={zabbixError} />;
-  }
-
-  if (!widget.fields) {
-    widget.fields = ["warning", "average", "high", "disaster"];
-  } else if (widget.fields?.length > 4) {
-    widget.fields = widget.fields.slice(0, 4);
   }
 
   if (!zabbixData) {

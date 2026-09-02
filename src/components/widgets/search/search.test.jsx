@@ -9,6 +9,7 @@ import { renderWithProviders } from "test-utils/render-with-providers";
 vi.mock("@headlessui/react", async () => {
   const React = await import("react");
   const { Fragment, createContext, useContext } = React;
+  const ComboboxContext = createContext(null);
   const ListboxContext = createContext(null);
 
   function passthrough({ as: As = "div", children, ...props }) {
@@ -18,9 +19,21 @@ vi.mock("@headlessui/react", async () => {
   }
 
   return {
-    Combobox: passthrough,
+    Combobox: ({ onChange, children }) => (
+      <ComboboxContext.Provider value={{ onChange }}>
+        <div>{children}</div>
+      </ComboboxContext.Provider>
+    ),
     ComboboxInput: (props) => <input {...props} />,
-    ComboboxOption: passthrough,
+    ComboboxOption: ({ as: As = "div", value, children, ...props }) => {
+      const ctx = useContext(ComboboxContext);
+      const content = typeof children === "function" ? children({ active: false }) : children;
+      return (
+        <As value={value} onMouseDown={() => ctx?.onChange?.(value)} {...props}>
+          {content}
+        </As>
+      );
+    },
     ComboboxOptions: passthrough,
     Listbox: ({ value, onChange, children, ...props }) => (
       <ListboxContext.Provider value={{ value, onChange }}>
@@ -163,6 +176,28 @@ describe("components/widgets/search", () => {
 
     expect(openSpy).toHaveBeenCalledWith("https://example.com/search?q=hello%20world", "_self");
     openSpy.mockRestore();
+  });
+
+  it("gives every provider option an accessible name", () => {
+    renderWithProviders(
+      <Search options={{ provider: ["google", "duckduckgo", "brave"], showSearchSuggestions: false }} />,
+      { settings: {} },
+    );
+
+    expect(screen.getAllByRole("option").map((option) => option.textContent)).toEqual([
+      "Google",
+      "DuckDuckGo",
+      "Brave",
+    ]);
+  });
+
+  it("labels the search input and the provider button", () => {
+    renderWithProviders(<Search options={{ provider: ["google", "duckduckgo"], showSearchSuggestions: false }} />, {
+      settings: {},
+    });
+
+    expect(screen.getByRole("textbox")).toHaveAccessibleName("search.placeholder");
+    expect(screen.getByRole("button")).toHaveAccessibleName(/search\.provider/);
   });
 
   it("fetches search suggestions and triggers a search when a suggestion is selected", async () => {

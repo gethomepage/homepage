@@ -1,9 +1,9 @@
+import { useTranslation } from "next-i18next/pages";
+
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-import { useTranslation } from "next-i18next/pages";
-import Pool from "widgets/truenas/pool";
-
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import Pool from "widgets/truenas/pool";
 
 export default function Component({ service }) {
   const { t } = useTranslation();

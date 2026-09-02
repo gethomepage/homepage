@@ -1,19 +1,13 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
-export default function Component({ service }) {
+const DEFAULT_FIELDS = ["apps", "synced", "outOfSync", "healthy"];
+
+export default function Component({ service: configuredService }) {
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
-
-  if (!widget.fields) {
-    widget.fields = ["apps", "synced", "outOfSync", "healthy"];
-  }
-
-  const MAX_ALLOWED_FIELDS = 4;
-  if (widget.fields.length > MAX_ALLOWED_FIELDS) {
-    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
-  }
 
   const { data: appsData, error: appsError } = useWidgetAPI(widget, "applications");
 

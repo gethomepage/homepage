@@ -39,7 +39,9 @@
         "wait": "โปรดรอ"
     },
     "search": {
-        "placeholder": "ค้นหา…"
+        "placeholder": "ค้นหา…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "ซีพียู",

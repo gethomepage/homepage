@@ -1,8 +1,11 @@
-import Block from "components/services/widget/block";
-import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
+
+const DEFAULT_FIELDS = ["title", "message", "priority", "lastReceived"];
 
 const priorityLabels = {
   1: "min",
@@ -20,20 +23,15 @@ function Truncated({ text }) {
   );
 }
 
-export default function Component({ service }) {
+export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
 
   const { data: messagesData, error: messagesError } = useWidgetAPI(widget, "messages");
 
   if (messagesError) {
     return <Container service={service} error={messagesError} />;
-  }
-
-  if (!widget.fields || widget.fields.length === 0) {
-    widget.fields = ["title", "message", "priority", "lastReceived"];
-  } else if (widget.fields?.length > 4) {
-    widget.fields = widget.fields.slice(0, 4);
   }
 
   if (!messagesData) {

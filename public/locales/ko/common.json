@@ -39,7 +39,9 @@
         "wait": "잠시만 기다리세요"
     },
     "search": {
-        "placeholder": "검색…"
+        "placeholder": "검색…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "CPU",
@@ -472,7 +474,7 @@
         "users": "사용자",
         "loginsLast24H": "로그인 (24시간)",
         "failedLoginsLast24H": "실패한 로그인 (24시간)",
-        "authorizationsLast24H": "Auths (24h)"
+        "authorizationsLast24H": "인증(24시간)"
     },
     "proxmox": {
         "mem": "메모리",

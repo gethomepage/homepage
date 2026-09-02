@@ -32,10 +32,6 @@ export function ThemeProvider({ initialTheme, children }) {
   };
 
   useEffect(() => {
-    if (initialTheme !== undefined) setTheme(initialTheme ?? getInitialTheme());
-  }, [initialTheme]);
-
-  useEffect(() => {
     rawSetTheme(theme);
   }, [theme]);
 

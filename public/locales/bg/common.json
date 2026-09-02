@@ -39,7 +39,9 @@
         "wait": "Моля изчакайте"
     },
     "search": {
-        "placeholder": "Търсене…"
+        "placeholder": "Търсене…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "Процесор",

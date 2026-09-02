@@ -1,11 +1,15 @@
-import Block from "components/services/widget/block";
-import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
+import useCurrentTime from "utils/hooks/use-current-time";
 import useWidgetAPI from "utils/proxy/use-widget-api";
+
+const DAY = 24 * 60 * 60 * 1000;
 
 export default function Component({ service }) {
   const { t } = useTranslation();
+  const currentTime = useCurrentTime();
 
   const { widget } = service;
   const isV2 = widget.version === 2;
@@ -45,7 +49,7 @@ export default function Component({ service }) {
   switch (widget.version) {
     // v1 is default
     default:
-      const yesterday = new Date(Date.now()).setHours(-24);
+      const yesterday = currentTime - DAY;
       loginsLast24H = loginsData.reduce(
         (total, current) => (current.x_cord >= yesterday ? total + current.y_cord : total),
         0,

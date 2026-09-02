@@ -1,20 +1,16 @@
-import Block from "components/services/widget/block";
-import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
 const DEFAULT_FIELDS = ["jobs", "errors", "lastBackup", "nextRun"];
 
-export default function Component({ service }) {
+export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
-
-  if (!widget.fields?.length) {
-    widget.fields = DEFAULT_FIELDS;
-  } else if (widget.fields?.length > 4) {
-    widget.fields = widget.fields.slice(0, 4);
-  }
 
   const { data, error } = useWidgetAPI(widget);
 

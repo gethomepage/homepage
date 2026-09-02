@@ -1,11 +1,12 @@
 import classNames from "classnames";
 import { useContext } from "react";
-import { SettingsContext } from "utils/contexts/settings";
 
 import PrimaryText from "./primary_text";
 import Raw from "./raw";
 import SecondaryText from "./secondary_text";
 import WidgetIcon from "./widget_icon";
+
+import { SettingsContext } from "utils/contexts/settings";
 
 export function getAllClasses(options, additionalClassNames = "") {
   if (options?.style?.header === "boxedWidgets") {

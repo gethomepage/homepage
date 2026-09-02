@@ -26,8 +26,8 @@ describe("widgets/jellystat/component", () => {
     const service = { widget: { type: "jellystat", days: -1 } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.days).toBe(30);
-    expect(useWidgetAPI).toHaveBeenCalledWith(service.widget, "getViewsByLibraryType", { days: 30 });
+    expect(service.widget.days).toBe(-1);
+    expect(useWidgetAPI).toHaveBeenCalledWith({ type: "jellystat", days: 30 }, "getViewsByLibraryType", { days: 30 });
 
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("jellystat.songs")).toBeInTheDocument();

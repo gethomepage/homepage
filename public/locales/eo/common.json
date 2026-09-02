@@ -39,7 +39,9 @@
         "wait": "Bonvolu atendi"
     },
     "search": {
-        "placeholder": "Serĉi…"
+        "placeholder": "Serĉi…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "Ĉefprocesoro",

@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
 import { useContext, useEffect, useRef } from "react";
-import { ColorContext } from "utils/contexts/color";
 
+import { ColorContext } from "utils/contexts/color";
 import themes from "utils/styles/themes";
 
 export function Svg({ svgRef = null }) {

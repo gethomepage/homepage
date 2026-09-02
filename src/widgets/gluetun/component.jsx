@@ -1,14 +1,13 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
-export default function Component({ service }) {
+const DEFAULT_FIELDS = ["public_ip", "region", "country"];
+
+export default function Component({ service: configuredService }) {
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
-
-  if (!widget.fields) {
-    widget.fields = ["public_ip", "region", "country"];
-  }
 
   const { data: gluetunData, error: gluetunError } = useWidgetAPI(widget, "ip");
   const includePF = widget.fields.includes("port_forwarded");

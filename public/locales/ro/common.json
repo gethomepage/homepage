@@ -39,7 +39,9 @@
         "wait": "Va rugăm așteptați"
     },
     "search": {
-        "placeholder": "Caută…"
+        "placeholder": "Caută…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "Procesor",

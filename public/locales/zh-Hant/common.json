@@ -39,7 +39,9 @@
         "wait": "請稍候"
     },
     "search": {
-        "placeholder": "搜尋…"
+        "placeholder": "搜尋…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "CPU",

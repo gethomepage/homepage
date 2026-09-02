@@ -39,7 +39,9 @@
         "wait": "Sila tunggu"
     },
     "search": {
-        "placeholder": "Carian…"
+        "placeholder": "Carian…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "CPU",

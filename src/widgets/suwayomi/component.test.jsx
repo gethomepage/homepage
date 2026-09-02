@@ -22,7 +22,7 @@ describe("widgets/suwayomi/component", () => {
     const service = { widget: { type: "suwayomi" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["download", "nondownload", "read", "unread"]);
+    expect(service.widget.fields).toBeUndefined();
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("suwayomi.download")).toBeInTheDocument();
     expect(screen.getByText("suwayomi.nondownload")).toBeInTheDocument();

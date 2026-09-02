@@ -1,25 +1,20 @@
-import Block from "components/services/widget/block";
-import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
 const ROMM_DEFAULT_FIELDS = ["platforms", "totalRoms", "saves", "states"];
-const MAX_ALLOWED_FIELDS = 4;
 
-export default function Component({ service }) {
+export default function Component({ service: configuredService }) {
+  const service = withWidgetFields(configuredService, ROMM_DEFAULT_FIELDS);
   const { widget } = service;
   const { t } = useTranslation();
   const { data: response, error: responseError } = useWidgetAPI(widget, "statistics");
 
   if (responseError) {
     return <Container service={service} error={responseError} />;
-  }
-
-  if (!widget.fields?.length > 0) {
-    widget.fields = ROMM_DEFAULT_FIELDS;
-  } else if (widget.fields.length > MAX_ALLOWED_FIELDS) {
-    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
 
   if (!response) {

@@ -39,7 +39,9 @@
         "wait": "请稍候"
     },
     "search": {
-        "placeholder": "搜索…"
+        "placeholder": "搜索…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "CPU",

@@ -23,7 +23,7 @@ describe("widgets/beszel/component", () => {
     const service = { widget: { type: "beszel" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["systems", "up"]);
+    expect(service.widget.fields).toBeUndefined();
     expect(container.querySelectorAll(".service-block")).toHaveLength(2);
     expect(screen.getByText("beszel.systems")).toBeInTheDocument();
     expect(screen.getByText("beszel.up")).toBeInTheDocument();
@@ -66,7 +66,7 @@ describe("widgets/beszel/component", () => {
     const service = { widget: { type: "beszel", systemId: "sys1" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["name", "status", "cpu", "memory"]);
+    expect(service.widget.fields).toBeUndefined();
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
 
     expectBlockValue(container, "beszel.name", "MySystem");

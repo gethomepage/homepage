@@ -1,9 +1,12 @@
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
-export default function Component({ service }) {
+const DEFAULT_FIELDS = ["channels", "hd"];
+
+export default function Component({ service: configuredService }) {
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
   const { tuner = 0 } = widget;
 
@@ -22,15 +25,6 @@ export default function Component({ service }) {
         <Block label="hdhomerun.hd" />
       </Container>
     );
-  }
-
-  // Provide a default if not set in the config
-  if (!widget.fields) {
-    widget.fields = ["channels", "hd"];
-  }
-  // Limit to a maximum of 4 at a time
-  if (widget.fields.length > 4) {
-    widget.fields = widget.fields.slice(0, 4);
   }
 
   return (

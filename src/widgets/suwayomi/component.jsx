@@ -1,12 +1,16 @@
-import Block from "components/services/widget/block";
-import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
-export default function Component({ service }) {
+const DEFAULT_FIELDS = ["download", "nondownload", "read", "unread"];
+
+export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
 
+  const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
 
   const { data: suwayomiData, error: suwayomiError } = useWidgetAPI(widget);
@@ -16,11 +20,6 @@ export default function Component({ service }) {
   }
 
   if (!suwayomiData) {
-    if (!widget.fields || widget.fields.length === 0) {
-      widget.fields = ["download", "nondownload", "read", "unread"];
-    } else if (widget.fields.length > 4) {
-      widget.fields = widget.fields.slice(0, 4);
-    }
     return (
       <Container service={service}>
         {widget.fields.map((field) => (

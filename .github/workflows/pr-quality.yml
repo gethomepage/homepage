@@ -2,7 +2,6 @@ name: PR Quality
 
 permissions:
   contents: read
-  issues: read
   pull-requests: write
 
 on:

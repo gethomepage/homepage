@@ -1,24 +1,22 @@
-import Block from "components/services/widget/block";
-import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
-export default function Component({ service }) {
+const SUMMARY_FIELDS = ["systems", "up"];
+const SYSTEM_FIELDS = ["name", "status", "cpu", "memory"];
+
+export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
 
+  const defaultFields = configuredService.widget.systemId ? SYSTEM_FIELDS : SUMMARY_FIELDS;
+  const service = withWidgetFields(configuredService, defaultFields);
   const { widget } = service;
   const { systemId } = widget;
 
   const { data: systems, error: systemsError } = useWidgetAPI(widget, "systems");
-
-  const MAX_ALLOWED_FIELDS = 4;
-  if (!widget.fields?.length > 0) {
-    widget.fields = systemId ? ["name", "status", "cpu", "memory"] : ["systems", "up"];
-  }
-  if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
-    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
-  }
 
   let system = null;
   let finalError = systemsError;

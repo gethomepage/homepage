@@ -1,9 +1,11 @@
 import { useTranslation } from "next-i18next/pages";
 import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
+import { useCallback } from "react";
 
 import Block from "../components/block";
 import Container from "../components/container";
+
+import useDataPoints from "./use-data-points";
 
 import { parseVersionForUrl } from "utils/proxy/api-helpers";
 import useWidgetAPI from "utils/proxy/use-widget-api";
@@ -25,33 +27,32 @@ export default function Component({ service }) {
 
   const [, interfaceName] = metric.split(":");
 
-  const [dataPoints, setDataPoints] = useState(new Array(pointsLimit).fill({ value: 0 }, 0, pointsLimit));
+  const [dataPoints, addDataPoint] = useDataPoints(pointsLimit, { a: 0, b: 0 });
 
-  const { data, error } = useWidgetAPI(widget, `${apiVersion}/network`, {
-    refreshInterval: Math.max(defaultInterval(chart), refreshInterval),
-  });
+  const handleData = useCallback(
+    (newData) => {
+      if (!newData?.error) {
+        const interfaceData = newData.find((item) => item[item.key] === interfaceName);
 
-  useEffect(() => {
-    if (data && !data.error) {
-      const interfaceData = data.find((item) => item[item.key] === interfaceName);
-
-      if (interfaceData) {
-        setDataPoints((prevDataPoints) => {
-          const newDataPoints = [
-            ...prevDataPoints,
-            {
-              a: (interfaceData[rxKey] * 8) / interfaceData.time_since_update,
-              b: (interfaceData[txKey] * 8) / interfaceData.time_since_update,
-            },
-          ];
-          if (newDataPoints.length > pointsLimit) {
-            newDataPoints.shift();
-          }
-          return newDataPoints;
-        });
+        if (interfaceData) {
+          addDataPoint({
+            a: (interfaceData[rxKey] * 8) / interfaceData.time_since_update,
+            b: (interfaceData[txKey] * 8) / interfaceData.time_since_update,
+          });
+        }
       }
-    }
-  }, [data, interfaceName, pointsLimit, rxKey, txKey]);
+    },
+    [addDataPoint, interfaceName, rxKey, txKey],
+  );
+
+  const { data, error } = useWidgetAPI(
+    widget,
+    `${apiVersion}/network`,
+    {
+      refreshInterval: Math.max(defaultInterval(chart), refreshInterval),
+    },
+    { onSuccess: handleData },
+  );
 
   if (error || (data && data.error)) {
     const finalError = error || data.error;

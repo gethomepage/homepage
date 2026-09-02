@@ -22,7 +22,7 @@ describe("widgets/pangolin/component", () => {
     const service = { widget: { type: "pangolin" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["sites", "resources", "targets", "traffic"]);
+    expect(service.widget.fields).toBeUndefined();
     // Container filters by widget.fields, so only the default 4 blocks are visible.
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("pangolin.sites")).toBeInTheDocument();
@@ -39,7 +39,7 @@ describe("widgets/pangolin/component", () => {
     const service = { widget: { type: "pangolin", fields: ["sites", "resources", "targets", "traffic", "extra"] } };
     renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["sites", "resources", "targets", "traffic"]);
+    expect(service.widget.fields).toEqual(["sites", "resources", "targets", "traffic", "extra"]);
   });
 
   it("renders computed site/resource/target totals and traffic bytes", () => {

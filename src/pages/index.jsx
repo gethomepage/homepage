@@ -1,4 +1,14 @@
 import classNames from "classnames";
+import { useTranslation } from "next-i18next/pages";
+import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
+import dynamic from "next/dynamic";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import Script from "next/script";
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { BiError } from "react-icons/bi";
+import useSWR, { SWRConfig } from "swr";
+
 import BookmarksGroup from "components/bookmarks/group";
 import ErrorBoundary from "components/errorboundry";
 import QuickLaunch from "components/quicklaunch";
@@ -6,22 +16,12 @@ import ServicesGroup from "components/services/group";
 import Tab, { slugifyAndEncode } from "components/tab";
 import Revalidate from "components/toggles/revalidate";
 import Widget from "components/widgets/widget";
-import { useTranslation } from "next-i18next/pages";
-import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
-import dynamic from "next/dynamic";
-import Head from "next/head";
-import { useRouter } from "next/router";
-import Script from "next/script";
-import { useContext, useEffect, useMemo, useState } from "react";
-import { BiError } from "react-icons/bi";
-import useSWR, { SWRConfig } from "swr";
+import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
+import { getSettings } from "utils/config/config";
 import { ColorContext } from "utils/contexts/color";
 import { SettingsContext } from "utils/contexts/settings";
 import { TabContext } from "utils/contexts/tab";
 import { ThemeContext } from "utils/contexts/theme";
-
-import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
-import { getSettings } from "utils/config/config";
 import useWindowFocus from "utils/hooks/window-focus";
 import createLogger from "utils/logger";
 import themes from "utils/styles/themes";
@@ -102,36 +102,35 @@ function Index({ initialSettings, fallback }) {
   const [stale, setStale] = useState(false);
   const { data: errorsData } = useSWR("/api/validate");
   const { error: validateError } = errorsData || {};
-  const { data: hashData, mutate: mutateHash } = useSWR("/api/hash");
+
+  const handleHashData = useCallback((hashData) => {
+    if (typeof window === "undefined" || !hashData?.hash) return;
+
+    const previousHash = localStorage.getItem("hash");
+
+    if (!previousHash) {
+      localStorage.setItem("hash", hashData.hash);
+    }
+
+    if (previousHash && previousHash !== hashData.hash) {
+      setStale(true);
+      localStorage.setItem("hash", hashData.hash);
+
+      fetch("/api/revalidate").then((res) => {
+        if (res.ok) {
+          window.location.reload();
+        }
+      });
+    }
+  }, []);
+
+  const { mutate: mutateHash } = useSWR("/api/hash", { onSuccess: handleHashData });
 
   useEffect(() => {
     if (windowFocused) {
       mutateHash();
     }
   }, [windowFocused, mutateHash]);
-
-  useEffect(() => {
-    if (hashData) {
-      if (typeof window !== "undefined") {
-        const previousHash = localStorage.getItem("hash");
-
-        if (!previousHash) {
-          localStorage.setItem("hash", hashData.hash);
-        }
-
-        if (previousHash && previousHash !== hashData.hash) {
-          setStale(true);
-          localStorage.setItem("hash", hashData.hash);
-
-          fetch("/api/revalidate").then((res) => {
-            if (res.ok) {
-              window.location.reload();
-            }
-          });
-        }
-      }
-    }
-  }, [hashData]);
 
   if (validateError) {
     return (
@@ -264,6 +263,13 @@ function Home({ initialSettings }) {
           e.key.match(/([à-ü]|[À-Ü]|!)/g) ||
           (e.key === "v" && (e.ctrlKey || e.metaKey))
         ) {
+          if (e.key.length === 1 && !(e.key === "v" && (e.ctrlKey || e.metaKey))) {
+            e.preventDefault();
+            // whitespace opens the search but shouldn't be in it
+            if (e.key.trim()) {
+              setSearchString((currentSearchString) => currentSearchString + e.key);
+            }
+          }
           setSearching(true);
         } else if (e.key === "Escape") {
           setSearchString("");
@@ -420,10 +426,11 @@ function Home({ initialSettings }) {
         />
         {settings.disableIndexing && <meta name="robots" content="noindex, nofollow" />}
         {settings.base && <base href={settings.base} />}
-        {settings.favicon ? (
+        {/* from props, not context so its set before running JS */}
+        {initialSettings.favicon ? (
           <>
-            <link rel="icon" href={settings.favicon} />
-            <link rel="apple-touch-icon" sizes="180x180" href={settings.favicon} />
+            <link rel="icon" href={initialSettings.favicon} />
+            <link rel="apple-touch-icon" sizes="180x180" href={initialSettings.favicon} />
           </>
         ) : (
           <>

@@ -1,8 +1,8 @@
-import Block from "components/services/widget/block";
-import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 import { useEffect, useState } from "react";
 
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import { formatProxyUrl } from "utils/proxy/api-helpers";
 
 export default function Component({ service }) {

@@ -1,6 +1,7 @@
 import classNames from "classnames";
-import Container from "components/services/widget/container";
 import { useEffect, useState } from "react";
+
+import Container from "components/services/widget/container";
 
 export default function Component({ service }) {
   const [refreshTimer, setRefreshTimer] = useState(0);

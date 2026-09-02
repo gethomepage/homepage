@@ -22,7 +22,7 @@ describe("widgets/romm/component", () => {
     const service = { widget: { type: "romm" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["platforms", "totalRoms", "saves", "states"]);
+    expect(service.widget.fields).toBeUndefined();
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("romm.platforms")).toBeInTheDocument();
     expect(screen.getByText("romm.totalRoms")).toBeInTheDocument();
@@ -38,7 +38,7 @@ describe("widgets/romm/component", () => {
     const service = { widget: { type: "romm", fields: ["platforms", "totalRoms", "saves", "states", "screenshots"] } };
     renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual(["platforms", "totalRoms", "saves", "states"]);
+    expect(service.widget.fields).toEqual(["platforms", "totalRoms", "saves", "states", "screenshots"]);
   });
 
   it("renders values when loaded (and includes additional fields when explicitly selected)", () => {

@@ -71,6 +71,16 @@ function logFailedPasswordSignIn() {
   createLogger("nextauth").warn("Failed password sign-in attempt");
 }
 
+function logNextAuthError(code, metadata) {
+  const error = metadata instanceof Error ? metadata : metadata?.error;
+
+  if (error?.message) {
+    createLogger("nextauth").error("%s: %s", code, error.message);
+  } else {
+    createLogger("nextauth").error("%s", code);
+  }
+}
+
 let providers = [];
 if (authEnabled) {
   if (hasOidcConfig) {
@@ -140,7 +150,7 @@ export const authOptions = {
     signIn: "/auth/signin",
   },
   logger: {
-    error: (code) => createLogger("nextauth").error("%s", code),
+    error: logNextAuthError,
     warn: (code) => createLogger("nextauth").warn("%s", code),
     debug: (code) => createLogger("nextauth").debug("%s", code),
   },

@@ -1,8 +1,8 @@
-import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 import { BsCpu, BsFillCpuFill, BsFillPlayFill, BsPauseFill } from "react-icons/bs";
 import { MdOutlineSmartDisplay, MdSmartDisplay } from "react-icons/md";
 
+import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function millisecondsToTime(milliseconds) {
@@ -166,7 +166,7 @@ export default function Component({ service }) {
     );
   }
 
-  const playing = activityData.response.data.sessions.sort((a, b) => {
+  const playing = [...activityData.response.data.sessions].sort((a, b) => {
     if (a.view_offset > b.view_offset) {
       return 1;
     }

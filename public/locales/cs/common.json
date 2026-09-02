@@ -39,7 +39,9 @@
         "wait": "Počkejte prosím"
     },
     "search": {
-        "placeholder": "Hledat…"
+        "placeholder": "Hledat…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "Využití procesoru",

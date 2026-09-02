@@ -1,13 +1,23 @@
-import Block from "components/services/widget/block";
-import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
+import withWidgetFields from "utils/widget-fields";
 
-const MAX_ALLOWED_FIELDS = 4;
+const SUMMARY_FIELDS = ["servers", "stacks", "containers"];
+const STACK_FIELDS = ["total", "running", "down", "unhealthy"];
+const CONTAINER_FIELDS = ["total", "running", "stopped", "unhealthy"];
 
-export default function Component({ service }) {
+export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
+  const configuredWidget = configuredService.widget;
+  const defaultFields = configuredWidget.showSummary
+    ? SUMMARY_FIELDS
+    : configuredWidget.showStacks
+      ? STACK_FIELDS
+      : CONTAINER_FIELDS;
+  const service = withWidgetFields(configuredService, defaultFields);
   const { widget } = service;
   const containersEndpoint = !(!widget.showSummary && widget.showStacks) ? "containers" : "";
   const { data: containersData, error: containersError } = useWidgetAPI(widget, containersEndpoint);
@@ -18,16 +28,6 @@ export default function Component({ service }) {
 
   if (containersError || stacksError || serversError) {
     return <Container service={service} error={containersError ?? stacksError ?? serversError} />;
-  }
-
-  if (!widget.fields || widget.fields.length === 0) {
-    widget.fields = widget.showSummary
-      ? ["servers", "stacks", "containers"]
-      : widget.showStacks
-        ? ["total", "running", "down", "unhealthy"]
-        : ["total", "running", "stopped", "unhealthy"];
-  } else if (widget.fields?.length > MAX_ALLOWED_FIELDS) {
-    widget.fields = widget.fields.slice(0, MAX_ALLOWED_FIELDS);
   }
 
   if (

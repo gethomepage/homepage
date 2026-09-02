@@ -39,7 +39,9 @@
         "wait": "Proszę czekać"
     },
     "search": {
-        "placeholder": "Szukaj…"
+        "placeholder": "Szukaj…",
+        "provider": "Wyszukiwarka: {{name}}",
+        "select_provider": "Wybierz wyszukiwarkę"
     },
     "resources": {
         "cpu": "Procesor",
@@ -472,7 +474,7 @@
         "users": "Użytkownicy",
         "loginsLast24H": "Logowania (24h)",
         "failedLoginsLast24H": "Nieudane logowania (24h)",
-        "authorizationsLast24H": "Auths (24h)"
+        "authorizationsLast24H": "Uwierzytelnienia (24h)"
     },
     "proxmox": {
         "mem": "RAM",

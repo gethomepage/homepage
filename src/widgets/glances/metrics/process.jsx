@@ -1,9 +1,9 @@
-import ResolvedIcon from "components/resolvedicon";
 import { useTranslation } from "next-i18next/pages";
 
 import Block from "../components/block";
 import Container from "../components/container";
 
+import ResolvedIcon from "components/resolvedicon";
 import { parseVersionForUrl } from "utils/proxy/api-helpers";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
@@ -43,7 +43,7 @@ export default function Component({ service }) {
     );
   }
 
-  data.splice(chart ? 5 : 1);
+  const visibleData = data.slice(0, chart ? 5 : 1);
   let headerYPosition = "top-4";
   let listYPosition = "bottom-4";
   if (chart) {
@@ -63,7 +63,7 @@ export default function Component({ service }) {
 
       <Block position={`${listYPosition} right-3 left-3`}>
         <div className="pointer-events-none text-theme-900 dark:text-theme-200">
-          {data.map((item) => (
+          {visibleData.map((item) => (
             <div key={item.pid} className="text-[0.75rem] h-[0.8rem]">
               <div className="flex items-center">
                 <div className="w-3 h-3 mr-1.5 opacity-50">{statusMap[item.status]}</div>

@@ -22,12 +22,7 @@ describe("widgets/wallos/component", () => {
     const service = { widget: { type: "wallos" } };
     const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
-    expect(service.widget.fields).toEqual([
-      "activeSubscriptions",
-      "nextRenewingSubscription",
-      "thisMonthlyCost",
-      "nextMonthlyCost",
-    ]);
+    expect(service.widget.fields).toBeUndefined();
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("wallos.activeSubscriptions")).toBeInTheDocument();
     expect(screen.getByText("wallos.nextRenewingSubscription")).toBeInTheDocument();
