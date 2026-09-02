@@ -102,6 +102,11 @@ export default async function crowdsecProxyHandler(req, res) {
       return res.status(status).json({ error: "Crowdsec API Error", data });
     }
 
+    // Crowdsec returns a literal null instead of an empty array when nothing matches
+    if (data?.toString().trim() === "null") {
+      return res.status(status).json([]);
+    }
+
     return res.status(status).send(data);
   } catch (error) {
     logger.error("Exception calling Crowdsec API: %s", error.message);

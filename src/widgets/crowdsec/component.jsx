@@ -21,7 +21,7 @@ export default function Component({ service }) {
     return <Container service={service} error={alertsError ?? bansError} />;
   }
 
-  if (!alerts && !bans) {
+  if (alerts === undefined && bans === undefined) {
     return (
       <Container service={service}>
         <Block label="crowdsec.alerts" />
