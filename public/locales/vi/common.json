@@ -21,7 +21,7 @@
         "seconds": "giây"
     },
     "auth": {
-        "signout": "Sign out"
+        "signout": "Đăng xuất"
     },
     "widget": {
         "missing_type": "Thiếu loại Widget: {{type}}",
@@ -39,7 +39,9 @@
         "wait": "Vui lòng chờ"
     },
     "search": {
-        "placeholder": "Tìm kiếm…"
+        "placeholder": "Tìm kiếm…",
+        "provider": "Công cụ tìm kiếm: {{name}}",
+        "select_provider": "Chọn công cụ tìm kiếm"
     },
     "resources": {
         "cpu": "CPU",
@@ -48,7 +50,7 @@
         "free": "Dư",
         "used": "Đã dùng",
         "load": "\n",
-        "temp": "TEMP",
+        "temp": "Tạm thời",
         "max": "Tối đa",
         "uptime": "UP"
     },
@@ -64,24 +66,24 @@
         "wlan_devices": "Thiết bị trong mạng WLAN",
         "lan_users": "Người dùng mạng LAN",
         "wlan_users": "Người dùng mạng WLAN",
-        "up": "UP",
-        "down": "DOWN",
+        "up": "Hoạt động",
+        "down": "Không hoạt động",
         "wait": "Vui lòng chờ",
         "empty_data": "Trạng thái hệ thống phụ không xác định"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "Bình thường",
+        "degraded": "Suy giảm",
+        "no_data": "Không có dữ liệu"
     },
     "duplicati": {
-        "jobs": "Jobs",
-        "stored": "Stored",
-        "lastBackup": "Last Run",
-        "nextRun": "Next Run",
-        "running": "Running",
-        "warnings": "Warnings",
-        "errors": "Errors"
+        "jobs": "Tác vụ",
+        "stored": "Đã lưu",
+        "lastBackup": "Lần chạy cuối",
+        "nextRun": "Lần chạy tiếp theo",
+        "running": "Đang chạy",
+        "warnings": "Cảnh báo",
+        "errors": "Lỗi"
     },
     "docker": {
         "rx": "RX",
@@ -96,8 +98,8 @@
         "starting": "Đang bắt đầu",
         "unhealthy": "Bất thường",
         "not_found": "Không tìm thấy",
-        "exited": "Exited",
-        "partial": "Partial"
+        "exited": "Đã thoát",
+        "partial": "Một phần"
     },
     "ping": {
         "error": "Lỗi",
@@ -118,35 +120,35 @@
         "playing": "Đang chơi",
         "transcoding": "Chuyển định dạng",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
+        "no_active": "Không có luồng đang hoạt động",
         "movies": "Phim ảnh",
         "series": "Series",
-        "episodes": "Episodes",
+        "episodes": "Tập",
         "songs": "Bài hát"
     },
     "jellyfin": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
+        "playing": "Đang phát",
+        "transcoding": "Đang chuyển mã",
+        "bitrate": "Tốc độ bit",
+        "no_active": "Không có luồng đang hoạt động",
+        "movies": "Phim",
         "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs",
-        "albums": "Albums"
+        "episodes": "Tập",
+        "songs": "Bài hát",
+        "albums": "Album"
     },
     "esphome": {
         "offline": "Offline",
         "offline_alt": "Offline",
         "online": "Online",
-        "total": "Total",
+        "total": "Tổng cộng",
         "unknown": "Không xác định"
     },
     "evcc": {
-        "pv_power": "Production",
+        "pv_power": "Công suất phát",
         "battery_soc": "Pin",
         "grid_power": "Lưới",
-        "home_power": "Consumption",
+        "home_power": "Công suất tiêu thụ",
         "charge_power": "Bộ sạc",
         "kilowatt": "kW"
     },
@@ -154,7 +156,7 @@
         "download": "Tải xuống",
         "upload": "Tải lên",
         "leech": "",
-        "seed": "Seed"
+        "seed": "Seeder"
     },
     "freshrss": {
         "subscriptions": "Đăng ký",
@@ -173,115 +175,115 @@
         "maxDown": "Tải xuống tối đa",
         "maxUp": "Tải lên tối đa",
         "down": "Down",
-        "up": "Up",
-        "received": "Received",
-        "sent": "Sent",
-        "externalIPAddress": "Ext. IP",
-        "externalIPv6Address": "Ext. IPv6",
-        "externalIPv6Prefix": "Ext. IPv6-Prefix"
+        "up": "Tải lên",
+        "received": "Đã nhận",
+        "sent": "Đã gửi",
+        "externalIPAddress": "Địa chỉ IP bên ngoài",
+        "externalIPv6Address": "Địa chỉ IPv6 bên ngoài",
+        "externalIPv6Prefix": "Tiền tố IPv6 bên ngoài"
     },
     "caddy": {
-        "upstreams": "Upstreams",
-        "requests": "Current requests",
-        "requests_failed": "Failed requests"
+        "upstreams": "Máy chủ backend",
+        "requests": "Yêu cầu hiện tại",
+        "requests_failed": "Yêu cầu thất bại"
     },
     "changedetectionio": {
-        "totalObserved": "Total Observed",
-        "diffsDetected": "Diffs Detected"
+        "totalObserved": "Tổng số đã theo dõi",
+        "diffsDetected": "Số thay đổi đã phát hiện"
     },
     "channelsdvrserver": {
-        "shows": "Shows",
-        "recordings": "Recordings",
-        "scheduled": "Scheduled",
-        "passes": "Passes"
+        "shows": "Chương trình",
+        "recordings": "Bản ghi",
+        "scheduled": "Đã lên lịch",
+        "passes": "Quy tắc ghi"
     },
     "tautulli": {
-        "playing": "Playing",
-        "transcoding": "Transcoding",
-        "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "plex_connection_error": "Check Plex Connection"
+        "playing": "Đang phát",
+        "transcoding": "Đang chuyển mã",
+        "bitrate": "Tốc độ bit",
+        "no_active": "Không có luồng đang hoạt động",
+        "plex_connection_error": "Kiểm tra kết nối Plex"
     },
     "tracearr": {
-        "no_active": "No Active Streams",
-        "streams": "Streams",
-        "transcodes": "Transcodes",
-        "directplay": "Direct Play",
-        "bitrate": "Bitrate"
+        "no_active": "Không có luồng đang hoạt động",
+        "streams": "Luồng",
+        "transcodes": "Luồng chuyển mã",
+        "directplay": "Phát trực tiếp",
+        "bitrate": "Tốc độ bit"
     },
     "omada": {
-        "connectedAp": "Connected APs",
-        "activeUser": "Active devices",
-        "alerts": "Alerts",
-        "connectedGateways": "Connected gateways",
-        "connectedSwitches": "Connected switches"
+        "connectedAp": "AP đã kết nối",
+        "activeUser": "Thiết bị đang hoạt động",
+        "alerts": "Cảnh báo",
+        "connectedGateways": "Gateway đã kết nối",
+        "connectedSwitches": "Switch đã kết nối"
     },
     "nzbget": {
-        "rate": "Rate",
-        "remaining": "Remaining",
+        "rate": "Tốc độ",
+        "remaining": "Còn lại",
         "downloaded": "Đã tải"
     },
     "plex": {
-        "streams": "Active Streams",
-        "albums": "Albums",
-        "movies": "Movies",
-        "tv": "TV Shows"
+        "streams": "Luồng đang hoạt động",
+        "albums": "Album",
+        "movies": "Phim",
+        "tv": "Chương trình TV"
     },
     "sabnzbd": {
-        "rate": "Rate",
+        "rate": "Tốc độ",
         "queue": "Hàng chờ",
         "timeleft": "Thời gian còn lại"
     },
     "rutorrent": {
         "active": "Hoạt động",
-        "upload": "Upload",
-        "download": "Download"
+        "upload": "Tải lên",
+        "download": "Tải xuống"
     },
     "transmission": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Tải xuống",
+        "upload": "Tải lên",
+        "leech": "Leecher",
+        "seed": "Seeder"
     },
     "qbittorrent": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Tải xuống",
+        "upload": "Tải lên",
+        "leech": "Leecher",
+        "seed": "Seeder"
     },
     "qnap": {
-        "cpuUsage": "CPU Usage",
-        "memUsage": "MEM Usage",
-        "systemTempC": "System Temp",
-        "poolUsage": "Pool Usage",
-        "volumeUsage": "Volume Usage",
-        "invalid": "Invalid"
+        "cpuUsage": "Mức sử dụng CPU",
+        "memUsage": "Mức sử dụng bộ nhớ",
+        "systemTempC": "Nhiệt độ hệ thống",
+        "poolUsage": "Mức sử dụng pool",
+        "volumeUsage": "Mức sử dụng volume",
+        "invalid": "Không hợp lệ"
     },
     "deluge": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Tải xuống",
+        "upload": "Tải lên",
+        "leech": "Leecher",
+        "seed": "Seeder"
     },
     "develancacheui": {
-        "cachehitbytes": "Cache Hit Bytes",
-        "cachemissbytes": "Cache Miss Bytes"
+        "cachehitbytes": "Dung lượng cache hit",
+        "cachemissbytes": "Dung lượng cache miss"
     },
     "downloadstation": {
-        "download": "Download",
-        "upload": "Upload",
-        "leech": "Leech",
-        "seed": "Seed"
+        "download": "Tải xuống",
+        "upload": "Tải lên",
+        "leech": "Leecher",
+        "seed": "Seeder"
     },
     "sonarr": {
-        "wanted": "Wanted",
+        "wanted": "Cần tải",
         "queued": "Queued",
-        "series": "Series",
+        "series": "Phim bộ",
         "queue": "Queue",
         "unknown": "Unknown"
     },
     "radarr": {
-        "wanted": "Wanted",
+        "wanted": "Cần tải",
         "missing": "Missing",
         "queued": "Queued",
         "movies": "Movies",
@@ -289,12 +291,12 @@
         "unknown": "Unknown"
     },
     "lidarr": {
-        "wanted": "Wanted",
+        "wanted": "Cần tải",
         "queued": "Queued",
         "artists": "Artists"
     },
     "readarr": {
-        "wanted": "Wanted",
+        "wanted": "Cần tải",
         "queued": "Queued",
         "books": "Sách"
     },
@@ -334,66 +336,66 @@
         "latency": "Latency"
     },
     "speedtest": {
-        "upload": "Upload",
-        "download": "Download",
+        "upload": "Tải lên",
+        "download": "Tải xuống",
         "ping": "Ping"
     },
     "portainer": {
-        "running": "Running",
-        "stopped": "Stopped",
-        "total": "Total"
+        "running": "Đang chạy",
+        "stopped": "Đã dừng",
+        "total": "Tổng cộng"
     },
     "suwayomi": {
-        "download": "Downloaded",
-        "nondownload": "Non-Downloaded",
-        "read": "Read",
-        "unread": "Unread",
-        "downloadedread": "Downloaded & Read",
-        "downloadedunread": "Downloaded & Unread",
-        "nondownloadedread": "Non-Downloaded & Read",
-        "nondownloadedunread": "Non-Downloaded & Unread"
+        "download": "Đã tải xuống",
+        "nondownload": "Chưa tải xuống",
+        "read": "Đã đọc",
+        "unread": "Chưa đọc",
+        "downloadedread": "Đã tải xuống & Đã đọc",
+        "downloadedunread": "Đã tải xuống & Chưa đọc",
+        "nondownloadedread": "Chưa tải xuống & Đã đọc",
+        "nondownloadedunread": "Chưa tải xuống & Chưa đọc"
     },
     "tailscale": {
-        "address": "Address",
-        "expires": "Expires",
-        "never": "Never",
-        "user": "User",
-        "hostname": "Hostname",
-        "name": "Name",
-        "client_version": "Client Version",
-        "os": "OS",
-        "created": "Created",
-        "authorized": "Authorized",
-        "is_external": "Is External",
-        "update_available": "Update Available",
-        "tags": "Tags",
-        "last_seen": "Last Seen",
-        "now": "Now",
-        "years": "{{number}}y",
-        "weeks": "{{number}}w",
-        "days": "{{number}}d",
-        "hours": "{{number}}h",
-        "minutes": "{{number}}m",
-        "seconds": "{{number}}s",
-        "ago": "{{value}} Ago",
-        "true": "Yes",
-        "false": "No"
+        "address": "Địa chỉ",
+        "expires": "Hết hạn",
+        "never": "Không bao giờ",
+        "user": "Người dùng",
+        "hostname": "Tên máy chủ",
+        "name": "Tên",
+        "client_version": "Phiên bản máy khách",
+        "os": "Hệ điều hành",
+        "created": "Đã tạo",
+        "authorized": "Đã cấp quyền",
+        "is_external": "Là bên ngoài",
+        "update_available": "Có bản cập nhật",
+        "tags": "Thẻ",
+        "last_seen": "Lần cuối nhìn thấy",
+        "now": "Bây giờ",
+        "years": "{{number}} năm",
+        "weeks": "{{number}} tuần",
+        "days": "{{number}} ngày",
+        "hours": "{{number}} giờ",
+        "minutes": "{{number}} phút",
+        "seconds": "{{number}} giây",
+        "ago": "{{value}} trước",
+        "true": "Có",
+        "false": "Không"
     },
     "technitium": {
-        "totalQueries": "Queries",
-        "totalNoError": "Success",
-        "totalServerFailure": "Failures",
-        "totalNxDomain": "NX Domains",
-        "totalRefused": "Refused",
+        "totalQueries": "Tổng số truy vấn",
+        "totalNoError": "Thành công",
+        "totalServerFailure": "Lỗi máy chủ",
+        "totalNxDomain": "NX Domain",
+        "totalRefused": "Bị từ chối",
         "totalAuthoritative": "Authoritative",
         "totalRecursive": "Recursive",
-        "totalCached": "Cached",
-        "totalBlocked": "Blocked",
-        "totalDropped": "Dropped",
-        "totalClients": "Clients"
+        "totalCached": "Được lưu trong bộ nhớ đệm",
+        "totalBlocked": "Bị chặn",
+        "totalDropped": "Bị loại bỏ",
+        "totalClients": "Số máy khách"
     },
     "tdarr": {
-        "queue": "Queue",
+        "queue": "Hàng đợi",
         "processed": "Processed",
         "errored": "Errored",
         "saved": "Saved"
@@ -410,7 +412,7 @@
         "unknown": "Unknown"
     },
     "navidrome": {
-        "nothing_streaming": "No Active Streams",
+        "nothing_streaming": "Không có luồng đang hoạt động",
         "please_wait": "Please Wait"
     },
     "npm": {
@@ -453,9 +455,9 @@
         "domain_count": "Domains"
     },
     "medusa": {
-        "wanted": "Wanted",
+        "wanted": "Cần tải",
         "queued": "Queued",
-        "series": "Series"
+        "series": "Phim bộ"
     },
     "minecraft": {
         "players": "Players",
@@ -472,66 +474,66 @@
         "users": "Users",
         "loginsLast24H": "Logins (24h)",
         "failedLoginsLast24H": "Failed Logins (24h)",
-        "authorizationsLast24H": "Auths (24h)"
+        "authorizationsLast24H": "Lượt ủy quyền (24 giờ)"
     },
     "proxmox": {
-        "mem": "MEM",
+        "mem": "Bộ nhớ",
         "cpu": "CPU",
         "lxc": "LXC",
-        "vms": "VMs"
+        "vms": "VM"
     },
     "pulse": {
-        "nodes": "Nodes",
-        "vms": "VMs",
-        "lxcs": "LXCs"
+        "nodes": "Node",
+        "vms": "VM",
+        "lxcs": "LXC"
     },
     "glances": {
         "cpu": "CPU",
-        "load": "Load",
-        "wait": "Please wait",
-        "temp": "TEMP",
-        "_temp": "Temp",
-        "warn": "Warn",
-        "uptime": "UP",
-        "total": "Total",
-        "free": "Free",
-        "used": "Used",
-        "days": "d",
-        "hours": "h",
-        "crit": "Crit",
-        "read": "Read",
-        "write": "Write",
+        "load": "Tải hệ thống",
+        "wait": "Vui lòng đợi",
+        "temp": "Nhiệt độ",
+        "_temp": "Nhiệt độ",
+        "warn": "Cảnh báo",
+        "uptime": "Thời gian hoạt động",
+        "total": "Tổng cộng",
+        "free": "Còn trống",
+        "used": "Đã sử dụng",
+        "days": "ngày",
+        "hours": "giờ",
+        "crit": "Nghiêm trọng",
+        "read": "Đọc",
+        "write": "Ghi",
         "gpu": "GPU",
-        "mem": "Mem",
+        "mem": "Bộ nhớ",
         "swap": "Swap"
     },
     "quicklaunch": {
-        "bookmark": "Bookmark",
-        "service": "Service",
-        "search": "Search",
-        "custom": "Custom",
-        "visit": "Visit",
+        "bookmark": "Dấu trang",
+        "service": "Dịch vụ",
+        "search": "Tìm kiếm",
+        "custom": "Tùy chỉnh",
+        "visit": "Truy cập",
         "url": "URL",
-        "searchsuggestion": "Suggestion"
+        "searchsuggestion": "Gợi ý"
     },
     "wmo": {
-        "0-day": "Sunny",
-        "0-night": "Clear",
-        "1-day": "Mainly Sunny",
-        "1-night": "Mainly Clear",
-        "2-day": "Partly Cloudy",
-        "2-night": "Partly Cloudy",
-        "3-day": "Cloudy",
-        "3-night": "Cloudy",
-        "45-day": "Foggy",
-        "45-night": "Foggy",
-        "48-day": "Foggy",
-        "48-night": "Foggy",
-        "51-day": "Light Drizzle",
-        "51-night": "Light Drizzle",
-        "53-day": "Drizzle",
-        "53-night": "Drizzle",
-        "55-day": "Heavy Drizzle",
+        "0-day": "Trời nắng",
+        "0-night": "Trời quang",
+        "1-day": "Chủ yếu có nắng",
+        "1-night": "Chủ yếu trời quang",
+        "2-day": "Có mây từng phần",
+        "2-night": "Có mây từng phần",
+        "3-day": "Nhiều mây",
+        "3-night": "Nhiều mây",
+        "45-day": "Có sương mù",
+        "45-night": "Có sương mù",
+        "48-day": "Có sương mù",
+        "48-night": "Có sương mù",
+        "51-day": "Mưa phùn nhẹ",
+        "51-night": "Mưa phùn nhẹ",
+        "53-day": "Mưa phùn",
+        "53-night": "Mưa phùn",
+        "55-day": "Mưa phùn lớn",
         "55-night": "Heavy Drizzle",
         "56-day": "Light Freezing Drizzle",
         "56-night": "Light Freezing Drizzle",
@@ -739,14 +741,14 @@
         "m": "m"
     },
     "atsumeru": {
-        "series": "Series",
+        "series": "Bộ truyện",
         "archives": "Archives",
         "chapters": "Chapters",
         "categories": "Categories"
     },
     "komga": {
         "libraries": "Libraries",
-        "series": "Series",
+        "series": "Bộ truyện",
         "books": "Books"
     },
     "diskstation": {
@@ -759,9 +761,9 @@
         "streams": "Streams"
     },
     "mylar": {
-        "series": "Series",
+        "series": "Phim bộ",
         "issues": "Issues",
-        "wanted": "Wanted"
+        "wanted": "Cần tải"
     },
     "photoprism": {
         "albums": "Albums",
@@ -844,7 +846,7 @@
         "books": "Books",
         "authors": "Authors",
         "categories": "Categories",
-        "series": "Series"
+        "series": "Bộ sách"
     },
     "booklore": {
         "libraries": "Libraries",
@@ -859,7 +861,7 @@
         "downloadSpeed": "Speed"
     },
     "kavita": {
-        "seriesCount": "Series",
+        "seriesCount": "Số bộ truyện",
         "totalFiles": "Files"
     },
     "azuredevops": {
@@ -1248,7 +1250,7 @@
         "storage": "Storage"
     },
     "sportarr": {
-        "wanted": "Wanted",
+        "wanted": "Cần tải",
         "queued": "Queued",
         "leagues": "Leagues"
     }

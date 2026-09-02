@@ -39,7 +39,9 @@
         "wait": "Odota, ole hyvä"
     },
     "search": {
-        "placeholder": "Hae…"
+        "placeholder": "Hae…",
+        "provider": "Search engine: {{name}}",
+        "select_provider": "Select search engine"
     },
     "resources": {
         "cpu": "CPU",
