@@ -161,4 +161,29 @@ describe("widgets/crowdsec/proxy", () => {
     expect(res.statusCode).toBe(500);
     expect(res.body).toEqual({ error: "Failed to authenticate with Crowdsec" });
   });
+
+  it("normalizes a literal null response to an empty array", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "crowdsec",
+      url: "http://cs",
+      username: "machine",
+      password: "pw",
+    });
+
+    httpProxy
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ token: "tok", expire: new Date(Date.now() + 60_000).toISOString() }),
+      ])
+      .mockResolvedValueOnce([200, "application/json", Buffer.from("null")]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "alerts", index: "0" } };
+    const res = createMockRes();
+
+    await crowdsecProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual([]);
+  });
 });

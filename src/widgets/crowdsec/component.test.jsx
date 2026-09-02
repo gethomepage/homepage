@@ -86,4 +86,15 @@ describe("widgets/crowdsec/component", () => {
 
     expectBlockValue(container, "crowdsec.alerts", 499);
   });
+
+  it("renders null responses as 0 counts", () => {
+    useWidgetAPI.mockImplementation(() => ({ data: null, error: undefined }));
+
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "crowdsec" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expectBlockValue(container, "crowdsec.alerts", 0);
+    expectBlockValue(container, "crowdsec.bans", 0);
+  });
 });
