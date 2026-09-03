@@ -23,6 +23,9 @@ describe("components/services/status", () => {
 
     expect(useSWR).toHaveBeenCalledWith("/api/docker/statuses?server=s");
     expect(screen.getByText("docker.unknown")).toBeInTheDocument();
+
+    render(<Status service={{ container: "c" }} />);
+    expect(useSWR).toHaveBeenCalledWith("/api/docker/statuses?server=");
   });
 
   it("renders error when SWR fails", () => {

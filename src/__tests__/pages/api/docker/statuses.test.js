@@ -89,6 +89,21 @@ describe("pages/api/docker/statuses", () => {
     });
   });
 
+  it("returns only listed containers when swarm queries fail", async () => {
+    state.dockerArgs.swarm = true;
+    state.docker.listContainers.mockResolvedValue([{ Names: ["/web"], Id: "cid1", State: "running", Status: "Up" }]);
+    state.docker.listServices.mockRejectedValue(new Error("no services"));
+    state.docker.listTasks.mockRejectedValue(new Error("no tasks"));
+
+    const req = { query: { server: "swarm" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({ web: { status: "running" } });
+  });
+
   it("returns 500 when docker returns a non-array containers payload", async () => {
     state.docker.listContainers.mockResolvedValue(Buffer.from("bad"));
 
@@ -100,4 +115,20 @@ describe("pages/api/docker/statuses", () => {
     expect(res.statusCode).toBe(500);
     expect(res.body).toEqual({ error: "query failed" });
   });
+
+  it("logs and returns 500 when the docker query throws", async () => {
+    getDockerArguments.mockImplementationOnce(() => {
+      throw new Error("boom");
+    });
+
+    const req = { query: { server: "local" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toEqual({ error: { message: "boom" } });
+    expect(logger.error).toHaveBeenCalled();
+  });
 });
+

@@ -31,6 +31,19 @@ describe("widgets/docker/component", () => {
     expect(screen.getByText("docker.offline")).toBeInTheDocument();
   });
 
+  it("treats a missing container in the bulk status map as offline", () => {
+    useSWR
+      .mockReturnValueOnce({ data: {}, error: undefined })
+      .mockReturnValueOnce({ data: undefined, error: undefined });
+
+    renderWithProviders(<Component service={{ widget: { type: "docker", container: "c", server: "s" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(useSWR).toHaveBeenCalledWith("/api/docker/statuses?server=s");
+    expect(screen.getByText("docker.offline")).toBeInTheDocument();
+  });
+
   it("renders cpu/mem/rx/tx values when stats are available", () => {
     useSWR.mockReturnValueOnce({ data: { c: { status: "running" } }, error: undefined }).mockReturnValueOnce({
       data: {
