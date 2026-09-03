@@ -43,8 +43,7 @@ describe("pages/api/docker/status/[...service]", () => {
     state.dockerArgs = { conn: { socketPath: "/var/run/docker.sock" }, swarm: false };
     state.docker = {
       listContainers: vi.fn(),
-      getContainer: vi.fn(),
-      getService: vi.fn(),
+      listServices: vi.fn(),
       listTasks: vi.fn(),
     };
   });
@@ -71,11 +70,10 @@ describe("pages/api/docker/status/[...service]", () => {
     expect(res.body).toEqual({ error: "query failed" });
   });
 
-  it("inspects an existing container and returns status + health", async () => {
-    state.docker.listContainers.mockResolvedValue([{ Names: ["/myapp"], Id: "cid1" }]);
-    state.docker.getContainer.mockReturnValue({
-      inspect: vi.fn().mockResolvedValue({ State: { Status: "running", Health: { Status: "healthy" } } }),
-    });
+  it("returns status + health from a single listContainers call", async () => {
+    state.docker.listContainers.mockResolvedValue([
+      { Names: ["/myapp"], State: "running", Status: "Up 3 minutes (healthy)" },
+    ]);
 
     const req = { query: { service: ["myapp", "local"] } };
     const res = createMockRes();
@@ -84,12 +82,13 @@ describe("pages/api/docker/status/[...service]", () => {
 
     expect(getDockerArguments).toHaveBeenCalledWith("local");
     expect(state.dockerCtorArgs).toHaveLength(1);
+    expect(state.docker.listContainers).toHaveBeenCalledTimes(1);
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual({ status: "running", health: "healthy" });
   });
 
   it("returns 404 when container does not exist and swarm is disabled", async () => {
-    state.docker.listContainers.mockResolvedValue([{ Names: ["/other"], Id: "cid1" }]);
+    state.docker.listContainers.mockResolvedValue([{ Names: ["/other"], State: "running", Status: "Up" }]);
 
     const req = { query: { service: ["missing", "local"] } };
     const res = createMockRes();
@@ -102,11 +101,14 @@ describe("pages/api/docker/status/[...service]", () => {
 
   it("reports replicated swarm service status based on desired replicas", async () => {
     state.dockerArgs.swarm = true;
-    state.docker.listContainers.mockResolvedValue([{ Names: ["/other"], Id: "cid1" }]);
-    state.docker.getService.mockReturnValue({
-      inspect: vi.fn().mockResolvedValue({ Spec: { Mode: { Replicated: { Replicas: "2" } } } }),
-    });
-    state.docker.listTasks.mockResolvedValue([{ Status: {} }, { Status: {} }]);
+    state.docker.listContainers.mockResolvedValue([{ Names: ["/other"], Id: "cid1", State: "running", Status: "Up" }]);
+    state.docker.listServices.mockResolvedValue([
+      { ID: "sid", Spec: { Name: "svc", Mode: { Replicated: { Replicas: "2" } } } },
+    ]);
+    state.docker.listTasks.mockResolvedValue([
+      { ServiceID: "sid", Status: {} },
+      { ServiceID: "sid", Status: {} },
+    ]);
 
     const req = { query: { service: ["svc", "local"] } };
     const res = createMockRes();
@@ -119,11 +121,11 @@ describe("pages/api/docker/status/[...service]", () => {
 
   it("reports partial status for replicated services with fewer running tasks", async () => {
     state.dockerArgs.swarm = true;
-    state.docker.listContainers.mockResolvedValue([{ Names: ["/other"], Id: "cid1" }]);
-    state.docker.getService.mockReturnValue({
-      inspect: vi.fn().mockResolvedValue({ Spec: { Mode: { Replicated: { Replicas: "3" } } } }),
-    });
-    state.docker.listTasks.mockResolvedValue([{ Status: {} }]);
+    state.docker.listContainers.mockResolvedValue([{ Names: ["/other"], Id: "cid1", State: "running", Status: "Up" }]);
+    state.docker.listServices.mockResolvedValue([
+      { ID: "sid", Spec: { Name: "svc", Mode: { Replicated: { Replicas: "3" } } } },
+    ]);
+    state.docker.listTasks.mockResolvedValue([{ ServiceID: "sid", Status: {} }]);
 
     const req = { query: { service: ["svc", "local"] } };
     const res = createMockRes();
@@ -134,18 +136,15 @@ describe("pages/api/docker/status/[...service]", () => {
     expect(res.body).toEqual({ status: "partial 1/3" });
   });
 
-  it("handles global services by inspecting a local task container when possible", async () => {
+  it("handles global services from a locally listed task container", async () => {
     state.dockerArgs.swarm = true;
-    state.docker.listContainers.mockResolvedValue([{ Names: ["/other"], Id: "local1" }]);
-    state.docker.getService.mockReturnValue({
-      inspect: vi.fn().mockResolvedValue({ Spec: { Mode: { Global: {} } } }),
-    });
-    state.docker.listTasks.mockResolvedValue([
-      { Status: { ContainerStatus: { ContainerID: "local1" }, State: "running" } },
+    state.docker.listContainers.mockResolvedValue([
+      { Names: ["/other"], Id: "local1", State: "running", Status: "Up 1 minute (unhealthy)" },
     ]);
-    state.docker.getContainer.mockReturnValue({
-      inspect: vi.fn().mockResolvedValue({ State: { Status: "running", Health: { Status: "unhealthy" } } }),
-    });
+    state.docker.listServices.mockResolvedValue([{ ID: "sid", Spec: { Name: "svc", Mode: { Global: {} } } }]);
+    state.docker.listTasks.mockResolvedValue([
+      { ServiceID: "sid", Status: { ContainerStatus: { ContainerID: "local1" }, State: "running" } },
+    ]);
 
     const req = { query: { service: ["svc", "local"] } };
     const res = createMockRes();
@@ -156,18 +155,15 @@ describe("pages/api/docker/status/[...service]", () => {
     expect(res.body).toEqual({ status: "running", health: "unhealthy" });
   });
 
-  it("falls back to task status when global service container inspect fails", async () => {
+  it("falls back to task status when a global service container is not listed", async () => {
     state.dockerArgs.swarm = true;
-    state.docker.listContainers.mockResolvedValue([{ Names: ["/other"], Id: "local1" }]);
-    state.docker.getService.mockReturnValue({
-      inspect: vi.fn().mockResolvedValue({ Spec: { Mode: { Global: {} } } }),
-    });
-    state.docker.listTasks.mockResolvedValue([
-      { Status: { ContainerStatus: { ContainerID: "local1" }, State: "pending" } },
+    state.docker.listContainers.mockResolvedValue([
+      { Names: ["/other"], Id: "otherid", State: "exited", Status: "Exited" },
     ]);
-    state.docker.getContainer.mockReturnValue({
-      inspect: vi.fn().mockRejectedValue(new Error("nope")),
-    });
+    state.docker.listServices.mockResolvedValue([{ ID: "sid", Spec: { Name: "svc", Mode: { Global: {} } } }]);
+    state.docker.listTasks.mockResolvedValue([
+      { ServiceID: "sid", Status: { ContainerStatus: { ContainerID: "remote1" }, State: "pending" } },
+    ]);
 
     const req = { query: { service: ["svc", "local"] } };
     const res = createMockRes();
@@ -180,10 +176,9 @@ describe("pages/api/docker/status/[...service]", () => {
 
   it("returns 404 when swarm is enabled but the service does not exist", async () => {
     state.dockerArgs.swarm = true;
-    state.docker.listContainers.mockResolvedValue([{ Names: ["/other"], Id: "cid1" }]);
-    state.docker.getService.mockReturnValue({
-      inspect: vi.fn().mockRejectedValue(new Error("not found")),
-    });
+    state.docker.listContainers.mockResolvedValue([{ Names: ["/other"], Id: "cid1", State: "running", Status: "Up" }]);
+    state.docker.listServices.mockResolvedValue([]);
+    state.docker.listTasks.mockResolvedValue([]);
 
     const req = { query: { service: ["svc", "local"] } };
     const res = createMockRes();
