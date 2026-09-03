@@ -131,4 +131,3 @@ describe("pages/api/docker/statuses", () => {
     expect(logger.error).toHaveBeenCalled();
   });
 });
-
