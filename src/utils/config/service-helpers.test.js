@@ -195,6 +195,27 @@ describe("utils/config/service-helpers", () => {
     expect(mod.hasHomepageLabels({ "homepage.instance.foo.name": "X" }, "foo")).toBe(true);
     expect(mod.hasHomepageLabels({ "homepage.instance.bar.name": "X" }, "foo")).toBe(false);
   });
+
+  it("servicesFromDocker skips containers without labels instead of failing the whole server", async () => {
+    state.dockerYaml = { "docker-local": {} };
+    state.dockerContainersByServer["docker-local"] = [
+      { Names: ["/nolabels"] },
+      { Names: ["/labelled"], Labels: { "homepage.group": "G", "homepage.name": "Svc" } },
+    ];
+
+    const mod = await import("./service-helpers");
+    const discovered = await mod.servicesFromDocker();
+
+    expect(discovered).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          name: "G",
+          services: [expect.objectContaining({ name: "Svc", container: "labelled" })],
+        }),
+      ]),
+    );
+  });
+
   it("servicesFromDocker returns [] when docker.yaml is empty", async () => {
     state.dockerYaml = null;
 
