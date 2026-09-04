@@ -16,8 +16,8 @@ function statusEntry(state, status) {
 }
 
 export async function getDockerStatuses(server) {
-  const dockerArgs = getDockerArguments(server || undefined);
-  const docker = new Docker(dockerArgs.conn ?? dockerArgs);
+  const dockerArgs = getDockerArguments(server);
+  const docker = new Docker(dockerArgs.conn);
   const containers = await docker.listContainers({ all: true });
 
   if (!Array.isArray(containers)) {
