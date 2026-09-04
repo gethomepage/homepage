@@ -7,8 +7,10 @@ import { BiShieldQuarter } from "react-icons/bi";
 import { getSettings } from "utils/config/config";
 
 const PUBLIC_SIGN_IN_SETTINGS = ["theme", "color", "title", "background", "backgroundOpacity"];
+const AUTO_LOGIN_COOKIE = "homepage-autologin-attempt";
+const AUTO_LOGIN_RETRY_SECONDS = 10;
 
-export default function SignIn({ providers, settings }) {
+export default function SignIn({ providers, settings, autoLogin }) {
   const router = useRouter();
   const [password, setPassword] = useState("");
   const theme = settings?.theme || "dark";
@@ -19,6 +21,24 @@ export default function SignIn({ providers, settings }) {
     return typeof value === "string" ? value : "/";
   }, [router.query?.callbackUrl]);
   const error = router.query?.error;
+
+  const oidcProvider = useMemo(
+    () => Object.values(providers ?? {}).find((provider) => provider.type !== "credentials"),
+    [providers],
+  );
+  // Try to avoid auto-login loop, e.g. if there was an error (or explicitly disabled via query param)
+  const autoLoginBlocked = Boolean(error) || router.query?.autologin === "0";
+  const redirecting = Boolean(autoLogin && oidcProvider && !autoLoginBlocked);
+
+  useEffect(() => {
+    if (!redirecting) return;
+
+    // getServerSideProps drops autoLogin while this is set, so a bounce loop falls back to the button
+    const secure = window.location.protocol === "https:" ? "; secure" : "";
+    document.cookie = `${AUTO_LOGIN_COOKIE}=1; path=/auth; max-age=${AUTO_LOGIN_RETRY_SECONDS}; samesite=lax${secure}`;
+
+    signIn(oidcProvider.id, { callbackUrl });
+  }, [redirecting, oidcProvider, callbackUrl]);
 
   let backgroundImage = "";
   let opacity = settings?.backgroundOpacity ?? 0;
@@ -143,7 +163,12 @@ export default function SignIn({ providers, settings }) {
               <div className="rounded-2xl border border-white/60 bg-white/70 p-6 shadow-lg shadow-black/5 dark:border-white/10 dark:bg-slate-900/70">
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-slate-100">Sign in</h2>
                 <div className="mt-6 space-y-3">
-                  {hasPasswordProvider && (
+                  {redirecting && (
+                    <p className="text-sm text-gray-600 dark:text-slate-300">
+                      Redirecting to {oidcProvider?.name}&hellip;
+                    </p>
+                  )}
+                  {!redirecting && hasPasswordProvider && (
                     <form
                       className="space-y-3"
                       onSubmit={async (event) => {
@@ -173,7 +198,8 @@ export default function SignIn({ providers, settings }) {
                       </button>
                     </form>
                   )}
-                  {!hasPasswordProvider &&
+                  {!redirecting &&
+                    !hasPasswordProvider &&
                     Object.values(providers).map((provider) => (
                       <button
                         key={provider.id}
@@ -217,7 +243,14 @@ export async function getServerSideProps(context) {
       homepageSettings[key],
     ]),
   );
+  // A pending attempt means the previous redirect never established a session
+  const autoLoginAttempted = context.req?.cookies?.[AUTO_LOGIN_COOKIE] === "1";
+
   return {
-    props: { providers, settings },
+    props: {
+      providers,
+      settings,
+      autoLogin: process.env.HOMEPAGE_OIDC_AUTO_LOGIN === "true" && !autoLoginAttempted,
+    },
   };
 }

@@ -69,6 +69,11 @@ For OIDC login (overrides password login):
 - `HOMEPAGE_OIDC_CLIENT_ID`
 - `HOMEPAGE_OIDC_CLIENT_SECRET`
 - Optional: `HOMEPAGE_OIDC_NAME` (display name), `HOMEPAGE_OIDC_SCOPE` (defaults to `openid email profile`)
+- Optional: `HOMEPAGE_OIDC_AUTO_LOGIN=true` to skip the login page and send unauthenticated visitors straight to the provider
+
+!!! tip
+
+    With auto-login enabled, visit `/auth/signin?autologin=0` to reach the login page without being redirected, e.g. in case something goes wrong!
 
 !!! warning
 

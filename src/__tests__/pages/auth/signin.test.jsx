@@ -1,11 +1,13 @@
 // @vitest-environment jsdom
 
 import { render, screen, waitFor } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
-const { getSettingsMock, authOptionsMock } = vi.hoisted(() => ({
+const { getSettingsMock, authOptionsMock, signInMock, routerQuery } = vi.hoisted(() => ({
   getSettingsMock: vi.fn(),
   authOptionsMock: vi.fn(),
+  signInMock: vi.fn(),
+  routerQuery: {},
 }));
 
 vi.mock("utils/config/config", () => ({
@@ -20,13 +22,23 @@ vi.mock("pages/api/auth/[...nextauth]", () => ({
 
 vi.mock("next/router", () => ({
   useRouter: () => ({
-    query: {},
+    query: routerQuery,
   }),
 }));
 
+vi.mock("next-auth/react", () => ({ signIn: signInMock }));
+
 import SignInPage, { getServerSideProps } from "pages/auth/signin";
 
+const OIDC_PROVIDERS = { "homepage-oidc": { id: "homepage-oidc", name: "Homepage OIDC", type: "oauth" } };
+const SETTINGS = { theme: "dark", color: "slate", title: "Homepage" };
+
 describe("pages/auth/signin", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    Object.keys(routerQuery).forEach((key) => delete routerQuery[key]);
+  });
+
   it("renders an error state when no providers are configured", async () => {
     render(
       <SignInPage
@@ -66,6 +78,53 @@ describe("pages/auth/signin", () => {
     expect(screen.getByRole("button", { name: /login via oidc/i })).toBeInTheDocument();
   });
 
+  it("redirects to the provider when auto-login is enabled", () => {
+    routerQuery.callbackUrl = "/some/page";
+
+    render(<SignInPage providers={OIDC_PROVIDERS} settings={SETTINGS} autoLogin />);
+
+    expect(signInMock).toHaveBeenCalledWith("homepage-oidc", { callbackUrl: "/some/page" });
+    expect(screen.getByText(/redirecting to homepage oidc/i)).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /login via/i })).not.toBeInTheDocument();
+  });
+
+  it("does not auto-login when the provider returned an error", () => {
+    routerQuery.error = "OAuthCallback";
+
+    render(<SignInPage providers={OIDC_PROVIDERS} settings={SETTINGS} autoLogin />);
+
+    expect(signInMock).not.toHaveBeenCalled();
+    expect(screen.getByRole("button", { name: /login via homepage oidc/i })).toBeInTheDocument();
+  });
+
+  it("does not auto-login when it is explicitly disabled in the url", () => {
+    routerQuery.autologin = "0";
+
+    render(<SignInPage providers={OIDC_PROVIDERS} settings={SETTINGS} autoLogin />);
+
+    expect(signInMock).not.toHaveBeenCalled();
+    expect(screen.getByRole("button", { name: /login via homepage oidc/i })).toBeInTheDocument();
+  });
+
+  it("renders the button when the server disabled auto-login", () => {
+    render(<SignInPage providers={OIDC_PROVIDERS} settings={SETTINGS} autoLogin={false} />);
+
+    expect(signInMock).not.toHaveBeenCalled();
+    expect(screen.getByRole("button", { name: /login via homepage oidc/i })).toBeInTheDocument();
+  });
+
+  it("does not auto-login the password provider", () => {
+    render(
+      <SignInPage
+        providers={{ credentials: { id: "credentials", name: "Password", type: "credentials" } }}
+        settings={SETTINGS}
+        autoLogin
+      />,
+    );
+
+    expect(signInMock).not.toHaveBeenCalled();
+  });
+
   it("getServerSideProps returns providers and only public sign-in settings", async () => {
     authOptionsMock.mockReturnValueOnce({ providers: [{ id: "foo", name: "Foo", type: "oauth" }] });
     getSettingsMock.mockReturnValueOnce({
@@ -88,6 +147,7 @@ describe("pages/auth/signin", () => {
     expect(getSettingsMock).toHaveBeenCalled();
     expect(res).toEqual({
       props: {
+        autoLogin: false,
         providers: { foo: { id: "foo", name: "Foo", type: "oauth" } },
         settings: {
           theme: "dark",
@@ -100,6 +160,28 @@ describe("pages/auth/signin", () => {
     });
     expect(res.props.settings).not.toHaveProperty("providers");
     expect(res.props.settings).not.toHaveProperty("layout");
+  });
+
+  it("getServerSideProps enables auto-login from the environment", async () => {
+    authOptionsMock.mockReturnValueOnce({ providers: [] });
+    getSettingsMock.mockReturnValueOnce({ theme: "dark" });
+    vi.stubEnv("HOMEPAGE_OIDC_AUTO_LOGIN", "true");
+
+    const res = await getServerSideProps({});
+
+    expect(res.props.autoLogin).toBe(true);
+    vi.unstubAllEnvs();
+  });
+
+  it("getServerSideProps disables auto-login while an attempt is pending", async () => {
+    authOptionsMock.mockReturnValueOnce({ providers: [] });
+    getSettingsMock.mockReturnValueOnce({ theme: "dark" });
+    vi.stubEnv("HOMEPAGE_OIDC_AUTO_LOGIN", "true");
+
+    const res = await getServerSideProps({ req: { cookies: { "homepage-autologin-attempt": "1" } } });
+
+    expect(res.props.autoLogin).toBe(false);
+    vi.unstubAllEnvs();
   });
 
   it("getServerSideProps falls back to no providers when auth options fail to load", async () => {
