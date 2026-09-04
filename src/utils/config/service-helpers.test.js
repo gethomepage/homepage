@@ -175,6 +175,26 @@ describe("utils/config/service-helpers", () => {
     expect(await mod.containersFromConfig("local")).toEqual(new Set());
   });
 
+  it("homepageLabelValue strips the prefix and honors instance scoping", async () => {
+    const mod = await import("./service-helpers");
+
+    expect(mod.homepageLabelValue("com.docker.compose.project", "foo")).toBeNull();
+    expect(mod.homepageLabelValue("homepage.name", undefined)).toBe("name");
+    expect(mod.homepageLabelValue("homepage.instance.foo.name", "foo")).toBe("name");
+    expect(mod.homepageLabelValue("homepage.instance.bar.name", "foo")).toBeNull();
+    expect(mod.homepageLabelValue("homepage.instance.bar.name", undefined)).toBeNull();
+  });
+
+  it("hasHomepageLabels reports whether a container opts in for this instance", async () => {
+    const mod = await import("./service-helpers");
+
+    expect(mod.hasHomepageLabels(undefined, "foo")).toBe(false);
+    expect(mod.hasHomepageLabels({}, "foo")).toBe(false);
+    expect(mod.hasHomepageLabels({ "com.docker.compose.project": "x" }, "foo")).toBe(false);
+    expect(mod.hasHomepageLabels({ "homepage.name": "X" }, undefined)).toBe(true);
+    expect(mod.hasHomepageLabels({ "homepage.instance.foo.name": "X" }, "foo")).toBe(true);
+    expect(mod.hasHomepageLabels({ "homepage.instance.bar.name": "X" }, "foo")).toBe(false);
+  });
   it("servicesFromDocker returns [] when docker.yaml is empty", async () => {
     state.dockerYaml = null;
 
