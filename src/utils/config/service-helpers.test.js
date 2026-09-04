@@ -103,6 +103,78 @@ describe("utils/config/service-helpers", () => {
     expect(await mod.servicesFromConfig()).toEqual([]);
   });
 
+  it("containersFromConfig returns an empty set when services.yaml is empty", async () => {
+    state.servicesYaml = null;
+
+    const mod = await import("./service-helpers");
+    expect(await mod.containersFromConfig("local")).toEqual(new Set());
+  });
+
+  it("containersFromConfig only returns containers for the requested server", async () => {
+    state.servicesYaml = [
+      { Group: [{ App: { container: "app", server: "local" } }, { Other: { container: "other", server: "remote" } }] },
+    ];
+
+    const mod = await import("./service-helpers");
+    expect(await mod.containersFromConfig("local")).toEqual(new Set(["app"]));
+    expect(await mod.containersFromConfig("remote")).toEqual(new Set(["other"]));
+  });
+
+  it("containersFromConfig maps a service without a server to the default connection", async () => {
+    state.servicesYaml = [{ Group: [{ App: { container: "app" } }] }];
+
+    const mod = await import("./service-helpers");
+    expect(await mod.containersFromConfig("")).toEqual(new Set(["app"]));
+    expect(await mod.containersFromConfig(undefined)).toEqual(new Set(["app"]));
+    expect(await mod.containersFromConfig("local")).toEqual(new Set());
+  });
+
+  it("containersFromConfig recurses into nested groups", async () => {
+    state.servicesYaml = [
+      {
+        Main: [
+          { Child: [{ Deep: { container: "deep", server: "local" } }] },
+          { Root: { container: "top", server: "local" } },
+        ],
+      },
+    ];
+
+    const mod = await import("./service-helpers");
+    expect(await mod.containersFromConfig("local")).toEqual(new Set(["top", "deep"]));
+  });
+
+  it("containersFromConfig includes docker widget containers in both widget and widgets forms", async () => {
+    state.servicesYaml = [
+      {
+        Group: [
+          { WidgetOnly: { widget: { type: "docker", container: "widgetapp", server: "local" } } },
+          {
+            WithArray: {
+              container: "app",
+              server: "local",
+              widgets: [
+                { type: "docker", container: "sidecar", server: "local" },
+                { type: "docker", container: "elsewhere", server: "remote" },
+              ],
+            },
+          },
+        ],
+      },
+    ];
+
+    const mod = await import("./service-helpers");
+    expect(await mod.containersFromConfig("local")).toEqual(new Set(["widgetapp", "app", "sidecar"]));
+  });
+
+  it("containersFromConfig ignores non docker widgets that carry a container field", async () => {
+    state.servicesYaml = [
+      { Group: [{ App: { widget: { type: "portainer", container: "sneaky", server: "local" } } }] },
+    ];
+
+    const mod = await import("./service-helpers");
+    expect(await mod.containersFromConfig("local")).toEqual(new Set());
+  });
+
   it("servicesFromDocker returns [] when docker.yaml is empty", async () => {
     state.dockerYaml = null;
 

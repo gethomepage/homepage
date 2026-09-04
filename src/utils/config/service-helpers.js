@@ -60,6 +60,29 @@ export async function servicesFromConfig() {
   return parseServicesToGroups(services);
 }
 
+function flattenServices(groups, services = []) {
+  groups.forEach((group) => {
+    (group.services ?? []).forEach((service) => services.push(service));
+    flattenServices(group.groups ?? [], services);
+  });
+  return services;
+}
+
+function dockerWidgets(service) {
+  const widgets = service.widget ? [service.widget, ...(service.widgets ?? [])] : (service.widgets ?? []);
+  return widgets.filter((widget) => widget?.type === "docker");
+}
+
+export async function containersFromConfig(server) {
+  const target = server || "";
+  const services = flattenServices(await servicesFromConfig());
+  // services and docker widgets both carry container + server
+  const refs = services.flatMap((service) => [service, ...dockerWidgets(service)]);
+  const matching = refs.filter((ref) => ref.container && (ref.server || "") === target);
+
+  return new Set(matching.map((ref) => ref.container));
+}
+
 export async function servicesFromDocker() {
   checkAndCopyConfig("docker.yaml");
 
