@@ -61,8 +61,10 @@ describe("pages/api/docker/statuses", () => {
     expect(state.docker.listServices).not.toHaveBeenCalled();
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual({
-      glance: { status: "running", health: "healthy" },
-      share: { status: "exited" },
+      statuses: {
+        glance: { status: "running", health: "healthy" },
+        share: { status: "exited" },
+      },
     });
   });
 
@@ -84,8 +86,10 @@ describe("pages/api/docker/statuses", () => {
 
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual({
-      web: { status: "running" },
-      api: { status: "running 2/2" },
+      statuses: {
+        web: { status: "running" },
+        api: { status: "running 2/2" },
+      },
     });
   });
 
@@ -101,7 +105,7 @@ describe("pages/api/docker/statuses", () => {
     await handler(req, res);
 
     expect(res.statusCode).toBe(200);
-    expect(res.body).toEqual({ web: { status: "running" } });
+    expect(res.body).toEqual({ statuses: { web: { status: "running" } } });
   });
 
   it("returns 500 when docker returns a non-array containers payload", async () => {
