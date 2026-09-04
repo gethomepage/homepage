@@ -3,10 +3,11 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-const { getSettingsMock, authOptionsMock, signInMock, routerQuery } = vi.hoisted(() => ({
+const { getSettingsMock, authOptionsMock, signInMock, replaceMock, routerQuery } = vi.hoisted(() => ({
   getSettingsMock: vi.fn(),
   authOptionsMock: vi.fn(),
   signInMock: vi.fn(),
+  replaceMock: vi.fn(),
   routerQuery: {},
 }));
 
@@ -23,6 +24,7 @@ vi.mock("pages/api/auth/[...nextauth]", () => ({
 vi.mock("next/router", () => ({
   useRouter: () => ({
     query: routerQuery,
+    replace: replaceMock,
   }),
 }));
 
@@ -37,6 +39,7 @@ describe("pages/auth/signin", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     Object.keys(routerQuery).forEach((key) => delete routerQuery[key]);
+    window.sessionStorage.clear();
   });
 
   it("renders an error state when no providers are configured", async () => {
@@ -106,11 +109,14 @@ describe("pages/auth/signin", () => {
     expect(screen.getByRole("button", { name: /login via homepage oidc/i })).toBeInTheDocument();
   });
 
-  it("renders the button when the server disabled auto-login", () => {
-    render(<SignInPage providers={OIDC_PROVIDERS} settings={SETTINGS} autoLogin={false} />);
+  it("stops auto-login and hands back the page when the session never sticks", () => {
+    routerQuery.callbackUrl = "/some/page";
 
-    expect(signInMock).not.toHaveBeenCalled();
-    expect(screen.getByRole("button", { name: /login via homepage oidc/i })).toBeInTheDocument();
+    render(<SignInPage providers={OIDC_PROVIDERS} settings={SETTINGS} autoLogin />);
+    render(<SignInPage providers={OIDC_PROVIDERS} settings={SETTINGS} autoLogin />);
+
+    expect(signInMock).toHaveBeenCalledTimes(1);
+    expect(replaceMock).toHaveBeenCalledWith("/auth/signin?autologin=0&callbackUrl=%2Fsome%2Fpage");
   });
 
   it("does not auto-login the password provider", () => {
@@ -170,17 +176,6 @@ describe("pages/auth/signin", () => {
     const res = await getServerSideProps({});
 
     expect(res.props.autoLogin).toBe(true);
-    vi.unstubAllEnvs();
-  });
-
-  it("getServerSideProps disables auto-login while an attempt is pending", async () => {
-    authOptionsMock.mockReturnValueOnce({ providers: [] });
-    getSettingsMock.mockReturnValueOnce({ theme: "dark" });
-    vi.stubEnv("HOMEPAGE_OIDC_AUTO_LOGIN", "true");
-
-    const res = await getServerSideProps({ req: { cookies: { "homepage-autologin-attempt": "1" } } });
-
-    expect(res.props.autoLogin).toBe(false);
     vi.unstubAllEnvs();
   });
 

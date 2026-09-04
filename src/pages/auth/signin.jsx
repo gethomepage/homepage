@@ -7,8 +7,8 @@ import { BiShieldQuarter } from "react-icons/bi";
 import { getSettings } from "utils/config/config";
 
 const PUBLIC_SIGN_IN_SETTINGS = ["theme", "color", "title", "background", "backgroundOpacity"];
-const AUTO_LOGIN_COOKIE = "homepage-autologin-attempt";
-const AUTO_LOGIN_RETRY_SECONDS = 10;
+const AUTO_LOGIN_KEY = "homepage-autologin-attempt";
+const AUTO_LOGIN_RETRY_MS = 10000;
 
 export default function SignIn({ providers, settings, autoLogin }) {
   const router = useRouter();
@@ -33,12 +33,21 @@ export default function SignIn({ providers, settings, autoLogin }) {
   useEffect(() => {
     if (!redirecting) return;
 
-    // getServerSideProps drops autoLogin while this is set, so a bounce loop falls back to the button
-    const secure = window.location.protocol === "https:" ? "; secure" : "";
-    document.cookie = `${AUTO_LOGIN_COOKIE}=1; path=/auth; max-age=${AUTO_LOGIN_RETRY_SECONDS}; samesite=lax${secure}`;
+    let lastAttempt = 0;
+    try {
+      lastAttempt = Number(window.sessionStorage.getItem(AUTO_LOGIN_KEY)) || 0;
+      window.sessionStorage.setItem(AUTO_LOGIN_KEY, String(Date.now()));
+    } catch {
+      // sessionStorage throws when site data is blocked, fall through and redirect anyway
+    }
+    // Getting here quickly means the session never stuck, hand it back to the user
+    if (Date.now() - lastAttempt < AUTO_LOGIN_RETRY_MS) {
+      router.replace(`/auth/signin?autologin=0&callbackUrl=${encodeURIComponent(callbackUrl)}`);
+      return;
+    }
 
     signIn(oidcProvider.id, { callbackUrl });
-  }, [redirecting, oidcProvider, callbackUrl]);
+  }, [redirecting, oidcProvider, callbackUrl, router]);
 
   let backgroundImage = "";
   let opacity = settings?.backgroundOpacity ?? 0;
@@ -243,14 +252,7 @@ export async function getServerSideProps(context) {
       homepageSettings[key],
     ]),
   );
-  // A pending attempt means the previous redirect never established a session
-  const autoLoginAttempted = context.req?.cookies?.[AUTO_LOGIN_COOKIE] === "1";
-
   return {
-    props: {
-      providers,
-      settings,
-      autoLogin: process.env.HOMEPAGE_OIDC_AUTO_LOGIN === "true" && !autoLoginAttempted,
-    },
+    props: { providers, settings, autoLogin: process.env.HOMEPAGE_OIDC_AUTO_LOGIN === "true" },
   };
 }
