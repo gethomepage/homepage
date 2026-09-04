@@ -18,6 +18,7 @@ ENV CI=$CI
 RUN if [ "$CI" != "true" ]; then \
       corepack enable && corepack prepare pnpm@latest --activate && \
       pnpm install --frozen-lockfile --prefer-offline && \
+      VERSION=${VERSION:-$(node -p "require('./package.json').version")} && \
       NEXT_TELEMETRY_DISABLED=1 \
       NEXT_PUBLIC_BUILDTIME=$BUILDTIME \
       NEXT_PUBLIC_VERSION=$VERSION \
