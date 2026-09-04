@@ -1,6 +1,8 @@
 import Docker from "dockerode";
 
+import { getSettings } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
+import { containersFromConfig, hasHomepageLabels } from "utils/config/service-helpers";
 
 function healthFromStatus(status) {
   if (!status) return undefined;
@@ -18,20 +20,29 @@ function statusEntry(state, status) {
 export async function getDockerStatuses(server) {
   const dockerArgs = getDockerArguments(server);
   const docker = new Docker(dockerArgs.conn);
-  const containers = await docker.listContainers({ all: true });
+
+  const [containers, configured] = await Promise.all([
+    docker.listContainers({ all: true }),
+    containersFromConfig(server),
+  ]);
 
   if (!Array.isArray(containers)) {
     return { error: "query failed" };
   }
 
+  const { instanceName } = getSettings();
   const statuses = {};
   const byId = {};
 
   containers.forEach((container) => {
     const info = statusEntry(container.State, container.Status);
+    // keyed by id for every container so swarm tasks can resolve their local container
     byId[container.Id] = info;
+
+    const labelled = hasHomepageLabels(container.Labels, instanceName);
     container.Names.forEach((name) => {
-      statuses[name.replace(/^\//, "")] = info;
+      const containerName = name.replace(/^\//, "");
+      if (labelled || configured.has(containerName)) statuses[containerName] = info;
     });
   });
 
@@ -53,6 +64,7 @@ export async function getDockerStatuses(server) {
   services.forEach((service) => {
     const name = service.Spec?.Name;
     if (!name || statuses[name]) return;
+    if (!configured.has(name) && !hasHomepageLabels(service.Spec?.Labels, instanceName)) return;
 
     const serviceTasks = tasksByService[service.ID] ?? [];
 
