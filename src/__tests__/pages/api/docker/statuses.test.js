@@ -6,6 +6,10 @@ const { state, DockerCtor, getDockerArguments, containersFromConfig, hasHomepage
   vi.hoisted(() => {
     const state = {
       docker: null,
+      containers: [],
+      health: {},
+      containers: [],
+      health: {},
       dockerArgs: { conn: { socketPath: "/var/run/docker.sock" }, swarm: false },
     };
 
@@ -51,8 +55,13 @@ describe("pages/api/docker/statuses", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     state.dockerArgs = { conn: { socketPath: "/var/run/docker.sock" }, swarm: false };
+    state.containers = [];
+    state.health = {};
     state.docker = {
-      listContainers: vi.fn(),
+      listContainers: vi.fn(async (options) => {
+        const health = options?.filters?.health?.[0];
+        return health ? (state.health[health] ?? []) : state.containers;
+      }),
       listServices: vi.fn(),
       listTasks: vi.fn(),
     };
@@ -61,12 +70,13 @@ describe("pages/api/docker/statuses", () => {
     getSettings.mockReturnValue({ instanceName: undefined });
   });
 
-  it("returns configured container statuses from a single listContainers call", async () => {
+  it("returns configured container statuses with health from the docker health filters", async () => {
     containersFromConfig.mockResolvedValue(new Set(["glance", "share"]));
-    state.docker.listContainers.mockResolvedValue([
-      { Names: ["/glance"], State: "running", Status: "Up 2 hours (healthy)" },
-      { Names: ["/share"], State: "exited", Status: "Exited (0) 1 hour ago" },
-    ]);
+    state.containers = [
+      { Names: ["/glance"], Id: "cid-glance", State: "running" },
+      { Names: ["/share"], Id: "cid-share", State: "exited" },
+    ];
+    state.health = { healthy: [{ Id: "cid-glance" }] };
 
     const req = { query: { server: "local" } };
     const res = createMockRes();
@@ -75,7 +85,8 @@ describe("pages/api/docker/statuses", () => {
 
     expect(getDockerArguments).toHaveBeenCalledWith("local");
     expect(containersFromConfig).toHaveBeenCalledWith("local");
-    expect(state.docker.listContainers).toHaveBeenCalledTimes(1);
+    // one list plus one per health state, constant regardless of container count
+    expect(state.docker.listContainers).toHaveBeenCalledTimes(4);
     expect(state.docker.listServices).not.toHaveBeenCalled();
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual({
@@ -86,12 +97,41 @@ describe("pages/api/docker/statuses", () => {
     });
   });
 
+  it("takes health from the filter results rather than the status string", async () => {
+    containersFromConfig.mockResolvedValue(new Set(["app"]));
+    state.containers = [{ Names: ["/app"], Id: "cid1", State: "running", Status: "Up 2 hours (healthy)" }];
+    state.health = { unhealthy: [{ Id: "cid1" }] };
+
+    const req = { query: { server: "local" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.body).toEqual({ statuses: { app: { status: "running", health: "unhealthy" } } });
+  });
+
+  it("omits health when the docker daemon rejects the health filter", async () => {
+    containersFromConfig.mockResolvedValue(new Set(["app"]));
+    state.containers = [{ Names: ["/app"], Id: "cid1", State: "running", Status: "Up 2 hours (healthy)" }];
+    state.docker.listContainers.mockImplementation(async (options) => {
+      if (options?.filters?.health) throw new Error("filter unsupported");
+      return state.containers;
+    });
+
+    const req = { query: { server: "local" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.body).toEqual({ statuses: { app: { status: "running" } } });
+  });
+
   it("omits containers that are neither configured nor labelled for homepage", async () => {
     containersFromConfig.mockResolvedValue(new Set(["glance"]));
-    state.docker.listContainers.mockResolvedValue([
+    state.containers = [
       { Names: ["/glance"], State: "running", Status: "Up" },
       { Names: ["/secret-db"], State: "running", Status: "Up" },
-    ]);
+    ];
 
     const req = { query: { server: "local" } };
     const res = createMockRes();
@@ -104,10 +144,10 @@ describe("pages/api/docker/statuses", () => {
 
   it("includes containers discovered through homepage labels", async () => {
     hasHomepageLabels.mockImplementation((labels) => labels?.["homepage.name"] !== undefined);
-    state.docker.listContainers.mockResolvedValue([
+    state.containers = [
       { Names: ["/labelled"], State: "running", Status: "Up", Labels: { "homepage.name": "App" } },
       { Names: ["/unlabelled"], State: "running", Status: "Up", Labels: {} },
-    ]);
+    ];
 
     const req = { query: { server: "local" } };
     const res = createMockRes();
@@ -120,7 +160,7 @@ describe("pages/api/docker/statuses", () => {
   it("includes swarm services when the server is in swarm mode", async () => {
     state.dockerArgs.swarm = true;
     containersFromConfig.mockResolvedValue(new Set(["web", "api"]));
-    state.docker.listContainers.mockResolvedValue([{ Names: ["/web"], Id: "cid1", State: "running", Status: "Up" }]);
+    state.containers = [{ Names: ["/web"], Id: "cid1", State: "running", Status: "Up" }];
     state.docker.listServices.mockResolvedValue([
       { ID: "sid", Spec: { Name: "api", Mode: { Replicated: { Replicas: "2" } } } },
     ]);
@@ -146,7 +186,7 @@ describe("pages/api/docker/statuses", () => {
   it("omits swarm services that are neither configured nor labelled", async () => {
     state.dockerArgs.swarm = true;
     containersFromConfig.mockResolvedValue(new Set());
-    state.docker.listContainers.mockResolvedValue([]);
+    state.containers = [];
     state.docker.listServices.mockResolvedValue([
       { ID: "sid", Spec: { Name: "internal", Mode: { Replicated: { Replicas: "1" } } } },
     ]);
@@ -163,7 +203,7 @@ describe("pages/api/docker/statuses", () => {
   it("includes swarm services discovered through homepage labels", async () => {
     state.dockerArgs.swarm = true;
     hasHomepageLabels.mockImplementation((labels) => labels?.["homepage.name"] !== undefined);
-    state.docker.listContainers.mockResolvedValue([]);
+    state.containers = [];
     state.docker.listServices.mockResolvedValue([
       {
         ID: "sid",
@@ -183,7 +223,7 @@ describe("pages/api/docker/statuses", () => {
   it("returns only listed containers when swarm queries fail", async () => {
     state.dockerArgs.swarm = true;
     containersFromConfig.mockResolvedValue(new Set(["web"]));
-    state.docker.listContainers.mockResolvedValue([{ Names: ["/web"], Id: "cid1", State: "running", Status: "Up" }]);
+    state.containers = [{ Names: ["/web"], Id: "cid1", State: "running", Status: "Up" }];
     state.docker.listServices.mockRejectedValue(new Error("no services"));
     state.docker.listTasks.mockRejectedValue(new Error("no tasks"));
 
@@ -197,7 +237,7 @@ describe("pages/api/docker/statuses", () => {
   });
 
   it("returns 500 when docker returns a non-array containers payload", async () => {
-    state.docker.listContainers.mockResolvedValue(Buffer.from("bad"));
+    state.containers = Buffer.from("bad");
 
     const req = { query: { server: "local" } };
     const res = createMockRes();

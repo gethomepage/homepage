@@ -4,25 +4,36 @@ import { getSettings } from "utils/config/config";
 import getDockerArguments from "utils/config/docker";
 import { containersFromConfig, hasHomepageLabels } from "utils/config/service-helpers";
 
-function healthFromStatus(status) {
-  if (!status) return undefined;
-  if (status.includes("(unhealthy)")) return "unhealthy";
-  if (status.includes("(healthy)")) return "healthy";
-  if (status.includes("(health: starting)")) return "starting";
-  return undefined;
+const HEALTH_STATES = ["healthy", "unhealthy", "starting"];
+
+function statusEntry(state, health) {
+  return health ? { status: state, health } : { status: state };
 }
 
-function statusEntry(state, status) {
-  const health = healthFromStatus(status);
-  return health ? { status: state, health } : { status: state };
+// docker exposes health only as a filter on the list endpoint, never as a field
+async function healthByContainerId(docker) {
+  const results = await Promise.all(
+    HEALTH_STATES.map((state) => docker.listContainers({ all: true, filters: { health: [state] } }).catch(() => [])),
+  );
+
+  const health = {};
+  results.forEach((containers, index) => {
+    if (!Array.isArray(containers)) return;
+    containers.forEach((container) => {
+      health[container.Id] = HEALTH_STATES[index];
+    });
+  });
+
+  return health;
 }
 
 export async function getDockerStatuses(server) {
   const dockerArgs = getDockerArguments(server);
   const docker = new Docker(dockerArgs.conn);
 
-  const [containers, configured] = await Promise.all([
+  const [containers, health, configured] = await Promise.all([
     docker.listContainers({ all: true }),
+    healthByContainerId(docker),
     containersFromConfig(server),
   ]);
 
@@ -35,7 +46,7 @@ export async function getDockerStatuses(server) {
   const byId = {};
 
   containers.forEach((container) => {
-    const info = statusEntry(container.State, container.Status);
+    const info = statusEntry(container.State, health[container.Id]);
     // keyed by id for every container so swarm tasks can resolve their local container
     byId[container.Id] = info;
 
