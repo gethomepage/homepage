@@ -83,6 +83,23 @@ export async function containersFromConfig(server) {
   return new Set(matching.map((ref) => ref.container));
 }
 
+// homepage.foo -> foo, homepage.instance.<this instance>.foo -> foo, another instance -> null
+export function homepageLabelValue(label, instanceName) {
+  if (!label.startsWith("homepage.")) return null;
+
+  const value = label.replace("homepage.", "");
+  if (!value.startsWith("instance.")) return value;
+  if (instanceName && value.startsWith(`instance.${instanceName}.`)) {
+    return value.replace(`instance.${instanceName}.`, "");
+  }
+
+  return null;
+}
+
+export function hasHomepageLabels(labels, instanceName) {
+  return Object.keys(labels ?? {}).some((label) => homepageLabelValue(label, instanceName) !== null);
+}
+
 export async function servicesFromDocker() {
   checkAndCopyConfig("docker.yaml");
 
@@ -118,29 +135,23 @@ export async function servicesFromDocker() {
           const containerLabels = isSwarm ? shvl.get(container, "Spec.Labels") : container.Labels;
           const containerName = isSwarm ? shvl.get(container, "Spec.Name") : container.Names[0];
 
-          Object.keys(containerLabels).forEach((label) => {
-            if (label.startsWith("homepage.")) {
-              let value = label.replace("homepage.", "");
-              if (instanceName && value.startsWith(`instance.${instanceName}.`)) {
-                value = value.replace(`instance.${instanceName}.`, "");
-              } else if (value.startsWith("instance.")) {
-                return;
-              }
+          Object.keys(containerLabels ?? {}).forEach((label) => {
+            const value = homepageLabelValue(label, instanceName);
+            if (value === null) return;
 
-              if (!constructedService) {
-                constructedService = {
-                  container: containerName.replace(/^\//, ""),
-                  server: serverName,
-                  weight: 0,
-                  type: "service",
-                };
-              }
-              let substitutedVal = substituteEnvironmentVars(containerLabels[label]);
-              if (value === "widget.version" || /^widgets\[\d+\]\.version$/.test(value)) {
-                substitutedVal = parseVersionForUrl(substitutedVal);
-              }
-              shvl.set(constructedService, value, substitutedVal);
+            if (!constructedService) {
+              constructedService = {
+                container: containerName.replace(/^\//, ""),
+                server: serverName,
+                weight: 0,
+                type: "service",
+              };
             }
+            let substitutedVal = substituteEnvironmentVars(containerLabels[label]);
+            if (value === "widget.version" || /^widgets\[\d+\]\.version$/.test(value)) {
+              substitutedVal = parseVersionForUrl(substitutedVal);
+            }
+            shvl.set(constructedService, value, substitutedVal);
           });
 
           if (constructedService && (!constructedService.name || !constructedService.group)) {
