@@ -1,6 +1,22 @@
 import { useTranslation } from "next-i18next/pages";
 import useSWR from "swr";
 
+const WARNING_CLASS = "text-orange-400/50 dark:text-orange-400/80";
+
+// docker container states other than running
+const STATE_LABELS = {
+  created: "docker.created",
+  dead: "docker.dead",
+  exited: "docker.exited",
+  "not found": "docker.not_found",
+  paused: "docker.paused",
+  removing: "docker.removing",
+  restarting: "docker.restarting",
+};
+
+// states that mean something is wrong rather than merely not started
+const WARNING_STATES = new Set(["dead", "exited", "not found", "restarting"]);
+
 export default function Status({ service, style }) {
   const { t } = useTranslation();
 
@@ -16,33 +32,30 @@ export default function Status({ service, style }) {
   if (statusError) {
     statusLabel = t("docker.error");
     colorClass = "text-rose-500/80";
-  } else if (data) {
-    if (data.status?.includes("running")) {
-      colorClass = "text-emerald-500/80";
+  } else if (data?.status?.includes("running")) {
+    colorClass = "text-emerald-500/80";
 
-      if (!data.health) {
-        statusLabel = data.status.replace("running", t("docker.running"));
-      } else {
-        statusLabel = data.health === "healthy" ? t("docker.healthy") : data.health;
+    if (!data.health) {
+      statusLabel = data.status.replace("running", t("docker.running"));
+    } else {
+      statusLabel = data.health === "healthy" ? t("docker.healthy") : data.health;
 
-        if (data.health === "starting") {
-          statusLabel = t("docker.starting");
-          colorClass = "text-blue-500/80";
-        }
+      if (data.health === "starting") {
+        statusLabel = t("docker.starting");
+        colorClass = "text-blue-500/80";
+      }
 
-        if (data.health === "unhealthy") {
-          statusLabel = t("docker.unhealthy");
-          colorClass = "text-orange-400/50 dark:text-orange-400/80";
-        }
+      if (data.health === "unhealthy") {
+        statusLabel = t("docker.unhealthy");
+        colorClass = WARNING_CLASS;
       }
     }
-
-    if (data.status === "not found" || data.status === "exited" || data.status?.startsWith("partial")) {
-      if (data.status === "not found") statusLabel = t("docker.not_found");
-      else if (data.status === "exited") statusLabel = t("docker.exited");
-      else statusLabel = data.status.replace("partial", t("docker.partial"));
-      colorClass = "text-orange-400/50 dark:text-orange-400/80";
-    }
+  } else if (data?.status?.startsWith("partial")) {
+    statusLabel = data.status.replace("partial", t("docker.partial"));
+    colorClass = WARNING_CLASS;
+  } else if (data && STATE_LABELS[data.status]) {
+    statusLabel = t(STATE_LABELS[data.status]);
+    if (WARNING_STATES.has(data.status)) colorClass = WARNING_CLASS;
   }
 
   if (style === "dot") {
