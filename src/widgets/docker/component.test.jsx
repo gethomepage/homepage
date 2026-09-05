@@ -86,6 +86,19 @@ describe("widgets/docker/component", () => {
     expect(screen.queryByText("docker.rx")).not.toBeInTheDocument();
   });
 
+  it("surfaces a per container stats error rather than reporting it missing", () => {
+    useSWR
+      .mockReturnValueOnce({ data: { statuses: { c: { status: "running" } } }, error: undefined })
+      .mockReturnValueOnce({ data: { stats: { c: { error: "connect ETIMEDOUT" } } }, error: undefined });
+
+    renderWithProviders(<Component service={{ widget: { type: "docker", container: "c", server: "s" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(screen.getAllByText(/widget.api_error/).length).toBeGreaterThan(0);
+    expect(screen.queryByText("docker.cpu")).not.toBeInTheDocument();
+  });
+
   it("reports an error when a running container is absent from the stats map", () => {
     useSWR
       .mockReturnValueOnce({ data: { statuses: { c: { status: "running" } } }, error: undefined })

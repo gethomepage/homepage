@@ -105,7 +105,7 @@ describe("utils/docker/stats", () => {
     expect(state.docker.getContainer).not.toHaveBeenCalled();
   });
 
-  it("omits a container whose stats call fails without failing the rest", async () => {
+  it("keeps a per container stats failure without failing the rest", async () => {
     containersFromConfig.mockResolvedValue(new Set(["ok", "broken"]));
     state.containers = [
       { Names: ["/ok"], Id: "cid1", State: "running" },
@@ -114,7 +114,9 @@ describe("utils/docker/stats", () => {
     state.statsById.cid1 = rawStats();
     state.statsById.cid2 = new Error("stats unavailable");
 
-    expect(await getDockerStats("local")).toEqual({ stats: { ok: { cpu: 20, mem: 900, rx: 4, tx: 6 } } });
+    expect(await getDockerStats("local")).toEqual({
+      stats: { ok: { cpu: 20, mem: 900, rx: 4, tx: 6 }, broken: { error: "stats unavailable" } },
+    });
   });
 
   it("omits mem and network when docker does not report them", async () => {

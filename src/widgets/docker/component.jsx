@@ -18,8 +18,8 @@ export default function Component({ service }) {
   const { stats } = statsResponse ?? {};
   const statsData = stats?.[widget.container];
 
-  if (statsError || statsResponse?.error || statusError || statusResponse?.error) {
-    const finalError = statsError ?? statsResponse?.error ?? statusError ?? statusResponse?.error;
+  if (statsError || statsResponse?.error || statsData?.error || statusError || statusResponse?.error) {
+    const finalError = statsError ?? statsResponse?.error ?? statsData?.error ?? statusError ?? statusResponse?.error;
     return <Container service={service} error={finalError} />;
   }
 

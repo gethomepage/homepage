@@ -22,8 +22,9 @@ async function statsForContainer(docker, id) {
     }
 
     return stats;
-  } catch {
-    return undefined;
+  } catch (e) {
+    // ensure one failed call does not look like an absent container
+    return { error: e?.message ?? "stats unavailable" };
   }
 }
 
@@ -84,7 +85,7 @@ export async function getDockerStats(server) {
 
   const stats = {};
   names.forEach((name, index) => {
-    if (results[index]) stats[name] = results[index];
+    stats[name] = results[index];
   });
 
   return { stats };
