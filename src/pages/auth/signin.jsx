@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { BiShieldQuarter } from "react-icons/bi";
 
 import { getSettings } from "utils/config/config";
@@ -30,8 +30,11 @@ export default function SignIn({ providers, settings, autoLogin }) {
   const autoLoginBlocked = Boolean(error) || router.query?.autologin === "0";
   const redirecting = Boolean(autoLogin && oidcProvider && !autoLoginBlocked);
 
+  const attempted = useRef(false);
+
   useEffect(() => {
-    if (!redirecting) return;
+    if (!redirecting || attempted.current) return;
+    attempted.current = true;
 
     let lastAttempt = 0;
     try {

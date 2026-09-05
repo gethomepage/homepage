@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 
 import { render, screen, waitFor } from "@testing-library/react";
+import { StrictMode } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const { getSettingsMock, authOptionsMock, signInMock, replaceMock, routerQuery } = vi.hoisted(() => ({
@@ -107,6 +108,17 @@ describe("pages/auth/signin", () => {
 
     expect(signInMock).not.toHaveBeenCalled();
     expect(screen.getByRole("button", { name: /login via homepage oidc/i })).toBeInTheDocument();
+  });
+
+  it("redirects once under strict mode, rather than tripping its own loop guard", () => {
+    render(
+      <StrictMode>
+        <SignInPage providers={OIDC_PROVIDERS} settings={SETTINGS} autoLogin />
+      </StrictMode>,
+    );
+
+    expect(signInMock).toHaveBeenCalledTimes(1);
+    expect(replaceMock).not.toHaveBeenCalled();
   });
 
   it("stops auto-login and hands back the page when the session never sticks", () => {
