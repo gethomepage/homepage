@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { calculateCPUPercent, calculateThroughput, calculateUsedMemory } from "./stats-helpers";
 
-describe("widgets/docker/stats-helpers", () => {
+describe("utils/docker/stats-helpers", () => {
   it("calculateCPUPercent returns 0 when deltas are not positive", () => {
     expect(
       calculateCPUPercent({
