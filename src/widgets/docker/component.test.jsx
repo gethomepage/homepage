@@ -20,8 +20,8 @@ describe("widgets/docker/component", () => {
 
   it("renders offline status when container is not running", () => {
     useSWR
-      .mockReturnValueOnce({ data: { status: "exited" }, error: undefined }) // status
-      .mockReturnValueOnce({ data: undefined, error: undefined }); // stats
+      .mockReturnValueOnce({ data: { statuses: { c: { status: "exited" } } }, error: undefined })
+      .mockReturnValueOnce({ data: undefined, error: undefined });
 
     renderWithProviders(<Component service={{ widget: { type: "docker", container: "c" } }} />, {
       settings: { hideErrors: false },
@@ -31,9 +31,34 @@ describe("widgets/docker/component", () => {
     expect(screen.getByText("docker.offline")).toBeInTheDocument();
   });
 
+  it("surfaces a docker error payload instead of reporting the container offline", () => {
+    useSWR
+      .mockReturnValueOnce({ data: { error: { message: "socket unreachable" } }, error: undefined })
+      .mockReturnValueOnce({ data: undefined, error: undefined });
+
+    renderWithProviders(<Component service={{ widget: { type: "docker", container: "c", server: "s" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(screen.queryByText("docker.offline")).not.toBeInTheDocument();
+  });
+
+  it("treats a missing container in the bulk status map as offline", () => {
+    useSWR
+      .mockReturnValueOnce({ data: { statuses: {} }, error: undefined })
+      .mockReturnValueOnce({ data: undefined, error: undefined });
+
+    renderWithProviders(<Component service={{ widget: { type: "docker", container: "c", server: "s" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(useSWR).toHaveBeenCalledWith("/api/docker/statuses?server=s");
+    expect(screen.getByText("docker.offline")).toBeInTheDocument();
+  });
+
   it("renders cpu/mem/rx/tx values when stats are available", () => {
     useSWR
-      .mockReturnValueOnce({ data: { status: "running" }, error: undefined }) // status
+      .mockReturnValueOnce({ data: { statuses: { c: { status: "running" } } }, error: undefined })
       .mockReturnValueOnce({
         data: {
           stats: {

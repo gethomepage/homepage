@@ -11,14 +11,16 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { data: statusData, error: statusError } = useSWR(
-    `/api/docker/status/${widget.container}/${widget.server || ""}`,
+  const { data: statusResponse, error: statusError } = useSWR(
+    `/api/docker/statuses?server=${encodeURIComponent(widget.server || "")}`,
   );
+  const { statuses } = statusResponse ?? {};
+  const statusData = statuses ? (statuses[widget.container] ?? { status: "not found" }) : undefined;
 
   const { data: statsData, error: statsError } = useSWR(`/api/docker/stats/${widget.container}/${widget.server || ""}`);
 
-  if (statsError || statsData?.error || statusError || statusData?.error) {
-    const finalError = statsError ?? statsData?.error ?? statusError ?? statusData?.error;
+  if (statsError || statsData?.error || statusError || statusResponse?.error) {
+    const finalError = statsError ?? statsData?.error ?? statusError ?? statusResponse?.error;
     return <Container service={service} error={finalError} />;
   }
 
