@@ -24,7 +24,19 @@ vi.mock("@headlessui/react", async () => {
         <div>{children}</div>
       </ComboboxContext.Provider>
     ),
-    ComboboxInput: (props) => <input {...props} />,
+    ComboboxInput: (props) => {
+      const ctx = useContext(ComboboxContext);
+      // real headlessui fires onChange(null) when the input is cleared
+      return (
+        <input
+          {...props}
+          onChange={(event) => {
+            props.onChange?.(event);
+            if (event.target.value === "") ctx?.onChange?.(null);
+          }}
+        />
+      );
+    },
     ComboboxOption: ({ as: As = "div", value, children, ...props }) => {
       const ctx = useContext(ComboboxContext);
       const content = typeof children === "function" ? children({ active: false }) : children;
@@ -80,6 +92,21 @@ describe("components/widgets/search", () => {
     fireEvent.keyDown(input, { key: "Enter" });
 
     expect(openSpy).toHaveBeenCalledWith("https://www.google.com/search?q=hello%20world", "_self");
+    openSpy.mockRestore();
+  });
+
+  it("does not search when the input is cleared", () => {
+    const openSpy = vi.spyOn(window, "open").mockImplementation(() => null);
+
+    renderWithProviders(<Search options={{ provider: ["google"], showSearchSuggestions: false, target: "_self" }} />, {
+      settings: {},
+    });
+
+    const input = screen.getByPlaceholderText("search.placeholder");
+    fireEvent.change(input, { target: { value: "a" } });
+    fireEvent.change(input, { target: { value: "" } });
+
+    expect(openSpy).not.toHaveBeenCalled();
     openSpy.mockRestore();
   });
 

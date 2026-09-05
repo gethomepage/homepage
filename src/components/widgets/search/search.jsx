@@ -139,6 +139,8 @@ export default function Search({ options }) {
   }, [selectedProvider, options, query, searchSuggestions]);
 
   function doSearch(value) {
+    if (!value) return;
+
     const q = encodeURIComponent(value);
     const { url } = selectedProvider;
     if (url) {
