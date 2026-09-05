@@ -1,14 +1,16 @@
 import classNames from "classnames";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { BiShieldQuarter } from "react-icons/bi";
 
 import { getSettings } from "utils/config/config";
 
 const PUBLIC_SIGN_IN_SETTINGS = ["theme", "color", "title", "background", "backgroundOpacity"];
+const AUTO_LOGIN_KEY = "homepage-autologin-attempt";
+const AUTO_LOGIN_RETRY_MS = 10000;
 
-export default function SignIn({ providers, settings }) {
+export default function SignIn({ providers, settings, autoLogin }) {
   const router = useRouter();
   const [password, setPassword] = useState("");
   const theme = settings?.theme || "dark";
@@ -19,6 +21,36 @@ export default function SignIn({ providers, settings }) {
     return typeof value === "string" ? value : "/";
   }, [router.query?.callbackUrl]);
   const error = router.query?.error;
+
+  const oidcProvider = useMemo(
+    () => Object.values(providers ?? {}).find((provider) => provider.type !== "credentials"),
+    [providers],
+  );
+  // Try to avoid auto-login loop, e.g. if there was an error (or explicitly disabled via query param)
+  const autoLoginBlocked = Boolean(error) || router.query?.autologin === "0";
+  const redirecting = Boolean(autoLogin && oidcProvider && !autoLoginBlocked);
+
+  const attempted = useRef(false);
+
+  useEffect(() => {
+    if (!redirecting || attempted.current) return;
+    attempted.current = true;
+
+    let lastAttempt = 0;
+    try {
+      lastAttempt = Number(window.sessionStorage.getItem(AUTO_LOGIN_KEY)) || 0;
+      window.sessionStorage.setItem(AUTO_LOGIN_KEY, String(Date.now()));
+    } catch {
+      // sessionStorage throws when site data is blocked, fall through and redirect anyway
+    }
+    // Getting here quickly means the session never stuck, hand it back to the user
+    if (Date.now() - lastAttempt < AUTO_LOGIN_RETRY_MS) {
+      router.replace(`/auth/signin?autologin=0&callbackUrl=${encodeURIComponent(callbackUrl)}`);
+      return;
+    }
+
+    signIn(oidcProvider.id, { callbackUrl });
+  }, [redirecting, oidcProvider, callbackUrl, router]);
 
   let backgroundImage = "";
   let opacity = settings?.backgroundOpacity ?? 0;
@@ -143,7 +175,12 @@ export default function SignIn({ providers, settings }) {
               <div className="rounded-2xl border border-white/60 bg-white/70 p-6 shadow-lg shadow-black/5 dark:border-white/10 dark:bg-slate-900/70">
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-slate-100">Sign in</h2>
                 <div className="mt-6 space-y-3">
-                  {hasPasswordProvider && (
+                  {redirecting && (
+                    <p className="text-sm text-gray-600 dark:text-slate-300">
+                      Redirecting to {oidcProvider?.name}&hellip;
+                    </p>
+                  )}
+                  {!redirecting && hasPasswordProvider && (
                     <form
                       className="space-y-3"
                       onSubmit={async (event) => {
@@ -173,7 +210,8 @@ export default function SignIn({ providers, settings }) {
                       </button>
                     </form>
                   )}
-                  {!hasPasswordProvider &&
+                  {!redirecting &&
+                    !hasPasswordProvider &&
                     Object.values(providers).map((provider) => (
                       <button
                         key={provider.id}
@@ -218,6 +256,6 @@ export async function getServerSideProps(context) {
     ]),
   );
   return {
-    props: { providers, settings },
+    props: { providers, settings, autoLogin: process.env.HOMEPAGE_OIDC_AUTO_LOGIN === "true" },
   };
 }

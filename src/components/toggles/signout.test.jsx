@@ -32,6 +32,7 @@ describe("components/toggles/signout", () => {
     const { getByRole } = render(<SignOut />);
     fireEvent.click(getByRole("button"));
 
-    expect(signOut).toHaveBeenCalledWith({ callbackUrl: "/" });
+    // Not "/", which would bounce straight back into the provider when auto-login is on
+    expect(signOut).toHaveBeenCalledWith({ callbackUrl: "/auth/signin?autologin=0" });
   });
 });

@@ -32,7 +32,7 @@ export async function middleware(req) {
     return NextResponse.json({ error: "Host validation failed. See logs for more details." }, { status: 400 });
   }
 
-  const pathname = new URL(req.url).pathname;
+  const { pathname, search } = new URL(req.url);
   const isPublicAuthPath = pathname.startsWith("/api/healthcheck") || pathname === "/api/config/custom.css";
   if (authEnabled && !isPublicAuthPath) {
     // The MCP API handler authorizes both bearer tokens and Homepage sessions.
@@ -43,7 +43,8 @@ export async function middleware(req) {
     const token = await getToken({ req, secret: authSecret });
     if (!token) {
       const signInUrl = new URL("/auth/signin", req.url);
-      signInUrl.searchParams.set("callbackUrl", "/");
+      // Same-origin by construction, so this cannot be used as an open redirect
+      signInUrl.searchParams.set("callbackUrl", `${pathname}${search}`);
       return withPrivateCache(NextResponse.redirect(signInUrl));
     }
   }

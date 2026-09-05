@@ -12,7 +12,11 @@ export default function SignOut() {
 
   return (
     <div id="signout" className="rounded-full flex align-middle self-center mr-3">
-      <button type="button" onClick={() => signOut({ callbackUrl: "/" })} className="outline-hidden">
+      <button
+        type="button"
+        onClick={() => signOut({ callbackUrl: "/auth/signin?autologin=0" })}
+        className="outline-hidden"
+      >
         <MdLogout className="text-theme-800 dark:text-theme-200 w-6 h-6 cursor-pointer" aria-hidden="true" />
         <span className="sr-only">{t("auth.signout")}</span>
       </button>

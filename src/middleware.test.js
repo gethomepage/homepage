@@ -153,6 +153,18 @@ describe("middleware", () => {
     expect(String(res.url)).toContain("/auth/signin");
   });
 
+  it("preserves the requested path and query as the callback url", async () => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_SECRET = "secret";
+
+    getToken.mockResolvedValueOnce(null);
+
+    const middleware = await loadMiddleware();
+    const res = await middleware(createReq("localhost:3000", "http://localhost:3000/some/page?tab=2"));
+
+    expect(new URL(res.url).searchParams.get("callbackUrl")).toBe("/some/page?tab=2");
+  });
+
   it("allows requests when auth is enabled and a token is present", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_SECRET = "secret";
