@@ -21,7 +21,7 @@
         "seconds": "שניות"
     },
     "auth": {
-        "signout": "Sign out"
+        "signout": "התנתק"
     },
     "widget": {
         "missing_type": "סוג ווידג'ט חסר: {{type}}",
@@ -40,8 +40,8 @@
     },
     "search": {
         "placeholder": "חיפוש…",
-        "provider": "Search engine: {{name}}",
-        "select_provider": "Select search engine"
+        "provider": "מנוע חיפוש: {{name}}",
+        "select_provider": "בחר מנוע חיפוש"
     },
     "resources": {
         "cpu": "מעבד",
@@ -72,18 +72,18 @@
         "empty_data": "מצב תת-מערכת לא ידוע"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
-        "degraded": "Degraded",
-        "no_data": "No storage data available"
+        "healthy": "בריא",
+        "degraded": "ירוד",
+        "no_data": "אין אחסון זמין"
     },
     "duplicati": {
-        "jobs": "Jobs",
-        "stored": "Stored",
+        "jobs": "משימות",
+        "stored": "שמור",
         "lastBackup": "Last Run",
         "nextRun": "Next Run",
         "running": "Running",
-        "warnings": "Warnings",
-        "errors": "Errors"
+        "warnings": "הזהרות",
+        "errors": "שגיאות"
     },
     "docker": {
         "rx": "RX",
@@ -127,15 +127,15 @@
         "songs": "שירים"
     },
     "jellyfin": {
-        "playing": "Playing",
+        "playing": "מנגן",
         "transcoding": "Transcoding",
         "bitrate": "Bitrate",
-        "no_active": "No Active Streams",
-        "movies": "Movies",
-        "series": "Series",
-        "episodes": "Episodes",
-        "songs": "Songs",
-        "albums": "Albums"
+        "no_active": "אין מדיה פעילה",
+        "movies": "סרטים",
+        "series": "סדרות",
+        "episodes": "פרקים",
+        "songs": "שירים",
+        "albums": "אלבומים"
     },
     "esphome": {
         "offline": "מכובה",
@@ -310,11 +310,11 @@
         "available": "זמין"
     },
     "seerr": {
-        "pending": "Pending",
-        "approved": "Approved",
-        "available": "Available",
-        "completed": "Completed",
-        "processing": "Processing",
+        "pending": "ממתין",
+        "approved": "מאושר",
+        "available": "זמין",
+        "completed": "הסתיים",
+        "processing": "מעבד",
         "issues": "Open Issues"
     },
     "netalertx": {
@@ -359,16 +359,16 @@
         "address": "כתובת",
         "expires": "תאריך תפוגה",
         "never": "אף פעם",
-        "user": "User",
+        "user": "משתמש",
         "hostname": "Hostname",
-        "name": "Name",
+        "name": "שם",
         "client_version": "Client Version",
-        "os": "OS",
-        "created": "Created",
-        "authorized": "Authorized",
-        "is_external": "Is External",
-        "update_available": "Update Available",
-        "tags": "Tags",
+        "os": "מערכת הפעלה",
+        "created": "יוצר",
+        "authorized": "מורשה",
+        "is_external": "האם חיצוני",
+        "update_available": "עדכון זמין",
+        "tags": "תגיות",
         "last_seen": "נראה לאחרונה",
         "now": "כעת",
         "years": "{{number}}y",
@@ -378,8 +378,8 @@
         "minutes": "{{number}}m",
         "seconds": "{{number}}s",
         "ago": "{{value}} Ago",
-        "true": "Yes",
-        "false": "No"
+        "true": "כן",
+        "false": "לא"
     },
     "technitium": {
         "totalQueries": "שאילתות",
@@ -484,7 +484,7 @@
     },
     "pulse": {
         "nodes": "Nodes",
-        "vms": "VMs",
+        "vms": "מכונות וירטואליות",
         "lxcs": "LXCs"
     },
     "glances": {
@@ -584,7 +584,7 @@
         "up": "למעלה",
         "pending": "ממתין",
         "down": "למטה",
-        "ok": "Ok"
+        "ok": "אוקיי"
     },
     "healthchecks": {
         "new": "חדש",
@@ -653,9 +653,9 @@
     },
     "pangolin": {
         "orgs": "Orgs",
-        "sites": "Sites",
-        "resources": "Resources",
-        "targets": "Targets",
+        "sites": "אתרים",
+        "resources": "משאבים",
+        "targets": "מטרות",
         "traffic": "Traffic",
         "in": "In",
         "out": "Out"
@@ -757,7 +757,7 @@
         "volumeAvailable": "זמין"
     },
     "dispatcharr": {
-        "channels": "Channels",
+        "channels": "ערוצים",
         "streams": "Streams"
     },
     "mylar": {
@@ -1182,9 +1182,9 @@
         "nextRenewingSubscription": "תשלום הבא"
     },
     "unraid": {
-        "STARTED": "Started",
-        "STOPPED": "Stopped",
-        "NEW_ARRAY": "New Array",
+        "STARTED": "התחיל",
+        "STOPPED": "נעצר",
+        "NEW_ARRAY": "מערך חדש",
         "RECON_DISK": "Reconstructing Disk",
         "DISABLE_DISK": "Disk Disabled",
         "SWAP_DSBL": "Swap Disable",
@@ -1196,31 +1196,31 @@
         "notifications": "Notifications",
         "status": "Status",
         "cpu": "CPU",
-        "memoryUsed": "Memory Used",
-        "memoryAvailable": "Memory Available",
+        "memoryUsed": "זיכרון בשימוש",
+        "memoryAvailable": "זיכרון זמין",
         "arrayUsed": "Array Used",
         "arrayFree": "Array Free",
         "poolUsed": "{{pool}} Used",
         "poolFree": "{{pool}} Free"
     },
     "backrest": {
-        "num_plans": "Plans",
-        "num_success_30": "Successes",
-        "num_failure_30": "Failures",
+        "num_plans": "תוכניות",
+        "num_success_30": "הצלחות",
+        "num_failure_30": "כשלונות",
         "num_success_latest": "Succeeding",
         "num_failure_latest": "Failing",
         "bytes_added_30": "Bytes Added"
     },
     "yourspotify": {
-        "songs": "Songs",
-        "time": "Time",
-        "artists": "Artists"
+        "songs": "שירים",
+        "time": "זמן",
+        "artists": "אומנים"
     },
     "arcane": {
         "containers": "Containers",
         "images": "Images",
         "image_updates": "Image Updates",
-        "images_unused": "Unused",
+        "images_unused": "לא בשימוש",
         "environment_required": "Environment ID Required"
     },
     "dockhand": {
@@ -1230,7 +1230,7 @@
         "memory": "Memory",
         "images": "Images",
         "volumes": "Volumes",
-        "events_today": "Events Today",
+        "events_today": "אירועים היום",
         "pending_updates": "Pending Updates",
         "stacks": "Stacks",
         "paused": "Paused",
@@ -1238,16 +1238,16 @@
         "environment_not_found": "Environment Not Found"
     },
     "sparkyfitness": {
-        "eaten": "Eaten",
-        "burned": "Burned",
-        "remaining": "Remaining",
-        "steps": "Steps"
+        "eaten": "נאכלו",
+        "burned": "נשרפו",
+        "remaining": "נותרו",
+        "steps": "צעדים"
     },
     "syncthing": {
         "connected": "Connected",
-        "synced": "Synced",
-        "errors": "Errors",
-        "storage": "Storage"
+        "synced": "מסונכרן",
+        "errors": "שגיאות",
+        "storage": "אחסון"
     },
     "sportarr": {
         "wanted": "Wanted",

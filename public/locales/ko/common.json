@@ -40,8 +40,8 @@
     },
     "search": {
         "placeholder": "검색…",
-        "provider": "Search engine: {{name}}",
-        "select_provider": "Select search engine"
+        "provider": "검색 엔진: {{name}}",
+        "select_provider": "검색 엔진 선택"
     },
     "resources": {
         "cpu": "CPU",
