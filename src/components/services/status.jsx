@@ -4,13 +4,16 @@ import useSWR from "swr";
 export default function Status({ service, style }) {
   const { t } = useTranslation();
 
-  const { data, error } = useSWR(`/api/docker/status/${service.container}/${service.server || ""}`);
+  const { data: response, error } = useSWR(`/api/docker/statuses?server=${encodeURIComponent(service.server || "")}`);
+  const statusError = error ?? response?.error;
+  const { statuses } = response ?? {};
+  const data = statuses ? (statuses[service.container] ?? { status: "not found" }) : undefined;
 
   let statusLabel = t("docker.unknown");
   let backgroundClass = "px-1.5 py-0.5 bg-theme-500/10 dark:bg-theme-900/50";
   let colorClass = "text-black/20 dark:text-white/40 ";
 
-  if (error) {
+  if (statusError) {
     statusLabel = t("docker.error");
     colorClass = "text-rose-500/80";
   } else if (data) {
