@@ -32,7 +32,7 @@ export default function Component({ service }) {
   }
 
   // running, but reporting no stats: a swarm service whose container is on another node
-  if (stats && !statsData) {
+  if (statusData && stats && !statsData) {
     return <Container service={service} error="not found" />;
   }
 

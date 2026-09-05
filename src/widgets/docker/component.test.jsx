@@ -99,6 +99,19 @@ describe("widgets/docker/component", () => {
     expect(screen.queryByText("docker.cpu")).not.toBeInTheDocument();
   });
 
+  it("waits for the status before treating absence from the stats map as an error", () => {
+    useSWR
+      .mockReturnValueOnce({ data: undefined, error: undefined })
+      .mockReturnValueOnce({ data: { stats: {} }, error: undefined });
+
+    renderWithProviders(<Component service={{ widget: { type: "docker", container: "c", server: "s" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(screen.queryAllByText(/widget.api_error/)).toHaveLength(0);
+    expect(screen.getByText("docker.cpu")).toBeInTheDocument();
+  });
+
   it("reports an error when a running container is absent from the stats map", () => {
     useSWR
       .mockReturnValueOnce({ data: { statuses: { c: { status: "running" } } }, error: undefined })
