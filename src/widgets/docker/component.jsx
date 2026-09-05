@@ -3,23 +3,23 @@ import useSWR from "swr";
 
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
-import { calculateCPUPercent, calculateThroughput, calculateUsedMemory } from "utils/docker/stats-helpers";
 
 export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
+  const server = encodeURIComponent(widget.server || "");
 
-  const { data: statusResponse, error: statusError } = useSWR(
-    `/api/docker/statuses?server=${encodeURIComponent(widget.server || "")}`,
-  );
+  const { data: statusResponse, error: statusError } = useSWR(`/api/docker/statuses?server=${server}`);
   const { statuses } = statusResponse ?? {};
   const statusData = statuses ? (statuses[widget.container] ?? { status: "not found" }) : undefined;
 
-  const { data: statsData, error: statsError } = useSWR(`/api/docker/stats/${widget.container}/${widget.server || ""}`);
+  const { data: statsResponse, error: statsError } = useSWR(`/api/docker/stats?server=${server}`);
+  const { stats } = statsResponse ?? {};
+  const statsData = stats?.[widget.container];
 
-  if (statsError || statsData?.error || statusError || statusResponse?.error) {
-    const finalError = statsError ?? statsData?.error ?? statusError ?? statusResponse?.error;
+  if (statsError || statsResponse?.error || statusError || statusResponse?.error) {
+    const finalError = statsError ?? statsResponse?.error ?? statusError ?? statusResponse?.error;
     return <Container service={service} error={finalError} />;
   }
 
@@ -29,6 +29,11 @@ export default function Component({ service }) {
         <Block label={t("widget.status")} value={t("docker.offline")} />
       </Container>
     );
+  }
+
+  // running, but reporting no stats: a swarm service whose container is on another node
+  if (stats && !statsData) {
+    return <Container service={service} error="not found" />;
   }
 
   if (!statsData || !statusData) {
@@ -42,20 +47,16 @@ export default function Component({ service }) {
     );
   }
 
-  const { rxBytes, txBytes } = calculateThroughput(statsData.stats);
-  const cpuPercent = calculateCPUPercent(statsData.stats);
-  const usedMemory = calculateUsedMemory(statsData.stats);
+  const { cpu, mem, rx, tx } = statsData;
 
   return (
     <Container service={service}>
-      <Block label="docker.cpu" value={t("common.percent", { value: cpuPercent })} highlightValue={cpuPercent} />
-      {statsData.stats.memory_stats.usage && (
-        <Block label="docker.mem" value={t("common.bytes", { value: usedMemory })} highlightValue={usedMemory} />
-      )}
-      {statsData.stats.networks && (
+      <Block label="docker.cpu" value={t("common.percent", { value: cpu })} highlightValue={cpu} />
+      {mem !== undefined && <Block label="docker.mem" value={t("common.bytes", { value: mem })} highlightValue={mem} />}
+      {rx !== undefined && (
         <>
-          <Block label="docker.rx" value={t("common.bytes", { value: rxBytes })} highlightValue={rxBytes} />
-          <Block label="docker.tx" value={t("common.bytes", { value: txBytes })} highlightValue={txBytes} />
+          <Block label="docker.rx" value={t("common.bytes", { value: rx })} highlightValue={rx} />
+          <Block label="docker.tx" value={t("common.bytes", { value: tx })} highlightValue={tx} />
         </>
       )}
     </Container>
