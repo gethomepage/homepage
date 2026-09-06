@@ -22,12 +22,12 @@ export default function Component({ service }) {
     return (
       <Container service={service}>
         <Block label="mikrotik.uptime" />
-        <Block label="mikrotik.version" />
         <Block label="mikrotik.cpuLoad" />
         <Block label="mikrotik.memoryUsed" />
         <Block label="mikrotik.numberOfLeases" />
         <Block label="mikrotik.cpuTemperature" />
         <Block label="mikrotik.sfpTemperature" />
+        <Block label="mikrotik.version" />
       </Container>
     );
   }
@@ -44,7 +44,6 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="mikrotik.uptime" value={statsData.uptime} />
-      <Block label="mikrotik.version" value={routerOsVersion} />
       <Block
         label="mikrotik.cpuLoad"
         value={t("common.percent", { value: statsData["cpu-load"] })}
@@ -58,6 +57,7 @@ export default function Component({ service }) {
       <Block label="mikrotik.numberOfLeases" value={t("common.number", { value: numberOfLeases })} />
       {cpuTemperature && <Block label="mikrotik.cpuTemperature" value={cpuTemperature} />}
       {sfpTemperature && <Block label="mikrotik.sfpTemperature" value={sfpTemperature} />}
+      <Block label="mikrotik.version" value={routerOsVersion} />
     </Container>
   );
 }

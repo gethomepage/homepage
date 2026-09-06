@@ -25,12 +25,12 @@ describe("widgets/mikrotik/component", () => {
 
     expect(container.querySelectorAll(".service-block")).toHaveLength(7);
     expect(screen.getByText("mikrotik.uptime")).toBeInTheDocument();
-    expect(screen.getByText("mikrotik.version")).toBeInTheDocument();
     expect(screen.getByText("mikrotik.cpuLoad")).toBeInTheDocument();
     expect(screen.getByText("mikrotik.memoryUsed")).toBeInTheDocument();
     expect(screen.getByText("mikrotik.numberOfLeases")).toBeInTheDocument();
     expect(screen.getByText("mikrotik.cpuTemperature")).toBeInTheDocument();
     expect(screen.getByText("mikrotik.sfpTemperature")).toBeInTheDocument();
+    expect(screen.getByText("mikrotik.version")).toBeInTheDocument();
   });
 
   it("renders error UI when either endpoint errors", () => {
@@ -77,11 +77,11 @@ describe("widgets/mikrotik/component", () => {
 
     // memoryUsed = 100 - (25/100)*100 = 75
     expectBlockValue(container, "mikrotik.uptime", "1d");
-    expectBlockValue(container, "mikrotik.version", "7.15.2");
     expectBlockValue(container, "mikrotik.cpuLoad", 10);
     expectBlockValue(container, "mikrotik.memoryUsed", 75);
     expectBlockValue(container, "mikrotik.numberOfLeases", 3);
     expectBlockValue(container, "mikrotik.cpuTemperature", "45°C");
     expectBlockValue(container, "mikrotik.sfpTemperature", "30°C");
+    expectBlockValue(container, "mikrotik.version", "7.15.2");
   });
 });
