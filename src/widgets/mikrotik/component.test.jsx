@@ -23,8 +23,9 @@ describe("widgets/mikrotik/component", () => {
       settings: { hideErrors: false },
     });
 
-    expect(container.querySelectorAll(".service-block")).toHaveLength(6);
+    expect(container.querySelectorAll(".service-block")).toHaveLength(7);
     expect(screen.getByText("mikrotik.uptime")).toBeInTheDocument();
+    expect(screen.getByText("mikrotik.version")).toBeInTheDocument();
     expect(screen.getByText("mikrotik.cpuLoad")).toBeInTheDocument();
     expect(screen.getByText("mikrotik.memoryUsed")).toBeInTheDocument();
     expect(screen.getByText("mikrotik.numberOfLeases")).toBeInTheDocument();
@@ -44,12 +45,13 @@ describe("widgets/mikrotik/component", () => {
     expect(screen.getByText("nope")).toBeInTheDocument();
   });
 
-  it("renders uptime, cpu load, memory used, lease count, and temperatures", () => {
+  it("renders uptime, version, cpu load, memory used, lease count, and temperatures", () => {
     useWidgetAPI.mockImplementation((_widget, endpoint) => {
       if (endpoint === "system") {
         return {
           data: {
             uptime: "1d",
+            version: "7.15.2 (stable)",
             "cpu-load": 10,
             "free-memory": 25,
             "total-memory": 100,
@@ -75,6 +77,7 @@ describe("widgets/mikrotik/component", () => {
 
     // memoryUsed = 100 - (25/100)*100 = 75
     expectBlockValue(container, "mikrotik.uptime", "1d");
+    expectBlockValue(container, "mikrotik.version", "7.15.2");
     expectBlockValue(container, "mikrotik.cpuLoad", 10);
     expectBlockValue(container, "mikrotik.memoryUsed", 75);
     expectBlockValue(container, "mikrotik.numberOfLeases", 3);

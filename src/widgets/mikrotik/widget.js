@@ -7,7 +7,7 @@ const widget = {
   mappings: {
     system: {
       endpoint: "system/resource",
-      validate: ["cpu-load", "free-memory", "total-memory", "uptime"],
+      validate: ["cpu-load", "free-memory", "total-memory", "uptime", "version"],
     },
     leases: {
       endpoint: "ip/dhcp-server/lease?.proplist=address",

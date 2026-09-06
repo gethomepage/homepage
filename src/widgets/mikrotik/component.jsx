@@ -22,6 +22,7 @@ export default function Component({ service }) {
     return (
       <Container service={service}>
         <Block label="mikrotik.uptime" />
+        <Block label="mikrotik.version" />
         <Block label="mikrotik.cpuLoad" />
         <Block label="mikrotik.memoryUsed" />
         <Block label="mikrotik.numberOfLeases" />
@@ -34,6 +35,7 @@ export default function Component({ service }) {
   const memoryUsed = 100 - (statsData["free-memory"] / statsData["total-memory"]) * 100;
 
   const numberOfLeases = leasesData.length;
+  const routerOsVersion = statsData.version?.split(" ")[0];
   const cpuTemperatureItem = healthData?.find((item) => item.name === "cpu-temperature");
   const sfpTemperatureItem = healthData?.find((item) => item.name === "sfp-temperature");
   const cpuTemperature = cpuTemperatureItem ? `${cpuTemperatureItem.value}°${cpuTemperatureItem.type}` : undefined;
@@ -42,6 +44,7 @@ export default function Component({ service }) {
   return (
     <Container service={service}>
       <Block label="mikrotik.uptime" value={statsData.uptime} />
+      <Block label="mikrotik.version" value={routerOsVersion} />
       <Block
         label="mikrotik.cpuLoad"
         value={t("common.percent", { value: statsData["cpu-load"] })}

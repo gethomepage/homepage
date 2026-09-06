@@ -681,6 +681,7 @@
         "cpuLoad": "CPU Load",
         "memoryUsed": "Memory Used",
         "uptime": "Uptime",
+        "version": "Version",
         "numberOfLeases": "Leases",
         "cpuTemperature": "CPU Temperature",
         "sfpTemperature": "SFP Temperature"
