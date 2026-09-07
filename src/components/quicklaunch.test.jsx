@@ -263,6 +263,37 @@ describe("components/quicklaunch", () => {
     openSpy.mockRestore();
   });
 
+  it("opens the clicked result even without a preceding hover event", async () => {
+    const openSpy = vi.spyOn(window, "open").mockImplementation(() => null);
+
+    renderWithProviders(
+      <Wrapper
+        servicesAndBookmarks={[
+          { name: "Alpha", href: "https://alpha.example" },
+          { name: "Alpine", href: "https://alpine.example" },
+          { name: "Almond", href: "https://almond.example" },
+        ]}
+      />,
+      { settings: { target: "_self", quicklaunch: { showSearchSuggestions: false } } },
+    );
+
+    const input = screen.getByPlaceholderText("Search");
+    await waitFor(() => expect(input).toHaveFocus());
+
+    fireEvent.change(input, { target: { value: "al" } });
+    await waitFor(() => expect(document.querySelector('button[data-index="2"]')).toBeTruthy());
+
+    // touch devices don't fire mouseEnter, so the highlighted item is still the first one
+    fireEvent.click(document.querySelector('button[data-index="2"]'));
+
+    await act(async () => {
+      await new Promise((r) => setTimeout(r, 350));
+    });
+
+    expect(openSpy).toHaveBeenCalledWith("https://almond.example", "_self", "noreferrer");
+    openSpy.mockRestore();
+  });
+
   it("handles Escape on a result button (not just the input)", async () => {
     renderWithProviders(<Wrapper servicesAndBookmarks={[{ name: "Alpha", href: "https://alpha.example" }]} />, {
       settings: { quicklaunch: { showSearchSuggestions: false } },

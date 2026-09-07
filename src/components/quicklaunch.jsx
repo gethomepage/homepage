@@ -124,8 +124,8 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
     ? MOBILE_BUTTON_POSITIONS[settings.quicklaunch.mobileButtonPosition]
     : null;
 
-  function openCurrentItem(newWindow) {
-    const result = results[activeItemIndex];
+  function openCurrentItem(newWindow, index = activeItemIndex) {
+    const result = results[index];
     window.open(
       result.href,
       newWindow ? "_blank" : (result.target ?? searchProvider?.target ?? settings.target ?? "_blank"),
@@ -180,7 +180,8 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
 
   function handleItemClick(event) {
     closeAndReset();
-    openCurrentItem(event.metaKey);
+    // in case hover doesnt fire, use the clicked item, not the highlighted one
+    openCurrentItem(event.metaKey, parseInt(event.currentTarget.dataset.index, 10));
   }
 
   function handleItemKeyDown(event) {
