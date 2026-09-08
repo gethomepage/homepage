@@ -64,7 +64,7 @@ describe("widgets/ghostfolio/component", () => {
         data: { performance: { currentGrossPerformancePercent: 0 } },
         error: undefined,
       })
-      .mockReturnValueOnce({ data: { settings: { currency: "USD" } }, error: undefined });
+      .mockReturnValueOnce({ data: { settings: { baseCurrency: "EUR", currency: "USD" } }, error: undefined });
 
     const { container } = renderWithProviders(
       <Component
@@ -82,6 +82,38 @@ describe("widgets/ghostfolio/component", () => {
     expectBlockValue(container, "ghostfolio.gross_percent_today", "+10");
     expectBlockValue(container, "ghostfolio.gross_percent_1y", "-5");
     expectBlockValue(container, "ghostfolio.gross_percent_max", "0");
-    expectBlockValue(container, "ghostfolio.net_worth", "123.46 USD");
+    expectBlockValue(container, "ghostfolio.net_worth", "123.46 EUR");
+  });
+
+  it("uses the currency as fallback for net worth", () => {
+    useWidgetAPI
+      .mockReturnValueOnce({
+        data: { performance: { netPerformancePercentageWithCurrencyEffect: 0.1, currentNetWorth: 123.456 } },
+        error: undefined,
+      })
+      .mockReturnValueOnce({
+        data: { performance: { grossPerformancePercentage: -0.05 } },
+        error: undefined,
+      })
+      .mockReturnValueOnce({
+        data: { performance: { currentGrossPerformancePercent: 0 } },
+        error: undefined,
+      })
+      .mockReturnValueOnce({ data: { settings: { currency: "EUR" } }, error: undefined });
+
+    const { container } = renderWithProviders(
+      <Component
+        service={{
+          widget: {
+            type: "ghostfolio",
+            url: "http://x",
+            fields: ["gross_percent_today", "gross_percent_1y", "gross_percent_max", "net_worth"],
+          },
+        }}
+      />,
+      { settings: { hideErrors: false } },
+    );
+
+    expectBlockValue(container, "ghostfolio.net_worth", "123.46 EUR");
   });
 });
