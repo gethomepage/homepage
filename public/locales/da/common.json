@@ -99,7 +99,12 @@
         "unhealthy": "Usund",
         "not_found": "Ikke Fundet",
         "exited": "Forladt",
-        "partial": "Delvis"
+        "partial": "Delvis",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "Error",

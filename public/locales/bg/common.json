@@ -99,7 +99,12 @@
         "unhealthy": "Нездравословен",
         "not_found": "Не е открит",
         "exited": "Напуснал",
-        "partial": "Частично"
+        "partial": "Частично",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "Грешка",

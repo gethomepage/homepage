@@ -99,7 +99,12 @@
         "unhealthy": "Usunn",
         "not_found": "Not Found",
         "exited": "Exited",
-        "partial": "Delvis"
+        "partial": "Delvis",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "Error",

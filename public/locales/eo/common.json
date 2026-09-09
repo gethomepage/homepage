@@ -99,7 +99,12 @@
         "unhealthy": "Malsana",
         "not_found": "Ne trovita",
         "exited": "Eliris",
-        "partial": "Parta"
+        "partial": "Parta",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "Error",

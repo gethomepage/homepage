@@ -99,7 +99,12 @@
         "unhealthy": "Kurang sihat",
         "not_found": "Tidak dijumpai",
         "exited": "Dimatikan",
-        "partial": "Sebahagian"
+        "partial": "Sebahagian",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "Error",

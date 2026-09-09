@@ -99,7 +99,12 @@
         "unhealthy": "غير سليم",
         "not_found": "غير موجود",
         "exited": "خرجت",
-        "partial": "جزئي"
+        "partial": "جزئي",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "خطأ",

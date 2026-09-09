@@ -99,7 +99,12 @@
         "unhealthy": "No saludable",
         "not_found": "No trobat",
         "exited": "Tancat",
-        "partial": "Parcial"
+        "partial": "Parcial",
+        "created": "Creat",
+        "paused": "Pausat",
+        "restarting": "Reiniciant",
+        "removing": "Eliminant",
+        "dead": "Mort"
     },
     "ping": {
         "error": "Error",

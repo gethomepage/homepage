@@ -99,7 +99,12 @@
         "unhealthy": "Nesănătos",
         "not_found": "Negăsit",
         "exited": "Ieşit",
-        "partial": "Parțial"
+        "partial": "Parțial",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "Error",

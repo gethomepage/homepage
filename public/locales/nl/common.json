@@ -99,7 +99,12 @@
         "unhealthy": "Ongezond",
         "not_found": "Niet Gevonden",
         "exited": "Gestopt",
-        "partial": "Gedeeltelijk"
+        "partial": "Gedeeltelijk",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "Fout",
