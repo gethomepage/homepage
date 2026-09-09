@@ -99,7 +99,12 @@
         "unhealthy": "Nefunkcionalno",
         "not_found": "Nepronađeno",
         "exited": "Zatoreno",
-        "partial": "Djelomično"
+        "partial": "Djelomično",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "Greška",

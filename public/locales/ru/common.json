@@ -99,7 +99,12 @@
         "unhealthy": "Нездоровый",
         "not_found": "Не найдено",
         "exited": "Вышел",
-        "partial": "Частичный"
+        "partial": "Частичный",
+        "created": "Создан",
+        "paused": "Приостановлен",
+        "restarting": "Перезапуск",
+        "removing": "Удаление",
+        "dead": "Мёртв"
     },
     "ping": {
         "error": "Ошибка",

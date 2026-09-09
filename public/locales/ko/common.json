@@ -40,8 +40,8 @@
     },
     "search": {
         "placeholder": "검색…",
-        "provider": "Search engine: {{name}}",
-        "select_provider": "Select search engine"
+        "provider": "검색 엔진: {{name}}",
+        "select_provider": "검색 엔진 선택"
     },
     "resources": {
         "cpu": "CPU",
@@ -99,7 +99,12 @@
         "unhealthy": "비정상",
         "not_found": "찾을 수 없음",
         "exited": "종료됨",
-        "partial": "부분적"
+        "partial": "부분적",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "오류",

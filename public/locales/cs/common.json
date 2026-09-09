@@ -99,7 +99,12 @@
         "unhealthy": "Nezdravý",
         "not_found": "Nenalezen",
         "exited": "Ukončen",
-        "partial": "Částečný"
+        "partial": "Částečný",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "Chyba",

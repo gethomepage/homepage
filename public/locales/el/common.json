@@ -21,7 +21,7 @@
         "seconds": "s"
     },
     "auth": {
-        "signout": "Sign out"
+        "signout": "Αποσύνδεση"
     },
     "widget": {
         "missing_type": "Λείπει ο τύπος widget: {{type}}",
@@ -41,7 +41,7 @@
     "search": {
         "placeholder": "Αναζήτηση…",
         "provider": "Search engine: {{name}}",
-        "select_provider": "Select search engine"
+        "select_provider": "Επιλέξτε τις μηχανές αναζήτησης"
     },
     "resources": {
         "cpu": "Επεξεργαστής",
@@ -66,24 +66,24 @@
         "wlan_devices": "WLAN Συσκευές",
         "lan_users": "LAN Χρήστες",
         "wlan_users": "WLAN Χρήστες",
-        "up": "UP",
+        "up": "ΕΠΑΝΩ",
         "down": "ΚΑΤΩ",
-        "wait": "Please wait",
+        "wait": "Παρακαλώ περιμένετε",
         "empty_data": "Άγνωστη κατάσταση υποσυστήματος"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
+        "healthy": "Υγειές",
         "degraded": "Degraded",
         "no_data": "No storage data available"
     },
     "duplicati": {
-        "jobs": "Jobs",
-        "stored": "Stored",
-        "lastBackup": "Last Run",
-        "nextRun": "Next Run",
-        "running": "Running",
-        "warnings": "Warnings",
-        "errors": "Errors"
+        "jobs": "Εργασίες",
+        "stored": "Αποθηκευμένα",
+        "lastBackup": "Τελευταία εκτέλεση",
+        "nextRun": "Επόμενη εκτέλεση",
+        "running": "Εκτελείται",
+        "warnings": "Προειδοποιήσεις",
+        "errors": "Σφάλματα"
     },
     "docker": {
         "rx": "RX",
@@ -99,10 +99,15 @@
         "unhealthy": "Άρρωστο",
         "not_found": "Δεν βρέθηκε",
         "exited": "Έκλεισε",
-        "partial": "Μερικό"
+        "partial": "Μερικό",
+        "created": "Δημιουργήθηκε",
+        "paused": "Σε παύση",
+        "restarting": "Γίνεται επανεκκίνηση",
+        "removing": "Αφαιρείται",
+        "dead": "Dead"
     },
     "ping": {
-        "error": "Error",
+        "error": "Σφάλμα",
         "ping": "Ping",
         "down": "Ping down",
         "up": "Ping up",
@@ -110,11 +115,11 @@
     },
     "siteMonitor": {
         "http_status": "Κατάσταση HTTP",
-        "error": "Error",
+        "error": "Σφάλμα",
         "response": "Απόκριση",
         "down": "Down",
         "up": "Up",
-        "not_available": "Not Available"
+        "not_available": "Μη Διαθέσιμο"
     },
     "emby": {
         "playing": "Παίζει",
@@ -127,7 +132,7 @@
         "songs": "Τραγούδια"
     },
     "jellyfin": {
-        "playing": "Playing",
+        "playing": "Γίνεται αναπαραγωγή",
         "transcoding": "Transcoding",
         "bitrate": "Bitrate",
         "no_active": "No Active Streams",

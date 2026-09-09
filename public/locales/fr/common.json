@@ -99,7 +99,12 @@
         "unhealthy": "Mauvaise santé",
         "not_found": "Inconnu",
         "exited": "Arrêté",
-        "partial": "Partiel"
+        "partial": "Partiel",
+        "created": "Créé",
+        "paused": "En pause",
+        "restarting": "Redémarrage",
+        "removing": "Suppression",
+        "dead": "Mort"
     },
     "ping": {
         "error": "Erreur",

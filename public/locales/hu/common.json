@@ -99,7 +99,12 @@
         "unhealthy": "Egészségtelen",
         "not_found": "Nem található",
         "exited": "Kilépett",
-        "partial": "Részleges"
+        "partial": "Részleges",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "Hiba",

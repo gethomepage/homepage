@@ -99,7 +99,12 @@
         "unhealthy": "Sağlıksız",
         "not_found": "Bulunamadı",
         "exited": "Kapandı",
-        "partial": "Kısmi"
+        "partial": "Kısmi",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "Hata",

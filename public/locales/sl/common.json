@@ -99,7 +99,12 @@
         "unhealthy": "Ni zdrav",
         "not_found": "Ni najden",
         "exited": "V izhodu",
-        "partial": "Delni"
+        "partial": "Delni",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "Error",

@@ -99,7 +99,12 @@
         "unhealthy": "非健全",
         "not_found": "不明",
         "exited": "停止しました",
-        "partial": "部分的"
+        "partial": "部分的",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "エラー",

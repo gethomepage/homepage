@@ -99,7 +99,12 @@
         "unhealthy": "Niezdrowy",
         "not_found": "Nie znaleziono",
         "exited": "Zakończony",
-        "partial": "Częściowy"
+        "partial": "Częściowy",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "Błąd",

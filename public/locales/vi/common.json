@@ -99,7 +99,12 @@
         "unhealthy": "Bất thường",
         "not_found": "Không tìm thấy",
         "exited": "Đã thoát",
-        "partial": "Một phần"
+        "partial": "Một phần",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "Lỗi",

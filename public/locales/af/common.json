@@ -21,7 +21,7 @@
         "seconds": "s"
     },
     "auth": {
-        "signout": "Sign out"
+        "signout": "Teken uit"
     },
     "widget": {
         "missing_type": "Ontbrekende legstuk-tipe: {{type}}",
@@ -40,8 +40,8 @@
     },
     "search": {
         "placeholder": "Soek…",
-        "provider": "Search engine: {{name}}",
-        "select_provider": "Select search engine"
+        "provider": "Soekenjin: {{name}}",
+        "select_provider": "Kies soekenjin"
     },
     "resources": {
         "cpu": "SVE",
@@ -99,7 +99,12 @@
         "unhealthy": "Ongesond",
         "not_found": "Nie Gevind Nie",
         "exited": "Verlaat",
-        "partial": "Gedeeltelik"
+        "partial": "Gedeeltelik",
+        "created": "Created",
+        "paused": "Paused",
+        "restarting": "Restarting",
+        "removing": "Removing",
+        "dead": "Dead"
     },
     "ping": {
         "error": "Fout",
@@ -474,7 +479,7 @@
         "users": "Gebruikers",
         "loginsLast24H": "Aantekenings (24h)",
         "failedLoginsLast24H": "Mislukte Aantekenings (24h)",
-        "authorizationsLast24H": "Auths (24h)"
+        "authorizationsLast24H": "Magtigings (24h)"
     },
     "proxmox": {
         "mem": "GEH",
