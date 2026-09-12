@@ -77,7 +77,7 @@ export default async function credentialedProxyHandler(req, res, map) {
         } else {
           headers.Authorization = basicAuthHeader(widget);
         }
-      } else if (widget.type === "ntfy") {
+      } else if (["ntfy", "whatsupdocker"].includes(widget.type)) {
         if (widget.key) {
           headers.Authorization = `Bearer ${widget.key}`;
         } else if (widget.username && widget.password) {

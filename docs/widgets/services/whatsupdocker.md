@@ -13,4 +13,5 @@ widget:
   url: http://whatsupdocker:port
   username: username # optional
   password: password # optional
+  key: bearer-token # optional, takes precedence over username/password
 ```
