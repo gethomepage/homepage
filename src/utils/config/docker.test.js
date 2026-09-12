@@ -42,12 +42,13 @@ describe("utils/config/docker", () => {
     const args = getDockerArguments();
 
     expect(checkAndCopyConfig).toHaveBeenCalledWith("docker.yaml");
+    expect(args.swarm).toBe(false);
     // if running on linux, should return socketPath
     if (process.platform !== "win32" && process.platform !== "darwin") {
-      expect(args).toEqual({ socketPath: "/var/run/docker.sock" });
+      expect(args.conn).toEqual({ socketPath: "/var/run/docker.sock" });
     } else {
       // otherwise, should return host
-      expect(args).toEqual(expect.objectContaining({ host: expect.any(String) }));
+      expect(args.conn).toEqual(expect.objectContaining({ host: expect.any(String) }));
     }
   });
 
@@ -96,11 +97,15 @@ describe("utils/config/docker", () => {
     expect(getDockerArguments("missing")).toBeNull();
   });
 
-  it("returns the raw server config when it has no host/socket overrides", () => {
+  it("returns the raw server config wrapped in conn with swarm preserved when it has no host/socket overrides", () => {
     yaml.load.mockReturnValueOnce({
       raw: { swarm: true, something: "else" },
     });
 
-    expect(getDockerArguments("raw")).toEqual({ swarm: true, something: "else" });
+    const args = getDockerArguments("raw");
+    // swarm flag is lifted out, swarm key stripped from conn
+    expect(args.swarm).toBe(true);
+    expect(args.conn).toEqual({ something: "else" });
+    expect(args.conn.swarm).toBeUndefined();
   });
 });

@@ -30,6 +30,11 @@ async function statsForContainer(docker, id) {
 
 export async function getDockerStats(server) {
   const dockerArgs = getDockerArguments(server);
+
+  if (!dockerArgs) {
+    return { error: `unknown docker server: ${server}`, status: 400 };
+  }
+
   const docker = new Docker(dockerArgs.conn);
 
   const [containers, configured] = await Promise.all([

@@ -248,6 +248,18 @@ describe("pages/api/docker/statuses", () => {
     expect(res.body).toEqual({ error: "query failed" });
   });
 
+  it("returns 400 when the server is not in the docker config", async () => {
+    getDockerArguments.mockReturnValueOnce(null);
+
+    const req = { query: { server: "unknown" } };
+    const res = createMockRes();
+
+    await handler(req, res);
+
+    expect(res.statusCode).toBe(400);
+    expect(res.body).toEqual({ error: "unknown docker server: unknown" });
+  });
+
   it("logs and returns 500 when the docker query throws", async () => {
     getDockerArguments.mockImplementationOnce(() => {
       throw new Error("boom");

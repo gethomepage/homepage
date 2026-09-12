@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     const result = await getDockerStats(req.query.server);
 
     if (result.error) {
-      return res.status(500).send({ error: result.error });
+      return res.status(result.status || 500).send({ error: result.error });
     }
 
     return res.status(200).json(result);

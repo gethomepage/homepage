@@ -720,6 +720,21 @@ describe("utils/config/service-helpers", () => {
     expect(state.logger.error).toHaveBeenCalled();
   });
 
+  it("servicesFromDocker skips a server when getDockerArguments returns null", async () => {
+    state.dockerYaml = { "docker-a": {}, "docker-b": {} };
+    state.dockerContainers = [{ Names: ["/c1"], Labels: { "homepage.group": "G", "homepage.name": "Svc" } }];
+
+    dockerCfg.default.mockImplementation((serverName) => (serverName === "docker-a" ? null : { conn: { serverName } }));
+
+    const mod = await import("./service-helpers");
+    const discoveredGroups = await mod.servicesFromDocker();
+
+    // docker-a silently skipped, docker-b containers still discovered
+    expect(discoveredGroups).toHaveLength(1);
+    expect(discoveredGroups[0].services[0].server).toBe("docker-b");
+    expect(state.logger.error).not.toHaveBeenCalled();
+  });
+
   it("servicesFromKubernetes returns [] when kubernetes is not configured", async () => {
     state.kubeConfig = null;
 

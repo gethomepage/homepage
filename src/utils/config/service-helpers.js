@@ -117,8 +117,12 @@ export async function servicesFromDocker() {
   const serviceServers = await Promise.all(
     Object.keys(servers).map(async (serverName) => {
       try {
+        const dockerArgs = getDockerArguments(serverName);
+        if (!dockerArgs) {
+          return { server: serverName, services: [] };
+        }
         const isSwarm = !!servers[serverName].swarm;
-        const docker = new Docker(getDockerArguments(serverName).conn);
+        const docker = new Docker(dockerArgs.conn);
         const listProperties = { all: true };
         const containers = await (isSwarm
           ? docker.listServices(listProperties)

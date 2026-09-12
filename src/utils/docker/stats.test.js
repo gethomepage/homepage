@@ -170,4 +170,12 @@ describe("utils/docker/stats", () => {
 
     expect(await getDockerStats("swarm")).toEqual({ stats: {} });
   });
+
+  it("returns an error when the server is not in the docker config", async () => {
+    getDockerArguments.mockReturnValueOnce(null);
+
+    const result = await getDockerStats("unknown");
+    expect(result.error).toBe("unknown docker server: unknown");
+    expect(result.status).toBe(400);
+  });
 });

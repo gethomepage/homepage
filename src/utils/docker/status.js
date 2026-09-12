@@ -29,6 +29,11 @@ async function healthByContainerId(docker) {
 
 export async function getDockerStatuses(server) {
   const dockerArgs = getDockerArguments(server);
+
+  if (!dockerArgs) {
+    return { error: `unknown docker server: ${server}`, status: 400 };
+  }
+
   const docker = new Docker(dockerArgs.conn);
 
   const [containers, health, configured] = await Promise.all([

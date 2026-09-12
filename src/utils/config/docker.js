@@ -21,7 +21,7 @@ export default function getDockerArguments(server) {
   const servers = loadYaml(configData);
 
   if (!server) {
-    return getDefaultDockerArgs();
+    return { conn: getDefaultDockerArgs(), swarm: false };
   }
 
   if (servers[server]) {
@@ -57,7 +57,8 @@ export default function getDockerArguments(server) {
       return res;
     }
 
-    return servers[server];
+    const { swarm: rawSwarm, ...connection } = servers[server];
+    return { conn: connection, swarm: !!rawSwarm };
   }
   return null;
 }
