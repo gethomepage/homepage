@@ -100,11 +100,11 @@
         "not_found": "Nie Gevind Nie",
         "exited": "Verlaat",
         "partial": "Gedeeltelik",
-        "created": "Created",
-        "paused": "Paused",
-        "restarting": "Restarting",
-        "removing": "Removing",
-        "dead": "Dead"
+        "created": "Geskep",
+        "paused": "Onderbreek",
+        "restarting": "Herlaai",
+        "removing": "Verwydering",
+        "dead": "Dood"
     },
     "ping": {
         "error": "Fout",

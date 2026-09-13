@@ -100,11 +100,11 @@
         "not_found": "No encontrado",
         "exited": "Terminado",
         "partial": "Parcial",
-        "created": "Created",
-        "paused": "Paused",
-        "restarting": "Restarting",
-        "removing": "Removing",
-        "dead": "Dead"
+        "created": "Creado",
+        "paused": "Pausado",
+        "restarting": "Reiniciando",
+        "removing": "Eliminando",
+        "dead": "Muerto"
     },
     "ping": {
         "error": "Error",
