@@ -13,15 +13,17 @@ Allowed fields: `["movies", "series", "episodes", "songs", "albums"]`.
 
 | Jellyfin Version | Homepage Widget Version |
 | ---------------- | ----------------------- |
-| < 12 (10.12)     | 1 (default)             |
-| >= 12 (10.12)    | 2                       |
+| < 12.0           | 1                       |
+| >= 12.0          | 2 (default)             |
+
+Jellyfin 12.0 removed the legacy `/emby/` endpoint prefix and `?api_key=` query parameter authentication. If you are running Jellyfin < 12.0, set `version: 1` explicitly.
 
 ```yaml
 widget:
   type: jellyfin
   url: http://jellyfin.host.or.ip:port
   key: apikeyapikeyapikeyapikeyapikey
-  version: 2 # optional, default is 1
+  version: 2 # optional, default is 2 (set to 1 for Jellyfin < 12.0)
   enableBlocks: true # optional, defaults to false
   enableNowPlaying: true # optional, defaults to true
   enableUser: true # optional, defaults to false

@@ -209,7 +209,7 @@ export default function Component({ service: configuredService }) {
 
   const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
-  const version = widget?.version ?? 1;
+  const version = widget?.version ?? 2;
   const useJellyfinV2 = version === 2;
   const sessionsEndpoint = useJellyfinV2 ? "SessionsV2" : "Sessions";
   const countEndpoint = useJellyfinV2 ? "CountV2" : "Count";
