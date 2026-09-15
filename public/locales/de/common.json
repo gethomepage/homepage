@@ -21,7 +21,7 @@
         "seconds": "s"
     },
     "auth": {
-        "signout": "Sign out"
+        "signout": "Abmelden"
     },
     "widget": {
         "missing_type": "Fehlender Widget-Typ: {{type}}",
@@ -40,8 +40,8 @@
     },
     "search": {
         "placeholder": "Suche…",
-        "provider": "Search engine: {{name}}",
-        "select_provider": "Select search engine"
+        "provider": "Suchmaschine: {{name}}",
+        "select_provider": "Suchmaschine auswählen"
     },
     "resources": {
         "cpu": "CPU",
@@ -77,13 +77,13 @@
         "no_data": "Keine Speicherdaten verfügbar"
     },
     "duplicati": {
-        "jobs": "Jobs",
-        "stored": "Stored",
-        "lastBackup": "Last Run",
-        "nextRun": "Next Run",
-        "running": "Running",
-        "warnings": "Warnings",
-        "errors": "Errors"
+        "jobs": "Aufgaben",
+        "stored": "Gespeichert",
+        "lastBackup": "Zuletzt ausgeführt",
+        "nextRun": "Nächste Ausführung",
+        "running": "Wird ausgeführt",
+        "warnings": "Warnungen",
+        "errors": "Fehler"
     },
     "docker": {
         "rx": "RX",
@@ -100,11 +100,11 @@
         "not_found": "Nicht gefunden",
         "exited": "Beendet",
         "partial": "Teilweise",
-        "created": "Created",
-        "paused": "Paused",
-        "restarting": "Restarting",
-        "removing": "Removing",
-        "dead": "Dead"
+        "created": "Erstellt am",
+        "paused": "Pausiert",
+        "restarting": "Wird neu gestartet",
+        "removing": "Wird entfernt",
+        "dead": "Tot"
     },
     "ping": {
         "error": "Fehler",
@@ -140,7 +140,7 @@
         "series": "Serien",
         "episodes": "Episoden",
         "songs": "Titel",
-        "albums": "Albums"
+        "albums": "Alben"
     },
     "esphome": {
         "offline": "Offline",
@@ -364,15 +364,15 @@
         "address": "Adresse",
         "expires": "Läuft ab",
         "never": "Nie",
-        "user": "User",
+        "user": "Benutzer",
         "hostname": "Hostname",
         "name": "Name",
-        "client_version": "Client Version",
-        "os": "OS",
-        "created": "Created",
-        "authorized": "Authorized",
-        "is_external": "Is External",
-        "update_available": "Update Available",
+        "client_version": "Client-Version",
+        "os": "Betriebssystem",
+        "created": "Erstellt am",
+        "authorized": "Autorisiert",
+        "is_external": "Ist extern",
+        "update_available": "Aktualisierung verfügbar",
         "tags": "Tags",
         "last_seen": "Zuletzt gesehen",
         "now": "Jetzt",
@@ -383,8 +383,8 @@
         "minutes": "{{number}}min",
         "seconds": "{{number}}s",
         "ago": "Vor {{value}}",
-        "true": "Yes",
-        "false": "No"
+        "true": "Ja",
+        "false": "Nein"
     },
     "technitium": {
         "totalQueries": "Anfragen",
@@ -479,7 +479,7 @@
         "users": "Benutzer",
         "loginsLast24H": "Anmeldungen (24 h)",
         "failedLoginsLast24H": "Fehlversuche (24 h)",
-        "authorizationsLast24H": "Auths (24h)"
+        "authorizationsLast24H": "Autorisierungen (24h)"
     },
     "proxmox": {
         "mem": "RAM",
@@ -488,7 +488,7 @@
         "vms": "VMs"
     },
     "pulse": {
-        "nodes": "Nodes",
+        "nodes": "Knoten",
         "vms": "VMs",
         "lxcs": "LXCs"
     },
@@ -657,13 +657,13 @@
         "total": "Total"
     },
     "pangolin": {
-        "orgs": "Orgs",
+        "orgs": "Organisationen",
         "sites": "Seiten",
         "resources": "Ressourcen",
         "targets": "Ziele",
         "traffic": "Traffic",
-        "in": "In",
-        "out": "Out"
+        "in": "Eingehend",
+        "out": "Ausgehend"
     },
     "peanut": {
         "battery_charge": "Akkuladung",
@@ -959,27 +959,27 @@
         "storage": "Speicher"
     },
     "maintainerr": {
-        "itemsHandled": "Items Handled",
-        "episodesHandled": "Episodes Handled",
-        "moviesHandled": "Movies Handled",
-        "showsHandled": "Shows Handled",
-        "seasonsHandled": "Seasons Handled",
-        "reclaimable": "Reclaimable",
-        "movieReclaimable": "Movie Reclaimable",
-        "showReclaimable": "Show Reclaimable",
-        "totalCapacity": "Total Capacity"
+        "itemsHandled": "Items bearbeitet",
+        "episodesHandled": "Episoden behandelt",
+        "moviesHandled": "Filme behandelt",
+        "showsHandled": "Serien behandelt",
+        "seasonsHandled": "Staffeln bearbeitet",
+        "reclaimable": "Zurückforderbar",
+        "movieReclaimable": "Film zurückforderbar",
+        "showReclaimable": "Serie zurückforderbar",
+        "totalCapacity": "Gesamte Kapazität"
     },
     "netdata": {
         "warnings": "Warnungen",
         "criticals": "Kritisch"
     },
     "ntfy": {
-        "title": "Title",
-        "priority": "Priority",
-        "lastReceived": "Last Received",
-        "message": "Message",
-        "tags": "Tags",
-        "none": "None",
+        "title": "Titel",
+        "priority": "Priorität",
+        "lastReceived": "Zuletzt erhalten",
+        "message": "Nachricht",
+        "tags": "Schlagwörter",
+        "none": "Keine",
         "min": "Min",
         "low": "Low",
         "default": "Default",
