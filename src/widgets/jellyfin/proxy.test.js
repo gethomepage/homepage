@@ -126,6 +126,23 @@ describe("widgets/jellyfin/proxy", () => {
     expect(res.statusCode).toBe(404);
   });
 
+  it("sanitizes the url in an error response body", async () => {
+    getServiceWidget.mockResolvedValue({ type: "jellyfin", url: "http://jf", key: "secret" });
+    httpProxy.mockResolvedValueOnce([
+      401,
+      "application/json",
+      { error: { url: "http://jf/Users?api_key=secret", message: "Unauthorized" } },
+    ]);
+
+    const req = { method: "GET", query: { group: "g", service: "svc", endpoint: "Users", index: "0" } };
+    const res = createMockRes();
+
+    await jellyfinProxyHandler(req, res);
+
+    expect(res.statusCode).toBe(401);
+    expect(res.body.error.url).not.toContain("secret");
+  });
+
   it("ends the response for 204 responses", async () => {
     getServiceWidget.mockResolvedValue({ type: "jellyfin", url: "http://jf", key: "abc" });
     httpProxy.mockResolvedValueOnce([204, "application/json", {}]);
