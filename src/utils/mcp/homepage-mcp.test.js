@@ -184,6 +184,42 @@ describe("utils/mcp/homepage-mcp", () => {
     );
   });
 
+  it("preserves env placeholders when adding a service", async () => {
+    process.env.HOMEPAGE_MCP_ALLOW_WRITE = "true";
+    const configDir = mkdtempSync(path.join(tmpdir(), "homepage-mcp-test-"));
+    writeFileSync(
+      path.join(configDir, "services.yaml"),
+      "- Media:\n" +
+        "    - Jellyfin:\n" +
+        "        href: http://{{HOMEPAGE_VAR_HOST}}:8096\n" +
+        "        widget:\n" +
+        "          type: jellyfin\n" +
+        "          key: {{HOMEPAGE_VAR_JELLYFIN_KEY}}\n" +
+        '          password: "{{HOMEPAGE_FILE_PASSWORD}}"\n',
+    );
+    const mod = await loadMcpWithConfigDir(configDir);
+
+    const response = mod.handleMcpRequest({
+      jsonrpc: "2.0",
+      id: 11,
+      method: "tools/call",
+      params: { name: "add_service", arguments: { group: "Tools", name: "Grafana" } },
+    });
+
+    expect(response.result.isError).toBeUndefined();
+    expect(readFileSync(path.join(configDir, "services.yaml"), "utf8")).toBe(
+      "- Media:\n" +
+        "    - Jellyfin:\n" +
+        "        href: http://{{HOMEPAGE_VAR_HOST}}:8096\n" +
+        "        widget:\n" +
+        "          type: jellyfin\n" +
+        "          key: {{HOMEPAGE_VAR_JELLYFIN_KEY}}\n" +
+        '          password: "{{HOMEPAGE_FILE_PASSWORD}}"\n' +
+        "- Tools:\n" +
+        "    - Grafana: {}\n",
+    );
+  });
+
   it("does not add a duplicate service in the same group", async () => {
     process.env.HOMEPAGE_MCP_ALLOW_WRITE = "true";
     const configDir = mkdtempSync(path.join(tmpdir(), "homepage-mcp-test-"));
