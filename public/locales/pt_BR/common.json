@@ -21,7 +21,7 @@
         "seconds": "s"
     },
     "auth": {
-        "signout": "Sign out"
+        "signout": "Encerrar Sessão"
     },
     "widget": {
         "missing_type": "Tipo de Widget ausente: {{type}}",
@@ -40,8 +40,8 @@
     },
     "search": {
         "placeholder": "Pesquisar…",
-        "provider": "Search engine: {{name}}",
-        "select_provider": "Select search engine"
+        "provider": "Motor de pesquisa: {{name}}",
+        "select_provider": "Selecionar motor de busca"
     },
     "resources": {
         "cpu": "CPU",
@@ -100,11 +100,11 @@
         "not_found": "Não Encontrado",
         "exited": "Encerrado",
         "partial": "Parcial",
-        "created": "Created",
-        "paused": "Paused",
-        "restarting": "Restarting",
-        "removing": "Removing",
-        "dead": "Dead"
+        "created": "Criado",
+        "paused": "Pausado",
+        "restarting": "Reiniciando",
+        "removing": "Removendo",
+        "dead": "Inativo"
     },
     "ping": {
         "error": "Erro",
@@ -140,7 +140,7 @@
         "series": "Séries",
         "episodes": "Episódios",
         "songs": "Músicas",
-        "albums": "Albums"
+        "albums": "Álbuns"
     },
     "esphome": {
         "offline": "Offline",
@@ -959,15 +959,15 @@
         "storage": "Armazenamento"
     },
     "maintainerr": {
-        "itemsHandled": "Items Handled",
-        "episodesHandled": "Episodes Handled",
-        "moviesHandled": "Movies Handled",
-        "showsHandled": "Shows Handled",
-        "seasonsHandled": "Seasons Handled",
-        "reclaimable": "Reclaimable",
-        "movieReclaimable": "Movie Reclaimable",
-        "showReclaimable": "Show Reclaimable",
-        "totalCapacity": "Total Capacity"
+        "itemsHandled": "Itens manuseados",
+        "episodesHandled": "Episódios tratados",
+        "moviesHandled": "Filmes tratados",
+        "showsHandled": "Séries tratados",
+        "seasonsHandled": "Temporadas tratadas",
+        "reclaimable": "Reclamável",
+        "movieReclaimable": "Filme Reclamável",
+        "showReclaimable": "Show Reclamável",
+        "totalCapacity": "Capacidade total"
     },
     "netdata": {
         "warnings": "Alertas",
@@ -1255,8 +1255,8 @@
         "storage": "Armazenagem"
     },
     "sportarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "leagues": "Leagues"
+        "wanted": "Desejado",
+        "queued": "Na fila",
+        "leagues": "Ligas"
     }
 }

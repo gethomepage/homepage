@@ -281,28 +281,28 @@
         "seed": "Sembrat"
     },
     "sonarr": {
-        "wanted": "Volgut",
+        "wanted": "Pendents",
         "queued": "En cua",
         "series": "Sèries",
         "queue": "Cua",
         "unknown": "Desconegut"
     },
     "radarr": {
-        "wanted": "Volguts",
+        "wanted": "Pendents",
         "missing": "Falten",
-        "queued": "Encuat",
+        "queued": "En cua",
         "movies": "Pel·lícules",
         "queue": "Cua",
         "unknown": "Desconegut"
     },
     "lidarr": {
-        "wanted": "Volguts",
-        "queued": "Encuat",
+        "wanted": "Pendents",
+        "queued": "En cua",
         "artists": "Artistes"
     },
     "readarr": {
-        "wanted": "Volguts",
-        "queued": "Encuat",
+        "wanted": "Pendents",
+        "queued": "En cua",
         "books": "Llibres"
     },
     "bazarr": {
@@ -320,7 +320,7 @@
         "available": "Disponible",
         "completed": "Completat",
         "processing": "Processant",
-        "issues": "Temes oberts"
+        "issues": "Incidències"
     },
     "netalertx": {
         "total": "Total",
@@ -460,8 +460,8 @@
         "domain_count": "Dominis"
     },
     "medusa": {
-        "wanted": "Volguts",
-        "queued": "Encuat",
+        "wanted": "Pendents",
+        "queued": "En cua",
         "series": "Sèries"
     },
     "minecraft": {
@@ -767,8 +767,8 @@
     },
     "mylar": {
         "series": "Sèries",
-        "issues": "Problemes",
-        "wanted": "Volguts"
+        "issues": "Números",
+        "wanted": "Pendents"
     },
     "photoprism": {
         "albums": "Àlbums",
@@ -994,7 +994,7 @@
     },
     "gitea": {
         "notifications": "Notificacions",
-        "issues": "Problemes",
+        "issues": "Incidències",
         "pulls": "Sol·licitud de Canvis",
         "repositories": "Repositoris"
     },
@@ -1124,7 +1124,7 @@
     },
     "gitlab": {
         "groups": "Grups",
-        "issues": "Problemes",
+        "issues": "Incidències",
         "merges": "Merge Requests",
         "projects": "Projectes"
     },
@@ -1161,7 +1161,7 @@
     },
     "checkmk": {
         "serviceErrors": "Errors de servei",
-        "hostErrors": "Problemes de l'hoste"
+        "hostErrors": "Errors de l'hoste"
     },
     "komodo": {
         "total": "Total",
@@ -1255,8 +1255,8 @@
         "storage": "Emmagatzematge"
     },
     "sportarr": {
-        "wanted": "Volgut",
-        "queued": "Encuat",
+        "wanted": "Pendents",
+        "queued": "En cua",
         "leagues": "Lligues"
     }
 }
