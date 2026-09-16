@@ -87,6 +87,45 @@ describe("widgets/jellyfin/proxy", () => {
     expect(res.body.error.message).toBe("Invalid data");
   });
 
+  it("falls back to the v2 endpoint when an emby/ route returns 404", async () => {
+    getServiceWidget.mockResolvedValue({ type: "jellyfin", url: "http://jf", key: "abc" });
+    httpProxy
+      .mockResolvedValueOnce([404, "application/json", { error: "not found" }])
+      .mockResolvedValueOnce([200, "application/json", { MovieCount: 5 }]);
+
+    const req = {
+      method: "GET",
+      query: { group: "g", service: "svc", endpoint: "emby/Items/Counts?api_key=abc", index: "0" },
+    };
+    const res = createMockRes();
+
+    await jellyfinProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(2);
+    expect(httpProxy.mock.calls[0][0].toString()).toBe("http://jf/emby/Items/Counts?api_key=abc");
+    expect(httpProxy.mock.calls[1][0].toString()).toBe("http://jf/Items/Counts");
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({ MovieCount: 5 });
+  });
+
+  it("keeps the original 404 when the v2 endpoint is also missing", async () => {
+    getServiceWidget.mockResolvedValue({ type: "jellyfin", url: "http://jf", key: "abc" });
+    httpProxy
+      .mockResolvedValueOnce([404, "application/json", { error: "not found" }])
+      .mockResolvedValueOnce([404, "application/json", { error: "still not found" }]);
+
+    const req = {
+      method: "GET",
+      query: { group: "g", service: "svc", endpoint: "emby/Sessions?api_key=abc", index: "0" },
+    };
+    const res = createMockRes();
+
+    await jellyfinProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(2);
+    expect(res.statusCode).toBe(404);
+  });
+
   it("ends the response for 204 responses", async () => {
     getServiceWidget.mockResolvedValue({ type: "jellyfin", url: "http://jf", key: "abc" });
     httpProxy.mockResolvedValueOnce([204, "application/json", {}]);

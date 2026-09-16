@@ -41,12 +41,31 @@ export default async function jellyfinProxyHandler(req, res, map) {
     headers,
   };
 
-  const [status, contentType, data] = await httpProxy(url, params);
+  let requestUrl = url;
+  let [status, contentType, data] = await httpProxy(requestUrl, params);
+
+  // Jellyfin 12 (10.12) removed the legacy `/emby/`-prefixed compatibility routes,
+  // so a v1-style widget config gets a 404 against newer servers. When that happens,
+  // transparently retry against the equivalent v2 endpoint (drop the `/emby/` prefix
+  // and the `api_key` query param, which the Authorization header already provides).
+  // This lets existing v1 configs keep working after a Jellyfin upgrade without
+  // requiring the user to manually set `version: 2`.
+  if (status === 404 && /(^|\/)emby\//.test(url.pathname)) {
+    const v2Url = new URL(url);
+    v2Url.pathname = v2Url.pathname.replace(/(^|\/)emby\//, "$1");
+    v2Url.searchParams.delete("api_key");
+    const [v2Status, v2ContentType, v2Data] = await httpProxy(v2Url, params);
+    if (v2Status !== 404) {
+      logger.debug("Jellyfin emby/ route returned 404, using v2 endpoint %s", v2Url.toString());
+      requestUrl = v2Url;
+      [status, contentType, data] = [v2Status, v2ContentType, v2Data];
+    }
+  }
 
   let resultData = data;
 
   if (resultData.error?.url) {
-    resultData.error.url = sanitizeErrorURL(url);
+    resultData.error.url = sanitizeErrorURL(requestUrl);
   }
 
   if (status === 204 || status === 304) {
@@ -54,12 +73,14 @@ export default async function jellyfinProxyHandler(req, res, map) {
   }
 
   if (status >= 400) {
-    logger.error("HTTP Error %d calling %s", status, url.toString());
+    logger.error("HTTP Error %d calling %s", status, requestUrl.toString());
   }
 
   if (status === 200) {
     if (!validateWidgetData(widget, endpoint, resultData)) {
-      return res.status(500).json({ error: { message: "Invalid data", url: sanitizeErrorURL(url), data: resultData } });
+      return res
+        .status(500)
+        .json({ error: { message: "Invalid data", url: sanitizeErrorURL(requestUrl), data: resultData } });
     }
     if (map) resultData = map(resultData);
   }

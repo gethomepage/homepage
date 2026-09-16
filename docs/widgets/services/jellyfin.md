@@ -16,6 +16,12 @@ Allowed fields: `["movies", "series", "episodes", "songs", "albums"]`.
 | < 12 (10.12)     | 1 (default)             |
 | >= 12 (10.12)    | 2                       |
 
+Jellyfin 12 (10.12) removed the legacy `/emby/`-prefixed API routes. If you leave
+`version` unset (the default `1`) and the legacy routes return a `404`, Homepage now
+automatically retries the equivalent version `2` endpoint, so existing configurations
+keep working after a Jellyfin upgrade. You can still set `version: 2` explicitly to skip
+the fallback and always target the newer API.
+
 ```yaml
 widget:
   type: jellyfin
