@@ -59,6 +59,7 @@ const { state, fs, yaml, config, Docker, dockerCfg, kubeCfg, kubeApi } = vi.hois
     listIngress: vi.fn(async () => []),
     listTraefikIngress: vi.fn(async () => []),
     listHttpRoute: vi.fn(async () => []),
+    listService: vi.fn(async () => []),
     isDiscoverable: vi.fn(() => true),
     constructedServiceFromResource: vi.fn(async () => state.kubeServices.shift()),
   };
@@ -744,6 +745,25 @@ describe("utils/config/service-helpers", () => {
       },
     ]);
     expect(kubeApi.isDiscoverable).toHaveBeenCalledWith({ kind: "Ingress" }, "foo");
+  });
+
+  it("servicesFromKubernetes maps discoverable Service resources into service groups", async () => {
+    config.getSettings.mockReturnValue({ instanceName: "foo" });
+    state.kubeConfig = {}; // truthy
+    kubeApi.listService.mockResolvedValueOnce([{ kind: "Service" }]);
+    kubeApi.isDiscoverable.mockReturnValueOnce(true);
+    state.kubeServices = [{ name: "service", group: "group", type: "service", href: "https://example.com" }];
+
+    const mod = await import("./service-helpers");
+    const groups = await mod.servicesFromKubernetes();
+
+    expect(groups).toEqual([
+      {
+        name: "group",
+        services: [{ name: "service", type: "service", href: "https://example.com" }],
+      },
+    ]);
+    expect(kubeApi.isDiscoverable).toHaveBeenCalledWith({ kind: "Service" }, "foo");
   });
 
   it("servicesFromKubernetes logs and rethrows unexpected errors", async () => {

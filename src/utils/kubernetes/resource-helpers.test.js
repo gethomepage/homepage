@@ -1,8 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-const { state, substituteEnvironmentVars, getKubeConfig, logger } = vi.hoisted(() => {
+const { state, substituteEnvironmentVars, getKubeConfig, getKubernetes, logger } = vi.hoisted(() => {
   const state = {
     gatewayProtocol: "https",
+    kubernetesConfig: {},
   };
 
   const substituteEnvironmentVars = vi.fn((raw) =>
@@ -23,7 +24,8 @@ const { state, substituteEnvironmentVars, getKubeConfig, logger } = vi.hoisted((
     state,
     substituteEnvironmentVars,
     getKubeConfig: vi.fn(() => kc),
-    logger: { error: vi.fn(), debug: vi.fn() },
+    getKubernetes: vi.fn(() => state.kubernetesConfig),
+    logger: { error: vi.fn(), debug: vi.fn(), warn: vi.fn() },
   };
 });
 
@@ -41,6 +43,7 @@ vi.mock("utils/config/kubernetes", () => ({
   HTTPROUTE_API_GROUP: "gateway.networking.k8s.io",
   HTTPROUTE_API_VERSION: "v1",
   getKubeConfig,
+  getKubernetes,
 }));
 
 vi.mock("utils/logger", () => ({
@@ -55,6 +58,7 @@ describe("utils/kubernetes/resource-helpers", () => {
     process.env.DESC = "desc";
     process.env.ICON = "mdi:test";
     state.gatewayProtocol = "https";
+    state.kubernetesConfig = {};
   });
 
   it("checks discoverability by annotations and instance", () => {
@@ -232,6 +236,179 @@ describe("utils/kubernetes/resource-helpers", () => {
     const service = await constructedServiceFromResource(resource);
     expect(service.href).toBe("http://example.com/r");
     expect(logger.error).toHaveBeenCalledWith("Error getting gateways: %s", "Required parameter namespace was null");
+  });
+
+  it("derives a URL from an ExternalName service", async () => {
+    const base = "gethomepage.dev";
+    const resource = {
+      kind: "Service",
+      metadata: {
+        name: "service",
+        namespace: "ns",
+        annotations: {
+          [`${base}/enabled`]: "true",
+        },
+      },
+      spec: {
+        type: "ExternalName",
+        externalName: "example.com",
+        ports: [{ name: "https", port: 8080 }],
+      },
+    };
+
+    const service = await constructedServiceFromResource(resource);
+
+    expect(service.href).toBe("https://example.com:8080");
+    expect(logger.warn).not.toHaveBeenCalled();
+  });
+
+  it("omits the port for an ExternalName service on the scheme's default port", async () => {
+    const base = "gethomepage.dev";
+    const resource = {
+      kind: "Service",
+      metadata: {
+        name: "service",
+        namespace: "ns",
+        annotations: {
+          [`${base}/enabled`]: "true",
+        },
+      },
+      spec: {
+        type: "ExternalName",
+        externalName: "example.com",
+        ports: [{ name: "https", port: 443 }],
+      },
+    };
+
+    const service = await constructedServiceFromResource(resource);
+
+    expect(service.href).toBe("https://example.com");
+  });
+
+  it("derives a URL from an ExternalName service with no ports, defaulting to http", async () => {
+    const base = "gethomepage.dev";
+    const resource = {
+      kind: "Service",
+      metadata: {
+        name: "service",
+        namespace: "ns",
+        annotations: {
+          [`${base}/enabled`]: "true",
+        },
+      },
+      spec: {
+        type: "ExternalName",
+        externalName: "example.com",
+        ports: [],
+      },
+    };
+
+    const service = await constructedServiceFromResource(resource);
+
+    expect(service.href).toBe("http://example.com");
+    expect(logger.warn).not.toHaveBeenCalled();
+  });
+
+  it("prefers the href annotation over an ExternalName service's derived URL", async () => {
+    const base = "gethomepage.dev";
+    const resource = {
+      kind: "Service",
+      metadata: {
+        name: "service",
+        namespace: "ns",
+        annotations: {
+          [`${base}/enabled`]: "true",
+          [`${base}/href`]: "https://example.com:8080/ui/",
+        },
+      },
+      spec: {
+        type: "ExternalName",
+        externalName: "example.com",
+        ports: [{ name: "https", port: 8080 }],
+      },
+    };
+
+    const service = await constructedServiceFromResource(resource);
+
+    expect(service.href).toBe("https://example.com:8080/ui/");
+  });
+
+  it("falls back to a cluster-internal URL for a ClusterIP service and warns", async () => {
+    const base = "gethomepage.dev";
+    const resource = {
+      kind: "Service",
+      metadata: {
+        name: "service",
+        namespace: "ns",
+        annotations: {
+          [`${base}/enabled`]: "true",
+        },
+      },
+      spec: {
+        type: "ClusterIP",
+        ports: [{ name: "http", port: 8080 }],
+      },
+    };
+
+    const service = await constructedServiceFromResource(resource);
+
+    expect(service.href).toBe("http://service.ns.svc.cluster.local:8080");
+    expect(logger.warn).toHaveBeenCalledWith(
+      expect.stringContaining("falling back to a cluster-internal URL"),
+      "ns",
+      "service",
+    );
+  });
+
+  it("honors a configured clusterDomain for the cluster-internal fallback", async () => {
+    state.kubernetesConfig = { clusterDomain: "cluster.example" };
+
+    const base = "gethomepage.dev";
+    const resource = {
+      kind: "Service",
+      metadata: {
+        name: "service",
+        namespace: "ns",
+        annotations: {
+          [`${base}/enabled`]: "true",
+        },
+      },
+      spec: {
+        type: "ClusterIP",
+        ports: [{ name: "http", port: 8080 }],
+      },
+    };
+
+    const service = await constructedServiceFromResource(resource);
+
+    expect(service.href).toBe("http://service.ns.svc.cluster.example:8080");
+  });
+
+  it("returns a null href for a service without ports", async () => {
+    const base = "gethomepage.dev";
+    const resource = {
+      kind: "Service",
+      metadata: {
+        name: "headless",
+        namespace: "ns",
+        annotations: {
+          [`${base}/enabled`]: "true",
+        },
+      },
+      spec: {
+        type: "ClusterIP",
+        ports: [],
+      },
+    };
+
+    const service = await constructedServiceFromResource(resource);
+
+    expect(service.href).toBe(null);
+    expect(logger.error).toHaveBeenCalledWith(
+      "Service %s/%s has no ports defined; cannot construct a URL.",
+      "ns",
+      "headless",
+    );
   });
 
   it("logs and recovers when environment substitution yields invalid json", async () => {

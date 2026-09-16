@@ -5,6 +5,7 @@ import {
   ANNOTATION_BASE,
   ANNOTATION_WIDGET_BASE,
   getKubeConfig,
+  getKubernetes,
   HTTPROUTE_API_GROUP,
   HTTPROUTE_API_VERSION,
 } from "utils/config/kubernetes";
@@ -65,16 +66,56 @@ function getUrlFromIngress(resource) {
   return `${urlSchema}://${urlHost}${urlPath}`;
 }
 
-async function getUrlSchema(resource) {
-  const isHttpRoute = resource.kind === "HTTPRoute";
-  let urlSchema;
-  if (isHttpRoute) {
-    urlSchema = getUrlFromHttpRoute(resource);
-  } else {
-    urlSchema = getUrlFromIngress(resource);
+function getSchemaFromServicePort(port) {
+  if (port.port === 443 || /https/i.test(port.name ?? "")) {
+    return "https";
+  }
+  return "http";
+}
+
+function isDefaultServicePortForSchema(schema, port) {
+  return (schema === "https" && port === 443) || (schema === "http" && port === 80);
+}
+
+function getUrlFromService(resource) {
+  const port = resource.spec?.ports?.[0];
+
+  if (resource.spec?.type === "ExternalName" && resource.spec?.externalName) {
+    const urlSchema = port ? getSchemaFromServicePort(port) : "http";
+    const portSuffix = port && !isDefaultServicePortForSchema(urlSchema, port.port) ? `:${port.port}` : "";
+    return `${urlSchema}://${resource.spec.externalName}${portSuffix}`;
   }
 
-  return urlSchema;
+  if (!port) {
+    logger.error(
+      "Service %s/%s has no ports defined; cannot construct a URL.",
+      resource.metadata.namespace,
+      resource.metadata.name,
+    );
+    return null;
+  }
+
+  logger.warn(
+    "Service %s/%s has no ExternalName and no href annotation; falling back to a cluster-internal URL.",
+    resource.metadata.namespace,
+    resource.metadata.name,
+  );
+
+  const urlSchema = getSchemaFromServicePort(port);
+  const portSuffix = isDefaultServicePortForSchema(urlSchema, port.port) ? "" : `:${port.port}`;
+  const { clusterDomain = "cluster.local" } = getKubernetes() ?? {};
+  return `${urlSchema}://${resource.metadata.name}.${resource.metadata.namespace}.svc.${clusterDomain}${portSuffix}`;
+}
+
+async function getUrlSchema(resource) {
+  switch (resource.kind) {
+    case "HTTPRoute":
+      return getUrlFromHttpRoute(resource);
+    case "Service":
+      return getUrlFromService(resource);
+    default:
+      return getUrlFromIngress(resource);
+  }
 }
 
 export function isDiscoverable(resource, instanceName) {

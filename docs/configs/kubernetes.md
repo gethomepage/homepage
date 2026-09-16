@@ -34,6 +34,7 @@ or
 ingress: true # default, enable ingress
 traefik: true # enable traefik ingressRoute
 gateway: true # enable gateway-api
+service: true # enable service
 ```
 
 ## Services
@@ -175,6 +176,84 @@ gateway: true # enable gateway-api
 If you are using the unofficial helm chart ensure that the `ClusterRole` has required permissions for `gateway.networking.k8s.io`.
 
 See [ClusterRole and ClusterRoleBinding](../installation/k8s.md#clusterrole-and-clusterrolebinding)
+
+### Service discovery
+
+Homepage can also discover a `Service`, which is useful for things that don't have (and don't need) an `Ingress`/`HTTPRoute` of their own — for example a service that already has a working external hostname, fronted by an `ExternalName` Service.
+
+To enable it, update `kubernetes.yaml` to include:
+
+```yaml
+service: true # enable service
+```
+
+Since a `Service` carries no hostname the way an `Ingress`/`HTTPRoute` does, its URL is derived differently, in this order:
+
+1. The `gethomepage.dev/href` annotation, if set — same as any other resource kind.
+2. For a `Service` of `type: ExternalName`, the `spec.externalName` host is used directly, e.g. `https://example.com:8080`. This has no path, so `href` is still required for anything besides a bare host. Unlike the other tiers, this one doesn't require `spec.ports`; when no port is set, the scheme defaults to `http` and no port is appended to the URL.
+3. Otherwise, a cluster-internal URL is derived (`<name>.<namespace>.svc.<cluster domain>:<port>`). This only resolves for clients inside the cluster's own DNS domain, so a warning is logged when this fallback is used — in almost all deployments you'll want `href` or `spec.externalName` set explicitly instead.
+
+The cluster DNS domain used for tier 3 defaults to `cluster.local` and can be overridden:
+
+```yaml
+clusterDomain: cluster.local # optional, only affects the cluster-internal service URL fallback
+```
+
+A full example of a `Service` with annotations for Homepage resolving to tier 1 is shown below:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: service
+  annotations:
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/href: "https://example.com:8080/ui/"
+    gethomepage.dev/name: service
+    gethomepage.dev/group: group
+spec:
+  type: ClusterIP
+  ports:
+    - name: https
+      port: 8080
+```
+
+A full example of a `Service` with annotations for Homepage resolving to tier 2 is shown below:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: service
+  annotations:
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: service
+    gethomepage.dev/group: group
+spec:
+  type: ExternalName
+  externalName: example.com
+  ports:
+    - name: https
+      port: 8080
+```
+
+A full example of a `Service` with annotations for Homepage resolving to tier 3 is shown below:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: service
+  annotations:
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: service
+    gethomepage.dev/group: group
+spec:
+  type: ClusterIP
+  ports:
+    - name: https
+      port: 8080
+```
 
 ## Caveats
 

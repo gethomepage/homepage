@@ -119,6 +119,7 @@ rules:
       - namespaces
       - pods
       - nodes
+      - services
     verbs:
       - get
       - list

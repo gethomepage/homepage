@@ -215,13 +215,14 @@ export async function servicesFromKubernetes() {
     }
 
     // resource lists
-    const [ingressList, traefikIngressList, httpRouteList] = await Promise.all([
+    const [ingressList, traefikIngressList, httpRouteList, serviceList] = await Promise.all([
       kubernetes.listIngress(),
       kubernetes.listTraefikIngress(),
       kubernetes.listHttpRoute(),
+      kubernetes.listService(),
     ]);
 
-    const resources = [...ingressList, ...traefikIngressList, ...httpRouteList];
+    const resources = [...ingressList, ...traefikIngressList, ...httpRouteList, ...serviceList];
 
     /* c8 ignore next 3 -- resources is always an array once the spreads succeed */
     if (!resources) {
