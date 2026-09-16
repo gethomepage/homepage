@@ -118,13 +118,15 @@ function readConfig(file) {
   return existsSync(path) ? readFileSync(path, "utf8") : "";
 }
 
-const PLACEHOLDER_PATTERN = /(["']?)\{\{[^{}]*HOMEPAGE_(?:VAR|FILE)_[^{}]*\}\}\1/g;
+const PLACEHOLDER_PATTERN = /(["']?)\{\{([^{}]*)\}\}\1/g;
+const HOMEPAGE_KEY_PATTERN = /HOMEPAGE_(?:VAR|FILE)_/;
 const PLACEHOLDER_TOKEN_PATTERN = /__HOMEPAGE_MCP_PLACEHOLDER_(\d+)__/g;
 
 // mask {{HOMEPAGE_*}} placeholders so they survive a parse/dump round-trip
 function parseYamlConfig(file) {
   const placeholders = [];
-  const masked = readConfig(file).replace(PLACEHOLDER_PATTERN, (match) => {
+  const masked = readConfig(file).replace(PLACEHOLDER_PATTERN, (match, quote, key) => {
+    if (!HOMEPAGE_KEY_PATTERN.test(key)) return match;
     placeholders.push(match);
     return `__HOMEPAGE_MCP_PLACEHOLDER_${placeholders.length - 1}__`;
   });
