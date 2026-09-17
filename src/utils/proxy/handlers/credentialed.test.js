@@ -35,6 +35,7 @@ vi.mock("widgets/widgets", () => ({
     proxmox: { api: "{url}/api2/json/{endpoint}" },
     truenas: { api: "{url}/api/v2.0/{endpoint}" },
     ntfy: { api: "{url}/{endpoint}" },
+    whatsupdocker: { api: "{url}/{endpoint}" },
     proxmoxbackupserver: { api: "{url}/api2/json/{endpoint}" },
     checkmk: { api: "{url}/{endpoint}" },
     stocks: { api: "{url}/{endpoint}" },
@@ -184,6 +185,24 @@ describe("utils/proxy/handlers/credentialed", () => {
 
     const [, params] = httpProxy.mock.calls.at(-1);
     expect(params.headers.Authorization).toBe("Bearer k");
+  });
+
+  it.each([
+    ["Bearer", { key: "token" }, "Bearer token"],
+    ["Basic", { username: "u", password: "p" }, `Basic ${Buffer.from("u:p").toString("base64")}`],
+    ["no", {}, undefined],
+    ["Bearer over Basic", { key: "token", username: "u", password: "p" }, "Bearer token"],
+  ])("uses %s auth for whatsupdocker", async (_mode, credentials, authorization) => {
+    getServiceWidget.mockResolvedValue({ type: "whatsupdocker", url: "http://whatsupdocker", ...credentials });
+    httpProxy.mockResolvedValue([200, "application/json", []]);
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "api/containers", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    const [, params] = httpProxy.mock.calls.at(-1);
+    expect(params.headers.Authorization).toBe(authorization);
   });
 
   it("uses Bearer auth for ntfy when key is provided", async () => {

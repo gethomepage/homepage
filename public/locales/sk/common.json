@@ -100,11 +100,11 @@
         "not_found": "Nenájdené",
         "exited": "Ukončené",
         "partial": "Čiastočný",
-        "created": "Created",
-        "paused": "Paused",
-        "restarting": "Restarting",
-        "removing": "Removing",
-        "dead": "Dead"
+        "created": "Vytvorené",
+        "paused": "Pozastavené",
+        "restarting": "Reštartuje sa",
+        "removing": "Odstraňuje sa",
+        "dead": "Mŕtve"
     },
     "ping": {
         "error": "Chyba",
