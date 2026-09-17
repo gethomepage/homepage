@@ -9,7 +9,8 @@ describe("proxmoxbackupserver widget config", () => {
     expectWidgetConfigShape(widget);
   });
 
-  it("requires failed task query params for the tasks endpoint", () => {
-    expect(widget.mappings["nodes/localhost/tasks"].params).toEqual(["errors", "limit", "since"]);
+  it("requires failed task query params for the tasks endpoint, with since optional", () => {
+    expect(widget.mappings["nodes/localhost/tasks"].params).toEqual(["errors", "limit"]);
+    expect(widget.mappings["nodes/localhost/tasks"].optionalParams).toEqual(["since"]);
   });
 });

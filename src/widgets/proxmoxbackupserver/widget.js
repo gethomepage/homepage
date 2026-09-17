@@ -10,7 +10,8 @@ const widget = {
     },
     "nodes/localhost/tasks": {
       endpoint: "nodes/localhost/tasks",
-      params: ["errors", "limit", "since"],
+      params: ["errors", "limit"],
+      optionalParams: ["since"],
     },
     "nodes/localhost/status": {
       endpoint: "nodes/localhost/status",
