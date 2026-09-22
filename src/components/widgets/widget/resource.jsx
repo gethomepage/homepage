@@ -18,9 +18,9 @@ export default function Resource({
     <div
       className={`flex-none flex flex-row items-center mr-3 py-1.5 information-widget-resource ${additionalClassNames}`}
     >
-      <Icon className="text-theme-800 dark:text-theme-200 w-5 h-5 resource-icon" />
+      {Icon && <Icon className="text-theme-800 dark:text-theme-200 w-5 h-5 resource-icon" />}
       <div
-        className={`flex flex-col ml-3 text-left ${expanded ? " expanded" : ""} ${
+        className={`flex flex-col ${Icon ? "ml-3 " : ""}text-left ${expanded ? " expanded" : ""} ${
           wide ? " min-w-[120px]" : "min-w-[85px]"
         }`}
       >

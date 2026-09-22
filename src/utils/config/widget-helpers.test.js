@@ -47,6 +47,10 @@ describe("utils/config/widget-helpers", () => {
       { type: "search", options: { index: 0, url: "http://x", username: "u", password: "p" } },
       { type: "something", options: { index: 1, url: "http://y", key: "k", foo: 1 } },
       { type: "glances", options: { index: 2, url: "http://z", apiKey: "k", bar: 2 } },
+      {
+        type: "customapi",
+        options: { index: 3, url: "http://c", headers: { Authorization: "Bearer t" }, requestBody: { foo: "bar" } },
+      },
     ]);
 
     expect(cleaned[0].options.url).toBe("http://x");
@@ -58,6 +62,35 @@ describe("utils/config/widget-helpers", () => {
 
     expect(cleaned[2].options.url).toBe("http://z");
     expect(cleaned[2].options.apiKey).toBeUndefined();
+
+    expect(cleaned[3].options.url).toBeUndefined();
+    expect(cleaned[3].options.headers).toBeUndefined();
+    expect(cleaned[3].options.requestBody).toBeUndefined();
+  });
+
+  it("getPrivateWidgetOptions keeps customapi request options server-side", async () => {
+    fs.readFile.mockResolvedValueOnce("ignored");
+    yaml.load.mockReturnValueOnce([
+      {
+        customapi: {
+          url: "http://custom.api/endpoint",
+          method: "POST",
+          headers: { "X-API-Token": "token" },
+          requestBody: { foo: "bar" },
+        },
+      },
+    ]);
+
+    const options = await getPrivateWidgetOptions("customapi", 0);
+    expect(options).toEqual(
+      expect.objectContaining({
+        index: 0,
+        url: "http://custom.api/endpoint",
+        method: "POST",
+        headers: { "X-API-Token": "token" },
+        requestBody: { foo: "bar" },
+      }),
+    );
   });
 
   it("getPrivateWidgetOptions returns private options for a specific widget", async () => {

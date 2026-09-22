@@ -27,6 +27,14 @@ describe("components/widgets/widget/resource", () => {
     expect(screen.getByTestId("usagebar").getAttribute("data-percent")).toBe("0");
   });
 
+  it("renders value/label without an icon", () => {
+    render(<Resource value="v" label="l" />);
+
+    expect(screen.queryByTestId("resource-icon")).not.toBeInTheDocument();
+    expect(screen.getByText("v")).toBeInTheDocument();
+    expect(screen.getByText("l")).toBeInTheDocument();
+  });
+
   it("renders expanded values when expanded", () => {
     render(
       <Resource icon={FakeIcon} value="v" label="l" expanded expandedValue="ev" expandedLabel="el" percentage={10} />,
