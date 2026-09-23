@@ -25,6 +25,9 @@ You have a few options for deploying homepage, depending on your needs. We offer
 [:simple-nextdotjs: &nbsp; Building from source :octicons-arrow-right-24:](source.md)
 { .card }
 
+[:material-application-brackets: &nbsp; Install on Easypanel :octicons-arrow-right-24:](easypanel.md)
+{ .card }
+
 </div>
 
 ### `HOMEPAGE_ALLOWED_HOSTS`
