@@ -106,6 +106,12 @@ function relativeDate(date, formatter) {
   const unitIndex = cutoffs.findIndex((cutoff) => cutoff > Math.abs(delta));
   const divisor = unitIndex ? cutoffs[unitIndex - 1] : 1;
 
+  if (units[unitIndex] === "day") {
+    // compare calendar days, not elapsed 24h blocks
+    const startOfDay = (d) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    return formatter.format(Math.round((startOfDay(date) - startOfDay(new Date())) / 86400000), "day");
+  }
+
   return formatter.format(Math.floor(delta / divisor), units[unitIndex]);
 }
 
