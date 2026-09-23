@@ -74,7 +74,7 @@ function GridItem({ item, target }) {
           />
         )}
       </div>
-      <div className="flex flex-col gap-0.5 px-1.5 py-1 text-left">
+      <div className="flex flex-col gap-0.5 px-2 py-1.5 text-left">
         <span className="line-clamp-2">{item.title}</span>
         <RelativeDate date={item.date} />
       </div>
@@ -112,8 +112,8 @@ export default function Component({ service }) {
     <Container service={service}>
       <div
         className={classNames(
-          "w-full p-1 gap-1",
-          isGrid ? "grid grid-cols-[repeat(auto-fill,minmax(8rem,1fr))]" : "flex flex-col",
+          "w-full p-1",
+          isGrid ? "grid grid-cols-[repeat(auto-fill,minmax(8rem,1fr))] gap-2" : "flex flex-col gap-1",
         )}
       >
         {content}
