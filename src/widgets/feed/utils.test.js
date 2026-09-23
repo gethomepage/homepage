@@ -88,6 +88,48 @@ describe("widgets/feed/utils", () => {
     ]);
   });
 
+  it("falls back to the first usable image in item html", () => {
+    const xml = `<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/"><channel>
+      <item>
+        <title>Content image</title>
+        <content:encoded><![CDATA[<p>Hi <img src="https://t.example.com/p.gif" width="1" height="1">
+          <img src="data:image/gif;base64,R0"><IMG SRC="/big.jpg?w=925&#038;h=925"><img src="/second.jpg">]]></content:encoded>
+      </item>
+      <item>
+        <title>Description image</title>
+        <description>&lt;img src="https://example.com/desc.png"&gt; unclosed &lt;b&gt;</description>
+      </item>
+      <item>
+        <title>Media wins</title>
+        <media:thumbnail url="https://example.com/thumb.jpg" />
+        <description><![CDATA[<img src="https://example.com/html.jpg">]]></description>
+      </item>
+      <item>
+        <title>No usable image</title>
+        <description><![CDATA[<img src="javascript:alert(1)"><img>]]></description>
+      </item>
+    </channel></rss>`;
+
+    expect(parseFeed(xml, "https://example.com/feed").map((item) => item.image)).toEqual([
+      "https://example.com/big.jpg?w=925&h=925",
+      "https://example.com/desc.png",
+      "https://example.com/thumb.jpg",
+      null,
+    ]);
+  });
+
+  it("finds images in atom html content and summary", () => {
+    const xml = `<feed xmlns="http://www.w3.org/2005/Atom">
+      <entry><title>Content</title><content type="html">&lt;img src="https://example.com/c.jpg"&gt;</content></entry>
+      <entry><title>Summary</title><summary type="html">&lt;img src="https://example.com/s.jpg"&gt;</summary></entry>
+    </feed>`;
+
+    expect(parseFeed(xml).map((item) => item.image)).toEqual([
+      "https://example.com/c.jpg",
+      "https://example.com/s.jpg",
+    ]);
+  });
+
   it("handles single-item and empty feeds", () => {
     const single = "<rss><channel><item><title>Only</title></item></channel></rss>";
     expect(parseFeed(single)).toEqual([{ title: "Only", link: null, date: null, image: null }]);
