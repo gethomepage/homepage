@@ -1,4 +1,4 @@
-import { asJson, jsonArrayFilter } from "utils/proxy/api-helpers";
+import { asJson } from "utils/proxy/api-helpers";
 import genericProxyHandler from "utils/proxy/handlers/generic";
 
 const widget = {
@@ -8,15 +8,18 @@ const widget = {
   mappings: {
     movie: {
       endpoint: "movie",
-      map: (data) => ({
-        wanted: jsonArrayFilter(data, (item) => item.monitored && !item.hasFile && item.isAvailable).length,
-        have: jsonArrayFilter(data, (item) => item.hasFile).length,
-        missing: jsonArrayFilter(data, (item) => item.monitored && !item.hasFile).length,
-        all: asJson(data).map((entry) => ({
-          title: entry.title,
-          id: entry.id,
-        })),
-      }),
+      map: (data) => {
+        const movieData = asJson(data) ?? [];
+        return {
+          wanted: movieData.filter((item) => item.monitored && !item.hasFile && item.isAvailable).length,
+          have: movieData.filter((item) => item.hasFile).length,
+          missing: movieData.filter((item) => item.monitored && !item.hasFile).length,
+          all: movieData.map((entry) => ({
+            title: entry.title,
+            id: entry.id,
+          })),
+        };
+      },
     },
     "queue/status": {
       endpoint: "queue/status",
