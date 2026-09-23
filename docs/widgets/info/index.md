@@ -7,6 +7,7 @@ search:
 
 You can also find a list of all available info widgets in the sidebar navigation.
 
+- [Custom API](customapi.md)
 - [Date & Time](datetime.md)
 - [Glances](glances.md)
 - [Greeting](greeting.md)
