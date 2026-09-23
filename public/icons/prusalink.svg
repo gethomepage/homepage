@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <title>Prusa-inspired 3D printer</title>
+  <path d="M24 98V22h80v76" stroke="#F26B21" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M16 108h96" stroke="#343A40" stroke-width="14" stroke-linecap="round"/>
+  <path d="M30 48h68" stroke="#AEB7C2" stroke-width="6"/>
+  <rect x="52" y="36" width="24" height="23" rx="4" fill="#343A40"/>
+  <path d="M59 59h10l-5 9z" fill="#F26B21"/>
+  <path d="m49 84 15-8 15 8v14H49z" fill="#F26B21"/>
+  <path d="m49 84 15 8 15-8M64 92v6" stroke="#FFAE79" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M38 98h52" stroke="#343A40" stroke-width="8" stroke-linecap="round"/>
+  <path d="M44 96h40" stroke="#AEB7C2" stroke-width="3" stroke-linecap="round"/>
+</svg>

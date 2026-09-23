@@ -118,6 +118,7 @@ const components = {
   prometheusmetric: dynamic(() => import("./prometheusmetric/component")),
   prowlarr: dynamic(() => import("./prowlarr/component")),
   proxmox: dynamic(() => import("./proxmox/component")),
+  prusalink: dynamic(() => import("./prusalink/component")),
   pterodactyl: dynamic(() => import("./pterodactyl/component")),
   pyload: dynamic(() => import("./pyload/component")),
   qbittorrent: dynamic(() => import("./qbittorrent/component")),

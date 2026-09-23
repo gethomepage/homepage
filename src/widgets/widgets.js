@@ -107,6 +107,7 @@ import prometheusmetric from "./prometheusmetric/widget";
 import prowlarr from "./prowlarr/widget";
 import proxmox from "./proxmox/widget";
 import proxmoxbackupserver from "./proxmoxbackupserver/widget";
+import prusalink from "./prusalink/widget";
 import pterodactyl from "./pterodactyl/widget";
 import pulse from "./pulse/widget";
 import pyload from "./pyload/widget";
@@ -272,6 +273,7 @@ const widgets = {
   prometheusmetric,
   prowlarr,
   proxmox,
+  prusalink,
   pterodactyl,
   pulse,
   pyload,

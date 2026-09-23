@@ -706,6 +706,11 @@
         "print_progress": "Progress",
         "layers": "Layers"
     },
+    "prusalink": {
+        "state": "State",
+        "progress": "Progress",
+        "time_left": "Time left"
+    },
     "octoprint": {
         "printer_state": "Status",
         "temp_tool": "Tool temp",
