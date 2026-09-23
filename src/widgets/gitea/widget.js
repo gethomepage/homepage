@@ -11,10 +11,13 @@ const widget = {
     },
     issues: {
       endpoint: "repos/issues/search",
-      map: (data) => ({
-        pulls: asJson(data).filter((issue) => issue.pull_request),
-        issues: asJson(data).filter((issue) => !issue.pull_request),
-      }),
+      map: (data) => {
+        const items = asJson(data);
+        return {
+          pulls: items.filter((issue) => issue.pull_request),
+          issues: items.filter((issue) => !issue.pull_request),
+        };
+      },
     },
     repositories: {
       endpoint: "repos/search",

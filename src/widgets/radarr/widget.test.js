@@ -33,4 +33,27 @@ describe("radarr widget config", () => {
 
     expect(queue.map((entry) => entry.movieId)).toEqual([2, 1]);
   });
+
+  it("maps movie counts and titles", () => {
+    const movies = widget.mappings.movie.map(
+      Buffer.from(
+        JSON.stringify([
+          { id: 1, title: "A", monitored: true, hasFile: false, isAvailable: true },
+          { id: 2, title: "B", monitored: true, hasFile: true },
+          { id: 3, title: "C", monitored: true, hasFile: false, isAvailable: false },
+        ]),
+      ),
+    );
+
+    expect(movies).toEqual({
+      wanted: 1,
+      have: 1,
+      missing: 2,
+      all: [
+        { title: "A", id: 1 },
+        { title: "B", id: 2 },
+        { title: "C", id: 3 },
+      ],
+    });
+  });
 });
