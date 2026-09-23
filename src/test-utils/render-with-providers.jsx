@@ -9,5 +9,7 @@ export function renderWithProviders(ui, { settings = {} } = {}) {
     setSettings: () => {},
   };
 
-  return render(<SettingsContext.Provider value={value}>{ui}</SettingsContext.Provider>);
+  const wrapper = ({ children }) => <SettingsContext.Provider value={value}>{children}</SettingsContext.Provider>;
+
+  return render(ui, { wrapper });
 }
