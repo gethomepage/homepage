@@ -62,7 +62,7 @@ function ListItem({ item, target }) {
 function GridItem({ item, target }) {
   return (
     <FeedLink item={item} target={target} className={classNames(rowClassName, "flex flex-col overflow-hidden")}>
-      <div className="aspect-video w-full bg-theme-200/50 dark:bg-theme-900/30">
+      <div className="relative aspect-video w-full overflow-hidden bg-theme-200/50 dark:bg-theme-900/30">
         {item.image && (
           <img
             src={item.image}
@@ -70,7 +70,7 @@ function GridItem({ item, target }) {
             loading="lazy"
             referrerPolicy="no-referrer"
             onError={hideBrokenImage}
-            className="w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover"
           />
         )}
       </div>
