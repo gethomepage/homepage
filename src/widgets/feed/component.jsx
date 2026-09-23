@@ -48,6 +48,7 @@ function ListItem({ item, target }) {
           src={item.image}
           alt=""
           loading="lazy"
+          decoding="async"
           referrerPolicy="no-referrer"
           onError={hideBrokenImage}
           className="w-12 h-8 shrink-0 rounded-sm object-cover"
@@ -68,6 +69,7 @@ function GridItem({ item, target }) {
             src={item.image}
             alt=""
             loading="lazy"
+            decoding="async"
             referrerPolicy="no-referrer"
             onError={hideBrokenImage}
             className="absolute inset-0 w-full h-full object-cover"
