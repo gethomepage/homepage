@@ -353,6 +353,9 @@ export function cleanServiceGroups(groups) {
           expandOneStreamToTwoRows,
           showEpisodeNumber,
 
+          // feed
+          layout,
+
           // frigate
           enableRecentEvents,
 
@@ -674,6 +677,9 @@ export function cleanServiceGroups(groups) {
           if (previousDays) widget.previousDays = previousDays;
           if (showTime) widget.showTime = showTime;
           if (timezone) widget.timezone = timezone;
+        }
+        if (type === "feed") {
+          if (layout) widget.layout = layout;
         }
         if (type === "dockhand") {
           if (environment) widget.environment = environment;

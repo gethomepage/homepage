@@ -37,6 +37,7 @@ const components = {
   emby: dynamic(() => import("./emby/component")),
   esphome: dynamic(() => import("./esphome/component")),
   evcc: dynamic(() => import("./evcc/component")),
+  feed: dynamic(() => import("./feed/component")),
   filebrowser: dynamic(() => import("./filebrowser/component")),
   fileflows: dynamic(() => import("./fileflows/component")),
   firefly: dynamic(() => import("./firefly/component")),
