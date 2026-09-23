@@ -31,14 +31,16 @@ export default async function handler(req, res) {
     params.body = typeof options.requestBody === "object" ? JSON.stringify(options.requestBody) : options.requestBody;
   }
 
-  const [status, contentType, data] = await httpProxy(url, params);
+  const [status, , data] = await httpProxy(url, params);
 
   if (status >= 400) {
     logger.debug("HTTP Error %d calling %s//%s%s", status, url.protocol, url.host, url.pathname);
     return res.status(status).json({ error: { message: "HTTP Error", url: sanitizeErrorURL(url) } });
   }
 
-  if (contentType) res.setHeader("Content-Type", contentType);
-
-  return res.status(status).send(data);
+  try {
+    return res.status(status).json(JSON.parse(Buffer.from(data).toString()));
+  } catch {
+    return res.status(500).json({ error: { message: "Invalid JSON", url: sanitizeErrorURL(url) } });
+  }
 }

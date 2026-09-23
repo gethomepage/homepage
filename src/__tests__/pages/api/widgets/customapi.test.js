@@ -67,9 +67,8 @@ describe("pages/api/widgets/customapi", () => {
       headers: { "X-Test": "1", Authorization: `Basic ${Buffer.from("u:p").toString("base64")}` },
       body: '{"foo":"bar"}',
     });
-    expect(res.setHeader).toHaveBeenCalledWith("Content-Type", "application/json");
     expect(res.statusCode).toBe(200);
-    expect(res.body.toString()).toBe('{"a":1}');
+    expect(res.body).toEqual({ a: 1 });
   });
 
   it("defaults to GET and passes string bodies through", async () => {
