@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Invalid Custom API URL" });
   }
 
-  const headers = { ...(options.headers ?? {}) };
+  const headers = { "User-Agent": "homepage", Accept: "application/json", ...(options.headers ?? {}) };
   if (options.username && options.password) {
     headers.Authorization = `Basic ${Buffer.from(`${options.username}:${options.password}`).toString("base64")}`;
   }

@@ -64,7 +64,12 @@ describe("pages/api/widgets/customapi", () => {
 
     expect(httpProxy).toHaveBeenCalledWith(new URL("http://api.local/data"), {
       method: "POST",
-      headers: { "X-Test": "1", Authorization: `Basic ${Buffer.from("u:p").toString("base64")}` },
+      headers: {
+        "User-Agent": "homepage",
+        Accept: "application/json",
+        "X-Test": "1",
+        Authorization: `Basic ${Buffer.from("u:p").toString("base64")}`,
+      },
       body: '{"foo":"bar"}',
     });
     expect(res.statusCode).toBe(200);
@@ -78,7 +83,11 @@ describe("pages/api/widgets/customapi", () => {
 
     await handler({ query: { index: "0" } }, res);
 
-    expect(httpProxy).toHaveBeenCalledWith(expect.any(URL), { method: "GET", headers: {}, body: "raw" });
+    expect(httpProxy).toHaveBeenCalledWith(expect.any(URL), {
+      method: "GET",
+      headers: { "User-Agent": "homepage", Accept: "application/json" },
+      body: "raw",
+    });
   });
 
   it("returns a sanitized error without upstream data on HTTP errors", async () => {
