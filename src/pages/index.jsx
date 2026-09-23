@@ -552,7 +552,9 @@ export default function Wrapper({ initialSettings, fallback }) {
     const html = document.documentElement;
     const body = document.body;
 
-    html.classList.remove("dark", "scheme-dark", "scheme-light");
+    html.classList.remove("dark", "scheme-dark", "scheme-light", "font-plex", "font-plex-data");
+    if (initialSettings.font === "plex") html.classList.add("font-plex");
+    if (initialSettings.font === "plexData") html.classList.add("font-plex-data");
     html.classList.toggle("dark", theme === "dark");
     html.classList.add(theme === "dark" ? "scheme-dark" : "scheme-light");
 
@@ -571,7 +573,7 @@ export default function Wrapper({ initialSettings, fallback }) {
     body.style.backgroundImage = "";
     body.style.backgroundColor = "";
     body.style.backgroundAttachment = "";
-  }, [backgroundImage, opacity, theme, color, initialSettings.color]);
+  }, [backgroundImage, opacity, theme, color, initialSettings.color, initialSettings.font]);
 
   return (
     <>
