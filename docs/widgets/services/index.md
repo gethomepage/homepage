@@ -115,6 +115,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Prowlarr](prowlarr.md)
 - [Proxmox](proxmox.md)
 - [Proxmox Backup Server](proxmoxbackupserver.md)
+- [PrusaLink](prusalink.md)
 - [Pterodactyl](pterodactyl.md)
 - [PyLoad](pyload.md)
 - [qBittorrent](qbittorrent.md)
