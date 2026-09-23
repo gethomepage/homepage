@@ -25,12 +25,12 @@ export default function Resource({
         }`}
       >
         <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between gap-2">
-          <div className="pl-0.5">{value}</div>
+          <div className="pl-0.5 resource-value">{value}</div>
           <div className="pr-1">{label}</div>
         </div>
         {expanded && (
           <div className="text-theme-800 dark:text-theme-200 text-xs flex flex-row justify-between gap-2">
-            <div className="pl-0.5">{expandedValue}</div>
+            <div className="pl-0.5 resource-value">{expandedValue}</div>
             <div className="pr-1">{expandedLabel}</div>
           </div>
         )}

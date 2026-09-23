@@ -7,6 +7,10 @@ import { SettingsContext } from "utils/contexts/settings";
 export default function Item({ bookmark, iconOnly = false }) {
   const description = bookmark.description ?? new URL(bookmark.href).hostname;
   const { settings } = useContext(SettingsContext);
+  const cardStyle =
+    settings.cardStyle === "hairline"
+      ? "shadow-xs inset-ring inset-ring-black/5 dark:inset-ring-white/5 hover:inset-ring-black/10 dark:hover:inset-ring-white/10"
+      : "shadow-md shadow-theme-900/10 dark:shadow-theme-900/20";
 
   return (
     <li
@@ -22,7 +26,8 @@ export default function Item({ bookmark, iconOnly = false }) {
         target={bookmark.target ?? settings.target ?? "_blank"}
         className={classNames(
           settings.cardBlur !== undefined && `backdrop-blur${settings.cardBlur.length ? "-" : ""}${settings.cardBlur}`,
-          "text-left cursor-pointer transition-all rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 hover:bg-theme-300/20 dark:bg-white/5 dark:hover:bg-white/10",
+          cardStyle,
+          "text-left cursor-pointer transition-all rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 bg-theme-100/20 hover:bg-theme-300/20 dark:bg-white/5 dark:hover:bg-white/10",
           iconOnly ? "h-[60px] w-[60px] grid" : "block w-full mb-3",
         )}
       >
