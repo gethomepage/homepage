@@ -55,6 +55,16 @@ describe("components/widgets/customapi", () => {
     expect(screen.getByText("foo")).toBeInTheDocument();
   });
 
+  it("renders the widget label when configured", () => {
+    useSWR.mockReturnValue({ data: { count: 5 }, error: undefined });
+
+    renderWithProviders(<CustomApi options={{ index: 0, label: "My API", mappings }} />, {
+      settings: { target: "_self" },
+    });
+
+    expect(screen.getByText("My API")).toHaveClass("information-widget-label");
+  });
+
   it("falls back to a default icon when none is configured", () => {
     useSWR.mockReturnValue({ data: { count: 5 }, error: undefined });
 

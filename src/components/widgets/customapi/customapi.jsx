@@ -6,6 +6,7 @@ import useSWR from "swr";
 import Container from "../widget/container";
 import Error from "../widget/error";
 import Raw from "../widget/raw";
+import WidgetLabel from "../widget/widget_label";
 
 import ResolvedIcon from "components/resolvedicon";
 import { formatValue, getValue } from "widgets/customapi/utils";
@@ -13,7 +14,7 @@ import { formatValue, getValue } from "widgets/customapi/utils";
 export default function CustomApi({ options }) {
   const { t } = useTranslation();
 
-  const { index, icon, mappings = [], refreshInterval = 10000 } = options;
+  const { index, icon, label, mappings = [], refreshInterval = 10000 } = options;
 
   const { data, error } = useSWR(`/api/widgets/customapi?${new URLSearchParams({ index }).toString()}`, {
     refreshInterval: Math.max(1000, refreshInterval),
@@ -45,6 +46,7 @@ export default function CustomApi({ options }) {
             ))}
           </div>
         </div>
+        {label && <WidgetLabel label={label} />}
       </Raw>
     </Container>
   );

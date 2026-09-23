@@ -11,6 +11,7 @@ The Custom API information widget shows values from a custom self-hosted or thir
 - customapi:
     url: http://custom.api.host.or.ip:port/path/to/exact/api/endpoint
     icon: mdi-api # optional, see below
+    label: My API # optional, shown below the values
     href: https://custom.api.host # optional, makes the widget a link
     refreshInterval: 10000 # optional - in milliseconds, defaults to 10s
     username: username # auth - optional
