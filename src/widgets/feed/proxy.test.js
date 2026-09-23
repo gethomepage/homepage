@@ -1,3 +1,4 @@
+import cache from "memory-cache";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import createMockRes from "test-utils/create-mock-res";
@@ -36,6 +37,7 @@ const req = { query: { group: "g", service: "svc", index: "0" } };
 describe("widgets/feed/proxy", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    cache.clear();
   });
 
   it("returns 400 when the url is missing or invalid", async () => {
@@ -109,5 +111,38 @@ describe("widgets/feed/proxy", () => {
 
     expect(res.statusCode).toBe(500);
     expect(res.body).toEqual({ error: { message: "Invalid feed", url: "example.com (see logs for details)" } });
+  });
+
+  it("shares one cached fetch across widgets with different options", async () => {
+    getServiceWidget
+      .mockResolvedValueOnce({ type: "feed", url: "https://example.com/feed.xml", maxItems: 1 })
+      .mockResolvedValueOnce({ type: "feed", url: "https://example.com/feed.xml", images: false });
+    httpProxy.mockResolvedValue([200, "application/rss+xml", Buffer.from(feed)]);
+
+    const first = createMockRes();
+    await feedProxyHandler(req, first);
+    const second = createMockRes();
+    await feedProxyHandler(req, second);
+
+    expect(httpProxy).toHaveBeenCalledTimes(1);
+    expect(first.body.items).toHaveLength(1);
+    expect(second.body.items).toHaveLength(5);
+    expect(second.body.items[0].image).toBeUndefined();
+  });
+
+  it("does not cache failures", async () => {
+    getServiceWidget.mockResolvedValue({ type: "feed", url: "https://example.com/feed.xml" });
+    httpProxy
+      .mockResolvedValueOnce([404, "text/html", Buffer.from("Not found")])
+      .mockResolvedValueOnce([200, "application/rss+xml", Buffer.from(feed)]);
+
+    const failed = createMockRes();
+    await feedProxyHandler(req, failed);
+    const recovered = createMockRes();
+    await feedProxyHandler(req, recovered);
+
+    expect(failed.statusCode).toBe(404);
+    expect(recovered.statusCode).toBe(200);
+    expect(httpProxy).toHaveBeenCalledTimes(2);
   });
 });
