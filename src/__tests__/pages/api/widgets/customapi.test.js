@@ -22,82 +22,97 @@ vi.mock("utils/logger", () => ({
 
 import handler from "pages/api/widgets/customapi";
 
+const json = (body) => Buffer.from(JSON.stringify(body));
+
+async function callRoute(options, index = "0") {
+  getPrivateWidgetOptions.mockResolvedValueOnce(options);
+  const res = createMockRes();
+  await handler({ query: { index } }, res);
+  return res;
+}
+
 describe("pages/api/widgets/customapi", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  it("returns 400 when the widget URL is missing", async () => {
-    getPrivateWidgetOptions.mockResolvedValueOnce({});
-    const res = createMockRes();
+  it.each([
+    ["no widget at that index", undefined],
+    ["a widget without a url", { method: "GET" }],
+    ["an invalid url", { url: "api.local/data" }],
+  ])("returns 400 without calling upstream for %s", async (_, options) => {
+    const res = await callRoute(options, "3");
 
-    await handler({ query: { index: "0" } }, res);
-
-    expect(getPrivateWidgetOptions).toHaveBeenCalledWith("customapi", "0");
-    expect(res.statusCode).toBe(400);
-    expect(res.body.error).toBe("Missing Custom API URL");
-  });
-
-  it("returns 400 when the widget URL is invalid", async () => {
-    getPrivateWidgetOptions.mockResolvedValueOnce({ url: "not a url" });
-    const res = createMockRes();
-
-    await handler({ query: { index: "0" } }, res);
-
+    expect(getPrivateWidgetOptions).toHaveBeenCalledWith("customapi", "3");
     expect(res.statusCode).toBe(400);
     expect(httpProxy).not.toHaveBeenCalled();
   });
 
-  it("proxies with headers, basic auth, method and JSON body", async () => {
-    getPrivateWidgetOptions.mockResolvedValueOnce({
-      url: "http://api.local/data",
-      username: "u",
-      password: "p",
+  it("proxies an authenticated POST with custom headers and a JSON body", async () => {
+    httpProxy.mockResolvedValueOnce([200, "application/json", json({ json: { hello: "world" } })]);
+
+    const res = await callRoute({
+      url: "https://httpbin.org/post",
+      username: "admin",
+      password: "hunter2",
       method: "POST",
-      headers: { "X-Test": "1" },
-      requestBody: { foo: "bar" },
+      headers: { "X-Secret-Token": "super-secret", "Content-Type": "application/json" },
+      requestBody: { hello: "world" },
     });
-    httpProxy.mockResolvedValueOnce([200, "application/json", Buffer.from('{"a":1}')]);
-    const res = createMockRes();
 
-    await handler({ query: { index: "0" } }, res);
-
-    expect(httpProxy).toHaveBeenCalledWith(new URL("http://api.local/data"), {
+    expect(httpProxy).toHaveBeenCalledWith(new URL("https://httpbin.org/post"), {
       method: "POST",
       headers: {
         "User-Agent": "homepage",
         Accept: "application/json",
-        "X-Test": "1",
-        Authorization: `Basic ${Buffer.from("u:p").toString("base64")}`,
+        "X-Secret-Token": "super-secret",
+        "Content-Type": "application/json",
+        Authorization: `Basic ${Buffer.from("admin:hunter2").toString("base64")}`,
       },
-      body: '{"foo":"bar"}',
+      body: '{"hello":"world"}',
     });
     expect(res.statusCode).toBe(200);
-    expect(res.body).toEqual({ a: 1 });
+    expect(res.body).toEqual({ json: { hello: "world" } });
   });
 
-  it("defaults to GET and passes string bodies through", async () => {
-    getPrivateWidgetOptions.mockResolvedValueOnce({ url: "http://api.local", requestBody: "raw" });
-    httpProxy.mockResolvedValueOnce([200, null, Buffer.from("{}")]);
-    const res = createMockRes();
+  it("sends a string body as-is and lets config override default headers", async () => {
+    httpProxy.mockResolvedValueOnce([200, "application/json", json({ data: { viewer: { login: "shamoon" } } })]);
+    const query = '{"query":"{ viewer { login } }"}';
 
-    await handler({ query: { index: "0" } }, res);
+    const res = await callRoute({
+      url: "https://api.github.com/graphql",
+      method: "POST",
+      headers: { Authorization: "Bearer ghp_token", "User-Agent": "my-dashboard" },
+      requestBody: query,
+    });
+
+    expect(httpProxy).toHaveBeenCalledWith(expect.any(URL), {
+      method: "POST",
+      headers: { "User-Agent": "my-dashboard", Accept: "application/json", Authorization: "Bearer ghp_token" },
+      body: query,
+    });
+    expect(res.body).toEqual({ data: { viewer: { login: "shamoon" } } });
+  });
+
+  it.each([
+    ["an HTTP error", [403, "application/json", json({ message: "API rate limit exceeded for 1.2.3.4" })]],
+    [
+      "a network failure",
+      [500, "application/json", { error: { message: "connect ECONNREFUSED", rawError: { address: "10.0.0.5" } } }],
+    ],
+    ["a non-JSON response", [200, "text/html", Buffer.from("<html><body>Login</body></html>")]],
+  ])("returns only a sanitized error for %s", async (_, upstream) => {
+    httpProxy.mockResolvedValueOnce(upstream);
+
+    const res = await callRoute({ url: "https://api.github.com/repos/gethomepage/homepage?token=abc" });
 
     expect(httpProxy).toHaveBeenCalledWith(expect.any(URL), {
       method: "GET",
       headers: { "User-Agent": "homepage", Accept: "application/json" },
-      body: "raw",
     });
-  });
-
-  it("returns a sanitized error without upstream data on HTTP errors", async () => {
-    getPrivateWidgetOptions.mockResolvedValueOnce({ url: "http://api.local/secret?token=abc" });
-    httpProxy.mockResolvedValueOnce([500, "text/plain", Buffer.from("boom")]);
-    const res = createMockRes();
-
-    await handler({ query: { index: "0" } }, res);
-
-    expect(res.statusCode).toBe(500);
-    expect(res.body).toEqual({ error: { message: "HTTP Error", url: "api.local (see logs for details)" } });
+    expect(res.statusCode).toBe(upstream[0] === 200 ? 500 : upstream[0]);
+    expect(res.body.error.url).toBe("api.github.com (see logs for details)");
+    expect(JSON.stringify(res.body)).not.toMatch(/rate limit|ECONNREFUSED|10\.0\.0\.5|<html>|token=abc/);
+    expect(res.setHeader).not.toHaveBeenCalled();
   });
 });
