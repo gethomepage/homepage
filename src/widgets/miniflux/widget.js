@@ -8,10 +8,13 @@ const widget = {
   mappings: {
     counters: {
       endpoint: "feeds/counters",
-      map: (data) => ({
-        read: Object.values(asJson(data).reads).reduce((acc, i) => acc + i, 0),
-        unread: Object.values(asJson(data).unreads).reduce((acc, i) => acc + i, 0),
-      }),
+      map: (data) => {
+        const { reads, unreads } = asJson(data);
+        return {
+          read: Object.values(reads).reduce((acc, i) => acc + i, 0),
+          unread: Object.values(unreads).reduce((acc, i) => acc + i, 0),
+        };
+      },
     },
   },
 };

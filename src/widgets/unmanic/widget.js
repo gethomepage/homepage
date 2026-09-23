@@ -8,10 +8,13 @@ const widget = {
   mappings: {
     workers: {
       endpoint: "workers/status",
-      map: (data) => ({
-        total_workers: asJson(data).workers_status.length,
-        active_workers: asJson(data).workers_status.filter((worker) => !worker.idle).length,
-      }),
+      map: (data) => {
+        const workers = asJson(data).workers_status;
+        return {
+          total_workers: workers.length,
+          active_workers: workers.filter((worker) => !worker.idle).length,
+        };
+      },
     },
     pending: {
       method: "POST",
