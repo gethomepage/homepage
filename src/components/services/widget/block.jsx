@@ -4,11 +4,14 @@ import { useContext, useMemo } from "react";
 
 import { BlockHighlightContext } from "./highlight-context";
 
+import { SettingsContext } from "utils/contexts/settings";
 import { evaluateHighlight, getHighlightClass } from "utils/highlights";
 
 export default function Block({ value, highlightValue, label, field }) {
   const { t } = useTranslation();
   const highlightConfig = useContext(BlockHighlightContext);
+  const { settings } = useContext(SettingsContext);
+  const refined = settings?.blockStyle === "refined";
 
   const highlight = useMemo(() => {
     if (!highlightConfig) return null;
@@ -45,9 +48,20 @@ export default function Block({ value, highlightValue, label, field }) {
       data-highlight-level={highlight?.level}
       data-highlight-source={highlight?.source}
     >
-      <div className="font-thin text-sm">{value === undefined || value === null ? "-" : value}</div>
       <div
-        className={classNames("font-bold text-xs uppercase", applyToValueOnly && "text-theme-700 dark:text-theme-200")}
+        className={classNames(
+          refined ? "text-[13px] font-medium tabular-nums" : "font-thin text-sm",
+          "service-block-value",
+        )}
+      >
+        {value === undefined || value === null ? "-" : value}
+      </div>
+      <div
+        className={classNames(
+          refined ? "text-[10px] font-semibold uppercase tracking-wider opacity-60" : "font-bold text-xs uppercase",
+          applyToValueOnly && "text-theme-700 dark:text-theme-200",
+          "service-block-label",
+        )}
       >
         {t(label)}
       </div>

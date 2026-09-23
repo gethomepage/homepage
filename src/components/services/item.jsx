@@ -19,6 +19,10 @@ export default function Item({ service, groupName, useEqualHeights }) {
   const { settings } = useContext(SettingsContext);
   const showStats = service.showStats === false ? false : settings.showStats;
   const statusStyle = service.statusStyle !== undefined ? service.statusStyle : settings.statusStyle;
+  const cardStyle =
+    settings.cardStyle === "hairline"
+      ? "shadow-xs inset-ring inset-ring-black/5 dark:inset-ring-white/5 hover:inset-ring-black/10 dark:hover:inset-ring-white/10"
+      : "shadow-md shadow-theme-900/10 dark:shadow-theme-900/20";
   const [statsOpen, setStatsOpen] = useState(service.showStats);
   const [statsClosing, setStatsClosing] = useState(false);
 
@@ -39,7 +43,8 @@ export default function Item({ service, groupName, useEqualHeights }) {
         className={classNames(
           settings.cardBlur !== undefined && `backdrop-blur${settings.cardBlur.length ? "-" : ""}${settings.cardBlur}`,
           useEqualHeights && "h-[calc(100%-0.5rem)]",
-          "transition-all mb-2 p-1 rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-100/20 hover:bg-theme-300/20 dark:bg-white/5 dark:hover:bg-white/10 relative overflow-clip service-card",
+          cardStyle,
+          "transition-all mb-2 p-1 rounded-md font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 bg-theme-100/20 hover:bg-theme-300/20 dark:bg-white/5 dark:hover:bg-white/10 relative overflow-clip service-card",
         )}
       >
         <div className="flex select-none z-0 service-title">

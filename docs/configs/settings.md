@@ -430,6 +430,64 @@ headerStyle: clean
 headerStyle: boxedWidgets
 ```
 
+## Card Style
+
+Service and bookmark cards use a drop shadow by default. The `hairline` style replaces it with a thin border that brightens on hover.
+
+<img width="896" alt="default cards" src="../../assets/style-default.webp">
+
+```yaml
+# default, shadowed cards
+```
+
+---
+
+<img width="896" alt="hairline cards" src="../../assets/card-style-hairline.webp">
+
+```yaml
+cardStyle: hairline
+```
+
+## Block Style
+
+Widget blocks (the value / label pairs inside a service card) can use the `refined` style to make values heavier and easier to read.
+
+<img width="896" alt="default blocks" src="../../assets/style-default.webp">
+
+```yaml
+# default, standard blocks
+```
+
+---
+
+<img width="896" alt="refined blocks" src="../../assets/block-style-refined.webp">
+
+```yaml
+blockStyle: refined
+```
+
+## Font
+
+Homepage uses Manrope by default. You can switch to IBM Plex Mono instead, either everywhere or for data only.
+
+<img width="896" alt="IBM Plex Mono everywhere" src="../../assets/font-plex.webp">
+
+```yaml
+font: plex # the whole dashboard
+```
+
+---
+
+<img width="896" alt="IBM Plex Mono for data only" src="../../assets/font-plex-data.webp">
+
+```yaml
+font: plexData # only values, stats, the clock and status tags
+```
+
+With `plexData`, labels and names stay in Manrope while numbers line up in columns.
+
+Both fonts are bundled with Homepage, so no external requests are made.
+
 ## Base URL
 
 In some proxy configurations, it may be necessary to set the documents base URL. You can do this by providing a `base` value, like so:

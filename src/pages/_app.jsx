@@ -3,6 +3,7 @@ import { appWithTranslation } from "next-i18next/pages";
 import Head from "next/head";
 import "styles/globals.css";
 import "styles/manrope.css";
+import "styles/plex-mono.css";
 import "styles/theme.css";
 import { SWRConfig } from "swr";
 

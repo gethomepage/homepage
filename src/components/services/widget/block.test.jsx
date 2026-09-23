@@ -39,6 +39,24 @@ describe("components/services/widget/block", () => {
     expect(el.className).toContain("danger-class");
   });
 
+  it("uses the standard block styles by default", () => {
+    const { container } = renderWithProviders(<Block label="some.label" value="1" />, { settings: {} });
+
+    expect(container.querySelector(".service-block-value").className).toContain("font-thin");
+    expect(container.querySelector(".service-block-label").className).toContain("font-bold");
+  });
+
+  it("applies refined block styles when blockStyle is set", () => {
+    const { container } = renderWithProviders(<Block label="some.label" value="1" />, {
+      settings: { blockStyle: "refined" },
+    });
+
+    const value = container.querySelector(".service-block-value");
+    expect(value.className).toContain("tabular-nums");
+    expect(value.className).not.toContain("font-thin");
+    expect(container.querySelector(".service-block-label").className).toContain("tracking-wider");
+  });
+
   it("prefers highlightValue over the rendered value for numeric highlighting", () => {
     const highlightConfig = {
       levels: { warn: "warn-class" },

@@ -21,6 +21,16 @@ describe("components/bookmarks/item", () => {
     expect(screen.getByRole("link").getAttribute("target")).toBe("_self");
   });
 
+  it("applies hairline card styles when cardStyle is set", () => {
+    renderWithProviders(<Item bookmark={{ name: "A", href: "http://example.com/x", abbr: "A" }} iconOnly={false} />, {
+      settings: { cardStyle: "hairline" },
+    });
+
+    const className = screen.getByRole("link").className;
+    expect(className).toContain("inset-ring");
+    expect(className).not.toContain("shadow-md");
+  });
+
   it("renders icon-only layout with icon when provided", () => {
     renderWithProviders(
       <Item bookmark={{ name: "A", href: "http://example.com/x", abbr: "A", icon: "mdi-home" }} iconOnly />,

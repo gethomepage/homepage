@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-weight: 400;
+  font-style: normal;
+  src:
+    local("IBM Plex Mono"),
+    url("./font/IBMPlexMono-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-weight: 500;
+  font-style: normal;
+  src:
+    local("IBM Plex Mono Medium"),
+    url("./font/IBMPlexMono-Medium.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-weight: 600;
+  font-style: normal;
+  src:
+    local("IBM Plex Mono SemiBold"),
+    url("./font/IBMPlexMono-SemiBold.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-weight: 700;
+  font-style: normal;
+  src:
+    local("IBM Plex Mono Bold"),
+    url("./font/IBMPlexMono-Bold.woff2") format("woff2");
+  font-display: swap;
+}
+
+/* font-size-adjust keeps mono from reading larger than Manrope at the same size */
+.font-plex,
+.font-plex body {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size-adjust: 0.5;
+  letter-spacing: -0.01em;
+}
+
+.font-plex-data .service-block-value,
+.font-plex-data .service-tags,
+.font-plex-data .tabular-nums,
+.font-plex-data .information-widget-resource .resource-value,
+.font-plex-data .service-container {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size-adjust: 0.5;
+}
