@@ -51,7 +51,8 @@ export default async function feedProxyHandler(req, res) {
     cache.put(cacheKey, items, CACHE_MS);
   }
 
-  const maxItems = parseInt(widget.maxItems, 10) || 5;
+  const limit = parseInt(widget.maxItems, 10);
+  const maxItems = limit > 0 ? limit : 5;
   const showImages = widget.images !== false && widget.images !== "false";
 
   return res.status(200).json({

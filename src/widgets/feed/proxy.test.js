@@ -79,6 +79,16 @@ describe("widgets/feed/proxy", () => {
     });
   });
 
+  it.each([-1, 0, "abc"])("falls back to 5 items for maxItems %j", async (maxItems) => {
+    getServiceWidget.mockResolvedValue({ type: "feed", url: "https://example.com/feed.xml", maxItems });
+    httpProxy.mockResolvedValueOnce([200, "application/rss+xml", Buffer.from(feed)]);
+
+    const res = createMockRes();
+    await feedProxyHandler(req, res);
+
+    expect(res.body.items).toHaveLength(5);
+  });
+
   it("respects maxItems and drops images when disabled", async () => {
     getServiceWidget.mockResolvedValue({
       type: "feed",
