@@ -25,6 +25,7 @@ const components = {
   crowdsec: dynamic(() => import("./crowdsec/component")),
   iframe: dynamic(() => import("./iframe/component")),
   customapi: dynamic(() => import("./customapi/component")),
+  ddnsupdater: dynamic(() => import("./ddnsupdater/component")),
   deluge: dynamic(() => import("./deluge/component")),
   develancacheui: dynamic(() => import("./develancacheui/component")),
   diskstation: dynamic(() => import("./diskstation/component")),

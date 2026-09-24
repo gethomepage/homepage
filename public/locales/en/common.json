@@ -1258,5 +1258,13 @@
         "wanted": "Wanted",
         "queued": "Queued",
         "leagues": "Leagues"
+    },
+    "ddnsupdater": {
+        "domain": "Domain",
+        "provider": "Provider",
+        "status": "Status",
+        "currentIP" : "Current IP",
+        "timeSinceLastUpdate" : "Time Since Last Update",
+        "previousIP" : "Previous IP"
     }
 }

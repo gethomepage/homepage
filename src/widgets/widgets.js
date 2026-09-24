@@ -21,6 +21,7 @@ import cloudflared from "./cloudflared/widget";
 import coinmarketcap from "./coinmarketcap/widget";
 import crowdsec from "./crowdsec/widget";
 import customapi from "./customapi/widget";
+import ddnsupdater from "./ddnsupdater/widget"
 import deluge from "./deluge/widget";
 import develancacheui from "./develancacheui/widget";
 import diskstation from "./diskstation/widget";
@@ -181,6 +182,7 @@ const widgets = {
   coinmarketcap,
   crowdsec,
   customapi,
+  ddnsupdater,
   deluge,
   develancacheui,
   diskstation,
