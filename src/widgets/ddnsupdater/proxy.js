@@ -1,12 +1,13 @@
 import * as cheerio from "cheerio";
+
 import createLogger from "utils/logger";
 import { httpProxy } from "utils/proxy/http";
 import getServiceWidget from "utils/config/service-helpers";
 import { formatApiCall } from "utils/proxy/api-helpers";
 import widgets from "widgets/widgets";
 
-const logger = createLogger("ddnsupdaterProxyHandler");
 
+const logger = createLogger("ddnsupdaterProxyHandler");
 
 function processDDNSUpdaterHTMLData(htmlData, widget) {
   var data = {}
