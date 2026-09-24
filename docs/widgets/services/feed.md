@@ -25,10 +25,10 @@ widget:
 `grid` shows image tiles that re-flow to fit the width of the widget, e.g.:
 
 ```yaml
-- World News:
+- NASA Image of the Day:
     widget:
       type: feed
-      url: https://feeds.bbci.co.uk/news/world/rss.xml
+      url: https://www.nasa.gov/feeds/iotd-feed/
       layout: grid
       maxItems: 8
 ```
