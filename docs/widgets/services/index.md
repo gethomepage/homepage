@@ -30,6 +30,8 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Coin Market Cap](coin-market-cap.md)
 - [CrowdSec](crowdsec.md)
 - [Custom API](customapi.md)
+- [Dashdot](dashdot.md)
+- [DDNS-Updater](ddns-updater.md)
 - [Deluge](deluge.md)
 - [DeveLanCacheUI](develancacheui.md)
 - [DiskStation](diskstation.md)
