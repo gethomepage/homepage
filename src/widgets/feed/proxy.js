@@ -1,6 +1,6 @@
 import cache from "memory-cache";
 
-import { parseFeed } from "./utils";
+import { httpUrl, parseFeed } from "./utils";
 
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
@@ -18,12 +18,11 @@ export default async function feedProxyHandler(req, res) {
     return res.status(400).json({ error: "Missing feed URL" });
   }
 
-  let url;
-  try {
-    url = new URL(widget.url);
-  } catch {
+  const href = httpUrl(widget.url);
+  if (!href) {
     return res.status(400).json({ error: "Invalid feed URL" });
   }
+  const url = new URL(href);
 
   const cacheKey = `feed:${url.href}`;
   let items = cache.get(cacheKey);

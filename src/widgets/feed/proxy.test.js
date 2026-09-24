@@ -52,6 +52,12 @@ describe("widgets/feed/proxy", () => {
     await feedProxyHandler(req, res);
     expect(res.statusCode).toBe(400);
     expect(res.body).toEqual({ error: "Invalid feed URL" });
+
+    getServiceWidget.mockResolvedValueOnce({ type: "feed", url: "file:///etc/passwd" });
+    res = createMockRes();
+    await feedProxyHandler(req, res);
+    expect(res.statusCode).toBe(400);
+    expect(res.body).toEqual({ error: "Invalid feed URL" });
     expect(httpProxy).not.toHaveBeenCalled();
   });
 
