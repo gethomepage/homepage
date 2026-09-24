@@ -18,6 +18,10 @@ widget:
 
 `list` shows one row per item. Items with an image get a small thumbnail.
 
+![Feed widget list layout](../../assets/widget_feed_list.webp)
+
+![Feed widget list layout with thumbnails](../../assets/widget_feed_thumbnails.webp)
+
 `grid` shows image tiles that re-flow to fit the width of the widget, e.g.:
 
 ```yaml
@@ -28,6 +32,8 @@ widget:
       layout: grid
       maxItems: 8
 ```
+
+![Feed widget grid layout](../../assets/widget_feed_grid.webp)
 
 ## Images
 
