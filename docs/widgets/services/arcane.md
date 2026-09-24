@@ -6,6 +6,7 @@ description: Arcane Widget Configuration
 Learn more about [Arcane](https://github.com/getarcaneapp/arcane).
 
 **Allowed fields** (max 4): `running`, `stopped`, `total`, `images`, `images_used`, `images_unused`, `image_updates`.
+
 **Default fields**: `running`, `stopped`, `total`, `image_updates`.
 
 ```yaml
@@ -17,4 +18,4 @@ widget:
   fields: ["running", "stopped", "total", "image_updates"] # optional
 ```
 
-Using an api key for the widget requires permissions for: `containers:list` `images:list and `image-updates:read`
+Using an API key for the widget requires permissions for: `containers:list`, `images:list`, and `image-updates:read`.
