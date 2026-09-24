@@ -11,9 +11,10 @@ function getText(node) {
 }
 
 export function httpUrl(value, baseUrl) {
-  if (!value) return null;
+  const trimmed = value?.trim();
+  if (!trimmed) return null;
   try {
-    const url = new URL(value.trim(), baseUrl);
+    const url = new URL(trimmed, baseUrl);
     return ["http:", "https:"].includes(url.protocol) ? url.href : null;
   } catch {
     return null;

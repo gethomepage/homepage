@@ -147,6 +147,8 @@ describe("widgets/feed/utils", () => {
     ["data:image/png;base64,AAAA", undefined, null],
     ["not a url", undefined, null],
     ["", undefined, null],
+    ["  \n ", "https://a.com/feed", null],
+    [" /x ", "https://a.com/feed", "https://a.com/x"],
   ])("httpUrl(%j, %j) is %j", (value, base, expected) => {
     expect(httpUrl(value, base)).toBe(expected);
   });
