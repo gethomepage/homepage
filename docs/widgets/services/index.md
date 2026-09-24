@@ -39,6 +39,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Emby](emby.md)
 - [ESPHome](esphome.md)
 - [EVCC](evcc.md)
+- [Feed](feed.md)
 - [Filebrowser](filebrowser.md)
 - [Fileflows](fileflows.md)
 - [Firefly III](firefly.md)
