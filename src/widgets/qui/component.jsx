@@ -63,7 +63,6 @@ export default function Component({ service: configuredService }) {
       />
       <Block label="qui.total" value={t("common.number", { value: status ? status.all : stats.total })} />
       <Block label="qui.errored" value={t("common.number", { value: status ? status.errored : stats.error })} />
-      {/* qui can't merge serverState across instances, so these are per-instance only. */}
       {serverState && (
         <Block label="qui.ratio" value={t("common.number", { value: parseFloat(serverState.global_ratio) })} />
       )}
