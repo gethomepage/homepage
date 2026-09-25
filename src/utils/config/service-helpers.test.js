@@ -403,6 +403,7 @@ describe("utils/config/service-helpers", () => {
               { type: "radarr", enableQueue: "true" },
               { type: "truenas", enablePools: "true", nasType: "scale" },
               { type: "qnap", volume: "vol1" },
+              { type: "qui", instance: 2 },
               { type: "dispatcharr", enableActiveStreams: "true" },
               { type: "gamedig", gameToken: "t" },
               { type: "kopia", snapshotHost: "h", snapshotPath: "/p" },
@@ -468,6 +469,7 @@ describe("utils/config/service-helpers", () => {
       expect.objectContaining({ namespace: "default", app: "app", podSelector: "app=test" }),
     );
     expect(widgets.find((w) => w.type === "qnap")).toEqual(expect.objectContaining({ volume: "vol1" }));
+    expect(widgets.find((w) => w.type === "qui")).toEqual(expect.objectContaining({ instance: 2 }));
     expect(widgets.find((w) => w.type === "speedtest")).toEqual(
       expect.objectContaining({ bitratePrecision: 3, version: 1 }),
     );
