@@ -524,6 +524,38 @@ describe("utils/config/service-helpers", () => {
     ]);
   });
 
+  it("cleanServiceGroups keeps feed layout and drops server-side options", async () => {
+    const mod = await import("./service-helpers");
+    const { cleanServiceGroups } = mod;
+
+    const rawGroups = [
+      {
+        name: "Core",
+        services: [
+          {
+            name: "News",
+            widgets: [
+              {
+                type: "feed",
+                url: "https://example.com/feed.xml?token=secret",
+                maxItems: 3,
+                images: false,
+                layout: "grid",
+              },
+            ],
+          },
+        ],
+        groups: [],
+      },
+    ];
+
+    const feedWidget = cleanServiceGroups(rawGroups)[0].services[0].widgets[0];
+    expect(feedWidget).toEqual(expect.objectContaining({ type: "feed", layout: "grid" }));
+    expect(feedWidget).not.toHaveProperty("url");
+    expect(feedWidget).not.toHaveProperty("maxItems");
+    expect(feedWidget).not.toHaveProperty("images");
+  });
+
   it("findGroupByName deep-searches and annotates parent", async () => {
     const mod = await import("./service-helpers");
     const { findGroupByName } = mod;

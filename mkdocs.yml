@@ -65,6 +65,7 @@ nav:
           - widgets/services/emby.md
           - widgets/services/esphome.md
           - widgets/services/evcc.md
+          - widgets/services/feed.md
           - widgets/services/filebrowser.md
           - widgets/services/fileflows.md
           - widgets/services/firefly.md
