@@ -108,6 +108,33 @@ describe("widgets/qui/component", () => {
     expectBlockValue(container, "qui.errored", "3");
   });
 
+  it("falls back to stats when counts are missing", () => {
+    const { counts, ...statsOnly } = aggregatedData;
+    useWidgetAPI.mockReturnValue({ data: statsOnly, error: undefined });
+
+    const service = { widget: { type: "qui", instance: "", fields: ["leech", "seed", "total", "errored"] } };
+    const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
+
+    expect(useWidgetAPI).toHaveBeenCalledWith(expect.anything(), "torrentsAll");
+    expectBlockValue(container, "qui.leech", "1 / 1");
+    expectBlockValue(container, "qui.seed", "2 / 2");
+    expectBlockValue(container, "qui.total", "10");
+    expectBlockValue(container, "qui.errored", "0");
+  });
+
+  it("caps configured fields at four blocks", () => {
+    useWidgetAPI.mockReturnValue({ data: perInstanceData, error: undefined });
+
+    const service = {
+      widget: { type: "qui", instance: 1, fields: ["total", "errored", "ratio", "freeSpace", "leech", "seed"] },
+    };
+    const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
+
+    expect(container.querySelectorAll(".service-block")).toHaveLength(4);
+    expect(screen.queryByText("qui.leech")).toBeNull();
+    expect(screen.queryByText("qui.seed")).toBeNull();
+  });
+
   it("omits ratio/freeSpace in aggregated mode where serverState is absent", () => {
     useWidgetAPI.mockReturnValue({ data: aggregatedData, error: undefined });
 
