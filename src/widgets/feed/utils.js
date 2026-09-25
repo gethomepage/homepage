@@ -74,9 +74,10 @@ function parseRssItem(item) {
   };
 }
 
+const alternateLink = (node) => asArray(node.link).find((l) => (attrs(l).rel ?? "alternate") === "alternate");
+
 function parseAtomEntry(entry) {
-  const links = asArray(entry.link);
-  const link = links.find((l) => (attrs(l).rel ?? "alternate") === "alternate") ?? links[0];
+  const link = alternateLink(entry) ?? asArray(entry.link)[0];
   return {
     title: getText(entry.title),
     link: attrs(link).href,
@@ -86,13 +87,21 @@ function parseAtomEntry(entry) {
   };
 }
 
-export function parseFeed(xml, baseUrl) {
+export function parseFeed(xml) {
   const doc = xml2js(xml, { compact: true });
 
   let items;
-  if (doc.rss) items = asArray(doc.rss.channel?.item).map(parseRssItem);
-  else if (doc.feed) items = asArray(doc.feed.entry).map(parseAtomEntry);
-  else throw new Error("Unsupported feed format");
+  let site;
+  if (doc.rss) {
+    items = asArray(doc.rss.channel?.item).map(parseRssItem);
+    site = getText(doc.rss.channel?.link);
+  } else if (doc.feed) {
+    items = asArray(doc.feed.entry).map(parseAtomEntry);
+    site = attrs(alternateLink(doc.feed)).href;
+  } else throw new Error("Unsupported feed format");
+
+  // resolve against the feed's own site link, never the configured url
+  const baseUrl = httpUrl(site) ?? undefined;
 
   return items
     .map((item) => ({

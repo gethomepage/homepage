@@ -118,6 +118,25 @@ describe("widgets/feed/proxy", () => {
     expect(res.body).toEqual({ error: { message: "HTTP Error", url: "example.com (see logs for details)" } });
   });
 
+  it("never includes any part of the configured url in the response", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "feed",
+      url: "https://user:hunter2@nas.lan/feeds/s3cr3t/rss.xml?token=abc123",
+    });
+    const relative = `<rss><channel>
+      <item><title>Path</title><link>item/1</link><enclosure url="img.jpg" type="image/jpeg" /></item>
+      <item><title>Root</title><link>/x</link></item>
+      <item><title>Fragment</title><link>#top</link></item>
+    </channel></rss>`;
+    httpProxy.mockResolvedValueOnce([200, "application/rss+xml", Buffer.from(relative)]);
+
+    const res = createMockRes();
+    await feedProxyHandler(req, res);
+
+    expect(res.body.items.map((item) => item.link)).toEqual([null, null, null]);
+    expect(JSON.stringify(res.body)).not.toMatch(/user|hunter2|nas\.lan|s3cr3t|token|abc123/);
+  });
+
   it("returns 500 for unparseable feeds", async () => {
     getServiceWidget.mockResolvedValue({ type: "feed", url: "https://example.com/feed.xml" });
     httpProxy.mockResolvedValueOnce([200, "text/html", Buffer.from("<html></html>")]);

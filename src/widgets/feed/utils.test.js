@@ -6,6 +6,7 @@ const rss = `<?xml version="1.0"?>
 <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>Example</title>
+    <link>https://example.com/</link>
     <item>
       <title><![CDATA[Tom & Jerry]]></title>
       <link>https://example.com/one</link>
@@ -54,7 +55,7 @@ const atom = `<?xml version="1.0" encoding="utf-8"?>
 
 describe("widgets/feed/utils", () => {
   it("parses rss 2.0 items", () => {
-    expect(parseFeed(rss, "https://example.com/feed.xml")).toEqual([
+    expect(parseFeed(rss)).toEqual([
       {
         title: "Tom & Jerry",
         link: "https://example.com/one",
@@ -72,7 +73,7 @@ describe("widgets/feed/utils", () => {
   });
 
   it("parses atom entries", () => {
-    expect(parseFeed(atom, "https://example.com/atom.xml")).toEqual([
+    expect(parseFeed(atom)).toEqual([
       {
         title: "Fish & chips",
         link: "https://example.com/one",
@@ -90,6 +91,7 @@ describe("widgets/feed/utils", () => {
 
   it("falls back to the first usable image in item html", () => {
     const xml = `<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/"><channel>
+      <link>https://example.com/</link>
       <item>
         <title>Content image</title>
         <content:encoded><![CDATA[<p>Hi <img src="https://t.example.com/p.gif" width="1" height="1">
@@ -110,7 +112,7 @@ describe("widgets/feed/utils", () => {
       </item>
     </channel></rss>`;
 
-    expect(parseFeed(xml, "https://example.com/feed").map((item) => item.image)).toEqual([
+    expect(parseFeed(xml).map((item) => item.image)).toEqual([
       "https://example.com/big.jpg?w=925&h=925",
       "https://example.com/desc.png",
       "https://example.com/thumb.jpg",
@@ -128,6 +130,18 @@ describe("widgets/feed/utils", () => {
       "https://example.com/c.jpg",
       "https://example.com/s.jpg",
     ]);
+  });
+
+  it("resolves relative urls against the feed's alternate link, never its self link", () => {
+    const entry = `<entry><title>Relative</title><link href="/posts/1" /></entry>`;
+    const selfOnly = `<feed xmlns="http://www.w3.org/2005/Atom">
+      <link rel="self" href="https://example.com/user.private.atom?token=abc123" />${entry}</feed>`;
+    const withSite = `<feed xmlns="http://www.w3.org/2005/Atom">
+      <link rel="self" href="https://example.com/user.private.atom?token=abc123" />
+      <link rel="alternate" href="https://example.com/blog/" />${entry}</feed>`;
+
+    expect(parseFeed(selfOnly)[0].link).toBeNull();
+    expect(parseFeed(withSite)[0].link).toBe("https://example.com/posts/1");
   });
 
   it("handles single-item and empty feeds", () => {

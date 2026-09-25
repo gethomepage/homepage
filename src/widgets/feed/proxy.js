@@ -41,7 +41,7 @@ export default async function feedProxyHandler(req, res) {
     }
 
     try {
-      items = parseFeed(Buffer.from(data).toString(), url.href);
+      items = parseFeed(Buffer.from(data).toString());
     } catch (e) {
       logger.debug("Error parsing feed %s//%s%s: %s", url.protocol, url.host, url.pathname, e.message);
       return res.status(500).json({ error: { message: "Invalid feed", url: sanitizeErrorURL(url) } });
