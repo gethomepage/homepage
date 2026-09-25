@@ -120,6 +120,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [PyLoad](pyload.md)
 - [qBittorrent](qbittorrent.md)
 - [QNAP](qnap.md)
+- [qui](qui.md)
 - [Radarr](radarr.md)
 - [Readarr](readarr.md)
 - [ROMM](romm.md)
