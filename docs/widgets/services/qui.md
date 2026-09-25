@@ -23,10 +23,8 @@ widget:
 
 ## Fields
 
-`leech` and `seed` are shown as `active / total` — torrents actively transferring over the
-incomplete/complete totals.
+Allowed fields: `["leech", "download", "seed", "upload", "total", "errored", "ratio", "freeSpace"]` (maximum of 4).
 
-Allowed fields: `["leech", "download", "seed", "upload", "total", "errored", "ratio", "freeSpace"]`
-(maximum of 4). The default is `["leech", "download", "seed", "upload"]`.
+Default fields: `["leech", "download", "seed", "upload"]`.
 
 Note: `ratio` and `freeSpace` are only available with the 'single instance' version of the widget.
