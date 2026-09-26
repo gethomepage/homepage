@@ -1,5 +1,7 @@
 import { useTranslation } from "next-i18next/pages";
 
+import QueueEntry from "../../components/widgets/queue/queueEntry";
+
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
@@ -16,6 +18,8 @@ export default function Component({ service: configuredService }) {
   const perInstance = widget.instance != null && widget.instance !== "";
   const mapping = perInstance ? "torrents" : "torrentsAll";
   const { data: torrentData, error: torrentError } = useWidgetAPI(widget, mapping);
+  const leechMapping = perInstance ? "leech" : "leechAll";
+  const { data: leechData } = useWidgetAPI(widget, widget.enableLeechProgress ? leechMapping : "");
 
   if (torrentError) {
     return <Container service={service} error={torrentError} />;
@@ -46,32 +50,48 @@ export default function Component({ service: configuredService }) {
   const incomplete = status ? status.all - status.completed : stats.downloading;
   const seedValue = `${t("common.number", { value: stats.seeding })} / ${t("common.number", { value: completed })}`;
   const leechValue = `${t("common.number", { value: stats.downloading })} / ${t("common.number", { value: incomplete })}`;
+  const leechTorrents = (perInstance ? leechData?.torrents : leechData?.cross_instance_torrents) ?? [];
 
   return (
-    <Container service={service}>
-      <Block label="qui.leech" value={leechValue} />
-      <Block
-        label="qui.download"
-        value={t("common.bibyterate", { value: stats.totalDownloadSpeed, decimals: 1 })}
-        highlightValue={stats.totalDownloadSpeed}
-      />
-      <Block label="qui.seed" value={seedValue} />
-      <Block
-        label="qui.upload"
-        value={t("common.bibyterate", { value: stats.totalUploadSpeed, decimals: 1 })}
-        highlightValue={stats.totalUploadSpeed}
-      />
-      <Block label="qui.total" value={t("common.number", { value: status ? status.all : stats.total })} />
-      <Block label="qui.errored" value={t("common.number", { value: status ? status.errored : stats.error })} />
-      {serverState && (
-        <Block label="qui.ratio" value={t("common.number", { value: parseFloat(serverState.global_ratio) })} />
-      )}
-      {serverState && (
+    <>
+      <Container service={service}>
+        <Block label="qui.leech" value={leechValue} />
         <Block
-          label="qui.freeSpace"
-          value={t("common.bbytes", { value: serverState.free_space_on_disk, maximumFractionDigits: 1 })}
+          label="qui.download"
+          value={t("common.bibyterate", { value: stats.totalDownloadSpeed, decimals: 1 })}
+          highlightValue={stats.totalDownloadSpeed}
         />
-      )}
-    </Container>
+        <Block label="qui.seed" value={seedValue} />
+        <Block
+          label="qui.upload"
+          value={t("common.bibyterate", { value: stats.totalUploadSpeed, decimals: 1 })}
+          highlightValue={stats.totalUploadSpeed}
+        />
+        <Block label="qui.total" value={t("common.number", { value: status ? status.all : stats.total })} />
+        <Block label="qui.errored" value={t("common.number", { value: status ? status.errored : stats.error })} />
+        {serverState && (
+          <Block label="qui.ratio" value={t("common.number", { value: parseFloat(serverState.global_ratio) })} />
+        )}
+        {serverState && (
+          <Block
+            label="qui.freeSpace"
+            value={t("common.bbytes", { value: serverState.free_space_on_disk, maximumFractionDigits: 1 })}
+          />
+        )}
+      </Container>
+      {widget.enableLeechProgress &&
+        leechTorrents.map((torrent) => (
+          <QueueEntry
+            progress={torrent.progress * 100}
+            timeLeft={t("common.duration", { value: torrent.eta })}
+            title={torrent.name}
+            activity={torrent.state}
+            size={
+              widget.enableLeechSize ? t("common.bbytes", { value: torrent.size, maximumFractionDigits: 1 }) : undefined
+            }
+            key={`${torrent.instance_id ?? ""}-${torrent.hash}`}
+          />
+        ))}
+    </>
   );
 }

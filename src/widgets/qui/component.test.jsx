@@ -9,6 +9,10 @@ import { expectBlockValue } from "test-utils/widget-assertions";
 const { useWidgetAPI } = vi.hoisted(() => ({ useWidgetAPI: vi.fn() }));
 vi.mock("utils/proxy/use-widget-api", () => ({ default: useWidgetAPI }));
 
+vi.mock("../../components/widgets/queue/queueEntry", () => ({
+  default: ({ title }) => <div data-testid="queue-entry">{title}</div>,
+}));
+
 import Component from "./component";
 
 // Aggregated response (cross-instance) — no serverState, as qui can't merge it.
@@ -133,6 +137,36 @@ describe("widgets/qui/component", () => {
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.queryByText("qui.leech")).toBeNull();
     expect(screen.queryByText("qui.seed")).toBeNull();
+  });
+
+  it("lists downloading torrents when enableLeechProgress is set", () => {
+    const leechData = { cross_instance_torrents: [{ hash: "a", instance_id: 1, name: "A", progress: 0.5, eta: 60 }] };
+    useWidgetAPI.mockImplementation((_, endpoint) => ({
+      data: endpoint === "leechAll" ? leechData : aggregatedData,
+      error: undefined,
+    }));
+
+    renderWithProviders(<Component service={{ widget: { type: "qui", enableLeechProgress: true } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(useWidgetAPI).toHaveBeenCalledWith(expect.anything(), "leechAll");
+    expect(screen.getAllByTestId("queue-entry").map((el) => el.textContent)).toEqual(["A"]);
+  });
+
+  it("uses the per-instance leech endpoint when an instance is set", () => {
+    const leechData = { torrents: [{ hash: "b", name: "B", progress: 0.2, eta: 60 }] };
+    useWidgetAPI.mockImplementation((_, endpoint) => ({
+      data: endpoint === "leech" ? leechData : perInstanceData,
+      error: undefined,
+    }));
+
+    renderWithProviders(<Component service={{ widget: { type: "qui", instance: 1, enableLeechProgress: true } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(useWidgetAPI).toHaveBeenCalledWith(expect.anything(), "leech");
+    expect(screen.getAllByTestId("queue-entry").map((el) => el.textContent)).toEqual(["B"]);
   });
 
   it("omits ratio/freeSpace in aggregated mode where serverState is absent", () => {

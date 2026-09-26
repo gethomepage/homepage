@@ -19,6 +19,8 @@ widget:
   key: quiapikeyquiapikeyquiapikey
   instance: 1 # optional; omit for aggregated stats across all instances
   fields: ["leech", "download", "seed", "upload"] # optional
+  enableLeechProgress: true # optional, defaults to false
+  enableLeechSize: true # optional, defaults to false
 ```
 
 ## Fields
