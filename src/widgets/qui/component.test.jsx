@@ -10,7 +10,11 @@ const { useWidgetAPI } = vi.hoisted(() => ({ useWidgetAPI: vi.fn() }));
 vi.mock("utils/proxy/use-widget-api", () => ({ default: useWidgetAPI }));
 
 vi.mock("../../components/widgets/queue/queueEntry", () => ({
-  default: ({ title }) => <div data-testid="queue-entry">{title}</div>,
+  default: ({ title, size }) => (
+    <div data-testid="queue-entry" data-size={size}>
+      {title}
+    </div>
+  ),
 }));
 
 import Component from "./component";
@@ -155,18 +159,18 @@ describe("widgets/qui/component", () => {
   });
 
   it("uses the per-instance leech endpoint when an instance is set", () => {
-    const leechData = { torrents: [{ hash: "b", name: "B", progress: 0.2, eta: 60 }] };
+    const leechData = { torrents: [{ hash: "b", name: "B", progress: 0.2, eta: 60, size: 1024 }] };
     useWidgetAPI.mockImplementation((_, endpoint) => ({
       data: endpoint === "leech" ? leechData : perInstanceData,
       error: undefined,
     }));
 
-    renderWithProviders(<Component service={{ widget: { type: "qui", instance: 1, enableLeechProgress: true } }} />, {
-      settings: { hideErrors: false },
-    });
+    const service = { widget: { type: "qui", instance: 1, enableLeechProgress: true, enableLeechSize: true } };
+    renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
 
     expect(useWidgetAPI).toHaveBeenCalledWith(expect.anything(), "leech");
     expect(screen.getAllByTestId("queue-entry").map((el) => el.textContent)).toEqual(["B"]);
+    expect(screen.getByTestId("queue-entry").dataset.size).toBe("1024");
   });
 
   it("omits ratio/freeSpace in aggregated mode where serverState is absent", () => {
