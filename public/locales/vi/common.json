@@ -256,6 +256,16 @@
         "leech": "Leecher",
         "seed": "Seeder"
     },
+    "qui": {
+        "leech": "Leech",
+        "download": "Download",
+        "seed": "Seed",
+        "upload": "Upload",
+        "total": "Total",
+        "errored": "Errored",
+        "ratio": "Ratio",
+        "freeSpace": "Free"
+    },
     "qnap": {
         "cpuUsage": "Mức sử dụng CPU",
         "memUsage": "Mức sử dụng bộ nhớ",
@@ -1258,5 +1268,8 @@
         "wanted": "Cần tải",
         "queued": "Queued",
         "leagues": "Leagues"
+    },
+    "feed": {
+        "noItems": "No items"
     }
 }

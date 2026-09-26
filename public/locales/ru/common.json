@@ -256,6 +256,16 @@
         "leech": "Лич",
         "seed": "Сид"
     },
+    "qui": {
+        "leech": "Leech",
+        "download": "Download",
+        "seed": "Seed",
+        "upload": "Upload",
+        "total": "Total",
+        "errored": "Errored",
+        "ratio": "Ratio",
+        "freeSpace": "Free"
+    },
     "qnap": {
         "cpuUsage": "Использование ЦП",
         "memUsage": "Использование ОЗУ",
@@ -1258,5 +1268,8 @@
         "wanted": "Требуется",
         "queued": "В очереди",
         "leagues": "Лиги"
+    },
+    "feed": {
+        "noItems": "No items"
     }
 }

@@ -256,6 +256,16 @@
         "leech": "Fuga",
         "seed": "Semear"
     },
+    "qui": {
+        "leech": "Leech",
+        "download": "Download",
+        "seed": "Seed",
+        "upload": "Upload",
+        "total": "Total",
+        "errored": "Errored",
+        "ratio": "Ratio",
+        "freeSpace": "Free"
+    },
     "qnap": {
         "cpuUsage": "Utilização do CPU",
         "memUsage": "Utilização de Memória",
@@ -1258,5 +1268,8 @@
         "wanted": "Procurado",
         "queued": "Em fila de espera",
         "leagues": "Ligas"
+    },
+    "feed": {
+        "noItems": "No items"
     }
 }
