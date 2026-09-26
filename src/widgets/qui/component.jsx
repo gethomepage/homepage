@@ -89,7 +89,7 @@ export default function Component({ service: configuredService }) {
             size={
               widget.enableLeechSize ? t("common.bbytes", { value: torrent.size, maximumFractionDigits: 1 }) : undefined
             }
-            key={`${torrent.instance_id ?? ""}-${torrent.hash}`}
+            key={`${torrent.instance_id}-${torrent.hash}`}
           />
         ))}
     </>
