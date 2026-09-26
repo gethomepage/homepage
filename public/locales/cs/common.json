@@ -256,6 +256,16 @@
         "leech": "Leechované",
         "seed": "Seedované"
     },
+    "qui": {
+        "leech": "Leech",
+        "download": "Download",
+        "seed": "Seed",
+        "upload": "Upload",
+        "total": "Total",
+        "errored": "Errored",
+        "ratio": "Ratio",
+        "freeSpace": "Free"
+    },
     "qnap": {
         "cpuUsage": "Využití procesoru",
         "memUsage": "Využití paměti",
@@ -1258,5 +1268,8 @@
         "wanted": "Požadované",
         "queued": "Ve frontě",
         "leagues": "Ligy"
+    },
+    "feed": {
+        "noItems": "No items"
     }
 }

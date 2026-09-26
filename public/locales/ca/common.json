@@ -256,6 +256,16 @@
         "leech": "Sangonera",
         "seed": "Sembrat"
     },
+    "qui": {
+        "leech": "Sangonera",
+        "download": "Baixada",
+        "seed": "Sembrat",
+        "upload": "Pujada",
+        "total": "Total",
+        "errored": "Errors",
+        "ratio": "Ràtio",
+        "freeSpace": "Lliure"
+    },
     "qnap": {
         "cpuUsage": "Ús de CPU",
         "memUsage": "Ús de Memòria",
@@ -1258,5 +1268,8 @@
         "wanted": "Pendents",
         "queued": "En cua",
         "leagues": "Lligues"
+    },
+    "feed": {
+        "noItems": "Sense elements"
     }
 }

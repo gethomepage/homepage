@@ -256,6 +256,16 @@
         "leech": "Leech",
         "seed": "Seed"
     },
+    "qui": {
+        "leech": "Leech",
+        "download": "Download",
+        "seed": "Seed",
+        "upload": "Upload",
+        "total": "Total",
+        "errored": "Errored",
+        "ratio": "Ratio",
+        "freeSpace": "Free"
+    },
     "qnap": {
         "cpuUsage": "CPU使用量",
         "memUsage": "MEM使用量",
@@ -1258,5 +1268,8 @@
         "wanted": "募集中",
         "queued": "処理待ち",
         "leagues": "リーグ"
+    },
+    "feed": {
+        "noItems": "No items"
     }
 }

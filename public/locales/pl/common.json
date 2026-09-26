@@ -256,6 +256,16 @@
         "leech": "Leech",
         "seed": "Seed"
     },
+    "qui": {
+        "leech": "Leech",
+        "download": "Download",
+        "seed": "Seed",
+        "upload": "Upload",
+        "total": "Total",
+        "errored": "Errored",
+        "ratio": "Ratio",
+        "freeSpace": "Free"
+    },
     "qnap": {
         "cpuUsage": "Użycie CPU",
         "memUsage": "Użycie pamięci",
@@ -1258,5 +1268,8 @@
         "wanted": "Poszukiwane",
         "queued": "W kolejce",
         "leagues": "Ligi"
+    },
+    "feed": {
+        "noItems": "No items"
     }
 }
