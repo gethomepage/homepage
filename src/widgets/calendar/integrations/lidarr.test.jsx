@@ -15,7 +15,13 @@ describe("widgets/calendar/integrations/lidarr", () => {
   it("adds release events", async () => {
     useWidgetAPI.mockReturnValue({
       data: [
-        { artist: { artistName: "Artist" }, title: "Album", releaseDate: "2099-01-01T00:00:00.000Z", grabbed: true },
+        {
+          artist: { artistName: "Artist" },
+          title: "Album",
+          releaseDate: "2099-01-01T00:00:00.000Z",
+          foreignAlbumId: "album",
+          grabbed: true,
+        },
       ],
       error: undefined,
     });
@@ -23,7 +29,7 @@ describe("widgets/calendar/integrations/lidarr", () => {
     const setEvents = vi.fn();
     render(
       <Integration
-        config={{ type: "lidarr", color: "green" }}
+        config={{ type: "lidarr", baseUrl: "https://lidarr.example", color: "green" }}
         params={{ start: "2099-01-01T00:00:00.000Z", end: "2099-01-02T00:00:00.000Z" }}
         setEvents={setEvents}
         hideErrors
@@ -33,7 +39,10 @@ describe("widgets/calendar/integrations/lidarr", () => {
     await waitFor(() => expect(setEvents).toHaveBeenCalled());
 
     const next = setEvents.mock.calls[0][0]({});
-    expect(Object.keys(next)).toEqual(["Artist - Album"]);
-    expect(next["Artist - Album"].isCompleted).toBe(true);
+    const [entry] = Object.values(next);
+    console.log(entry)
+    expect(entry.title).toBe("Artist - Album");
+    expect(entry.url).toBe("https://lidarr.example/album/album");
+    expect(entry.isCompleted).toBe(true);
   });
 });
