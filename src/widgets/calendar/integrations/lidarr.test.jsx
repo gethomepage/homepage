@@ -40,7 +40,6 @@ describe("widgets/calendar/integrations/lidarr", () => {
 
     const next = setEvents.mock.calls[0][0]({});
     const [entry] = Object.values(next);
-    console.log(entry)
     expect(entry.title).toBe("Artist - Album");
     expect(entry.url).toBe("https://lidarr.example/album/album");
     expect(entry.isCompleted).toBe(true);
