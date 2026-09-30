@@ -869,6 +869,14 @@
         "reading": "Reading",
         "finished": "Finished"
     },
+    "bookorbit": {
+        "books": "Books",
+        "authors": "Authors",
+        "series": "Series",
+        "storage": "Storage",
+        "reading": "Reading",
+        "finished": "Finished"
+    },
     "jdownloader": {
         "downloadCount": "Queue",
         "downloadBytesRemaining": "Remaining",
