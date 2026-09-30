@@ -19,6 +19,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Backrest](backrest.md)
 - [Bazarr](bazarr.md)
 - [Booklore](booklore.md)
+- [BookOrbit](bookorbit.md)
 - [Beszel](beszel.md)
 - [Caddy](caddy.md)
 - [Calendar](calendar.md)
