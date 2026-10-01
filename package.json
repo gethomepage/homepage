@@ -59,7 +59,7 @@
     "eslint-config-prettier": "^10.1.8",
     "jsdom": "^30.0.1",
     "postcss": "^8.5.26",
-    "prettier": "^3.8.4",
+    "prettier": "^3.9.9",
     "prettier-plugin-organize-imports": "^4.3.0",
     "tailwind-scrollbar": "^4.0.2",
     "tailwindcss": "^4.3.3",
