@@ -41,7 +41,7 @@
     "recharts": "^3.1.2",
     "sax": "^1.6.1",
     "swr": "^2.5.1",
-    "systeminformation": "^5.33.1",
+    "systeminformation": "^5.33.13",
     "tough-cookie": "^6.0.2",
     "urbackup-server-api": "^0.92.2",
     "winston": "^3.19.0",
