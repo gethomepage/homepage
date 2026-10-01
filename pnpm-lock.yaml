@@ -58,7 +58,7 @@ importers:
         version: 4.24.15(next@16.3.3(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@26.2.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       next-i18next:
         specifier: ^16.0.8
-        version: 16.0.10(@types/react@19.2.18)(i18next@26.4.2(typescript@6.0.3))(next@16.3.3(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@26.2.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-i18next@17.0.12(i18next@26.4.2(typescript@6.0.3))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3))(react@19.3.0)
+        version: 16.0.10(@types/react@19.2.18)(i18next@26.4.2(typescript@6.0.3))(next@16.3.3(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@26.2.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-i18next@17.0.15(i18next@26.4.2(typescript@6.0.3))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3))(react@19.3.0)
       ping:
         specifier: ^1.0.0
         version: 1.0.0
@@ -75,8 +75,8 @@ importers:
         specifier: ^19.3.0
         version: 19.3.0(react@19.3.0)
       react-i18next:
-        specifier: ^17.0.12
-        version: 17.0.12(i18next@26.4.2(typescript@6.0.3))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3)
+        specifier: ^17.0.15
+        version: 17.0.15(i18next@26.4.2(typescript@6.0.3))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3)
       react-icons:
         specifier: ^5.6.0
         version: 5.7.0(react@19.3.0)
@@ -3123,8 +3123,8 @@ packages:
     peerDependencies:
       react: ^19.3.0
 
-  react-i18next@17.0.12:
-    resolution: {integrity: sha512-lFWPEGkxQ6RhusdUkysFBD58VHfSSzvHBzqMgN0SvfVpdQGfwtNkStTqdy08/sJd7s807qqutgx93fRpD0DJ3Q==}
+  react-i18next@17.0.15:
+    resolution: {integrity: sha512-7uYpx/oBkesLto7cOzOmfITlUBaXHCAcFahmgETMfWr8nbbWRRnVGvz8wsH/xpbNcyoH+NpCcnOQEqWPMO6/hw==}
     peerDependencies:
       i18next: '>= 26.2.0'
       react: '>= 16.8.0'
@@ -6566,7 +6566,7 @@ snapshots:
       react-dom: 19.3.0(react@19.3.0)
       uuid: 11.1.1
 
-  next-i18next@16.0.10(@types/react@19.2.18)(i18next@26.4.2(typescript@6.0.3))(next@16.3.3(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@26.2.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-i18next@17.0.12(i18next@26.4.2(typescript@6.0.3))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3))(react@19.3.0):
+  next-i18next@16.0.10(@types/react@19.2.18)(i18next@26.4.2(typescript@6.0.3))(next@16.3.3(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@26.2.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-i18next@17.0.15(i18next@26.4.2(typescript@6.0.3))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3))(react@19.3.0):
     dependencies:
       '@types/hoist-non-react-statics': 3.3.7(@types/react@19.2.18)
       hoist-non-react-statics: 3.3.2
@@ -6574,7 +6574,7 @@ snapshots:
       i18next-resources-to-backend: 1.2.3
       next: 16.3.3(@babel/core@7.29.7(supports-color@7.2.0))(@types/node@26.2.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react: 19.3.0
-      react-i18next: 17.0.12(i18next@26.4.2(typescript@6.0.3))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3)
+      react-i18next: 17.0.15(i18next@26.4.2(typescript@6.0.3))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3)
     transitivePeerDependencies:
       - '@types/react'
 
@@ -6846,7 +6846,7 @@ snapshots:
       react: 19.3.0
       scheduler: 0.28.0
 
-  react-i18next@17.0.12(i18next@26.4.2(typescript@6.0.3))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3):
+  react-i18next@17.0.15(i18next@26.4.2(typescript@6.0.3))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3):
     dependencies:
       '@babel/runtime': 7.29.7
       html-parse-stringify: 4.0.1
