@@ -121,6 +121,8 @@ module.exports = {
     locales: ["en"],
   },
   serializeConfig: false,
+  // see https://github.com/i18next/i18next/issues/2227
+  cacheInBuiltFormats: false,
   use: [
     {
       init: (i18next) => {
