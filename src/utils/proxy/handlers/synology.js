@@ -11,6 +11,20 @@ const AUTH_ENDPOINT =
   "{url}/webapi/{path}?api=SYNO.API.Auth&version={maxVersion}&method=login&account={username}&passwd={password}&session=DownloadStation&format=cookie";
 const AUTH_API_NAME = "SYNO.API.Auth";
 
+// from: https://global.download.synology.com/download/Document/Software/DeveloperGuide/Os/DSM/All/enu/DSM_Login_Web_API_Guide_enu.pdf
+const AUTH_ERRORS = {
+  400: "No such account or incorrect password.",
+  401: "Account disabled.",
+  402: "Permission denied.",
+  403: "2FA code required.",
+  404: "2FA code rejected.",
+  406: "2FA is enforced for this account.",
+  407: "IP address blocked.",
+  408: "Password expired and cannot be changed.",
+  409: "Password expired.",
+  410: "Password must be changed.",
+};
+
 const proxyName = "synologyProxyHandler";
 const logger = createLogger(proxyName);
 
@@ -22,19 +36,11 @@ async function login(loginUrl) {
 
   const json = asJson(data);
   if (json?.success !== true) {
-    // from page 16: https://global.download.synology.com/download/Document/Software/DeveloperGuide/Os/DSM/All/enu/DSM_Login_Web_API_Guide_enu.pdf
-    /*
-      Code Description
-      400  No such account or incorrect password
-      401  Account disabled
-      402  Permission denied
-      403  2-step verification code required
-      404  Failed to authenticate 2-step verification code
-    */
-    let message = "Authentication failed.";
-    if (json?.error?.code >= 403) message += " 2FA enabled.";
-    logger.warn("Unable to login.  Code: %d", json?.error?.code);
-    return [401, "application/json", JSON.stringify({ code: json?.error?.code, message })];
+    const code = json?.error?.code;
+    const reason = AUTH_ERRORS[code];
+    const message = reason ? `Authentication failed. ${reason}` : "Authentication failed.";
+    logger.warn("Unable to login.  Code: %d", code);
+    return [401, "application/json", JSON.stringify({ code, message })];
   }
 
   return [status, contentType, data];
