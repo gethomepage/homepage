@@ -256,6 +256,16 @@
         "leech": "İndirilen",
         "seed": "Gönderilen"
     },
+    "qui": {
+        "leech": "Leech",
+        "download": "Download",
+        "seed": "Seed",
+        "upload": "Upload",
+        "total": "Total",
+        "errored": "Errored",
+        "ratio": "Ratio",
+        "freeSpace": "Free"
+    },
     "qnap": {
         "cpuUsage": "İşlemci Kullanımı",
         "memUsage": "Bellek Kullanımı",
@@ -859,6 +869,14 @@
         "reading": "Okunuyor",
         "finished": "Bitti"
     },
+    "bookorbit": {
+        "books": "Books",
+        "authors": "Authors",
+        "series": "Series",
+        "storage": "Storage",
+        "reading": "Reading",
+        "finished": "Finished"
+    },
     "jdownloader": {
         "downloadCount": "Kuyruk",
         "downloadBytesRemaining": "Kalan",
@@ -1258,5 +1276,8 @@
         "wanted": "Wanted",
         "queued": "Queued",
         "leagues": "Leagues"
+    },
+    "feed": {
+        "noItems": "No items"
     }
 }

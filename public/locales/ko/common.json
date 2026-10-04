@@ -256,6 +256,16 @@
         "leech": "리치",
         "seed": "시드"
     },
+    "qui": {
+        "leech": "Leech",
+        "download": "Download",
+        "seed": "Seed",
+        "upload": "Upload",
+        "total": "Total",
+        "errored": "Errored",
+        "ratio": "Ratio",
+        "freeSpace": "Free"
+    },
     "qnap": {
         "cpuUsage": "CPU 사용량",
         "memUsage": "메모리 사용량",
@@ -859,6 +869,14 @@
         "reading": "읽는 중",
         "finished": "완료"
     },
+    "bookorbit": {
+        "books": "Books",
+        "authors": "Authors",
+        "series": "Series",
+        "storage": "Storage",
+        "reading": "Reading",
+        "finished": "Finished"
+    },
     "jdownloader": {
         "downloadCount": "대기열",
         "downloadBytesRemaining": "남음",
@@ -1258,5 +1276,8 @@
         "wanted": "Wanted",
         "queued": "Queued",
         "leagues": "Leagues"
+    },
+    "feed": {
+        "noItems": "No items"
     }
 }

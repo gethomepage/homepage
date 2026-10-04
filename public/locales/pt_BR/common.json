@@ -256,6 +256,16 @@
         "leech": "Leech",
         "seed": "Seed"
     },
+    "qui": {
+        "leech": "Leech",
+        "download": "Download",
+        "seed": "Seed",
+        "upload": "Upload",
+        "total": "Total",
+        "errored": "Errored",
+        "ratio": "Ratio",
+        "freeSpace": "Free"
+    },
     "qnap": {
         "cpuUsage": "Uso de CPU",
         "memUsage": "Uso de Memória",
@@ -859,6 +869,14 @@
         "reading": "Lendo",
         "finished": "Finalizado"
     },
+    "bookorbit": {
+        "books": "Books",
+        "authors": "Authors",
+        "series": "Series",
+        "storage": "Storage",
+        "reading": "Reading",
+        "finished": "Finished"
+    },
     "jdownloader": {
         "downloadCount": "Fila de espera",
         "downloadBytesRemaining": "Restante",
@@ -1258,5 +1276,8 @@
         "wanted": "Desejado",
         "queued": "Na fila",
         "leagues": "Ligas"
+    },
+    "feed": {
+        "noItems": "No items"
     }
 }
