@@ -256,6 +256,16 @@
         "leech": "עלוקה",
         "seed": "זורע"
     },
+    "qui": {
+        "leech": "Leech",
+        "download": "Download",
+        "seed": "Seed",
+        "upload": "Upload",
+        "total": "Total",
+        "errored": "Errored",
+        "ratio": "Ratio",
+        "freeSpace": "Free"
+    },
     "qnap": {
         "cpuUsage": "שימוש במעבד",
         "memUsage": "שימוש בזיכרון",
@@ -859,6 +869,14 @@
         "reading": "Reading",
         "finished": "Finished"
     },
+    "bookorbit": {
+        "books": "Books",
+        "authors": "Authors",
+        "series": "Series",
+        "storage": "Storage",
+        "reading": "Reading",
+        "finished": "Finished"
+    },
     "jdownloader": {
         "downloadCount": "תור",
         "downloadBytesRemaining": "נותר",
@@ -1258,5 +1276,8 @@
         "wanted": "Wanted",
         "queued": "Queued",
         "leagues": "Leagues"
+    },
+    "feed": {
+        "noItems": "No items"
     }
 }

@@ -72,7 +72,7 @@
         "empty_data": "Stav podsystému neznámy"
     },
     "unifi_drive": {
-        "healthy": "Healthy",
+        "healthy": "Zdravý",
         "degraded": "Degraded",
         "no_data": "No storage data available"
     },
@@ -255,6 +255,16 @@
         "upload": "Nahrávanie",
         "leech": "Leech",
         "seed": "Seed"
+    },
+    "qui": {
+        "leech": "Leech",
+        "download": "Download",
+        "seed": "Seed",
+        "upload": "Upload",
+        "total": "Total",
+        "errored": "Errored",
+        "ratio": "Ratio",
+        "freeSpace": "Free"
     },
     "qnap": {
         "cpuUsage": "Využitie CPU",
@@ -859,6 +869,14 @@
         "reading": "Reading",
         "finished": "Finished"
     },
+    "bookorbit": {
+        "books": "Books",
+        "authors": "Authors",
+        "series": "Series",
+        "storage": "Úložisko",
+        "reading": "Reading",
+        "finished": "Finished"
+    },
     "jdownloader": {
         "downloadCount": "Poradie",
         "downloadBytesRemaining": "Zostávajúce",
@@ -1258,5 +1276,8 @@
         "wanted": "Wanted",
         "queued": "V poradí",
         "leagues": "Leagues"
+    },
+    "feed": {
+        "noItems": "Žiadne položky"
     }
 }

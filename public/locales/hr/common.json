@@ -256,6 +256,16 @@
         "leech": "Korištenje tuđeg sadržaja",
         "seed": "Prenošenje preuzetog sadržaja"
     },
+    "qui": {
+        "leech": "Leech",
+        "download": "Download",
+        "seed": "Seed",
+        "upload": "Upload",
+        "total": "Total",
+        "errored": "Errored",
+        "ratio": "Ratio",
+        "freeSpace": "Free"
+    },
     "qnap": {
         "cpuUsage": "Korištenje procesora",
         "memUsage": "Korištenje memorije",
@@ -859,6 +869,14 @@
         "reading": "Čitanje",
         "finished": "Završeno"
     },
+    "bookorbit": {
+        "books": "Books",
+        "authors": "Authors",
+        "series": "Series",
+        "storage": "Storage",
+        "reading": "Reading",
+        "finished": "Finished"
+    },
     "jdownloader": {
         "downloadCount": "Red čekanja",
         "downloadBytesRemaining": "Preostalo",
@@ -1258,5 +1276,8 @@
         "wanted": "Željeno",
         "queued": "U redu čekanja",
         "leagues": "Lige"
+    },
+    "feed": {
+        "noItems": "No items"
     }
 }
