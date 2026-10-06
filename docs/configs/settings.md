@@ -612,6 +612,8 @@ logpath: /logfile/path
 
 By default, logs are sent both to `stdout` and to a file at the path specified. This can be changed by setting the `LOG_TARGETS` environment variable to one of `both` (default), `stdout` or `file`.
 
+Log files rotate automatically when they reach 10 MiB. Up to five files are retained: the current `homepage.log` and four rotated files (`homepage1.log` through `homepage4.log`). The oldest rotated file is removed when a new one is created.
+
 ## Show Container Stats
 
 You can show all docker or proxmox stats expanded in `settings.yaml`:

@@ -50,6 +50,9 @@ function getFileLogger() {
       winston.format.printf(messageFormatter),
     ),
     filename: `${logpath}/logs/homepage.log`,
+    maxsize: 10 * 1024 * 1024,
+    maxFiles: 5,
+    tailable: true,
     handleExceptions: true,
     handleRejections: true,
   });
