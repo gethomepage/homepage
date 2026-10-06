@@ -6,9 +6,10 @@ export default function Component({ service }) {
   const { widget } = service;
 
   const { data: statsData, error: statsError } = useWidgetAPI(widget, "cfd_tunnel");
+  const { data: connectionsData, error: connectionsError } = useWidgetAPI(widget, "connections");
 
-  if (statsError) {
-    return <Container service={service} error={statsError} />;
+  if (statsError || connectionsError) {
+    return <Container service={service} error={statsError ?? connectionsError} />;
   }
 
   if (!statsData) {
@@ -20,7 +21,9 @@ export default function Component({ service }) {
     );
   }
 
-  const originIP = statsData.result.connections?.origin_ip ?? statsData.result.connections[0]?.origin_ip;
+  const originIP = connectionsData?.result
+    .flatMap((connector) => connector.conns ?? [])
+    .find((connection) => connection.origin_ip)?.origin_ip;
 
   return (
     <Container service={service}>
@@ -28,7 +31,7 @@ export default function Component({ service }) {
         label="cloudflared.status"
         value={statsData.result.status.charAt(0).toUpperCase() + statsData.result.status.slice(1)}
       />
-      <Block label="cloudflared.origin_ip" value={originIP} />
+      <Block label="cloudflared.origin_ip" value={connectionsData ? (originIP ?? "-") : undefined} />
     </Container>
   );
 }
