@@ -100,11 +100,11 @@
         "not_found": "Nie znaleziono",
         "exited": "Zakończony",
         "partial": "Częściowy",
-        "created": "Created",
-        "paused": "Paused",
-        "restarting": "Restarting",
-        "removing": "Removing",
-        "dead": "Dead"
+        "created": "Utworzony",
+        "paused": "Wstrzymany",
+        "restarting": "Ponowne uruchamianie",
+        "removing": "Usuwanie",
+        "dead": "Martwy"
     },
     "ping": {
         "error": "Błąd",
@@ -255,6 +255,16 @@
         "upload": "Wysyłanie",
         "leech": "Leech",
         "seed": "Seed"
+    },
+    "qui": {
+        "leech": "Leech",
+        "download": "Pobieranie",
+        "seed": "Seed",
+        "upload": "Wysyłanie",
+        "total": "Razem",
+        "errored": "Z błędami",
+        "ratio": "Ratio",
+        "freeSpace": "Wolne"
     },
     "qnap": {
         "cpuUsage": "Użycie CPU",
@@ -859,6 +869,14 @@
         "reading": "Czytane",
         "finished": "Skończone"
     },
+    "bookorbit": {
+        "books": "Książki",
+        "authors": "Autorzy",
+        "series": "Serie",
+        "storage": "Pamięć",
+        "reading": "Czytane",
+        "finished": "Skończone"
+    },
     "jdownloader": {
         "downloadCount": "W kolejce",
         "downloadBytesRemaining": "Pozostało",
@@ -1258,5 +1276,8 @@
         "wanted": "Poszukiwane",
         "queued": "W kolejce",
         "leagues": "Ligi"
+    },
+    "feed": {
+        "noItems": "Brak elementów"
     }
 }
