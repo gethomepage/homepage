@@ -40,8 +40,8 @@
     },
     "search": {
         "placeholder": "Hledat…",
-        "provider": "Search engine: {{name}}",
-        "select_provider": "Select search engine"
+        "provider": "Vyhledávač: {{name}}",
+        "select_provider": "Vyberte vyhledávač"
     },
     "resources": {
         "cpu": "Využití procesoru",
@@ -100,11 +100,11 @@
         "not_found": "Nenalezen",
         "exited": "Ukončen",
         "partial": "Částečný",
-        "created": "Created",
-        "paused": "Paused",
-        "restarting": "Restarting",
-        "removing": "Removing",
-        "dead": "Dead"
+        "created": "Vytvořeno",
+        "paused": "Pozastaveno",
+        "restarting": "Restartuji",
+        "removing": "Odebírání",
+        "dead": "Mrtvý"
     },
     "ping": {
         "error": "Chyba",
@@ -255,6 +255,16 @@
         "upload": "Nahrávání",
         "leech": "Leechované",
         "seed": "Seedované"
+    },
+    "qui": {
+        "leech": "Leechované",
+        "download": "Stahování",
+        "seed": "Seedované",
+        "upload": "Nahravání",
+        "total": "Celkem",
+        "errored": "Chybné",
+        "ratio": "Poměr",
+        "freeSpace": "Volné"
     },
     "qnap": {
         "cpuUsage": "Využití procesoru",
@@ -859,6 +869,14 @@
         "reading": "Čtené",
         "finished": "Přečtené"
     },
+    "bookorbit": {
+        "books": "Books",
+        "authors": "Authors",
+        "series": "Series",
+        "storage": "Storage",
+        "reading": "Reading",
+        "finished": "Finished"
+    },
     "jdownloader": {
         "downloadCount": "Fronta",
         "downloadBytesRemaining": "Zbývá",
@@ -1258,5 +1276,8 @@
         "wanted": "Požadované",
         "queued": "Ve frontě",
         "leagues": "Ligy"
+    },
+    "feed": {
+        "noItems": "Žádné položky"
     }
 }
