@@ -7,15 +7,15 @@ export default function Component({ service }) {
 
   const { data: giteaNotifications, error: giteaNotificationsError } = useWidgetAPI(widget, "notifications");
   const { data: giteaIssues, error: giteaIssuesError } = useWidgetAPI(widget, "issues");
+  const { data: giteaPulls, error: giteaPullsError } = useWidgetAPI(widget, "pulls");
   const { data: giteaRepositories, error: giteaRepositoriesError } = useWidgetAPI(widget, "repositories");
 
-  if (giteaNotificationsError || giteaIssuesError || giteaRepositoriesError) {
-    return (
-      <Container service={service} error={giteaNotificationsError ?? giteaIssuesError ?? giteaRepositoriesError} />
-    );
+  const error = giteaNotificationsError ?? giteaIssuesError ?? giteaPullsError ?? giteaRepositoriesError;
+  if (error) {
+    return <Container service={service} error={error} />;
   }
 
-  if (!giteaNotifications || !giteaIssues || !giteaRepositories) {
+  if (!giteaNotifications || !giteaIssues || !giteaPulls || !giteaRepositories) {
     return (
       <Container service={service}>
         <Block label="gitea.notifications" />
@@ -28,10 +28,10 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="gitea.notifications" value={giteaNotifications.length} />
-      <Block label="gitea.issues" value={giteaIssues.issues.length} />
-      <Block label="gitea.pulls" value={giteaIssues.pulls.length} />
-      <Block label="gitea.repositories" value={giteaRepositories.data.length} />
+      <Block label="gitea.notifications" value={giteaNotifications.count} />
+      <Block label="gitea.issues" value={giteaIssues.count} />
+      <Block label="gitea.pulls" value={giteaPulls.count} />
+      <Block label="gitea.repositories" value={giteaRepositories.count} />
     </Container>
   );
 }

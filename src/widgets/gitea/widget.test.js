@@ -2,19 +2,20 @@ import { describe, expect, it } from "vitest";
 
 import { expectWidgetConfigShape } from "test-utils/widget-config";
 
-import widget from "./widget";
+import widget, { totalCount } from "./widget";
 
 describe("gitea widget config", () => {
   it("exports a valid widget config", () => {
     expectWidgetConfigShape(widget);
   });
 
-  it("splits issues and pull requests", () => {
-    const result = widget.mappings.issues.map(
-      Buffer.from(JSON.stringify([{ id: 1, pull_request: {} }, { id: 2 }, { id: 3 }])),
-    );
+  it("reads the total count from the X-Total-Count header", () => {
+    expect(totalCount(Buffer.from("[]"), { "x-total-count": "1234" })).toEqual({ count: 1234 });
+    expect(totalCount(Buffer.from("[]"), { "x-total-count": "0" })).toEqual({ count: 0 });
+  });
 
-    expect(result.pulls.map((i) => i.id)).toEqual([1]);
-    expect(result.issues.map((i) => i.id)).toEqual([2, 3]);
+  it("returns a null count when the header is missing", () => {
+    expect(totalCount(Buffer.from("[{}]"), {})).toEqual({ count: null });
+    expect(totalCount(Buffer.from("[{}]"), undefined)).toEqual({ count: null });
   });
 });

@@ -20,6 +20,7 @@ describe("widgets/gitea/component", () => {
     useWidgetAPI
       .mockReturnValueOnce({ data: undefined, error: undefined }) // notifications
       .mockReturnValueOnce({ data: undefined, error: undefined }) // issues
+      .mockReturnValueOnce({ data: undefined, error: undefined }) // pulls
       .mockReturnValueOnce({ data: undefined, error: undefined }); // repositories
 
     const { container } = renderWithProviders(<Component service={{ widget: { type: "gitea", url: "http://x" } }} />, {
@@ -38,6 +39,7 @@ describe("widgets/gitea/component", () => {
     useWidgetAPI
       .mockReturnValueOnce({ data: undefined, error: undefined })
       .mockReturnValueOnce({ data: undefined, error: { message: "nope" } })
+      .mockReturnValueOnce({ data: undefined, error: undefined })
       .mockReturnValueOnce({ data: undefined, error: undefined });
 
     renderWithProviders(<Component service={{ widget: { type: "gitea", url: "http://x" } }} />, {
@@ -48,22 +50,20 @@ describe("widgets/gitea/component", () => {
     expect(screen.getByText("nope")).toBeInTheDocument();
   });
 
-  it("renders computed counts when loaded", () => {
+  it("renders total counts when loaded", () => {
     useWidgetAPI
-      .mockReturnValueOnce({ data: [{ id: 1 }, { id: 2 }], error: undefined })
-      .mockReturnValueOnce({
-        data: { issues: [{ id: 1 }], pulls: [{ id: 1 }, { id: 2 }, { id: 3 }] },
-        error: undefined,
-      })
-      .mockReturnValueOnce({ data: { data: [{ id: 1 }] }, error: undefined });
+      .mockReturnValueOnce({ data: { count: 2 }, error: undefined })
+      .mockReturnValueOnce({ data: { count: 1234 }, error: undefined })
+      .mockReturnValueOnce({ data: { count: 0 }, error: undefined })
+      .mockReturnValueOnce({ data: { count: 56 }, error: undefined });
 
     const { container } = renderWithProviders(<Component service={{ widget: { type: "gitea", url: "http://x" } }} />, {
       settings: { hideErrors: false },
     });
 
     expectBlockValue(container, "gitea.notifications", 2);
-    expectBlockValue(container, "gitea.issues", 1);
-    expectBlockValue(container, "gitea.pulls", 3);
-    expectBlockValue(container, "gitea.repositories", 1);
+    expectBlockValue(container, "gitea.issues", 1234);
+    expectBlockValue(container, "gitea.pulls", 0);
+    expectBlockValue(container, "gitea.repositories", 56);
   });
 });
