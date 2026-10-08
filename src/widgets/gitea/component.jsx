@@ -1,21 +1,28 @@
+import { useTranslation } from "next-i18next/pages";
+
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
+  const { t } = useTranslation();
   const { widget } = service;
 
   const { data: giteaNotifications, error: giteaNotificationsError } = useWidgetAPI(widget, "notifications");
   const { data: giteaIssues, error: giteaIssuesError } = useWidgetAPI(widget, "issues");
+  const { data: giteaPulls, error: giteaPullsError } = useWidgetAPI(widget, "pulls");
   const { data: giteaRepositories, error: giteaRepositoriesError } = useWidgetAPI(widget, "repositories");
 
-  if (giteaNotificationsError || giteaIssuesError || giteaRepositoriesError) {
+  if (giteaNotificationsError || giteaIssuesError || giteaPullsError || giteaRepositoriesError) {
     return (
-      <Container service={service} error={giteaNotificationsError ?? giteaIssuesError ?? giteaRepositoriesError} />
+      <Container
+        service={service}
+        error={giteaNotificationsError ?? giteaIssuesError ?? giteaPullsError ?? giteaRepositoriesError}
+      />
     );
   }
 
-  if (!giteaNotifications || !giteaIssues || !giteaRepositories) {
+  if (!giteaNotifications || !giteaIssues || !giteaPulls || !giteaRepositories) {
     return (
       <Container service={service}>
         <Block label="gitea.notifications" />
@@ -28,10 +35,10 @@ export default function Component({ service }) {
 
   return (
     <Container service={service}>
-      <Block label="gitea.notifications" value={giteaNotifications.length} />
-      <Block label="gitea.issues" value={giteaIssues.issues.length} />
-      <Block label="gitea.pulls" value={giteaIssues.pulls.length} />
-      <Block label="gitea.repositories" value={giteaRepositories.data.length} />
+      <Block label="gitea.notifications" value={t("common.number", { value: giteaNotifications.count })} />
+      <Block label="gitea.issues" value={t("common.number", { value: giteaIssues.count })} />
+      <Block label="gitea.pulls" value={t("common.number", { value: giteaPulls.count })} />
+      <Block label="gitea.repositories" value={t("common.number", { value: giteaRepositories.count })} />
     </Container>
   );
 }

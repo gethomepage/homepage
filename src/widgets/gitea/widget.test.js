@@ -9,12 +9,10 @@ describe("gitea widget config", () => {
     expectWidgetConfigShape(widget);
   });
 
-  it("splits issues and pull requests", () => {
-    const result = widget.mappings.issues.map(
-      Buffer.from(JSON.stringify([{ id: 1, pull_request: {} }, { id: 2 }, { id: 3 }])),
-    );
-
-    expect(result.pulls.map((i) => i.id)).toEqual([1]);
-    expect(result.issues.map((i) => i.id)).toEqual([2, 3]);
+  it("requests a single item per endpoint to read the total count", () => {
+    expect(widget.mappings.notifications.endpoint).toBe("notifications?limit=1");
+    expect(widget.mappings.issues.endpoint).toBe("repos/issues/search?type=issues&limit=1");
+    expect(widget.mappings.pulls.endpoint).toBe("repos/issues/search?type=pulls&limit=1");
+    expect(widget.mappings.repositories.endpoint).toBe("repos/search?limit=1");
   });
 });
