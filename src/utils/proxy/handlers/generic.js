@@ -49,7 +49,7 @@ export default async function genericProxyHandler(req, res, map) {
         }
       }
 
-      const [status, contentType, data] = await httpProxy(url, params);
+      const [status, contentType, data, responseHeaders] = await httpProxy(url, params);
 
       let resultData = data;
 
@@ -63,7 +63,7 @@ export default async function genericProxyHandler(req, res, map) {
             .status(status)
             .json({ error: { message: "Invalid data", url: sanitizeErrorURL(url), data: resultData } });
         }
-        if (map) resultData = map(resultData);
+        if (map) resultData = map(resultData, responseHeaders);
       }
 
       if (contentType) res.setHeader("Content-Type", contentType);

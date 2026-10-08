@@ -253,4 +253,20 @@ describe("utils/proxy/handlers/generic", () => {
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual({ mapped: true });
   });
+
+  it("passes the response headers to the mapping function", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "testservice",
+      url: "http://example",
+    });
+    httpProxy.mockResolvedValueOnce([200, "application/json", { ok: true }, { "x-total-count": "42" }]);
+
+    const req = { method: "GET", query: { group: "g", service: "svc", endpoint: "api", index: "0" } };
+    const res = createMockRes();
+
+    await genericProxyHandler(req, res, (data, headers) => ({ total: headers["x-total-count"] }));
+
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({ total: "42" });
+  });
 });
