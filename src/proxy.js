@@ -16,7 +16,7 @@ function withPrivateCache(res) {
   return res;
 }
 
-export async function middleware(req) {
+export async function proxy(req) {
   // Check the Host header, if HOMEPAGE_ALLOWED_HOSTS is set
   const host = req.headers.get("host");
   const port = process.env.PORT || 3000;
