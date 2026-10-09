@@ -14,8 +14,8 @@ vi.mock("next-auth/jwt", () => ({ getToken }));
 
 async function loadMiddleware() {
   vi.resetModules();
-  const mod = await import("./middleware");
-  return mod.middleware;
+  const mod = await import("./proxy");
+  return mod.proxy;
 }
 
 function createReq(host = "localhost:3000", url = "http://localhost:3000/", headers = {}) {
@@ -30,7 +30,7 @@ function createReq(host = "localhost:3000", url = "http://localhost:3000/", head
   };
 }
 
-describe("middleware", () => {
+describe("proxy", () => {
   const originalEnv = process.env;
   const originalConsoleError = console.error;
 
