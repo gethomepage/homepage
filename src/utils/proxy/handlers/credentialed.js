@@ -130,6 +130,10 @@ export default async function credentialedProxyHandler(req, res, map) {
         headers.Authorization = widget.key;
       } else if (widget.type === "gitlab") {
         headers["PRIVATE-TOKEN"] = widget.key;
+      } else if (widget.type === "fileflows") {
+        if (widget.key) {
+          headers["X-Webhook-Token"] = `${widget.key}`;
+        }
       } else if (widget.type === "speedtest") {
         if (widget.key) {
           // v1 does not require a key
