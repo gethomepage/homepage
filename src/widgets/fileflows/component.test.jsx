@@ -62,4 +62,23 @@ describe("widgets/fileflows/component", () => {
     expectBlockValue(container, "fileflows.processed", 3);
     expectBlockValue(container, "fileflows.time", "0:00");
   });
+
+  it("uses the webhook endpoint and fields for version 2", () => {
+    useWidgetAPI.mockReturnValue({
+      data: { Unprocessed: 4, Processing: 1, Processed: 10, Failed: 2 },
+      error: undefined,
+    });
+
+    const widget = { type: "fileflows", url: "http://x", version: 2 };
+    const { container } = renderWithProviders(<Component service={{ widget }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(useWidgetAPI).toHaveBeenCalledWith(widget, "status_v2");
+    expectBlockValue(container, "fileflows.queue", 4);
+    expectBlockValue(container, "fileflows.processing", 1);
+    expectBlockValue(container, "fileflows.processed", 10);
+    expectBlockValue(container, "fileflows.failed", 2);
+    expect(screen.queryByText("fileflows.time")).not.toBeInTheDocument();
+  });
 });
