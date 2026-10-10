@@ -8,8 +8,9 @@ export default function Component({ service }) {
   const { t } = useTranslation();
 
   const { widget } = service;
+  const version = widget.version ?? 1;
 
-  const { data: fileflowsData, error: fileflowsError } = useWidgetAPI(widget, "status");
+  const { data: fileflowsData, error: fileflowsError } = useWidgetAPI(widget, version === 2 ? "status_v2" : "status");
 
   if (fileflowsError) {
     return <Container service={service} error={fileflowsError} />;
@@ -21,7 +22,18 @@ export default function Component({ service }) {
         <Block label="fileflows.queue" />
         <Block label="fileflows.processing" />
         <Block label="fileflows.processed" />
-        <Block label="fileflows.time" />
+        {version === 2 ? <Block label="fileflows.failed" /> : <Block label="fileflows.time" />}
+      </Container>
+    );
+  }
+
+  if (version === 2) {
+    return (
+      <Container service={service}>
+        <Block label="fileflows.queue" value={t("common.number", { value: fileflowsData.Unprocessed })} />
+        <Block label="fileflows.processing" value={t("common.number", { value: fileflowsData.Processing })} />
+        <Block label="fileflows.processed" value={t("common.number", { value: fileflowsData.Processed })} />
+        <Block label="fileflows.failed" value={t("common.number", { value: fileflowsData.Failed })} />
       </Container>
     );
   }

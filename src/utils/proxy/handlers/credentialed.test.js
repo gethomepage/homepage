@@ -40,6 +40,7 @@ vi.mock("widgets/widgets", () => ({
     checkmk: { api: "{url}/{endpoint}" },
     stocks: { api: "{url}/{endpoint}" },
     speedtest: { api: "{url}/{endpoint}" },
+    fileflows: { api: "{url}/{endpoint}" },
     tubearchivist: { api: "{url}/{endpoint}" },
     autobrr: { api: "{url}/{endpoint}" },
     jellystat: { api: "{url}/{endpoint}" },
@@ -328,6 +329,7 @@ describe("utils/proxy/handlers/credentialed", () => {
       [{ type: "trilium", url: "http://x", key: "k" }, { Authorization: "k" }],
       [{ type: "gitlab", url: "http://x", key: "k" }, { "PRIVATE-TOKEN": "k" }],
       [{ type: "speedtest", url: "http://x", key: "k" }, { Authorization: "Bearer k" }],
+      [{ type: "fileflows", url: "http://x", key: "k" }, { "X-Webhook-Token": "k" }],
       [
         { type: "azuredevops", url: "http://x", key: "k" },
         { Authorization: `Basic ${Buffer.from("$:k").toString("base64")}` },

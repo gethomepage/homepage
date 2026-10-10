@@ -1,12 +1,15 @@
-import genericProxyHandler from "utils/proxy/handlers/generic";
+import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 
 const widget = {
-  api: "{url}/api/{endpoint}",
-  proxyHandler: genericProxyHandler,
+  api: "{url}/{endpoint}",
+  proxyHandler: credentialedProxyHandler,
 
   mappings: {
     status: {
-      endpoint: "status",
+      endpoint: "api/status",
+    },
+    status_v2: {
+      endpoint: "webhook/fenrus",
     },
   },
 };

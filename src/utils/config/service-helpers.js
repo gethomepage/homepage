@@ -619,6 +619,7 @@ export function cleanServiceGroups(groups) {
           [
             "authentik",
             "beszel",
+            "fileflows",
             "glances",
             "immich",
             "jellyfin",
