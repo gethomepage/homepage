@@ -790,7 +790,8 @@
         "queue": "Αναμονή",
         "processing": "Σε επεξεργασία",
         "processed": "Επεξεργασμένα",
-        "time": "Ώρα"
+        "time": "Ώρα",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "Καθαρή αξία",

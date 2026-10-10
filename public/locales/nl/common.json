@@ -790,7 +790,8 @@
         "queue": "Wachtrij",
         "processing": "Verwerken",
         "processed": "Verwerkt",
-        "time": "Tijd"
+        "time": "Tijd",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "Totaal eigen vermogen",

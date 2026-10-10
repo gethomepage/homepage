@@ -790,7 +790,8 @@
         "queue": "File d'attente",
         "processing": "En traitement",
         "processed": "Traité",
-        "time": "Temps"
+        "time": "Temps",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "Valeur Nette",

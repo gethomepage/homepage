@@ -790,7 +790,8 @@
         "queue": "Ред",
         "processing": "Обрада",
         "processed": "Обрада",
-        "time": "Време"
+        "time": "Време",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "Нето вредност",

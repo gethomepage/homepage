@@ -790,7 +790,8 @@
         "queue": "الطابور",
         "processing": "قيد المعالجة",
         "processed": "مُعَالَج",
-        "time": "الوقت"
+        "time": "الوقت",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "صافي القيمة",

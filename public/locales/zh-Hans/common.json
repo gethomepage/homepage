@@ -790,7 +790,8 @@
         "queue": "队列",
         "processing": "处理中",
         "processed": "已处理",
-        "time": "时间"
+        "time": "时间",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "净值",

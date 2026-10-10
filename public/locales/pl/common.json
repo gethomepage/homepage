@@ -790,7 +790,8 @@
         "queue": "W kolejce",
         "processing": "Przetwarzane",
         "processed": "Przetworzone",
-        "time": "Czas"
+        "time": "Czas",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "Wartość netto",

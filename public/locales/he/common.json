@@ -790,7 +790,8 @@
         "queue": "תור",
         "processing": "בעיבוד",
         "processed": "עובדו",
-        "time": "זמן"
+        "time": "זמן",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "שווי נקי",

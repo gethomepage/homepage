@@ -790,7 +790,8 @@
         "queue": "대기열",
         "processing": "처리 중",
         "processed": "처리됨",
-        "time": "시간"
+        "time": "시간",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "순자산",

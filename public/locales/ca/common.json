@@ -790,7 +790,8 @@
         "queue": "Cua",
         "processing": "Processant",
         "processed": "Processat",
-        "time": "Temps"
+        "time": "Temps",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "Valor Net",

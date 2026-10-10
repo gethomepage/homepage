@@ -790,7 +790,8 @@
         "queue": "Queue",
         "processing": "Processing",
         "processed": "Processed",
-        "time": "Waktu"
+        "time": "Waktu",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "Kekayaan Bersih",
