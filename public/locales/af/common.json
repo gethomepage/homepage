@@ -790,7 +790,8 @@
         "queue": "Tou",
         "processing": "Verwerking",
         "processed": "Verwerk",
-        "time": "Tyd"
+        "time": "Tyd",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "Netto Waarde",

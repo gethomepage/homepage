@@ -790,7 +790,8 @@
         "queue": "Warteschlange",
         "processing": "Wird verarbeitet",
         "processed": "Wird verarbeitet",
-        "time": "Zeit"
+        "time": "Zeit",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "Reinvermögen",

@@ -790,7 +790,8 @@
         "queue": "Sorban",
         "processing": "Feldolgozás alatt",
         "processed": "Feldolgozott",
-        "time": "Idő"
+        "time": "Idő",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "Nettó érték",

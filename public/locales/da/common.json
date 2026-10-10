@@ -790,7 +790,8 @@
         "queue": "Kø",
         "processing": "Behandler",
         "processed": "Behandlet",
-        "time": "Tid"
+        "time": "Tid",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "Nettoformue",

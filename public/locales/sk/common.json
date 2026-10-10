@@ -790,7 +790,8 @@
         "queue": "Poradie",
         "processing": "Processing",
         "processed": "Spracované",
-        "time": "Čas"
+        "time": "Čas",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "Net Worth",

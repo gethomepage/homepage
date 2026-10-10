@@ -790,7 +790,8 @@
         "queue": "Fila de espera",
         "processing": "Processando",
         "processed": "Processado",
-        "time": "Hora"
+        "time": "Hora",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "Valor Líquido",

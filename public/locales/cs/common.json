@@ -790,7 +790,8 @@
         "queue": "Fronta",
         "processing": "Zpracovává se",
         "processed": "Zpracováno",
-        "time": "Čas"
+        "time": "Čas",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "Čisté jmění",

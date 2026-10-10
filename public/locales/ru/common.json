@@ -790,7 +790,8 @@
         "queue": "Очередь",
         "processing": "Обрабатывается",
         "processed": "Обработано",
-        "time": "Время"
+        "time": "Время",
+        "failed": "Failed"
     },
     "firefly": {
         "networth": "Общая средства",
