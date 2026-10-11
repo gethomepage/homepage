@@ -57,7 +57,7 @@ vi.mock("widgets/widgets", () => ({
   },
 }));
 
-import handler from "./proxy";
+import handler from "pages/api/services/proxy";
 
 function createReq({ method = "GET", body, query = {} } = {}) {
   return { method, body, query };
