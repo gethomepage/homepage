@@ -1,4 +1,4 @@
-import { mkdtempSync, writeFileSync } from "node:fs";
+import { mkdtempSync, rmdirSync, unlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 
@@ -36,6 +36,39 @@ describe("utils/config/config", () => {
     const mod = await import("./config");
     expect(mod.substituteEnvironmentVars("token={{HOMEPAGE_FILE_SECRET}}")).toBe("token=secret");
   });
+
+  it.each(["pa$$word", "pa$&word", "pa$`word", "pa$'word", "pa$1word"])(
+    "substituteEnvironmentVars preserves literal environment value %j in every occurrence",
+    async (secret) => {
+      process.env.HOMEPAGE_VAR_SECRET = secret;
+
+      const mod = await import("./config");
+      expect(
+        mod.substituteEnvironmentVars("before {{HOMEPAGE_VAR_SECRET}} between {{HOMEPAGE_VAR_SECRET}} after"),
+      ).toBe(`before ${secret} between ${secret} after`);
+    },
+  );
+
+  it.each(["pa$$word", "pa$&word", "pa$`word", "pa$'word", "pa$1word"])(
+    "substituteEnvironmentVars preserves literal secret file contents %j in every occurrence",
+    async (secret) => {
+      const dir = mkdtempSync(path.join(tmpdir(), "homepage-config-test-"));
+      const secretPath = path.join(dir, "secret.txt");
+      writeFileSync(secretPath, secret, "utf8");
+
+      try {
+        process.env.HOMEPAGE_FILE_SECRET = secretPath;
+
+        const mod = await import("./config");
+        expect(
+          mod.substituteEnvironmentVars("before {{HOMEPAGE_FILE_SECRET}} between {{HOMEPAGE_FILE_SECRET}} after"),
+        ).toBe(`before ${secret} between ${secret} after`);
+      } finally {
+        unlinkSync(secretPath);
+        rmdirSync(dir);
+      }
+    },
+  );
 
   it("getSettings reads from HOMEPAGE_CONFIG_DIR and converts layout list to an object", async () => {
     const dir = mkdtempSync(path.join(tmpdir(), "homepage-settings-test-"));
