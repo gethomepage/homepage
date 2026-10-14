@@ -45,6 +45,7 @@ vi.mock("widgets/widgets", () => ({
     autobrr: { api: "{url}/{endpoint}" },
     jellystat: { api: "{url}/{endpoint}" },
     trilium: { api: "{url}/{endpoint}" },
+    gitea: { api: "{url}/api/v1/{endpoint}" },
     gitlab: { api: "{url}/{endpoint}" },
     azuredevops: { api: "{url}/{endpoint}" },
     glances: { api: "{url}/{endpoint}" },
@@ -133,6 +134,33 @@ describe("utils/proxy/handlers/credentialed", () => {
     expect(params.headers.Authorization).toBe("Bearer token");
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual({ ok: true });
+  });
+
+  it("uses Bearer auth for gitea widgets and keeps the key out of the URL", async () => {
+    getServiceWidget.mockResolvedValue({ type: "gitea", url: "http://example", key: "token" });
+    httpProxy.mockResolvedValue([200, "application/json", []]);
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "notifications?limit=1", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res);
+
+    const [url, params] = httpProxy.mock.calls[0];
+    expect(params.headers.Authorization).toBe("Bearer token");
+    expect(url.toString()).toBe("http://example/api/v1/notifications?limit=1");
+  });
+
+  it("passes response headers to the mapping function", async () => {
+    getServiceWidget.mockResolvedValue({ type: "gitea", url: "http://example", key: "token" });
+    httpProxy.mockResolvedValue([200, "application/json", [], { "x-total-count": "7" }]);
+
+    const req = { method: "GET", query: { group: "g", service: "s", endpoint: "notifications?limit=1", index: 0 } };
+    const res = createMockRes();
+
+    await credentialedProxyHandler(req, res, (data, headers) => ({ count: Number(headers["x-total-count"]) }));
+
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({ count: 7 });
   });
 
   it("uses NC-Token auth for nextcloud widgets when key is provided", async () => {
