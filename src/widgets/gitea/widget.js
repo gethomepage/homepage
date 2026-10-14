@@ -1,4 +1,4 @@
-import genericProxyHandler from "utils/proxy/handlers/generic";
+import credentialedProxyHandler from "utils/proxy/handlers/credentialed";
 
 // Get total from header to avoid pagination limit
 export function totalCount(data, headers) {
@@ -7,8 +7,8 @@ export function totalCount(data, headers) {
 }
 
 const widget = {
-  api: "{url}/api/v1/{endpoint}?access_token={key}",
-  proxyHandler: genericProxyHandler,
+  api: "{url}/api/v1/{endpoint}",
+  proxyHandler: credentialedProxyHandler,
 
   mappings: {
     notifications: {
