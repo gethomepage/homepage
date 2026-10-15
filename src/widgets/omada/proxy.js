@@ -14,7 +14,7 @@ function getSessionCacheId(group, service, index) {
 }
 
 function shouldRetryWithFreshSession(status, responseData, attempt, usedCachedSession) {
-  return attempt === 0 && usedCachedSession && (status === 401 || status === 403 || responseData?.errorCode > 0);
+  return attempt === 0 && usedCachedSession && (status === 401 || status === 403 || responseData?.errorCode !== 0);
 }
 
 function getCookieHeader(responseHeaders) {
@@ -58,7 +58,7 @@ async function login(loginUrl, username, password, controllerVersionMajor, sessi
 
   const loginResponseData = JSON.parse(data.toString());
 
-  if (status === 200 && loginResponseData.errorCode === 0) {
+  if (status === 200 && loginResponseData?.errorCode === 0 && loginResponseData.result?.token) {
     cache.put(
       sessionCacheId,
       {
@@ -143,7 +143,7 @@ export default async function omadaProxyHandler(req, res) {
               sessionCacheId,
             );
 
-            if (loginStatus !== 200 || loginResponseData.errorCode > 0) {
+            if (loginStatus !== 200 || loginResponseData?.errorCode !== 0 || !loginResponseData.result?.token) {
               return res.status(loginStatus).json({
                 error: { message: "Error logging in to Omada controller", url: loginUrl, data: loginResponseData },
               });
@@ -198,8 +198,8 @@ export default async function omadaProxyHandler(req, res) {
 
           const sitesResponseData = JSON.parse(data);
 
-          if (status !== 200 || sitesResponseData.errorCode > 0) {
-            logger.debug(`HTTP ${status} getting sites list: ${sitesResponseData.msg}`);
+          if (status !== 200 || sitesResponseData?.errorCode !== 0) {
+            logger.debug(`HTTP ${status} getting sites list: ${sitesResponseData?.msg}`);
             if (shouldRetryWithFreshSession(status, sitesResponseData, attempt, usedCachedSession)) {
               cache.del(sessionCacheId);
               session = null;
@@ -254,7 +254,7 @@ export default async function omadaProxyHandler(req, res) {
             });
 
             const switchResponseData = JSON.parse(data);
-            if (status !== 200 || switchResponseData.errorCode > 0) {
+            if (status !== 200 || switchResponseData?.errorCode !== 0) {
               logger.error(`HTTP ${status} getting sites list: ${data}`);
               if (shouldRetryWithFreshSession(status, switchResponseData, attempt, usedCachedSession)) {
                 cache.del(sessionCacheId);
@@ -276,7 +276,7 @@ export default async function omadaProxyHandler(req, res) {
 
             siteResponseData = JSON.parse(data);
 
-            if (status !== 200 || siteResponseData.errorCode > 0) {
+            if (status !== 200 || siteResponseData?.errorCode !== 0) {
               if (shouldRetryWithFreshSession(status, siteResponseData, attempt, usedCachedSession)) {
                 cache.del(sessionCacheId);
                 session = null;
@@ -301,8 +301,10 @@ export default async function omadaProxyHandler(req, res) {
 
             siteResponseData = JSON.parse(data);
 
-            if (status !== 200 || siteResponseData.errorCode > 0) {
-              logger.debug(`HTTP ${status} getting stats for site ${widget.site} with message ${siteResponseData.msg}`);
+            if (status !== 200 || siteResponseData?.errorCode !== 0) {
+              logger.debug(
+                `HTTP ${status} getting stats for site ${widget.site} with message ${siteResponseData?.msg}`,
+              );
               if (shouldRetryWithFreshSession(status, siteResponseData, attempt, usedCachedSession)) {
                 cache.del(sessionCacheId);
                 session = null;
@@ -327,7 +329,7 @@ export default async function omadaProxyHandler(req, res) {
             });
             const alertResponseData = JSON.parse(data);
 
-            if (status !== 200 || alertResponseData.errorCode > 0) {
+            if (status !== 200 || alertResponseData?.errorCode !== 0) {
               if (shouldRetryWithFreshSession(status, alertResponseData, attempt, usedCachedSession)) {
                 cache.del(sessionCacheId);
                 session = null;

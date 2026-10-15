@@ -177,6 +177,70 @@ describe("widgets/omada/proxy", () => {
     expect(res.body.error.data).toEqual({ errorCode: 1, msg: "nope" });
   });
 
+  it.each([
+    { errorCode: -30119, msg: "Too many unsuccessful login attempts", result: { freezeTime: 3000 } },
+    { errorCode: -30011, msg: "Login failed", result: null },
+    { errorCode: 0, result: null },
+    { errorCode: 0, result: {} },
+    null,
+  ])("returns a login error instead of reading a missing session for %j", async (response) => {
+    getServiceWidget.mockResolvedValue({ url: "http://omada", username: "u", password: "p", site: "Default" });
+    httpProxy
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ result: { omadacId: "cid", controllerVer: "6.3.0.108" } }),
+      ])
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify(response))]);
+
+    const res = createMockRes();
+    await omadaProxyHandler({ query: { group: "g", service: "svc", index: "0" } }, res);
+
+    expect(res.body.error).toEqual({
+      message: "Error logging in to Omada controller",
+      url: "http://omada/cid/api/v2/login",
+      data: response,
+    });
+    expect(httpProxy).toHaveBeenCalledTimes(2);
+    expect(cache.put).not.toHaveBeenCalled();
+  });
+
+  it.each([
+    ["sites", "Error getting sites list"],
+    ["overview", "Error getting stats"],
+    ["alerts", "Error getting alerts"],
+  ])("handles negative Omada error codes when fetching %s", async (stage, message) => {
+    getServiceWidget.mockResolvedValue({ url: "http://omada", username: "u", password: "p", site: "Default" });
+    const error = { errorCode: -1505, msg: "No permission to access this site", result: null };
+    const stages = ["sites", "overview", "alerts"];
+    const successfulResults = [
+      { data: [{ name: "Default", id: "siteid" }] },
+      { totalClientNum: 10, connectedApNum: 2, connectedGatewayNum: 1, connectedSwitchNum: 3 },
+      { alertNum: 4 },
+    ];
+    httpProxy
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({ result: { omadacId: "cid", controllerVer: "6.3.0.108" } }),
+      ])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 0, result: { token: "t" } })]);
+    for (let i = 0; i <= stages.indexOf(stage); i += 1) {
+      httpProxy.mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify(stages[i] === stage ? error : { errorCode: 0, result: successfulResults[i] }),
+      ]);
+    }
+
+    const res = createMockRes();
+    await omadaProxyHandler({ query: { group: "g", service: "svc", index: "0" } }, res);
+
+    expect(res.body.error.message).toBe(message);
+    expect(res.body.error.data).toEqual(error);
+    expect(httpProxy).toHaveBeenCalledTimes(3 + stages.indexOf(stage));
+  });
+
   it("returns an error when sites list retrieval fails", async () => {
     getServiceWidget.mockResolvedValue({ url: "http://omada", username: "u", password: "p", site: "Default" });
 
@@ -696,7 +760,7 @@ describe("widgets/omada/proxy", () => {
     );
   });
 
-  it("clears the cached session and re-authenticates when a cached session returns a JSON auth error", async () => {
+  it.each([1, -30118])("refreshes a cached session after JSON auth error %s", async (errorCode) => {
     cache.put("omadaProxyHandler__session.g.svc.0", {
       token: "stale-token",
       cookieHeader: "TPOMADA_SESSIONID=stale",
@@ -715,7 +779,7 @@ describe("widgets/omada/proxy", () => {
         "application/json",
         JSON.stringify({ result: { omadacId: "cid", controllerVer: "4.5.6" } }),
       ])
-      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode: 1, msg: "Login required" })])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ errorCode, msg: "Login required" })])
       .mockResolvedValueOnce([
         200,
         "application/json",
