@@ -2,7 +2,8 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import createMockRes from "test-utils/create-mock-res";
 
-const { getServiceWidget, validateWidgetData, logger } = vi.hoisted(() => ({
+const { getServiceWidget, validateWidgetData, logger, wsState } = vi.hoisted(() => ({
+  wsState: { lastOptions: null },
   getServiceWidget: vi.fn(),
   validateWidgetData: vi.fn(() => true),
   logger: { debug: vi.fn(), error: vi.fn(), warn: vi.fn() },
@@ -33,8 +34,9 @@ vi.mock("widgets/widgets", () => ({
 
 vi.mock("ws", () => {
   class FakeWebSocket {
-    constructor(url) {
+    constructor(url, options) {
       this.url = url;
+      wsState.lastOptions = options;
       this._handlers = new Map();
     }
     on(event, cb) {
@@ -73,6 +75,8 @@ describe("widgets/truenas/proxy", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     validateWidgetData.mockReturnValue(true);
+    wsState.lastOptions = null;
+    process.env.HOMEPAGE_PROXY_VERIFY_TLS = "";
   });
 
   it("uses websocket calls for v2+ and returns JSON result", async () => {
@@ -90,5 +94,28 @@ describe("widgets/truenas/proxy", () => {
 
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual({ ok: true });
+  });
+
+  it("does not verify the websocket certificate by default", async () => {
+    getServiceWidget.mockResolvedValue({ type: "truenas", url: "https://tn", version: 2, key: "apikey" });
+
+    await truenasProxyHandler(
+      { query: { group: "g", service: "svc", endpoint: "stats", index: "0" } },
+      createMockRes(),
+    );
+
+    expect(wsState.lastOptions.rejectUnauthorized).toBe(false);
+  });
+
+  it("verifies the websocket certificate when HOMEPAGE_PROXY_VERIFY_TLS is true", async () => {
+    process.env.HOMEPAGE_PROXY_VERIFY_TLS = "true";
+    getServiceWidget.mockResolvedValue({ type: "truenas", url: "https://tn", version: 2, key: "apikey" });
+
+    await truenasProxyHandler(
+      { query: { group: "g", service: "svc", endpoint: "stats", index: "0" } },
+      createMockRes(),
+    );
+
+    expect(wsState.lastOptions.rejectUnauthorized).toBe(true);
   });
 });

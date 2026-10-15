@@ -227,8 +227,8 @@ function homepageDNSLookupFn() {
 const homepageLookup = homepageDNSLookupFn();
 const agentCache = new Map();
 
-function getAgent(protocol, disableIpv6) {
-  const cacheKey = `${protocol}:${disableIpv6 ? "ipv4" : "auto"}`;
+function getAgent(protocol, disableIpv6, verifyTls) {
+  const cacheKey = `${protocol}:${disableIpv6 ? "ipv4" : "auto"}:${verifyTls ? "verify" : "noverify"}`;
   const cachedAgent = agentCache.get(cacheKey);
   if (cachedAgent) {
     return cachedAgent;
@@ -242,7 +242,7 @@ function getAgent(protocol, disableIpv6) {
 
   const agent =
     protocol === "https:"
-      ? new https.Agent({ ...agentOptions, rejectUnauthorized: false })
+      ? new https.Agent({ ...agentOptions, rejectUnauthorized: verifyTls })
       : new http.Agent(agentOptions);
 
   agentCache.set(cacheKey, agent);
@@ -252,15 +252,16 @@ function getAgent(protocol, disableIpv6) {
 export async function httpProxy(url, params = {}) {
   const constructedUrl = new URL(url);
   const disableIpv6 = process.env.HOMEPAGE_PROXY_DISABLE_IPV6 === "true";
+  const verifyTls = process.env.HOMEPAGE_PROXY_VERIFY_TLS === "true";
   let request = null;
   if (constructedUrl.protocol === "https:") {
     request = httpsRequest(constructedUrl, {
-      agent: getAgent(constructedUrl.protocol, disableIpv6),
+      agent: getAgent(constructedUrl.protocol, disableIpv6, verifyTls),
       ...params,
     });
   } else {
     request = httpRequest(constructedUrl, {
-      agent: getAgent(constructedUrl.protocol, disableIpv6),
+      agent: getAgent(constructedUrl.protocol, disableIpv6, verifyTls),
       ...params,
     });
   }

@@ -315,6 +315,7 @@ describe("utils/proxy/http httpProxy", () => {
     state.lastRequestParams = null;
     state.lastWrittenBody = null;
     process.env.HOMEPAGE_PROXY_DISABLE_IPV6 = "";
+    process.env.HOMEPAGE_PROXY_VERIFY_TLS = "";
     vi.resetModules();
   });
 
@@ -414,6 +415,27 @@ describe("utils/proxy/http httpProxy", () => {
     await httpMod.httpProxy("https://example.com");
 
     expect(state.lastAgentOptions.rejectUnauthorized).toBe(false);
+  });
+
+  it("verifies upstream certificates when HOMEPAGE_PROXY_VERIFY_TLS is true", async () => {
+    process.env.HOMEPAGE_PROXY_VERIFY_TLS = "true";
+    const httpMod = await import("./http");
+
+    await httpMod.httpProxy("https://example.com");
+
+    expect(state.lastAgentOptions.rejectUnauthorized).toBe(true);
+  });
+
+  it("does not reuse a non-verifying agent once HOMEPAGE_PROXY_VERIFY_TLS is enabled", async () => {
+    const httpMod = await import("./http");
+
+    await httpMod.httpProxy("https://example.com/first");
+    const insecureAgent = state.lastAgent;
+    process.env.HOMEPAGE_PROXY_VERIFY_TLS = "true";
+    await httpMod.httpProxy("https://example.com/second");
+
+    expect(state.lastAgent).not.toBe(insecureAgent);
+    expect(state.lastAgentOptions.rejectUnauthorized).toBe(true);
   });
 
   it("reuses the same keep-alive agent for repeated http requests", async () => {

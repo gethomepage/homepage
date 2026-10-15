@@ -43,6 +43,12 @@ This can be disabled by setting `HOMEPAGE_ALLOWED_HOSTS` to `*` but this is not 
 
     The NextAuth routes (`/api/auth/*`) and sign-in pages (`/auth/*`) are exempt from this check so that authentication continues to work, they do not access the API proxy.
 
+### `HOMEPAGE_PROXY_VERIFY_TLS`
+
+By default, the API proxy does not verify the TLS certificates of the services it calls, so widgets keep working against services with self-signed certificates. Set `HOMEPAGE_PROXY_VERIFY_TLS=true` to have the proxy verify every `https://` (and TrueNAS `wss://`) widget connection against the system trust store, and refuse connections whose certificate is invalid or doesn't match the hostname.
+
+If your services use certificates from a private CA, add its root to the trust store with the standard Node.js variable, for example `NODE_EXTRA_CA_CERTS=/app/config/ca.crt`. A widget whose certificate fails verification shows an error instead of data.
+
 ### Security & Authentication
 
 Public deployments of Homepage should be secured via a reverse proxy, VPN, or similar. As of version 2.0, Homepage supports a simple authorization gate with a password or OIDC. When enabled, Homepage will use password login by default unless OIDC variables are provided.
