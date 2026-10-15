@@ -47,7 +47,7 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: release-drafter/release-drafter/autolabeler@c345907820e0396f6f44bcfd9ac4763325f8feb0
+      - uses: release-drafter/release-drafter/autolabeler@978bb0b30c5ee8cdd332ced253758157150d43f0
         with:
           config-name: release-drafter.yml
         env:
