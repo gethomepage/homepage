@@ -558,6 +558,34 @@ describe("utils/config/service-helpers", () => {
     expect(feedWidget).not.toHaveProperty("images");
   });
 
+  it("keeps Omada Open API credentials out of browser configuration", async () => {
+    const { cleanServiceGroups } = await import("./service-helpers");
+    const groups = [
+      {
+        name: "Network",
+        services: [
+          {
+            name: "Omada",
+            widget: {
+              type: "omada",
+              url: "https://omada.example",
+              clientId: "private-client-id",
+              clientSecret: "private-client-secret",
+              omadacId: "private-controller-id",
+              site: "Home",
+              fields: ["connectedAp", "activeUser"],
+            },
+          },
+        ],
+      },
+    ];
+
+    const widget = cleanServiceGroups(groups)[0].services[0].widgets[0];
+    expect(widget).toMatchObject({ type: "omada", fields: ["connectedAp", "activeUser"] });
+    for (const key of ["url", "clientId", "clientSecret", "omadacId"]) expect(widget).not.toHaveProperty(key);
+    expect(JSON.stringify(widget)).not.toContain("private-");
+  });
+
   it("findGroupByName deep-searches and annotates parent", async () => {
     const mod = await import("./service-helpers");
     const { findGroupByName } = mod;

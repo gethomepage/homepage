@@ -1,5 +1,7 @@
 import cache from "memory-cache";
 
+import omadaOpenApiProxyHandler from "./openapi";
+
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import { httpProxy } from "utils/proxy/http";
@@ -79,6 +81,10 @@ export default async function omadaProxyHandler(req, res) {
     const widget = await getServiceWidget(group, service, index);
 
     if (widget) {
+      if (widget.clientId !== undefined || widget.clientSecret !== undefined) {
+        return omadaOpenApiProxyHandler(widget, res);
+      }
+
       const { url } = widget;
 
       const controllerInfoURL = `${url}/api/info`;
