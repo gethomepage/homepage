@@ -2,7 +2,7 @@ import { encode } from "next-auth/jwt";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import createMockRes from "test-utils/create-mock-res";
-import { withAuth, withPageAuth } from "utils/auth";
+import { isAllowedHost, withAllowedHost, withAuth, withPageAuth } from "utils/auth";
 
 describe("handler authentication", () => {
   const secret = "test-session-secret-at-least-32-characters";
@@ -72,6 +72,58 @@ describe("handler authentication", () => {
     const result = await withPageAuth(getProps)({ req: request(), res, resolvedUrl: "/?tab=private" });
     expect(result.redirect).toEqual({ destination: "/auth/signin?callbackUrl=%2F%3Ftab%3Dprivate", permanent: false });
     expect(res.headers["Cache-Control"]).toBe("private, no-store");
+    expect(getProps).not.toHaveBeenCalled();
+  });
+});
+
+describe("handler host validation", () => {
+  beforeEach(() => {
+    vi.stubEnv("HOMEPAGE_ALLOWED_HOSTS", "");
+    vi.stubEnv("PORT", "3000");
+    vi.spyOn(console, "error").mockImplementation(() => {});
+  });
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    vi.restoreAllMocks();
+  });
+
+  it.each([
+    ["localhost:3000", true],
+    ["127.0.0.1:3000", true],
+    ["[::1]:3000", true],
+    ["evil.example", false],
+    [undefined, false],
+  ])("checks %s against the default hosts", (host, allowed) => {
+    expect(isAllowedHost(host)).toBe(allowed);
+  });
+
+  it("accepts configured hosts and the wildcard", () => {
+    vi.stubEnv("HOMEPAGE_ALLOWED_HOSTS", "homepage.example,other:3000");
+    expect(isAllowedHost("homepage.example")).toBe(true);
+    expect(isAllowedHost("evil.example")).toBe(false);
+    vi.stubEnv("HOMEPAGE_ALLOWED_HOSTS", "*");
+    expect(isAllowedHost("evil.example")).toBe(true);
+  });
+
+  it("rejects disallowed hosts before public or authenticated handlers run", async () => {
+    const handler = vi.fn();
+    const req = { headers: { host: "evil.example", "x-prerender-revalidate": "public-image-key" }, cookies: {} };
+    for (const wrapped of [withAllowedHost(handler), withAuth(handler, { public: () => true })]) {
+      const res = createMockRes();
+      await wrapped(req, res);
+      expect(res.statusCode).toBe(400);
+    }
+    expect(handler).not.toHaveBeenCalled();
+  });
+
+  it("hides pages from disallowed hosts before reading their props", async () => {
+    const getProps = vi.fn();
+    const result = await withPageAuth(getProps)({
+      req: { headers: { host: "evil.example" }, cookies: {} },
+      res: createMockRes(),
+      resolvedUrl: "/",
+    });
+    expect(result).toEqual({ notFound: true });
     expect(getProps).not.toHaveBeenCalled();
   });
 });

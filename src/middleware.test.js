@@ -37,6 +37,7 @@ describe("middleware", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     process.env = { ...originalEnv };
+    delete process.env.HOMEPAGE_ALLOWED_HOSTS;
     console.error = originalConsoleError;
   });
 

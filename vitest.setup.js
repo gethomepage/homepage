@@ -8,6 +8,8 @@ afterEach(() => {
   if (typeof document !== "undefined") cleanup();
 });
 
+process.env.HOMEPAGE_ALLOWED_HOSTS = "*";
+
 // Avoid NextAuth client-side fetches during unit tests.
 vi.mock("next-auth/react", () => ({
   SessionProvider: ({ children }) => children ?? null,

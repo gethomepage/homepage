@@ -3,6 +3,7 @@ import { createHash, timingSafeEqual } from "node:crypto";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
+import { withAllowedHost } from "utils/auth";
 import { applyNextAuthEnv, isAuthEnabled } from "utils/env";
 import createLogger from "utils/logger";
 
@@ -163,7 +164,7 @@ export const authOptions = {
 
 const nextAuthHandler = NextAuth(authOptions);
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   // Just pass empty session if auth not enabled
   if (!authEnabled) {
     return res.status(200).json({});
@@ -171,3 +172,5 @@ export default async function handler(req, res) {
 
   return nextAuthHandler(req, res);
 }
+
+export default withAllowedHost(handler);
