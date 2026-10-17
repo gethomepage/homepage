@@ -2,7 +2,7 @@ import { encode } from "next-auth/jwt";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import createMockRes from "test-utils/create-mock-res";
-import { isAllowedHost, withAllowedHost, withAuth, withPageAuth } from "utils/auth";
+import { isAllowedHost, secureCookie, withAllowedHost, withAuth, withPageAuth } from "utils/auth";
 
 describe("handler authentication", () => {
   const secret = "test-session-secret-at-least-32-characters";
@@ -28,17 +28,30 @@ describe("handler authentication", () => {
     expect(handler).not.toHaveBeenCalled();
   });
 
-  it.each(["http", "https"])("verifies a real session JWT with %s cookie settings", async (protocol) => {
-    vi.stubEnv("HOMEPAGE_EXTERNAL_URL", `${protocol}://homepage.example`);
-    const cookie = protocol === "https" ? "__Secure-next-auth.session-token" : "next-auth.session-token";
-    const token = await encode({ token: { sub: "homepage" }, secret });
-    const req = request({ [cookie]: token });
-    const res = createMockRes();
-    const handler = vi.fn(() => res.send("private data"));
-    await withAuth(handler)(req, res);
-    expect(handler).toHaveBeenCalledWith(req, res);
-    expect(res.body).toBe("private data");
-    expect(res.headers["Cache-Control"]).toBe("private, no-store");
+  describe.each(["HOMEPAGE_EXTERNAL_URL", "NEXTAUTH_URL"])("session cookies with %s", (variable) => {
+    it.each([
+      ["http://homepage.example", false],
+      ["https://homepage.example", true],
+      ["HTTP://homepage.example", false],
+      ["HTTPS://homepage.example", true],
+      ["  https://homepage.example  ", true],
+      ["  http://homepage.example  ", false],
+    ])("accepts a real session for %s", async (url, secure) => {
+      vi.stubEnv(variable, url);
+      const cookie = secure ? "__Secure-next-auth.session-token" : "next-auth.session-token";
+      const token = await encode({ token: { sub: "homepage" }, secret });
+      const req = request({ [cookie]: token });
+      const res = createMockRes();
+      const handler = vi.fn(() => res.send("private data"));
+      await withAuth(handler)(req, res);
+      expect(handler).toHaveBeenCalledWith(req, res);
+      expect(res.body).toBe("private data");
+      expect(res.headers["Cache-Control"]).toBe("private, no-store");
+
+      const getProps = vi.fn(() => ({ props: { title: "private page" } }));
+      expect(await withPageAuth(getProps)({ req, res })).toEqual({ props: { title: "private page" } });
+      expect(getProps).toHaveBeenCalledOnce();
+    });
   });
 
   it.each(["expired", "wrong secret", "missing secret", "malformed"])("rejects %s sessions", async (kind) => {
@@ -125,5 +138,43 @@ describe("handler host validation", () => {
     });
     expect(result).toEqual({ notFound: true });
     expect(getProps).not.toHaveBeenCalled();
+  });
+});
+
+describe("secureCookie", () => {
+  beforeEach(() => {
+    vi.stubEnv("NEXTAUTH_URL", "");
+    vi.stubEnv("HOMEPAGE_EXTERNAL_URL", "");
+  });
+  afterEach(() => vi.unstubAllEnvs());
+
+  it.each([
+    ["https://homepage.example", true],
+    ["HTTPS://homepage.example", true],
+    ["  https://homepage.example  ", true],
+    ["http://homepage.example", false],
+    ["homepage.example", false],
+    ["not a url", false],
+    ["", false],
+  ])("treats %j as secure: %s", (url, secure) => {
+    vi.stubEnv("HOMEPAGE_EXTERNAL_URL", url);
+    expect(secureCookie()).toBe(secure);
+  });
+
+  it("prefers NEXTAUTH_URL, as NextAuth does", () => {
+    vi.stubEnv("NEXTAUTH_URL", "https://homepage.example");
+    vi.stubEnv("HOMEPAGE_EXTERNAL_URL", "http://homepage.example");
+    expect(secureCookie()).toBe(true);
+  });
+
+  it("rejects instead of erroring when the URL is invalid", async () => {
+    vi.stubEnv("HOMEPAGE_AUTH_ENABLED", "true");
+    vi.stubEnv("HOMEPAGE_AUTH_SECRET", "test-session-secret-at-least-32-characters");
+    vi.stubEnv("HOMEPAGE_EXTERNAL_URL", "homepage.example");
+    const handler = vi.fn();
+    const res = createMockRes();
+    await withAuth(handler)({ headers: {}, cookies: {} }, res);
+    expect(res.statusCode).toBe(401);
+    expect(handler).not.toHaveBeenCalled();
   });
 });

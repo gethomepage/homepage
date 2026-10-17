@@ -24,16 +24,24 @@ export function withAllowedHost(handler) {
   };
 }
 
+// Match NextAuth, which picks the cookie name from the parsed URL protocol
+export function secureCookie() {
+  try {
+    return new URL(process.env.NEXTAUTH_URL || process.env.HOMEPAGE_EXTERNAL_URL).protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
 async function authorized(req, res) {
   if (!isAuthEnabled()) return true;
 
   res.setHeader("Cache-Control", "private, no-store");
-  const authUrl = process.env.NEXTAUTH_URL || process.env.HOMEPAGE_EXTERNAL_URL || "";
   return Boolean(
     await getToken({
       req,
       secret: process.env.NEXTAUTH_SECRET || process.env.HOMEPAGE_AUTH_SECRET,
-      secureCookie: authUrl.startsWith("https://"),
+      secureCookie: secureCookie(),
     }),
   );
 }

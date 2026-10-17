@@ -1,7 +1,7 @@
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
-import { isAllowedHost } from "utils/auth";
+import { isAllowedHost, secureCookie } from "utils/auth";
 import { isAuthEnabled } from "utils/env";
 
 const authEnabled = isAuthEnabled();
@@ -30,7 +30,7 @@ export async function middleware(req) {
       return withPrivateCache(NextResponse.next());
     }
 
-    const token = await getToken({ req, secret: authSecret });
+    const token = await getToken({ req, secret: authSecret, secureCookie: secureCookie() });
     if (!token) {
       const signInUrl = new URL("/auth/signin", req.url);
       // Same-origin by construction, so this cannot be used as an open redirect
