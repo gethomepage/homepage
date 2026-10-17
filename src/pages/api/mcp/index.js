@@ -11,6 +11,7 @@ async function hasHomepageSession(req, res) {
 }
 
 export default async function handler(req, res) {
+  res.setHeader("Cache-Control", "private, no-store");
   if (!mcpEnabled()) {
     return res.status(404).end("Not Found");
   }

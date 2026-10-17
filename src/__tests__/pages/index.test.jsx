@@ -3,6 +3,7 @@
 import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
+import { invalidateDashboardData } from "utils/config/dashboard";
 import { ColorContext } from "utils/contexts/color";
 import { SettingsContext } from "utils/contexts/settings";
 import { TabContext } from "utils/contexts/tab";
@@ -170,8 +171,9 @@ vi.mock("components/toggles/revalidate", () => ({
   default: () => null,
 }));
 
-describe("pages/index getStaticProps", () => {
+describe("pages/index getServerSideProps", () => {
   beforeEach(() => {
+    invalidateDashboardData();
     vi.clearAllMocks();
     state.throwIn = null;
     state.validateData = [];
@@ -190,8 +192,8 @@ describe("pages/index getStaticProps", () => {
   it("returns initial settings and api fallbacks for swr", async () => {
     getSettings.mockReturnValueOnce({ providers: { x: 1 }, language: "en", title: "Homepage" });
 
-    const { getStaticProps } = await import("pages/index.jsx");
-    const result = await getStaticProps();
+    const { getServerSideProps } = await import("pages/index.jsx");
+    const result = await getServerSideProps({});
 
     expect(result.props.initialSettings).toEqual({ language: "en", title: "Homepage" });
     expect(result.props.fallback["/api/services"]).toEqual([{ name: "svc" }]);
@@ -204,8 +206,8 @@ describe("pages/index getStaticProps", () => {
   it("normalizes legacy language codes before requesting translations", async () => {
     getSettings.mockReturnValueOnce({ providers: {}, language: "zh-CN" });
 
-    const { getStaticProps } = await import("pages/index.jsx");
-    await getStaticProps();
+    const { getServerSideProps } = await import("pages/index.jsx");
+    await getServerSideProps({});
 
     expect(serverSideTranslations).toHaveBeenCalledWith("zh-Hans");
   });
@@ -214,8 +216,8 @@ describe("pages/index getStaticProps", () => {
     getSettings.mockReturnValueOnce({ providers: {}, language: "de" });
     state.throwIn = "services";
 
-    const { getStaticProps } = await import("pages/index.jsx");
-    const result = await getStaticProps();
+    const { getServerSideProps } = await import("pages/index.jsx");
+    const result = await getServerSideProps({});
 
     expect(result.props.initialSettings).toEqual({});
     expect(result.props.fallback["/api/services"]).toEqual([]);

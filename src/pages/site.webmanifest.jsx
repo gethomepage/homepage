@@ -1,7 +1,8 @@
+import { withPageAuth } from "utils/auth";
 import checkAndCopyConfig, { getSettings } from "utils/config/config";
 import themes from "utils/styles/themes";
 
-export async function getServerSideProps({ res }) {
+async function getProps({ res }) {
   checkAndCopyConfig("settings.yaml");
   const settings = getSettings();
 
@@ -44,3 +45,5 @@ export async function getServerSideProps({ res }) {
 export default function Webmanifest() {
   return null;
 }
+
+export const getServerSideProps = withPageAuth(getProps);

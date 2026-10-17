@@ -1,5 +1,6 @@
 import si from "systeminformation";
 
+import { withAuth } from "utils/auth";
 import createLogger from "utils/logger";
 
 const logger = createLogger("resources");
@@ -19,7 +20,7 @@ function isMissingNetworkStat(networkData, interfaceName) {
   );
 }
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   const { type, target, interfaceName = "default" } = req.query;
 
   if (type === "cpu") {
@@ -114,3 +115,5 @@ export default async function handler(req, res) {
     error: "invalid type",
   });
 }
+
+export default withAuth(handler);

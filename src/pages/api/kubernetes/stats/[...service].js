@@ -4,9 +4,11 @@ import { getKubeConfig } from "../../../../utils/config/kubernetes";
 import { parseCpu, parseMemory } from "../../../../utils/kubernetes/utils";
 import createLogger from "../../../../utils/logger";
 
+import { withAuth } from "utils/auth";
+
 const logger = createLogger("kubernetesStatsService");
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   const APP_LABEL = "app.kubernetes.io/name";
   const { service, podSelector } = req.query;
 
@@ -108,3 +110,5 @@ export default async function handler(req, res) {
     });
   }
 }
+
+export default withAuth(handler);

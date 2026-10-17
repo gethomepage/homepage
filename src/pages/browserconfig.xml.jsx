@@ -1,7 +1,8 @@
+import { withPageAuth } from "utils/auth";
 import { getSettings } from "utils/config/config";
 import themes from "utils/styles/themes";
 
-export async function getServerSideProps({ res }) {
+async function getProps({ res }) {
   const settings = getSettings();
 
   const color = settings.color || "slate";
@@ -27,3 +28,5 @@ export async function getServerSideProps({ res }) {
 }
 
 export default function BrowserConfig() {}
+
+export const getServerSideProps = withPageAuth(getProps);

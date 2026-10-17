@@ -2,6 +2,7 @@ import { createHash } from "crypto";
 import { readFileSync } from "fs";
 import { join } from "path";
 
+import { withAuth } from "utils/auth";
 import checkAndCopyConfig, { CONF_DIR } from "utils/config/config";
 
 const configs = [
@@ -20,7 +21,7 @@ function hash(buffer) {
   return hashSum.digest("hex");
 }
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   const hashes = configs.map((config) => {
     checkAndCopyConfig(config);
     const configYaml = join(CONF_DIR, config);
@@ -36,3 +37,5 @@ export default async function handler(req, res) {
     hash: combinedHash,
   });
 }
+
+export default withAuth(handler);
