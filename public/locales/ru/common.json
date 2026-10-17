@@ -257,14 +257,14 @@
         "seed": "Сид"
     },
     "qui": {
-        "leech": "Leech",
-        "download": "Download",
-        "seed": "Seed",
-        "upload": "Upload",
-        "total": "Total",
-        "errored": "Errored",
-        "ratio": "Ratio",
-        "freeSpace": "Free"
+        "leech": "Лич",
+        "download": "Скачивание",
+        "seed": "Сид",
+        "upload": "Загрузка",
+        "total": "Всего",
+        "errored": "Ошибок",
+        "ratio": "Соотношение",
+        "freeSpace": "Свободно"
     },
     "qnap": {
         "cpuUsage": "Использование ЦП",
@@ -791,7 +791,7 @@
         "processing": "Обрабатывается",
         "processed": "Обработано",
         "time": "Время",
-        "failed": "Failed"
+        "failed": "Неудачно"
     },
     "firefly": {
         "networth": "Общая средства",
@@ -871,12 +871,12 @@
         "finished": "Завершено"
     },
     "bookorbit": {
-        "books": "Books",
-        "authors": "Authors",
-        "series": "Series",
-        "storage": "Storage",
-        "reading": "Reading",
-        "finished": "Finished"
+        "books": "Книги",
+        "authors": "Авторы",
+        "series": "Серии",
+        "storage": "Память",
+        "reading": "Чтение",
+        "finished": "Завершено"
     },
     "jdownloader": {
         "downloadCount": "Очередь",
@@ -1279,6 +1279,6 @@
         "leagues": "Лиги"
     },
     "feed": {
-        "noItems": "No items"
+        "noItems": "Ничего нет"
     }
 }

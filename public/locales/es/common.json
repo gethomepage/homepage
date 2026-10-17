@@ -257,14 +257,14 @@
         "seed": "Semillas"
     },
     "qui": {
-        "leech": "Leech",
-        "download": "Download",
-        "seed": "Seed",
-        "upload": "Upload",
+        "leech": "Sanguijuela",
+        "download": "Descargar",
+        "seed": "Semilla",
+        "upload": "Subir",
         "total": "Total",
-        "errored": "Errored",
+        "errored": "Con error",
         "ratio": "Ratio",
-        "freeSpace": "Free"
+        "freeSpace": "Libre"
     },
     "qnap": {
         "cpuUsage": "Uso de la CPU",
@@ -791,7 +791,7 @@
         "processing": "Procesando",
         "processed": "Procesado",
         "time": "Tiempo",
-        "failed": "Failed"
+        "failed": "Fallido"
     },
     "firefly": {
         "networth": "Patrimonio neto",
@@ -871,12 +871,12 @@
         "finished": "Finalizado"
     },
     "bookorbit": {
-        "books": "Books",
-        "authors": "Authors",
+        "books": "Libros",
+        "authors": "Autores",
         "series": "Series",
-        "storage": "Storage",
-        "reading": "Reading",
-        "finished": "Finished"
+        "storage": "Almacenamiento",
+        "reading": "Lectura",
+        "finished": "Finalizado"
     },
     "jdownloader": {
         "downloadCount": "En cola",
@@ -1279,6 +1279,6 @@
         "leagues": "Ligas"
     },
     "feed": {
-        "noItems": "No items"
+        "noItems": "No hay elementos"
     }
 }
