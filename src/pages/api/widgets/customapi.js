@@ -1,3 +1,4 @@
+import { withAuth } from "utils/auth";
 import { getPrivateWidgetOptions } from "utils/config/widget-helpers";
 import createLogger from "utils/logger";
 import { sanitizeErrorURL } from "utils/proxy/api-helpers";
@@ -5,7 +6,7 @@ import { httpProxy } from "utils/proxy/http";
 
 const logger = createLogger("customapi");
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   const { index } = req.query;
 
   const options = await getPrivateWidgetOptions("customapi", index);
@@ -44,3 +45,5 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: { message: "Invalid JSON", url: sanitizeErrorURL(url) } });
   }
 }
+
+export default withAuth(handler);

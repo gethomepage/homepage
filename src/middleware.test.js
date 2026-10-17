@@ -37,6 +37,7 @@ describe("middleware", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     process.env = { ...originalEnv };
+    delete process.env.HOMEPAGE_ALLOWED_HOSTS;
     console.error = originalConsoleError;
   });
 
@@ -135,6 +136,29 @@ describe("middleware", () => {
     expect(res.type).toBe("next");
   });
 
+  it.each([
+    ["NEXTAUTH_URL", "https://homepage.example", true],
+    ["NEXTAUTH_URL", "HTTPS://homepage.example", true],
+    ["NEXTAUTH_URL", "  https://homepage.example  ", true],
+    ["NEXTAUTH_URL", "HTTP://homepage.example", false],
+    ["HOMEPAGE_EXTERNAL_URL", "HTTPS://homepage.example", true],
+    ["HOMEPAGE_EXTERNAL_URL", "  https://homepage.example  ", true],
+    ["HOMEPAGE_EXTERNAL_URL", "homepage.example", false],
+  ])("reads the session cookie NextAuth sets when %s is %j", async (variable, url, secure) => {
+    process.env.HOMEPAGE_AUTH_ENABLED = "true";
+    process.env.HOMEPAGE_AUTH_SECRET = "secret";
+    delete process.env.NEXTAUTH_URL;
+    process.env[variable] = url;
+
+    getToken.mockResolvedValueOnce({ sub: "user" });
+
+    const middleware = await loadMiddleware();
+    const res = await middleware(createReq("localhost:3000", "http://localhost:3000/"));
+
+    expect(getToken).toHaveBeenCalledWith(expect.objectContaining({ secureCookie: secure }));
+    expect(res.type).toBe("next");
+  });
+
   it("redirects to signin when auth is enabled and no token is present", async () => {
     process.env.HOMEPAGE_AUTH_ENABLED = "true";
     process.env.HOMEPAGE_AUTH_SECRET = "secret";
@@ -147,6 +171,7 @@ describe("middleware", () => {
     expect(getToken).toHaveBeenCalledWith({
       req: expect.objectContaining({ url: "http://localhost:3000/some" }),
       secret: "secret",
+      secureCookie: false,
     });
     expect(NextResponse.redirect).toHaveBeenCalled();
     expect(res.type).toBe("redirect");

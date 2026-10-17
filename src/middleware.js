@@ -1,6 +1,7 @@
 import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
+import { isAllowedHost, secureCookie } from "utils/auth";
 import { isAuthEnabled } from "utils/env";
 
 const authEnabled = isAuthEnabled();
@@ -17,18 +18,7 @@ function withPrivateCache(res) {
 }
 
 export async function middleware(req) {
-  // Check the Host header, if HOMEPAGE_ALLOWED_HOSTS is set
-  const host = req.headers.get("host");
-  const port = process.env.PORT || 3000;
-  let allowedHosts = [`localhost:${port}`, `127.0.0.1:${port}`, `[::1]:${port}`];
-  const allowAll = process.env.HOMEPAGE_ALLOWED_HOSTS === "*";
-  if (process.env.HOMEPAGE_ALLOWED_HOSTS) {
-    allowedHosts = allowedHosts.concat(process.env.HOMEPAGE_ALLOWED_HOSTS.split(","));
-  }
-  if (!allowAll && (!host || !allowedHosts.includes(host))) {
-    console.error(
-      `Host validation failed for: ${host}. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.`,
-    );
+  if (!isAllowedHost(req.headers.get("host"))) {
     return NextResponse.json({ error: "Host validation failed. See logs for more details." }, { status: 400 });
   }
 
@@ -40,7 +30,7 @@ export async function middleware(req) {
       return withPrivateCache(NextResponse.next());
     }
 
-    const token = await getToken({ req, secret: authSecret });
+    const token = await getToken({ req, secret: authSecret, secureCookie: secureCookie() });
     if (!token) {
       const signInUrl = new URL("/auth/signin", req.url);
       // Same-origin by construction, so this cannot be used as an open redirect

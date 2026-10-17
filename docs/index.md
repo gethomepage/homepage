@@ -1,6 +1,6 @@
 ---
 title: Home
-description: A modern, fully static, fast, secure, fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages.
+description: A modern, fast, secure, fully proxied, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages.
 icon: material/home
 hide:
   - navigation
@@ -18,7 +18,7 @@ hide:
 
 <img src="assets/homepage_demo_clip.webp" alt="homepage" style="max-width: 100%; margin: 0 auto; display: block;" />
 
-<p style="margin: 0 0 30px;">A modern, <em>fully static, fast</em>, secure <em>fully proxied</em>, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery.</p>
+<p style="margin: 0 0 30px;">A modern, <em>fast</em>, secure <em>fully proxied</em>, highly customizable application dashboard with integrations for over 100 services and translations into multiple languages. Easily configured via YAML files or through docker label discovery.</p>
 
 </div>
 

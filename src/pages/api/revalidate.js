@@ -1,8 +1,9 @@
-export default async function handler(req, res) {
-  try {
-    await res.revalidate("/");
-    return res.json({ revalidated: true });
-  } catch (err) {
-    return res.status(500).send("Error revalidating");
-  }
+import { withAuth } from "utils/auth";
+import { invalidateDashboardData } from "utils/config/dashboard";
+
+async function handler(req, res) {
+  invalidateDashboardData();
+  return res.json({ revalidated: true });
 }
+
+export default withAuth(handler);

@@ -1,11 +1,12 @@
 import { promise as ping } from "ping";
 
+import { withAuth } from "utils/auth";
 import { getServiceItem } from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 
 const logger = createLogger("ping");
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   const { groupName, serviceName } = req.query;
   const serviceItem = await getServiceItem(groupName, serviceName);
   if (!serviceItem) {
@@ -40,3 +41,5 @@ export default async function handler(req, res) {
     });
   }
 }
+
+export default withAuth(handler);

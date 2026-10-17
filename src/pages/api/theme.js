@@ -1,6 +1,7 @@
+import { withAuth } from "utils/auth";
 import checkAndCopyConfig, { getSettings } from "utils/config/config";
 
-export default function handler({ res }) {
+function handler(req, res) {
   checkAndCopyConfig("settings.yaml");
   const settings = getSettings();
 
@@ -12,3 +13,5 @@ export default function handler({ res }) {
     theme,
   });
 }
+
+export default withAuth(handler);

@@ -1,10 +1,11 @@
+import { withAuth } from "utils/auth";
 import { getSettings } from "utils/config/config";
 import createLogger from "utils/logger";
 import { cachedRequest } from "utils/proxy/http";
 
 const logger = createLogger("stocks");
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   const { watchlist, provider, cache } = req.query;
 
   logger.debug("Stocks API request: %o", { watchlist, provider, cache });
@@ -81,3 +82,5 @@ export default async function handler(req, res) {
   /* c8 ignore next 2 -- provider validation above currently makes this unreachable */
   return res.status(400).json({ error: "Invalid configuration" });
 }
+
+export default withAuth(handler);

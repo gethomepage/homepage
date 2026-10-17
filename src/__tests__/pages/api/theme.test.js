@@ -19,22 +19,22 @@ describe("pages/api/theme", () => {
     vi.clearAllMocks();
   });
 
-  it("returns defaults when settings are missing", () => {
+  it("returns defaults when settings are missing", async () => {
     getSettings.mockReturnValueOnce({});
 
     const res = createMockRes();
-    handler({ res });
+    await handler({}, res);
 
     expect(checkAndCopyConfig).toHaveBeenCalledWith("settings.yaml");
     expect(res.statusCode).toBe(200);
     expect(res.body).toEqual({ color: "slate", theme: "dark" });
   });
 
-  it("returns configured color + theme when present", () => {
+  it("returns configured color + theme when present", async () => {
     getSettings.mockReturnValueOnce({ color: "red", theme: "light" });
 
     const res = createMockRes();
-    handler({ res });
+    await handler({}, res);
 
     expect(res.body).toEqual({ color: "red", theme: "light" });
   });

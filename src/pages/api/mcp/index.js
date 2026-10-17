@@ -1,6 +1,7 @@
 import { getServerSession } from "next-auth/next";
 
 import { authOptions } from "pages/api/auth/[...nextauth]";
+import { withAllowedHost } from "utils/auth";
 import { isAuthEnabled } from "utils/env";
 import createLogger from "utils/logger";
 import { handleMcpRequest, mcpEnabled, mcpTokenAuthorized, mcpTokenConfigError } from "utils/mcp/homepage-mcp";
@@ -10,7 +11,8 @@ async function hasHomepageSession(req, res) {
   return Boolean(await getServerSession(req, res, authOptions));
 }
 
-export default async function handler(req, res) {
+async function handler(req, res) {
+  res.setHeader("Cache-Control", "private, no-store");
   if (!mcpEnabled()) {
     return res.status(404).end("Not Found");
   }
@@ -38,3 +40,5 @@ export default async function handler(req, res) {
 
   return res.status(200).json(response);
 }
+
+export default withAllowedHost(handler);

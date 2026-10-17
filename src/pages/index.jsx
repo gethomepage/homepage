@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import { useTranslation } from "next-i18next/pages";
-import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -16,14 +15,13 @@ import ServicesGroup from "components/services/group";
 import Tab, { slugifyAndEncode } from "components/tab";
 import Revalidate from "components/toggles/revalidate";
 import Widget from "components/widgets/widget";
-import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
-import { getSettings } from "utils/config/config";
+import { withPageAuth } from "utils/auth";
+import { getDashboardData } from "utils/config/dashboard";
 import { ColorContext } from "utils/contexts/color";
 import { SettingsContext } from "utils/contexts/settings";
 import { TabContext } from "utils/contexts/tab";
 import { ThemeContext } from "utils/contexts/theme";
 import useWindowFocus from "utils/hooks/window-focus";
-import createLogger from "utils/logger";
 import themes from "utils/styles/themes";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
@@ -55,47 +53,7 @@ const normalizeLanguage = (language) => {
   return alias || language;
 };
 
-export async function getStaticProps() {
-  let logger;
-  try {
-    logger = createLogger("index");
-    const { providers, ...settings } = getSettings();
-
-    const services = await servicesResponse();
-    const bookmarks = await bookmarksResponse();
-    const widgets = await widgetsResponse();
-    const language = normalizeLanguage(settings.language);
-
-    return {
-      props: {
-        initialSettings: settings,
-        fallback: {
-          "/api/services": services,
-          "/api/bookmarks": bookmarks,
-          "/api/widgets": widgets,
-          "/api/hash": false,
-        },
-        ...(await serverSideTranslations(language)),
-      },
-    };
-  } catch (e) {
-    if (logger && e) {
-      logger.error(e);
-    }
-    return {
-      props: {
-        initialSettings: {},
-        fallback: {
-          "/api/services": [],
-          "/api/bookmarks": [],
-          "/api/widgets": [],
-          "/api/hash": false,
-        },
-        ...(await serverSideTranslations("en")),
-      },
-    };
-  }
-}
+export const getServerSideProps = withPageAuth(async () => ({ props: await getDashboardData() }));
 
 function Index({ initialSettings, fallback }) {
   const windowFocused = useWindowFocus();

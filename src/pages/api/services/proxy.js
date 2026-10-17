@@ -1,3 +1,4 @@
+import { withAuth } from "utils/auth";
 import getServiceWidget from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import { formatApiCall } from "utils/proxy/api-helpers";
@@ -41,7 +42,7 @@ function getSafeSegments(rawSegments, allowedSegments) {
   return safeSegments;
 }
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   try {
     const { service, group, index } = req.query;
     const serviceWidget = await getServiceWidget(group, service, index);
@@ -144,3 +145,5 @@ export default async function handler(req, res) {
     return res.status(500).send({ error: "Unexpected error" });
   }
 }
+
+export default withAuth(handler);

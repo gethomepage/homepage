@@ -1,8 +1,9 @@
+import { withAuth } from "utils/auth";
 import { getSettings } from "utils/config/config";
 import { getPrivateWidgetOptions } from "utils/config/widget-helpers";
 import { cachedRequest } from "utils/proxy/http";
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   const { latitude, longitude, provider, cache, lang, index } = req.query;
   const privateWidgetOptions = await getPrivateWidgetOptions("weatherapi", index);
   let { apiKey } = privateWidgetOptions;
@@ -28,3 +29,5 @@ export default async function handler(req, res) {
 
   return res.send(await cachedRequest(apiUrl, cache));
 }
+
+export default withAuth(handler);

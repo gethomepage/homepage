@@ -1,12 +1,13 @@
 import { performance } from "perf_hooks";
 
+import { withAuth } from "utils/auth";
 import { getServiceItem } from "utils/config/service-helpers";
 import createLogger from "utils/logger";
 import { httpProxy } from "utils/proxy/http";
 
 const logger = createLogger("siteMonitor");
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   const { groupName, serviceName } = req.query;
   const serviceItem = await getServiceItem(groupName, serviceName);
   if (!serviceItem) {
@@ -50,3 +51,5 @@ export default async function handler(req, res) {
     });
   }
 }
+
+export default withAuth(handler);
