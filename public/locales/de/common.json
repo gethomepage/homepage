@@ -871,12 +871,12 @@
         "finished": "Fertig"
     },
     "bookorbit": {
-        "books": "Books",
-        "authors": "Authors",
-        "series": "Series",
+        "books": "Bücher",
+        "authors": "Autoren",
+        "series": "Serien",
         "storage": "Storage",
         "reading": "Reading",
-        "finished": "Finished"
+        "finished": "Beendet"
     },
     "jdownloader": {
         "downloadCount": "Warteschlange",
@@ -999,11 +999,11 @@
         "message": "Nachricht",
         "tags": "Schlagwörter",
         "none": "Keine",
-        "min": "Min",
-        "low": "Low",
-        "default": "Default",
-        "high": "High",
-        "urgent": "Urgent"
+        "min": "Minimal",
+        "low": "Niedrig",
+        "default": "Standard",
+        "high": "Hoch",
+        "urgent": "Dringend"
     },
     "plantit": {
         "events": "Ereignisse",
@@ -1117,8 +1117,8 @@
     "beszel": {
         "name": "Name",
         "systems": "Systeme",
-        "up": "Up",
-        "down": "Down",
+        "up": "Online",
+        "down": "Offline",
         "paused": "Pausiert",
         "pending": "Wartend",
         "status": "Status",
@@ -1268,10 +1268,10 @@
         "steps": "Schritte"
     },
     "syncthing": {
-        "connected": "Connected",
-        "synced": "Synced",
-        "errors": "Errors",
-        "storage": "Storage"
+        "connected": "Verbunden",
+        "synced": "Synchronisiert",
+        "errors": "Fehler",
+        "storage": "Speicher"
     },
     "sportarr": {
         "wanted": "Wanted",

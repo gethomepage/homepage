@@ -791,7 +791,7 @@
         "processing": "Processant",
         "processed": "Processat",
         "time": "Temps",
-        "failed": "Failed"
+        "failed": "Error"
     },
     "firefly": {
         "networth": "Valor Net",
