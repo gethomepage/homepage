@@ -96,6 +96,42 @@ describe("widgets/netbird/component", () => {
     expectBlockValue(container, "netbird.current_version", "0.81.3");
   });
 
+  it("compares versions of different length and ignores unparsable ones", () => {
+    mockApi({
+      peersData: [
+        { connected: true, version: "0.81" },
+        { connected: true, version: "0.81.3.1" },
+        { connected: true, version: "0.81.3" },
+        { connected: true, version: "dev" },
+      ],
+    });
+
+    const { container } = renderWidget({ fields: ["outdated"] });
+
+    // "0.81" is older than "0.81.3"; "0.81.3.1", "0.81.3" and "dev" are not
+    expectBlockValue(container, "netbird.outdated", "1");
+  });
+
+  it("does not count outdated peers when the management version is missing or unparsable", () => {
+    mockApi({ versionData: { management_update_available: false } });
+    const missing = renderWidget({ fields: ["outdated"] });
+    expectBlockValue(missing.container, "netbird.outdated", "0");
+    missing.unmount();
+
+    mockApi({ versionData: { management_current_version: "unknown", management_update_available: false } });
+    const unparsable = renderWidget({ fields: ["outdated"] });
+    expectBlockValue(unparsable.container, "netbird.outdated", "0");
+  });
+
+  it("treats unexpected peer and user responses as empty lists", () => {
+    mockApi({ peersData: {}, usersData: {} });
+
+    const { container } = renderWidget({ fields: ["peers", "users"] });
+
+    expectBlockValue(container, "netbird.peers", "0");
+    expectBlockValue(container, "netbird.users", "0");
+  });
+
   it("shows update_available when the management server has a newer release", () => {
     mockApi({ versionData: { ...version, management_update_available: true } });
 
