@@ -49,10 +49,9 @@ describe("widgets/netbird/component", () => {
 
     const { container } = renderWidget();
 
-    expect(container.querySelectorAll(".service-block")).toHaveLength(3);
+    expect(container.querySelectorAll(".service-block")).toHaveLength(2);
     expect(screen.getByText("netbird.online")).toBeInTheDocument();
     expect(screen.getByText("netbird.users")).toBeInTheDocument();
-    expect(screen.getByText("netbird.login_expired")).toBeInTheDocument();
   });
 
   it("renders the default fields", () => {
@@ -60,19 +59,19 @@ describe("widgets/netbird/component", () => {
 
     const { container } = renderWidget();
 
-    expect(container.querySelectorAll(".service-block")).toHaveLength(3);
+    expect(container.querySelectorAll(".service-block")).toHaveLength(2);
     expectBlockValue(container, "netbird.online", "2 / 4");
     expectBlockValue(container, "netbird.users", "2");
-    expectBlockValue(container, "netbird.login_expired", "1");
   });
 
-  it("does not need the user list when the users field is not displayed", () => {
-    mockApi({ usersData: undefined });
+  it("renders login_expired when it is configured", () => {
+    mockApi();
 
-    const { container } = renderWidget({ fields: ["peers", "online"] });
+    const { container } = renderWidget({ fields: ["online", "login_expired"] });
 
-    expectBlockValue(container, "netbird.peers", "4");
+    expect(container.querySelectorAll(".service-block")).toHaveLength(2);
     expectBlockValue(container, "netbird.online", "2 / 4");
+    expectBlockValue(container, "netbird.login_expired", "1");
   });
 
   it("renders error message when the API returns an error", () => {

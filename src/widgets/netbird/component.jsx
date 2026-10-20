@@ -5,7 +5,7 @@ import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 import withWidgetFields from "utils/widget-fields";
 
-const DEFAULT_FIELDS = ["online", "users", "login_expired"];
+const DEFAULT_FIELDS = ["online", "users"];
 
 export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
@@ -13,12 +13,8 @@ export default function Component({ service: configuredService }) {
   const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
 
-  // The user list requires an admin token, so it is only requested when the
-  // field is displayed. An empty endpoint makes useWidgetAPI skip the call.
-  const usersEndpoint = widget.fields.includes("users") ? "users" : "";
-
   const { data: peersData, error: peersError } = useWidgetAPI(widget, "peers");
-  const { data: usersData, error: usersError } = useWidgetAPI(widget, usersEndpoint);
+  const { data: usersData, error: usersError } = useWidgetAPI(widget, "users");
 
   const error = peersError ?? usersError;
 
@@ -26,7 +22,7 @@ export default function Component({ service: configuredService }) {
     return <Container service={service} error={error} />;
   }
 
-  if (!peersData || (usersEndpoint && !usersData)) {
+  if (!peersData || !usersData) {
     return (
       <Container service={service}>
         <Block label="netbird.online" />
@@ -38,11 +34,10 @@ export default function Component({ service: configuredService }) {
 
   const online = peersData.filter((peer) => peer.connected).length;
   const loginExpired = peersData.filter((peer) => peer.login_expired).length;
-  const humanUsers = usersData?.filter((user) => !user.is_service_user).length;
+  const humanUsers = usersData.filter((user) => !user.is_service_user).length;
 
   return (
     <Container service={service}>
-      <Block label="netbird.peers" value={t("common.number", { value: peersData.length })} />
       <Block
         label="netbird.online"
         value={`${t("common.number", { value: online })} / ${t("common.number", { value: peersData.length })}`}

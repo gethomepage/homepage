@@ -989,7 +989,6 @@
       "totalCapacity": "Total Capacity"
     },
     "netbird": {
-      "peers": "Peers",
       "online": "Online Peers",
       "users": "Users",
       "login_expired": "Login Expired"
