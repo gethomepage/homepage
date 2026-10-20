@@ -17,7 +17,7 @@ function withPrivateCache(res) {
   return res;
 }
 
-export async function middleware(req) {
+export async function proxy(req) {
   if (!isAllowedHost(req.headers.get("host"))) {
     return NextResponse.json({ error: "Host validation failed. See logs for more details." }, { status: 400 });
   }
