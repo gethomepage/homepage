@@ -52,9 +52,10 @@ export default function Component({ service }) {
 
   const { widget } = service;
 
-  const { metrics = [], refreshInterval = 10000 } = widget;
+  const { metrics: allMetrics = [], refreshInterval = 10000 } = widget;
+  const metrics = allMetrics.slice(0, 4);
 
-  const metricResults = metrics.slice(0, 4).map((metric) => {
+  const metricResults = metrics.map((metric) => {
     // disable the rule that hooks should not be called from a callback,
     // because we don't need a strong guarantee of hook execution order here.
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -75,7 +76,7 @@ export default function Component({ service }) {
   if (!prometheusmetricData) {
     return (
       <Container service={service}>
-        {metrics.slice(0, 4).map((item) => (
+        {metrics.map((item) => (
           <Block label={item.label} key={item.label} />
         ))}
       </Container>

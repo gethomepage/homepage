@@ -9,6 +9,8 @@ This widget can show metrics for your service defined by PromQL queries which ar
 
 Quries can be defined in the `metrics` array of the widget along with a label to be used to present the metric value. You can optionally specify a global `refreshInterval` in milliseconds and/or define the `refreshInterval` per metric. Inside the optional `format` object of a metric various formatting styles and transformations can be applied (see below).
 
+At most four metrics are shown per widget.
+
 ```yaml
 widget:
   type: prometheusmetric
