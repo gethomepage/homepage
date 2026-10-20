@@ -435,6 +435,7 @@ describe("utils/config/service-helpers", () => {
               },
               { type: "wgeasy", threshold: "10", version: "1" },
               { type: "technitium", range: "24h" },
+              { type: "thingport", enableBlocks: "false", featured: "true", maxModels: "5", models: "printed" },
               { type: "lubelogger", vehicleID: "12" },
               { type: "vikunja", enableTaskList: true, version: "1" },
               { type: "prometheusmetric", metrics: [], refreshInterval: 2500 },
@@ -483,6 +484,9 @@ describe("utils/config/service-helpers", () => {
     );
     expect(widgets.find((w) => w.type === "jellystat")).toEqual(expect.objectContaining({ days: 7 }));
     expect(widgets.find((w) => w.type === "lubelogger")).toEqual(expect.objectContaining({ vehicleID: 12 }));
+    expect(widgets.find((w) => w.type === "thingport")).toEqual(
+      expect.objectContaining({ enableBlocks: false, featured: true, maxModels: 5, models: "printed" }),
+    );
   });
 
   it("cleanServiceGroups removes calendar integration urls from frontend widget payload", async () => {

@@ -139,6 +139,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Tandoor](tandoor.md)
 - [Technitium DNS](technitium.md)
 - [TDarr](tdarr.md)
+- [Thingport](thingport.md)
 - [Traefik](traefik.md)
 - [Transmission](transmission.md)
 - [Trilium](trilium.md)

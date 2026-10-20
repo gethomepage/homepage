@@ -471,6 +471,11 @@ export function cleanServiceGroups(groups) {
           // technitium
           range,
 
+          // thingport
+          featured,
+          maxModels,
+          models,
+
           // spoolman
           spoolIds,
 
@@ -715,6 +720,12 @@ export function cleanServiceGroups(groups) {
         if (type === "technitium") {
           if (node !== undefined) widget.node = node;
           if (range !== undefined) widget.range = range;
+        }
+        if (type === "thingport") {
+          if (enableBlocks !== undefined) widget.enableBlocks = !!JSON.parse(enableBlocks);
+          if (featured !== undefined) widget.featured = !!JSON.parse(featured);
+          if (maxModels !== undefined) widget.maxModels = parseInt(maxModels, 10);
+          if (models !== undefined) widget.models = models;
         }
         if (type === "lubelogger") {
           if (vehicleID !== undefined) widget.vehicleID = parseInt(vehicleID, 10);

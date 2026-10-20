@@ -1280,5 +1280,14 @@
     },
     "feed": {
         "noItems": "No items"
+    },
+    "thingport": {
+        "models": "Models",
+        "collections": "Collections",
+        "categories": "Categories",
+        "authors": "Authors",
+        "featured": "Featured model",
+        "views": "Views",
+        "prints": "Prints"
     }
 }
