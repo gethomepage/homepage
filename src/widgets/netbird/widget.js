@@ -11,9 +11,6 @@ const widget = {
     users: {
       endpoint: "users",
     },
-    version: {
-      endpoint: "instance/version",
-    },
   },
 };
 
