@@ -871,12 +871,12 @@
         "finished": "완료"
     },
     "bookorbit": {
-        "books": "Books",
-        "authors": "Authors",
-        "series": "Series",
-        "storage": "Storage",
-        "reading": "Reading",
-        "finished": "Finished"
+        "books": "책",
+        "authors": "저자",
+        "series": "시리즈",
+        "storage": "저장 공간",
+        "reading": "읽는 중",
+        "finished": "완료"
     },
     "jdownloader": {
         "downloadCount": "대기열",
@@ -987,6 +987,11 @@
         "movieReclaimable": "Movie Reclaimable",
         "showReclaimable": "Show Reclaimable",
         "totalCapacity": "Total Capacity"
+    },
+    "netbird": {
+        "online": "Online Peers",
+        "users": "Users",
+        "login_expired": "Login Expired"
     },
     "netdata": {
         "warnings": "경고",
@@ -1279,6 +1284,6 @@
         "leagues": "Leagues"
     },
     "feed": {
-        "noItems": "No items"
+        "noItems": "항목 없음"
     }
 }
