@@ -988,6 +988,11 @@
         "showReclaimable": "Sèrie reclamable",
         "totalCapacity": "Capacitat total"
     },
+    "netbird": {
+        "online": "Parells en línia",
+        "users": "Usuaris",
+        "login_expired": "Sessió caducada"
+    },
     "netdata": {
         "warnings": "Avisos",
         "criticals": "Crítics"

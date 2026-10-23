@@ -72,7 +72,7 @@
         "empty_data": "Статус подсистемы неизвестен"
     },
     "unifi_drive": {
-        "healthy": "Здоров",
+        "healthy": "Исправен",
         "degraded": "Деградация",
         "no_data": "Нет доступных данных о хранилище"
     },
@@ -987,6 +987,11 @@
         "movieReclaimable": "Восстановленный фильм",
         "showReclaimable": "Восстановленное шоу",
         "totalCapacity": "Общая ёмкость"
+    },
+    "netbird": {
+        "online": "Online Peers",
+        "users": "Users",
+        "login_expired": "Login Expired"
     },
     "netdata": {
         "warnings": "Предупреждения",

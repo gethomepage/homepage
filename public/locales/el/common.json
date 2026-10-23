@@ -988,6 +988,11 @@
         "showReclaimable": "Show Reclaimable",
         "totalCapacity": "Συνολική χωρητικότητα"
     },
+    "netbird": {
+        "online": "Online Peers",
+        "users": "Users",
+        "login_expired": "Login Expired"
+    },
     "netdata": {
         "warnings": "Προειδοποιήσεις",
         "criticals": "Κρίσιμα"

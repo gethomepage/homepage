@@ -37,6 +37,19 @@ describe("widgets/prometheusmetric/component", () => {
     expect(screen.getByText("prometheusmetric.metricB")).toBeInTheDocument();
   });
 
+  it("renders and queries at most four metrics", () => {
+    useWidgetAPI.mockReturnValue({ data: undefined, error: undefined });
+
+    const metrics = [1, 2, 3, 4, 5].map((n) => ({ label: `prometheusmetric.m${n}`, query: `q${n}` }));
+    const service = { widget: { type: "prometheusmetric", metrics } };
+
+    const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
+
+    expect(container.querySelectorAll(".service-block")).toHaveLength(4);
+    expect(screen.queryByText("prometheusmetric.m5")).not.toBeInTheDocument();
+    expect(useWidgetAPI).toHaveBeenCalledTimes(4);
+  });
+
   it("formats scalar and vector query results (scale + prefix + suffix)", () => {
     useWidgetAPI.mockImplementation((_widget, _endpoint, params) => {
       if (params?.query === "scalar_q") {

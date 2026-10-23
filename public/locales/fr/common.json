@@ -988,6 +988,11 @@
         "showReclaimable": "Voir réclamable",
         "totalCapacity": "Capacité totale"
     },
+    "netbird": {
+        "online": "Online Peers",
+        "users": "Users",
+        "login_expired": "Login Expired"
+    },
     "netdata": {
         "warnings": "Avertissements",
         "criticals": "Urgent"
