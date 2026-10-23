@@ -988,6 +988,11 @@
         "showReclaimable": "Espetaculo reclamavel",
         "totalCapacity": "Capacidade Total"
     },
+    "netbird": {
+        "online": "Online Peers",
+        "users": "Users",
+        "login_expired": "Login Expired"
+    },
     "netdata": {
         "warnings": "Avisos",
         "criticals": "Críticos"

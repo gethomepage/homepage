@@ -988,6 +988,11 @@
         "showReclaimable": "Uvolnitelné seriály",
         "totalCapacity": "Celková kapacita"
     },
+    "netbird": {
+        "online": "Online Peers",
+        "users": "Users",
+        "login_expired": "Login Expired"
+    },
     "netdata": {
         "warnings": "Upozornění",
         "criticals": "Kritické"

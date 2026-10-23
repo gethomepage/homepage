@@ -100,10 +100,10 @@
         "not_found": "Nepronađeno",
         "exited": "Zatoreno",
         "partial": "Djelomično",
-        "created": "Created",
-        "paused": "Paused",
-        "restarting": "Restarting",
-        "removing": "Removing",
+        "created": "Stvoreno",
+        "paused": "Pauzirano",
+        "restarting": "Ponovno pokretanje",
+        "removing": "Uklanjanje",
         "dead": "Dead"
     },
     "ping": {
@@ -258,13 +258,13 @@
     },
     "qui": {
         "leech": "Leech",
-        "download": "Download",
+        "download": "Preuzmi",
         "seed": "Seed",
-        "upload": "Upload",
-        "total": "Total",
-        "errored": "Errored",
-        "ratio": "Ratio",
-        "freeSpace": "Free"
+        "upload": "Prenesi",
+        "total": "Ukupno",
+        "errored": "S greškom",
+        "ratio": "Omjer",
+        "freeSpace": "Slobodno"
     },
     "qnap": {
         "cpuUsage": "Korištenje procesora",
@@ -791,7 +791,7 @@
         "processing": "Obrada",
         "processed": "Obrađeno",
         "time": "Vrijeme",
-        "failed": "Failed"
+        "failed": "Neuspjelo"
     },
     "firefly": {
         "networth": "Neto vrijednost",
@@ -871,12 +871,12 @@
         "finished": "Završeno"
     },
     "bookorbit": {
-        "books": "Books",
-        "authors": "Authors",
-        "series": "Series",
-        "storage": "Storage",
-        "reading": "Reading",
-        "finished": "Finished"
+        "books": "Knjige",
+        "authors": "Autori",
+        "series": "Serije",
+        "storage": "Spremište",
+        "reading": "Čitanje",
+        "finished": "Završeno"
     },
     "jdownloader": {
         "downloadCount": "Red čekanja",
@@ -987,6 +987,11 @@
         "movieReclaimable": "Movie Reclaimable",
         "showReclaimable": "Show Reclaimable",
         "totalCapacity": "Ukupni kapacitet"
+    },
+    "netbird": {
+        "online": "Online Peers",
+        "users": "Users",
+        "login_expired": "Login Expired"
     },
     "netdata": {
         "warnings": "Upozorenja",
@@ -1279,6 +1284,6 @@
         "leagues": "Lige"
     },
     "feed": {
-        "noItems": "No items"
+        "noItems": "Nema stavki"
     }
 }

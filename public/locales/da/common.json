@@ -988,6 +988,11 @@
         "showReclaimable": "Vis Genanvendelig",
         "totalCapacity": "Samlet kapacitet"
     },
+    "netbird": {
+        "online": "Online Peers",
+        "users": "Users",
+        "login_expired": "Login Expired"
+    },
     "netdata": {
         "warnings": "Advarsler",
         "criticals": "Kritiske"

@@ -791,7 +791,7 @@
         "processing": "Przetwarzane",
         "processed": "Przetworzone",
         "time": "Czas",
-        "failed": "Failed"
+        "failed": "Niepowodzenie"
     },
     "firefly": {
         "networth": "Wartość netto",
@@ -987,6 +987,11 @@
         "movieReclaimable": "Odzyskiwalne z filmów",
         "showReclaimable": "Odzyskiwalne z seriali",
         "totalCapacity": "Całkowita pojemność"
+    },
+    "netbird": {
+        "online": "Peery online",
+        "users": "Użytkownicy",
+        "login_expired": "Logowanie wygasło"
     },
     "netdata": {
         "warnings": "Ostrzeżenia",
