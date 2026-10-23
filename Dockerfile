@@ -1,7 +1,7 @@
 # =========================
 # Builder Stage
 # =========================
-FROM node:22-slim AS builder
+FROM node:24-slim AS builder
 WORKDIR /app
 
 # Setup
@@ -30,7 +30,7 @@ RUN if [ "$CI" != "true" ]; then \
 # =========================
 # Runtime Stage
 # =========================
-FROM node:22-alpine AS runner
+FROM node:24-alpine AS runner
 LABEL org.opencontainers.image.title="Homepage"
 LABEL org.opencontainers.image.description="A self-hosted services landing page, with docker and service integrations."
 LABEL org.opencontainers.image.url="https://github.com/gethomepage/homepage"
