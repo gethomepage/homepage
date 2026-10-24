@@ -261,7 +261,7 @@
         "download": "Download",
         "seed": "Seed",
         "upload": "Upload",
-        "total": "Total",
+        "total": "Celkom",
         "errored": "Errored",
         "ratio": "Ratio",
         "freeSpace": "Free"
@@ -791,7 +791,7 @@
         "processing": "Processing",
         "processed": "Spracované",
         "time": "Čas",
-        "failed": "Failed"
+        "failed": "Zlyhalo"
     },
     "firefly": {
         "networth": "Net Worth",
@@ -990,8 +990,8 @@
     },
     "netbird": {
         "online": "Online Peers",
-        "users": "Users",
-        "login_expired": "Login Expired"
+        "users": "Používateľov",
+        "login_expired": "Prihlásenie vypršalo"
     },
     "netdata": {
         "warnings": "Upozornenia",

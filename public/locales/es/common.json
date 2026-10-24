@@ -989,9 +989,9 @@
         "totalCapacity": "Capacidad total"
     },
     "netbird": {
-        "online": "Online Peers",
-        "users": "Users",
-        "login_expired": "Login Expired"
+        "online": "Dispositivos conectados",
+        "users": "Usuarios",
+        "login_expired": "La sesión ha caducado"
     },
     "netdata": {
         "warnings": "Advertencias",
