@@ -245,8 +245,8 @@
         "download": "下载"
     },
     "transmission": {
-        "download": "下载",
-        "upload": "上传",
+        "download": "下载速率",
+        "upload": "上传速率",
         "leech": "下载中",
         "seed": "做种"
     },
@@ -764,7 +764,7 @@
     "komga": {
         "libraries": "书库",
         "series": "系列",
-        "books": "Books"
+        "books": "书籍"
     },
     "diskstation": {
         "days": "天",
@@ -871,12 +871,12 @@
         "finished": "已读完"
     },
     "bookorbit": {
-        "books": "Books",
-        "authors": "Authors",
+        "books": "书籍",
+        "authors": "作者",
         "series": "Series",
         "storage": "Storage",
-        "reading": "Reading",
-        "finished": "Finished"
+        "reading": "阅读中",
+        "finished": "已读完"
     },
     "jdownloader": {
         "downloadCount": "队列",
