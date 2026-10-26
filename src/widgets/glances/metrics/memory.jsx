@@ -19,7 +19,13 @@ export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
   const { chart } = widget;
-  const { refreshInterval = defaultInterval(chart), pointsLimit = defaultPointsLimit, version = 3 } = widget;
+  const {
+    chartMin,
+    chartMax,
+    refreshInterval = defaultInterval(chart),
+    pointsLimit = defaultPointsLimit,
+    version = 3,
+  } = widget;
   const apiVersion = parseVersionForUrl(version, 3);
 
   const [dataPoints, addDataPoint] = useDataPoints(pointsLimit, { a: 0, b: 0 });
@@ -58,6 +64,8 @@ export default function Component({ service }) {
         <ChartDual
           dataPoints={dataPoints}
           max={data.total}
+          chartMin={chartMin}
+          chartMax={chartMax}
           label={[t("resources.used"), t("resources.free")]}
           formatter={(value) =>
             t("common.bytes", {

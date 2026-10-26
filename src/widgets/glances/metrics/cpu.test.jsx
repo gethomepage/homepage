@@ -7,7 +7,13 @@ import { renderWithProviders } from "test-utils/render-with-providers";
 
 const { useWidgetAPI } = vi.hoisted(() => ({ useWidgetAPI: vi.fn() }));
 vi.mock("utils/proxy/use-widget-api", () => ({ default: useWidgetAPI }));
-vi.mock("next/dynamic", () => ({ default: () => () => null }));
+vi.mock("next/dynamic", () => ({
+  default:
+    () =>
+    ({ chartMin, chartMax }) => (
+      <div data-testid="Chart" data-chart-min={chartMin ?? ""} data-chart-max={chartMax ?? ""} />
+    ),
+}));
 
 import Component from "./cpu";
 
@@ -18,5 +24,18 @@ describe("widgets/glances/metrics/cpu", () => {
       settings: { hideErrors: false },
     });
     expect(screen.getByText("-")).toBeInTheDocument();
+  });
+
+  it("passes the configured chart bounds to the chart", () => {
+    useWidgetAPI
+      .mockReturnValueOnce({ data: { total: 2 }, error: undefined })
+      .mockReturnValueOnce({ data: undefined, error: undefined });
+    renderWithProviders(
+      <Component service={{ widget: { chart: true, chartMin: 10, chartMax: 100, version: 3, pointsLimit: 3 } }} />,
+      { settings: { hideErrors: false } },
+    );
+
+    expect(screen.getByTestId("Chart")).toHaveAttribute("data-chart-min", "10");
+    expect(screen.getByTestId("Chart")).toHaveAttribute("data-chart-max", "100");
   });
 });

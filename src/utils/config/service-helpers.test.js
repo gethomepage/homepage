@@ -362,6 +362,48 @@ describe("utils/config/service-helpers", () => {
     expect(state.logger.error).toHaveBeenCalled();
   });
 
+  it.each([
+    [undefined, 0],
+    [undefined, -1],
+    [undefined, "100"],
+    [undefined, "invalid"],
+    [undefined, Number.NaN],
+    [undefined, Number.POSITIVE_INFINITY],
+    ["20", undefined],
+    [Number.NaN, undefined],
+    [100, 100],
+    [100, 50],
+  ])("cleanServiceGroups ignores invalid Glances chartMin=%s chartMax=%s and warns", async (chartMin, chartMax) => {
+    const { cleanServiceGroups } = await import("./service-helpers");
+    state.logger.warn.mockClear();
+
+    const cleaned = cleanServiceGroups([
+      {
+        name: "Group",
+        services: [{ name: "CPU", widget: { type: "glances", metric: "cpu", chartMin, chartMax } }],
+        groups: [],
+      },
+    ]);
+
+    expect(cleaned[0].services[0].widgets[0]).not.toHaveProperty("chartMin");
+    expect(cleaned[0].services[0].widgets[0]).not.toHaveProperty("chartMax");
+    expect(state.logger.warn).toHaveBeenCalledWith(expect.stringContaining('service "CPU"'));
+  });
+
+  it("cleanServiceGroups keeps valid Glances chartMin and chartMax", async () => {
+    const { cleanServiceGroups } = await import("./service-helpers");
+
+    const cleaned = cleanServiceGroups([
+      {
+        name: "Group",
+        services: [{ name: "CPU", widget: { type: "glances", metric: "sensor:temp", chartMin: 20, chartMax: 100 } }],
+        groups: [],
+      },
+    ]);
+
+    expect(cleaned[0].services[0].widgets[0]).toEqual(expect.objectContaining({ chartMin: 20, chartMax: 100 }));
+  });
+
   it("cleanServiceGroups applies widget-type specific mappings for commonly used widgets", async () => {
     const mod = await import("./service-helpers");
     const { cleanServiceGroups } = mod;
@@ -407,7 +449,15 @@ describe("utils/config/service-helpers", () => {
               { type: "dispatcharr", enableActiveStreams: "true" },
               { type: "gamedig", gameToken: "t" },
               { type: "kopia", snapshotHost: "h", snapshotPath: "/p" },
-              { type: "glances", version: "4", metric: "cpu", refreshInterval: 2000, pointsLimit: 5, diskUnits: "gb" },
+              {
+                type: "glances",
+                version: "4",
+                metric: "cpu",
+                refreshInterval: 2000,
+                pointsLimit: 5,
+                diskUnits: "gb",
+                chartMax: 100,
+              },
               { type: "mjpeg", stream: "s", fit: "contain" },
               { type: "openmediavault", method: "foo.bar" },
               { type: "customapi", mappings: { x: 1 }, display: { y: 2 }, refreshInterval: 5000 },
@@ -458,6 +508,7 @@ describe("utils/config/service-helpers", () => {
     );
     expect(widgets.find((w) => w.type === "beszel")).toEqual(expect.objectContaining({ version: 2, systemId: "sys" }));
     expect(widgets.find((w) => w.type === "pulse")).toEqual(expect.objectContaining({ version: 2 }));
+    expect(widgets.find((w) => w.type === "glances")).toEqual(expect.objectContaining({ chartMax: 100 }));
     expect(widgets.find((w) => w.type === "crowdsec")).toEqual(expect.objectContaining({ limit24h: true }));
     expect(widgets.find((w) => w.type === "docker")).toEqual(
       expect.objectContaining({ server: "docker-local", container: "c1" }),

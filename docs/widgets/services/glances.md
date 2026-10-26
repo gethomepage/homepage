@@ -22,6 +22,8 @@ widget:
   diskUnits: bytes # optional, bytes (default) or bbytes. Only applies to disk
   refreshInterval: 5000 # optional - in milliseconds, defaults to 1000 or more, depending on the metric
   pointsLimit: 15 # optional, defaults to 15
+  chartMin: 0 # optional - value shown at the bottom of the chart; defaults to auto-scaling
+  chartMax: 100 # optional - value shown at full chart height; defaults to auto-scaling
 ```
 
 _Please note, this widget does not need an `href`, `icon` or `description` on its parent service. To achieve the same effect as the examples above, see as an example:_
@@ -62,6 +64,26 @@ The metric field in the configuration determines the type of system monitoring d
 `gpu:<gpu_id>`: GPU usage for the specified GPU. Replace `<gpu_id>` with the id of your GPU, e.g., `gpu:0`, as specified in glances.
 
 `fs:<mnt_point>`: Disk usage for the specified mount point. Replace `<mnt_point>` with the path of your disk, e.g., `/mnt/storage`, as specified in glances.
+
+## Chart scale
+
+By default, charts auto-scale to the data currently shown, so small fluctuations can fill the full chart height. To fix the scale, use the optional `chartMax` and `chartMin` options. Both are in the metric's units (for example `100` for CPU percent or a temperature in °C, or `100000000` for a 100 Mbit/s network chart):
+
+- `chartMax`: the value displayed at full chart height. Must be a positive number. When set alone, the bottom of the chart is `0`.
+- `chartMin`: the value displayed at the bottom of the chart. Must be a number lower than `chartMax`. When set alone, the top of the chart still auto-scales.
+
+Use plain numbers (for example `100000000`, not `"100"` or `100_000_000`). Invalid values are ignored and a warning is logged. Values outside the range are clipped at the edges of the chart.
+
+For the network, disk and memory charts, the two series are stacked, so the range applies to their sum (RX + TX, read + write, used + free). For example, `chartMax: 200000000` on a network chart is reached when the combined download and upload traffic is 200 Mbit/s. The GPU chart shows its series separately, so the range applies to each one.
+
+```yaml
+widget:
+  type: glances
+  url: http://glances.host.or.ip:port
+  metric: sensor:Package id 0
+  chartMin: 20
+  chartMax: 100
+```
 
 ## Views
 

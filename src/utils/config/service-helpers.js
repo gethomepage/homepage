@@ -367,6 +367,8 @@ export function cleanServiceGroups(groups) {
 
           // glances
           chart,
+          chartMin,
+          chartMax,
           metric,
           pointsLimit,
           diskUnits,
@@ -648,6 +650,20 @@ export function cleanServiceGroups(groups) {
           if (refreshInterval) widget.refreshInterval = refreshInterval;
           if (pointsLimit) widget.pointsLimit = pointsLimit;
           if (diskUnits) widget.diskUnits = diskUnits;
+          if (chartMin !== undefined || chartMax !== undefined) {
+            const isNumber = (value) => typeof value === "number" && Number.isFinite(value);
+            const minOk = chartMin === undefined || isNumber(chartMin);
+            const maxOk = chartMax === undefined || (isNumber(chartMax) && chartMax > 0);
+            const orderOk = !isNumber(chartMin) || !isNumber(chartMax) || chartMin < chartMax;
+            if (minOk && maxOk && orderOk) {
+              if (chartMin !== undefined) widget.chartMin = chartMin;
+              if (chartMax !== undefined) widget.chartMax = chartMax;
+            } else {
+              logger.warn(
+                `Invalid chartMin/chartMax for Glances widget on service "${service.name}"; chartMin must be a number, chartMax a positive number, and chartMin lower than chartMax. Ignoring them.`,
+              );
+            }
+          }
         }
         if (type === "mjpeg") {
           if (stream) widget.stream = stream;

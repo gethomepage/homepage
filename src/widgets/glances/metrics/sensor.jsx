@@ -18,7 +18,14 @@ const defaultInterval = 1000;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit, version = 3 } = widget;
+  const {
+    chart,
+    chartMin,
+    chartMax,
+    refreshInterval = defaultInterval,
+    pointsLimit = defaultPointsLimit,
+    version = 3,
+  } = widget;
   const apiVersion = parseVersionForUrl(version, 3);
   const [, sensorName] = widget.metric.split(":");
 
@@ -72,6 +79,8 @@ export default function Component({ service }) {
           dataPoints={dataPoints}
           label={[sensorData.unit]}
           max={sensorData.critical}
+          chartMin={chartMin}
+          chartMax={chartMax}
           formatter={(value) =>
             t("common.number", {
               value,

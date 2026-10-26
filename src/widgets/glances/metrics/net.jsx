@@ -18,7 +18,7 @@ const defaultInterval = (isChart) => (isChart ? 1000 : 5000);
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { chart, metric } = widget;
+  const { chart, chartMin, chartMax, metric } = widget;
   const { refreshInterval = defaultInterval(chart), pointsLimit = defaultPointsLimit, version = 3 } = widget;
   const apiVersion = parseVersionForUrl(version, 3);
 
@@ -83,6 +83,8 @@ export default function Component({ service }) {
         <ChartDual
           dataPoints={dataPoints}
           label={[t("docker.rx"), t("docker.tx")]}
+          chartMin={chartMin}
+          chartMax={chartMax}
           formatter={(value) =>
             t("common.bitrate", {
               value,

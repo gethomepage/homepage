@@ -15,6 +15,14 @@ vi.mock("recharts", () => ({
     </div>
   ),
   Area: ({ name, dataKey }) => <div data-testid="Area" data-name={name} data-key={dataKey} />,
+  YAxis: ({ domain, hide, allowDataOverflow }) => (
+    <div
+      data-testid="YAxis"
+      data-domain={domain.join(",")}
+      data-hide={hide}
+      data-allow-data-overflow={allowDataOverflow}
+    />
+  ),
   Tooltip: ({ content }) => <div data-testid="Tooltip">{content}</div>,
 }));
 
@@ -34,5 +42,37 @@ describe("widgets/glances/components/chart_dual", () => {
     expect(areas).toHaveLength(2);
     expect(areas[0]).toHaveAttribute("data-key", "a");
     expect(areas[1]).toHaveAttribute("data-key", "b");
+    expect(screen.queryByTestId("YAxis")).not.toBeInTheDocument();
   });
+
+  it("uses the configured maximum as the dual-series chart's full-height value", () => {
+    render(
+      <ChartDual
+        dataPoints={[{ a: 1, b: 2 }]}
+        formatter={(v) => String(v)}
+        label={["RX", "TX"]}
+        chartMax={100_000_000}
+      />,
+    );
+
+    expect(screen.getByTestId("YAxis")).toHaveAttribute("data-domain", "0,100000000");
+    expect(screen.getByTestId("YAxis")).toHaveAttribute("data-hide", "true");
+    expect(screen.getByTestId("YAxis")).toHaveAttribute("data-allow-data-overflow", "true");
+  });
+
+  it.each([0, -1, "100", Number.NaN, Number.POSITIVE_INFINITY])(
+    "falls back to auto-scaling for invalid chartMax %s",
+    (chartMax) => {
+      render(
+        <ChartDual
+          dataPoints={[{ a: 1, b: 2 }]}
+          formatter={(v) => String(v)}
+          label={["RX", "TX"]}
+          chartMax={chartMax}
+        />,
+      );
+
+      expect(screen.queryByTestId("YAxis")).not.toBeInTheDocument();
+    },
+  );
 });

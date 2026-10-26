@@ -18,7 +18,14 @@ const defaultInterval = 1000;
 export default function Component({ service }) {
   const { t } = useTranslation();
   const { widget } = service;
-  const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit, version = 3 } = widget;
+  const {
+    chart,
+    chartMin,
+    chartMax,
+    refreshInterval = defaultInterval,
+    pointsLimit = defaultPointsLimit,
+    version = 3,
+  } = widget;
   const apiVersion = parseVersionForUrl(version, 3);
   const [, diskName] = widget.metric.split(":");
 
@@ -86,6 +93,8 @@ export default function Component({ service }) {
           dataPoints={diskRates}
           label={[t("glances.read"), t("glances.write")]}
           max={diskData.critical}
+          chartMin={chartMin}
+          chartMax={chartMax}
           formatter={(value) =>
             t("common.bitrate", {
               value,
