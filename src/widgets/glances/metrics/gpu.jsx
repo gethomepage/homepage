@@ -70,6 +70,8 @@ export default function Component({ service }) {
     <Container chart={chart}>
       {chart && (
         <ChartDual
+          chartMin={widget.chartMin}
+          chartMax={widget.chartMax}
           dataPoints={dataPoints}
           label={[t("glances.mem"), t("glances.gpu")]}
           stack={["mem", "proc"]}

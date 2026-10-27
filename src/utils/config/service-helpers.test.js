@@ -295,6 +295,8 @@ describe("utils/config/service-helpers", () => {
               refreshInterval: 1500,
               pointsLimit: 10,
               diskUnits: "gb",
+              chartMin: 0,
+              chartMax: 100,
               fields: '["cpu"]',
               highlight: '{"level":"warning"}',
               hideErrors: true,
@@ -335,6 +337,8 @@ describe("utils/config/service-helpers", () => {
     expect(glancesWidget.fields).toEqual(["cpu"]);
     expect(glancesWidget.highlight).toEqual({ level: "warning" });
     expect(glancesWidget.chart).toBe(false);
+    expect(glancesWidget.chartMin).toBe(0);
+    expect(glancesWidget.chartMax).toBe(100);
     expect(glancesWidget.version).toBe(3);
 
     // Type-specific parsing for other widgets.
