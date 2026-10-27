@@ -209,8 +209,11 @@ function Home({ initialSettings }) {
   const [searching, setSearching] = useState(false);
   const [searchString, setSearchString] = useState("");
   const headerStyle = settings?.headerStyle || "underlined";
+  const quicklaunchDisabled = settings?.quicklaunch?.disabled === true;
 
   useEffect(() => {
+    if (quicklaunchDisabled) return undefined;
+
     function handleKeyDown(e) {
       if (e.target.tagName === "BODY" || e.target.id === "inner_wrapper") {
         if (
@@ -412,13 +415,15 @@ function Home({ initialSettings }) {
           "relative m-auto flex flex-col justify-start z-10 h-full min-h-screen",
         )}
       >
-        <QuickLaunch
-          servicesAndBookmarks={servicesAndBookmarks}
-          searchString={searchString}
-          setSearchString={setSearchString}
-          isOpen={searching}
-          setSearching={setSearching}
-        />
+        {!quicklaunchDisabled && (
+          <QuickLaunch
+            servicesAndBookmarks={servicesAndBookmarks}
+            searchString={searchString}
+            setSearchString={setSearchString}
+            isOpen={searching}
+            setSearching={setSearching}
+          />
+        )}
         <div
           id="information-widgets"
           className={classNames(

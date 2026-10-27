@@ -446,6 +446,17 @@ describe("pages/index Home behavior", () => {
     expect(screen.getByTestId("quicklaunch")).toHaveTextContent("closed:3");
   });
 
+  it("does not render QuickLaunch or listen for keys when disabled", async () => {
+    await renderIndex({
+      initialSettings: { title: "Homepage", layout: {} },
+      settings: { title: "Homepage", layout: {}, language: "en", quicklaunch: { disabled: true } },
+    });
+
+    expect(await screen.findByTestId("services-group")).toBeInTheDocument();
+    fireEvent.keyDown(document.body, { key: "a" });
+    expect(screen.queryByTestId("quicklaunch")).not.toBeInTheDocument();
+  });
+
   it("opens search on space without seeding the query with whitespace", async () => {
     await renderIndex({
       initialSettings: { title: "Homepage", layout: {} },
