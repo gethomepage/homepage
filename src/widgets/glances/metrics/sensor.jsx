@@ -22,7 +22,7 @@ export default function Component({ service }) {
   const apiVersion = parseVersionForUrl(version, 3);
   const [, sensorName] = widget.metric.split(":");
 
-  const [dataPoints, addDataPoint] = useDataPoints(pointsLimit, { value: 0 });
+  const [dataPoints, addDataPoint] = useDataPoints(pointsLimit, { value: null });
 
   const handleData = useCallback(
     (newData) => {
