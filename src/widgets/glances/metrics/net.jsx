@@ -81,6 +81,8 @@ export default function Component({ service }) {
     <Container chart={chart}>
       {chart && (
         <ChartDual
+          chartMin={widget.chartMin}
+          chartMax={widget.chartMax}
           dataPoints={dataPoints}
           label={[t("docker.rx"), t("docker.tx")]}
           formatter={(value) =>

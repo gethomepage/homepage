@@ -69,6 +69,8 @@ export default function Component({ service }) {
     <Container chart={chart}>
       {chart && (
         <Chart
+          chartMin={widget.chartMin}
+          chartMax={widget.chartMax}
           dataPoints={dataPoints}
           label={[sensorData.unit]}
           max={sensorData.critical}

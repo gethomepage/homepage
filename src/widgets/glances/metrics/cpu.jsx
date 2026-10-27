@@ -57,6 +57,8 @@ export default function Component({ service }) {
     <Container chart={chart}>
       {chart && (
         <Chart
+          chartMin={widget.chartMin}
+          chartMax={widget.chartMax}
           dataPoints={dataPoints}
           label={[t("resources.used")]}
           formatter={(value) =>
