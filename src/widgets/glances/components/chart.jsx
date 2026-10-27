@@ -1,17 +1,31 @@
 import { PureComponent } from "react";
-import { Area, AreaChart, ResponsiveContainer, Tooltip } from "recharts";
+import { Area, AreaChart, ResponsiveContainer, Tooltip, YAxis } from "recharts";
 
 import CustomTooltip from "./custom_tooltip";
 
+export function yAxisRange(chartMin, chartMax) {
+  const min = parseFloat(chartMin);
+  const max = parseFloat(chartMax);
+  const hasMin = Number.isFinite(min);
+  const hasMax = Number.isFinite(max);
+
+  if (!hasMin && !hasMax) return undefined;
+  if (hasMin && hasMax && min >= max) return undefined;
+
+  return [hasMin ? min : 0, hasMax ? max : "auto"];
+}
+
 class Chart extends PureComponent {
   render() {
-    const { dataPoints, formatter, label } = this.props;
+    const { dataPoints, formatter, label, chartMin, chartMax } = this.props;
+    const range = yAxisRange(chartMin, chartMax);
 
     return (
       <div className="absolute -top-10 -left-2 h-[calc(100%+3em)] w-[calc(100%+1em)] z-0">
         <div className="overflow-clip z-10 w-full h-full">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={dataPoints}>
+              {range && <YAxis hide domain={range} />}
               <defs>
                 <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="rgb(var(--color-500))" stopOpacity={0.4} />
