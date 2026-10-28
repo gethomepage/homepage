@@ -14,6 +14,7 @@ Category IDs can be obtained from the url when navigating to it, `?tab={category
 widget:
   type: suwayomi
   url: http://suwayomi.host.or.ip
+  auth: ui_login # optional, values: "ui_login", "simple_login" defaults to basic auth
   username: username #optional
   password: password #optional
   category: 0 #optional, defaults to all categories
