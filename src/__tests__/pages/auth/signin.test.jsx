@@ -4,12 +4,13 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { StrictMode } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-const { getSettingsMock, authOptionsMock, signInMock, replaceMock, routerQuery } = vi.hoisted(() => ({
+const { getSettingsMock, authOptionsMock, signInMock, replaceMock, routerQuery, translationsMock } = vi.hoisted(() => ({
   getSettingsMock: vi.fn(),
   authOptionsMock: vi.fn(),
   signInMock: vi.fn(),
   replaceMock: vi.fn(),
   routerQuery: {},
+  translationsMock: vi.fn(async (language) => ({ _nextI18Next: { initialLocale: language } })),
 }));
 
 vi.mock("utils/config/config", () => ({
@@ -30,6 +31,24 @@ vi.mock("next/router", () => ({
 }));
 
 vi.mock("next-auth/react", () => ({ signIn: signInMock }));
+
+vi.mock("next-i18next/pages/serverSideTranslations", () => ({ serverSideTranslations: translationsMock }));
+
+// Translate through the real English resources so tests fail when a key is missing from public/locales/en/common.json
+vi.mock("next-i18next/pages", async () => {
+  const { default: en } = await import("../../../../public/locales/en/common.json");
+  const lookup = (key) => key.split(".").reduce((value, part) => value?.[part], en) ?? key;
+  return {
+    useTranslation: () => ({
+      i18n: { language: "en" },
+      t: (key, options) =>
+        Object.entries(options ?? {}).reduce(
+          (text, [name, value]) => text.replaceAll(`{{${name}}}`, String(value)),
+          lookup(key),
+        ),
+    }),
+  };
+});
 
 import SignInPage, { getServerSideProps } from "pages/auth/signin";
 
@@ -56,6 +75,7 @@ describe("pages/auth/signin", () => {
     );
 
     expect(screen.getByText("Authentication error")).toBeInTheDocument();
+    expect(screen.getByText("Auth is disabled or misconfigured.")).toBeInTheDocument();
 
     await waitFor(() => {
       expect(document.documentElement.classList.contains("dark")).toBe(true);
@@ -78,8 +98,25 @@ describe("pages/auth/signin", () => {
       />,
     );
 
+    expect(screen.getByText("Login Required")).toBeInTheDocument();
+    expect(screen.getByText("Login to view your dashboard.")).toBeInTheDocument();
     expect(screen.getByText("Sign in")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /login via oidc/i })).toBeInTheDocument();
+  });
+
+  it("renders the password form and error message when the provider rejected the password", () => {
+    routerQuery.error = "CredentialsSignin";
+
+    render(
+      <SignInPage
+        providers={{ credentials: { id: "credentials", name: "Password", type: "credentials" } }}
+        settings={SETTINGS}
+      />,
+    );
+
+    expect(screen.getByText("Password")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /sign in/i })).toBeInTheDocument();
+    expect(screen.getByText("Invalid password. Please try again.")).toBeInTheDocument();
   });
 
   it("redirects to the provider when auto-login is enabled", () => {
@@ -174,10 +211,24 @@ describe("pages/auth/signin", () => {
           background: { image: "background.jpg", opacity: 20 },
           backgroundOpacity: 10,
         },
+        _nextI18Next: { initialLocale: "en" },
       },
     });
     expect(res.props.settings).not.toHaveProperty("providers");
     expect(res.props.settings).not.toHaveProperty("layout");
+  });
+
+  it.each([
+    [undefined, "en"],
+    ["de", "de"],
+    ["zh-CN", "zh-Hans"],
+  ])("loads translations for the configured language (%s)", async (language, expected) => {
+    authOptionsMock.mockReturnValueOnce({ providers: [] });
+    getSettingsMock.mockReturnValueOnce(language ? { theme: "dark", language } : { theme: "dark" });
+
+    await getServerSideProps({});
+
+    expect(translationsMock).toHaveBeenCalledWith(expected);
   });
 
   it("getServerSideProps enables auto-login from the environment", async () => {
