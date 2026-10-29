@@ -1,5 +1,7 @@
 import classNames from "classnames";
 import { signIn } from "next-auth/react";
+import { useTranslation } from "next-i18next/pages";
+import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { BiShieldQuarter } from "react-icons/bi";
@@ -12,6 +14,7 @@ const AUTO_LOGIN_RETRY_MS = 10000;
 
 export default function SignIn({ providers, settings, autoLogin }) {
   const router = useRouter();
+  const { t } = useTranslation();
   const [password, setPassword] = useState("");
   const theme = settings?.theme || "dark";
   const color = settings?.color || "slate";
@@ -126,8 +129,10 @@ export default function SignIn({ providers, settings, autoLogin }) {
             <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-theme-500/15 text-theme-600 dark:text-theme-300">
               <BiShieldQuarter className="h-6 w-6" />
             </div>
-            <h1 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-slate-100">Authentication error</h1>
-            <p className="mt-3 text-sm text-gray-600 dark:text-slate-400">Auth is disabled or misconfigured.</p>
+            <h1 className="mt-6 text-2xl font-semibold text-gray-900 dark:text-slate-100">
+              {t("auth.authenticationError")}
+            </h1>
+            <p className="mt-3 text-sm text-gray-600 dark:text-slate-400">{t("auth.authenticationErrorDescription")}</p>
           </div>
         </main>
       </>
@@ -164,20 +169,20 @@ export default function SignIn({ providers, settings, autoLogin }) {
             <section className="flex flex-col justify-between">
               <div>
                 <div className="inline-flex items-center gap-2 rounded-full border border-theme-500/30 bg-theme-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-theme-600 dark:text-theme-300">
-                  Login Required
+                  {t("auth.loginRequired")}
                 </div>
                 <h1 className="mt-6 text-3xl font-semibold text-gray-900 dark:text-slate-100">{title}</h1>
-                <p className="mt-3 text-sm text-gray-600 dark:text-slate-300">Login to view your dashboard.</p>
+                <p className="mt-3 text-sm text-gray-600 dark:text-slate-300">{t("auth.loginDescription")}</p>
               </div>
             </section>
 
             <section className="flex flex-col justify-center gap-6">
               <div className="rounded-2xl border border-white/60 bg-white/70 p-6 shadow-lg shadow-black/5 dark:border-white/10 dark:bg-slate-900/70">
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-slate-100">Sign in</h2>
+                <h2 className="text-lg font-semibold text-gray-900 dark:text-slate-100">{t("auth.signIn")}</h2>
                 <div className="mt-6 space-y-3">
                   {redirecting && (
                     <p className="text-sm text-gray-600 dark:text-slate-300">
-                      Redirecting to {oidcProvider?.name}&hellip;
+                      {t("auth.redirecting", { provider: oidcProvider?.name })}&hellip;
                     </p>
                   )}
                   {!redirecting && hasPasswordProvider && (
@@ -192,7 +197,9 @@ export default function SignIn({ providers, settings, autoLogin }) {
                         });
                       }}
                     >
-                      <label className="block text-sm font-medium text-gray-700 dark:text-slate-300">Password</label>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                        {t("auth.password")}
+                      </label>
                       <input
                         type="password"
                         name="password"
@@ -206,7 +213,7 @@ export default function SignIn({ providers, settings, autoLogin }) {
                         type="submit"
                         className="group w-full rounded-xl bg-theme-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-theme-600/20 transition hover:-translate-y-0.5 hover:bg-theme-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-500"
                       >
-                        <span className="flex items-center justify-center gap-2">Sign in &rarr;</span>
+                        <span className="flex items-center justify-center gap-2">{t("auth.signIn")} &rarr;</span>
                       </button>
                     </form>
                   )}
@@ -219,13 +226,15 @@ export default function SignIn({ providers, settings, autoLogin }) {
                         onClick={() => signIn(provider.id, { callbackUrl })}
                         className="group w-full rounded-xl bg-theme-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-theme-600/20 transition hover:-translate-y-0.5 hover:bg-theme-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-500"
                       >
-                        <span className="flex items-center justify-center gap-2">Login via {provider.name} &rarr;</span>
+                        <span className="flex items-center justify-center gap-2">
+                          {t("auth.loginVia", { provider: provider.name })} &rarr;
+                        </span>
                       </button>
                     ))}
                 </div>
                 {hasPasswordProvider && error && (
                   <p className="mt-4 rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-700 dark:border-red-800/60 dark:bg-red-950/40 dark:text-red-200">
-                    Invalid password. Please try again.
+                    {t("auth.invalidPassword")}
                   </p>
                 )}
               </div>
@@ -249,6 +258,7 @@ export async function getServerSideProps(context) {
   }
 
   const homepageSettings = getSettings();
+  const language = homepageSettings.language?.toLowerCase() === "zh-cn" ? "zh-Hans" : homepageSettings.language || "en";
   const settings = Object.fromEntries(
     PUBLIC_SIGN_IN_SETTINGS.filter((key) => Object.prototype.hasOwnProperty.call(homepageSettings, key)).map((key) => [
       key,
@@ -256,6 +266,11 @@ export async function getServerSideProps(context) {
     ]),
   );
   return {
-    props: { providers, settings, autoLogin: process.env.HOMEPAGE_OIDC_AUTO_LOGIN === "true" },
+    props: {
+      providers,
+      settings,
+      autoLogin: process.env.HOMEPAGE_OIDC_AUTO_LOGIN === "true",
+      ...(await serverSideTranslations(language)),
+    },
   };
 }
