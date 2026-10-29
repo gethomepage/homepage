@@ -367,7 +367,10 @@
     "portainer": {
         "running": "Running",
         "stopped": "Stopped",
-        "total": "Total"
+        "total": "Total",
+        "applications": "Applications",
+        "services": "Services",
+        "namespaces": "Namespaces"
     },
     "suwayomi": {
       "download": "Downloaded",
