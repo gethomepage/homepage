@@ -90,8 +90,8 @@ importers:
         specifier: ^2.5.1
         version: 2.5.1(react@19.3.0)
       systeminformation:
-        specifier: ^5.33.13
-        version: 5.33.13
+        specifier: ^5.33.16
+        version: 5.33.16
       tough-cookie:
         specifier: ^6.0.2
         version: 6.0.2
@@ -3514,8 +3514,8 @@ packages:
   symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
 
-  systeminformation@5.33.13:
-    resolution: {integrity: sha512-GtyakkchTQKymM1WeAB652zi3rM1q00RKdc+jZe9KGstuc/mWUwAnQGN/RE5gVYvHIR8xYOUIUD9irVKDtA0wA==}
+  systeminformation@5.33.16:
+    resolution: {integrity: sha512-R+Lh69IJXfJj6bfyH1In5cIR9FTr4hBS39YvlZHZjsK1p9cuELPq7hplZZIb56ZESMMb+DzdKqqE6Iomi01Mvg==}
     engines: {node: '>=10.0.0'}
     os: [darwin, linux, win32, freebsd, openbsd, netbsd, sunos, android]
     hasBin: true
@@ -7349,7 +7349,7 @@ snapshots:
 
   symbol-tree@3.2.4: {}
 
-  systeminformation@5.33.13: {}
+  systeminformation@5.33.16: {}
 
   tabbable@6.5.0: {}
 
