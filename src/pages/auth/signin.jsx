@@ -258,7 +258,6 @@ export async function getServerSideProps(context) {
   }
 
   const homepageSettings = getSettings();
-  // Normalize language codes so older config values like zh-CN still point to Crowdin-provided ones
   const language = homepageSettings.language?.toLowerCase() === "zh-cn" ? "zh-Hans" : homepageSettings.language || "en";
   const settings = Object.fromEntries(
     PUBLIC_SIGN_IN_SETTINGS.filter((key) => Object.prototype.hasOwnProperty.call(homepageSettings, key)).map((key) => [

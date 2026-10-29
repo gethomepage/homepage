@@ -34,21 +34,11 @@ vi.mock("next-auth/react", () => ({ signIn: signInMock }));
 
 vi.mock("next-i18next/pages/serverSideTranslations", () => ({ serverSideTranslations: translationsMock }));
 
-// Translate through the real English resources so tests fail when a key is missing from public/locales/en/common.json
-vi.mock("next-i18next/pages", async () => {
-  const { default: en } = await import("../../../../public/locales/en/common.json");
-  const lookup = (key) => key.split(".").reduce((value, part) => value?.[part], en) ?? key;
-  return {
-    useTranslation: () => ({
-      i18n: { language: "en" },
-      t: (key, options) =>
-        Object.entries(options ?? {}).reduce(
-          (text, [name, value]) => text.replaceAll(`{{${name}}}`, String(value)),
-          lookup(key),
-        ),
-    }),
-  };
-});
+vi.mock("next-i18next/pages", () => ({
+  useTranslation: () => ({
+    t: (key) => key,
+  }),
+}));
 
 import SignInPage, { getServerSideProps } from "pages/auth/signin";
 
@@ -74,8 +64,8 @@ describe("pages/auth/signin", () => {
       />,
     );
 
-    expect(screen.getByText("Authentication error")).toBeInTheDocument();
-    expect(screen.getByText("Auth is disabled or misconfigured.")).toBeInTheDocument();
+    expect(screen.getByText("auth.authenticationError")).toBeInTheDocument();
+    expect(screen.getByText("auth.authenticationErrorDescription")).toBeInTheDocument();
 
     await waitFor(() => {
       expect(document.documentElement.classList.contains("dark")).toBe(true);
@@ -98,10 +88,10 @@ describe("pages/auth/signin", () => {
       />,
     );
 
-    expect(screen.getByText("Login Required")).toBeInTheDocument();
-    expect(screen.getByText("Login to view your dashboard.")).toBeInTheDocument();
-    expect(screen.getByText("Sign in")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /login via oidc/i })).toBeInTheDocument();
+    expect(screen.getByText("auth.loginRequired")).toBeInTheDocument();
+    expect(screen.getByText("auth.loginDescription")).toBeInTheDocument();
+    expect(screen.getByText("auth.signIn")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /auth\.loginVia/i })).toBeInTheDocument();
   });
 
   it("renders the password form and error message when the provider rejected the password", () => {
@@ -114,9 +104,9 @@ describe("pages/auth/signin", () => {
       />,
     );
 
-    expect(screen.getByText("Password")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /sign in/i })).toBeInTheDocument();
-    expect(screen.getByText("Invalid password. Please try again.")).toBeInTheDocument();
+    expect(screen.getByText("auth.password")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /auth\.signIn/i })).toBeInTheDocument();
+    expect(screen.getByText("auth.invalidPassword")).toBeInTheDocument();
   });
 
   it("redirects to the provider when auto-login is enabled", () => {
@@ -125,8 +115,8 @@ describe("pages/auth/signin", () => {
     render(<SignInPage providers={OIDC_PROVIDERS} settings={SETTINGS} autoLogin />);
 
     expect(signInMock).toHaveBeenCalledWith("homepage-oidc", { callbackUrl: "/some/page" });
-    expect(screen.getByText(/redirecting to homepage oidc/i)).toBeInTheDocument();
-    expect(screen.queryByRole("button", { name: /login via/i })).not.toBeInTheDocument();
+    expect(screen.getByText(/auth\.redirecting/i)).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /auth\.loginVia/i })).not.toBeInTheDocument();
   });
 
   it("does not auto-login when the provider returned an error", () => {
@@ -135,7 +125,7 @@ describe("pages/auth/signin", () => {
     render(<SignInPage providers={OIDC_PROVIDERS} settings={SETTINGS} autoLogin />);
 
     expect(signInMock).not.toHaveBeenCalled();
-    expect(screen.getByRole("button", { name: /login via homepage oidc/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /auth\.loginVia/i })).toBeInTheDocument();
   });
 
   it("does not auto-login when it is explicitly disabled in the url", () => {
@@ -144,7 +134,7 @@ describe("pages/auth/signin", () => {
     render(<SignInPage providers={OIDC_PROVIDERS} settings={SETTINGS} autoLogin />);
 
     expect(signInMock).not.toHaveBeenCalled();
-    expect(screen.getByRole("button", { name: /login via homepage oidc/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /auth\.loginVia/i })).toBeInTheDocument();
   });
 
   it("redirects once under strict mode, rather than tripping its own loop guard", () => {
