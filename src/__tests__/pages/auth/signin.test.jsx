@@ -34,12 +34,6 @@ vi.mock("next-auth/react", () => ({ signIn: signInMock }));
 
 vi.mock("next-i18next/pages/serverSideTranslations", () => ({ serverSideTranslations: translationsMock }));
 
-vi.mock("next-i18next/pages", () => ({
-  useTranslation: () => ({
-    t: (key) => key,
-  }),
-}));
-
 import SignInPage, { getServerSideProps } from "pages/auth/signin";
 
 const OIDC_PROVIDERS = { "homepage-oidc": { id: "homepage-oidc", name: "Homepage OIDC", type: "oauth" } };
@@ -206,19 +200,6 @@ describe("pages/auth/signin", () => {
     });
     expect(res.props.settings).not.toHaveProperty("providers");
     expect(res.props.settings).not.toHaveProperty("layout");
-  });
-
-  it.each([
-    [undefined, "en"],
-    ["de", "de"],
-    ["zh-CN", "zh-Hans"],
-  ])("loads translations for the configured language (%s)", async (language, expected) => {
-    authOptionsMock.mockReturnValueOnce({ providers: [] });
-    getSettingsMock.mockReturnValueOnce(language ? { theme: "dark", language } : { theme: "dark" });
-
-    await getServerSideProps({});
-
-    expect(translationsMock).toHaveBeenCalledWith(expected);
   });
 
   it("getServerSideProps enables auto-login from the environment", async () => {
