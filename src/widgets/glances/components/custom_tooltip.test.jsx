@@ -26,4 +26,11 @@ describe("widgets/glances/components/custom_tooltip", () => {
     expect(screen.getByText("v=1 A")).toBeInTheDocument();
     expect(screen.getByText("v=2 B")).toBeInTheDocument();
   });
+
+  it("skips points with no value yet", () => {
+    const { container } = render(
+      <CustomTooltip active formatter={(v) => `v=${v}`} payload={[{ value: null, name: "A" }]} />,
+    );
+    expect(container.firstChild).toBeNull();
+  });
 });

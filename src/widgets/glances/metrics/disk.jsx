@@ -83,6 +83,8 @@ export default function Component({ service }) {
     <Container chart={chart}>
       {chart && (
         <ChartDual
+          chartMin={widget.chartMin}
+          chartMax={widget.chartMax}
           dataPoints={diskRates}
           label={[t("glances.read"), t("glances.write")]}
           max={diskData.critical}

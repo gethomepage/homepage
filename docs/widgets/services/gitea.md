@@ -15,3 +15,7 @@ widget:
   url: http://gitea.host.or.ip:port
   key: giteaapitoken
 ```
+
+!!! note
+
+    [Forgejo](https://forgejo.org) is compatible with this widget. See the [forgejo documentation](https://forgejo.org/docs/latest/user/api/usage/#generating-and-listing-api-tokens) for details on generating tokens.
