@@ -49,7 +49,7 @@ describe("pages/api/widgets/weatherapi", () => {
     await handler(req, res);
 
     expect(cachedRequest).toHaveBeenCalledWith(
-      "http://api.weatherapi.com/v1/current.json?q=1,2&key=from-widget&lang=en",
+      "https://api.weatherapi.com/v1/current.json?q=1,2&key=from-widget&lang=en",
       1,
     );
     expect(res.body).toEqual({ ok: true });
@@ -66,7 +66,7 @@ describe("pages/api/widgets/weatherapi", () => {
     await handler(req, res);
 
     expect(cachedRequest).toHaveBeenCalledWith(
-      "http://api.weatherapi.com/v1/current.json?q=1,2&key=from-settings&lang=en",
+      "https://api.weatherapi.com/v1/current.json?q=1,2&key=from-settings&lang=en",
       "2",
     );
   });

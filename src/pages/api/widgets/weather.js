@@ -25,7 +25,7 @@ async function handler(req, res) {
     return res.status(400).json({ error: "Missing API key" });
   }
 
-  const apiUrl = `http://api.weatherapi.com/v1/current.json?q=${latitude},${longitude}&key=${apiKey}&lang=${lang}`;
+  const apiUrl = `https://api.weatherapi.com/v1/current.json?q=${latitude},${longitude}&key=${apiKey}&lang=${lang}`;
 
   return res.send(await cachedRequest(apiUrl, cache));
 }
