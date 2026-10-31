@@ -153,24 +153,6 @@ describe("widgets/beszel/component", () => {
     expectBlockValue(container, "beszel.agent", "0.21.1");
   });
 
-  it("renders a dash for fields not reported by the agent", () => {
-    useWidgetAPI.mockReturnValue({
-      data: {
-        totalItems: 1,
-        items: [{ id: "sys1", name: "MySystem", status: "up", updated: 123, info: { cpu: 10, mp: 20, dp: 30 } }],
-      },
-      error: undefined,
-    });
-
-    const service = { widget: { type: "beszel", systemId: "sys1", fields: ["temp", "gpu", "services", "battery"] } };
-    const { container } = renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
-
-    expectBlockValue(container, "beszel.temp", "-");
-    expectBlockValue(container, "beszel.gpu", "-");
-    expectBlockValue(container, "beszel.services", "-");
-    expectBlockValue(container, "beszel.battery", "-");
-  });
-
   it("renders error when systemId is not found", () => {
     useWidgetAPI.mockReturnValue({
       data: { totalItems: 1, items: [{ id: "sys1", name: "MySystem", status: "up", info: {} }] },

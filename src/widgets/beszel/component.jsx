@@ -71,43 +71,38 @@ export default function Component({ service: configuredService }) {
         />
         <Block
           label="beszel.temp"
-          value={
-            system.info.dt !== undefined
-              ? t("common.number", { value: system.info.dt, maximumFractionDigits: 1, style: "unit", unit: "celsius" })
-              : "-"
-          }
+          value={t("common.number", {
+            value: system.info.dt,
+            maximumFractionDigits: 1,
+            style: "unit",
+            unit: "celsius",
+          })}
           highlightValue={system.info.dt}
         />
         <Block
           label="beszel.load"
-          value={
-            system.info.la !== undefined
-              ? t("common.number", { value: system.info.la[0], maximumFractionDigits: 2 })
-              : "-"
-          }
+          value={t("common.number", { value: system.info.la?.[0], maximumFractionDigits: 2 })}
           highlightValue={system.info.la?.[0]}
         />
         <Block
           label="beszel.gpu"
-          value={
-            system.info.g !== undefined ? t("common.percent", { value: system.info.g, maximumFractionDigits: 2 }) : "-"
-          }
+          value={t("common.percent", { value: system.info.g, maximumFractionDigits: 2 })}
           highlightValue={system.info.g}
         />
         <Block label="beszel.uptime" value={t("common.duration", { value: system.info.u })} />
         <Block
           label="beszel.services"
-          value={system.info.sv !== undefined ? `${system.info.sv[0] - system.info.sv[1]} / ${system.info.sv[0]}` : "-"}
+          value={`${system.info.sv?.[0] - system.info.sv?.[1]} / ${system.info.sv?.[0]}`}
           highlightValue={system.info.sv?.[1]}
         />
         <Block
           label="beszel.updates"
-          value={system.info.pu !== undefined ? t("common.number", { value: system.info.pu[0] }) : "-"}
+          value={t("common.number", { value: system.info.pu?.[0] })}
           highlightValue={system.info.pu?.[0]}
         />
         <Block
           label="beszel.battery"
-          value={system.info.bat !== undefined ? t("common.percent", { value: system.info.bat[0] }) : "-"}
+          value={t("common.percent", { value: system.info.bat?.[0] })}
           highlightValue={system.info.bat?.[0]}
         />
         <Block label="beszel.agent" value={system.info.v} />
