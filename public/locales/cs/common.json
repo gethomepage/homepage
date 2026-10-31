@@ -21,7 +21,16 @@
         "seconds": "s"
     },
     "auth": {
-        "signout": "Odhlásit se"
+        "signout": "Odhlásit se",
+        "loginRequired": "Login Required",
+        "loginDescription": "Login to view your dashboard.",
+        "signIn": "Sign in",
+        "password": "Password",
+        "loginVia": "Login via {{provider}}",
+        "redirecting": "Redirecting to {{provider}}",
+        "invalidPassword": "Invalid password. Please try again.",
+        "authenticationError": "Authentication error",
+        "authenticationErrorDescription": "Auth is disabled or misconfigured."
     },
     "widget": {
         "missing_type": "Chybí typ widgetu: {{type}}",
@@ -358,7 +367,10 @@
     "portainer": {
         "running": "Běží",
         "stopped": "Zastaveno",
-        "total": "Celkem"
+        "total": "Celkem",
+        "applications": "Applications",
+        "services": "Services",
+        "namespaces": "Namespaces"
     },
     "suwayomi": {
         "download": "Staženo",
@@ -791,7 +803,7 @@
         "processing": "Zpracovává se",
         "processed": "Zpracováno",
         "time": "Čas",
-        "failed": "Failed"
+        "failed": "Selhalo"
     },
     "firefly": {
         "networth": "Čisté jmění",
@@ -871,12 +883,12 @@
         "finished": "Přečtené"
     },
     "bookorbit": {
-        "books": "Books",
-        "authors": "Authors",
-        "series": "Series",
-        "storage": "Storage",
-        "reading": "Reading",
-        "finished": "Finished"
+        "books": "Knihy",
+        "authors": "Autoři",
+        "series": "Série",
+        "storage": "Úložiště",
+        "reading": "Čtené",
+        "finished": "Přečtené"
     },
     "jdownloader": {
         "downloadCount": "Fronta",
@@ -989,9 +1001,9 @@
         "totalCapacity": "Celková kapacita"
     },
     "netbird": {
-        "online": "Online Peers",
-        "users": "Users",
-        "login_expired": "Login Expired"
+        "online": "Online klienti",
+        "users": "Uživatelé",
+        "login_expired": "Platnost přihlášení vypršela"
     },
     "netdata": {
         "warnings": "Upozornění",

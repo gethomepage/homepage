@@ -21,7 +21,16 @@
         "seconds": "s"
     },
     "auth": {
-        "signout": "Odhlásiť sa"
+        "signout": "Odhlásiť sa",
+        "loginRequired": "Login Required",
+        "loginDescription": "Login to view your dashboard.",
+        "signIn": "Sign in",
+        "password": "Password",
+        "loginVia": "Login via {{provider}}",
+        "redirecting": "Redirecting to {{provider}}",
+        "invalidPassword": "Invalid password. Please try again.",
+        "authenticationError": "Authentication error",
+        "authenticationErrorDescription": "Auth is disabled or misconfigured."
     },
     "widget": {
         "missing_type": "Chýba typ widgetu: {{type}}",
@@ -261,7 +270,7 @@
         "download": "Download",
         "seed": "Seed",
         "upload": "Upload",
-        "total": "Total",
+        "total": "Celkom",
         "errored": "Errored",
         "ratio": "Ratio",
         "freeSpace": "Free"
@@ -358,7 +367,10 @@
     "portainer": {
         "running": "Beží",
         "stopped": "Zastavené",
-        "total": "Celkom"
+        "total": "Celkom",
+        "applications": "Applications",
+        "services": "Services",
+        "namespaces": "Namespaces"
     },
     "suwayomi": {
         "download": "Downloaded",
@@ -791,7 +803,7 @@
         "processing": "Processing",
         "processed": "Spracované",
         "time": "Čas",
-        "failed": "Failed"
+        "failed": "Zlyhalo"
     },
     "firefly": {
         "networth": "Net Worth",
@@ -990,8 +1002,8 @@
     },
     "netbird": {
         "online": "Online Peers",
-        "users": "Users",
-        "login_expired": "Login Expired"
+        "users": "Používateľov",
+        "login_expired": "Prihlásenie vypršalo"
     },
     "netdata": {
         "warnings": "Upozornenia",
