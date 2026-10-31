@@ -8,6 +8,10 @@ import withWidgetFields from "utils/widget-fields";
 const SUMMARY_FIELDS = ["systems", "up"];
 const SYSTEM_FIELDS = ["name", "status", "cpu", "memory"];
 
+function optional(value, format) {
+  return value === undefined || value === null ? "-" : format(value);
+}
+
 export default function Component({ service: configuredService }) {
   const { t } = useTranslation();
 
@@ -69,6 +73,40 @@ export default function Component({ service: configuredService }) {
           value={t("common.byterate", { value: system.info.bb, maximumFractionDigits: 2 })}
           highlightValue={system.info.bb}
         />
+        <Block
+          label="beszel.temp"
+          value={optional(system.info.dt, (value) =>
+            t("common.number", { value, maximumFractionDigits: 1, style: "unit", unit: "celsius" }),
+          )}
+          highlightValue={system.info.dt}
+        />
+        <Block
+          label="beszel.load"
+          value={optional(system.info.la?.[0], (value) => t("common.number", { value, maximumFractionDigits: 2 }))}
+          highlightValue={system.info.la?.[0]}
+        />
+        <Block
+          label="beszel.gpu"
+          value={optional(system.info.g, (value) => t("common.percent", { value, maximumFractionDigits: 2 }))}
+          highlightValue={system.info.g}
+        />
+        <Block label="beszel.uptime" value={optional(system.info.u, (value) => t("common.duration", { value }))} />
+        <Block
+          label="beszel.services"
+          value={optional(system.info.sv, ([total, failed]) => `${total - failed} / ${total}`)}
+          highlightValue={system.info.sv?.[1]}
+        />
+        <Block
+          label="beszel.updates"
+          value={optional(system.info.pu?.[0], (value) => t("common.number", { value }))}
+          highlightValue={system.info.pu?.[0]}
+        />
+        <Block
+          label="beszel.battery"
+          value={optional(system.info.bat?.[0], (value) => t("common.percent", { value }))}
+          highlightValue={system.info.bat?.[0]}
+        />
+        <Block label="beszel.agent" value={system.info.v ?? "-"} />
       </Container>
     );
   }

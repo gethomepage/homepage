@@ -12,7 +12,7 @@ The `systemID` is the `id` field on the collections page of Beszel under the Poc
 A "superuser" is currently required to access the data from the Beszel API.
 
 Allowed fields for 'overview' mode: `["systems", "up"]`
-Allowed fields for a single system: `["name", "status", "updated", "cpu", "memory", "disk", "network"]`
+Allowed fields for a single system: `["name", "status", "updated", "cpu", "memory", "disk", "network", "temp", "load", "gpu", "uptime", "services", "updates", "battery", "agent"]`
 
 | Beszel Version | Homepage Widget Version |
 | -------------- | ----------------------- |

@@ -1143,7 +1143,15 @@
       "cpu": "CPU",
       "memory": "MEM",
       "disk": "Disk",
-      "network": "NET"
+      "network": "NET",
+      "temp": "Temp",
+      "load": "Load",
+      "gpu": "GPU",
+      "uptime": "Uptime",
+      "services": "Services",
+      "updates": "Updates",
+      "battery": "Battery",
+      "agent": "Agent"
     },
     "argocd": {
         "apps": "Apps",
