@@ -75,4 +75,46 @@ describe("widgets/deluge/component", () => {
     // Only downloading torrents get QueueEntry.
     expect(screen.getAllByTestId("queue-entry").map((el) => el.textContent)).toEqual(["B", "C"]);
   });
+
+  it("orders leech progress entries by progress, highest first", () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        torrents: {
+          a: {
+            download_payload_rate: 0,
+            upload_payload_rate: 0,
+            total_remaining: 90,
+            state: "Downloading",
+            progress: 10,
+            eta: 1,
+            name: "A",
+          },
+          b: {
+            download_payload_rate: 0,
+            upload_payload_rate: 0,
+            total_remaining: 10,
+            state: "Downloading",
+            progress: 90,
+            eta: 1,
+            name: "B",
+          },
+          c: {
+            download_payload_rate: 0,
+            upload_payload_rate: 0,
+            total_remaining: 50,
+            state: "Downloading",
+            progress: 50,
+            eta: 1,
+            name: "C",
+          },
+        },
+      },
+      error: undefined,
+    });
+
+    const service = { widget: { type: "deluge", enableLeechProgress: true } };
+    renderWithProviders(<Component service={service} />, { settings: { hideErrors: false } });
+
+    expect(screen.getAllByTestId("queue-entry").map((el) => el.textContent)).toEqual(["B", "C", "A"]);
+  });
 });
