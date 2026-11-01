@@ -1,4 +1,5 @@
 import { searchProviders } from "components/widgets/search/search";
+
 import { withAuth } from "utils/auth";
 import { getSettings } from "utils/config/config";
 import { widgetsFromConfig } from "utils/config/widget-helpers";

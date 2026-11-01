@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import ResolvedIcon from "components/resolvedicon";
 import { useTranslation } from "next-i18next/pages";
 import { TbApi } from "react-icons/tb";
 import useSWR from "swr";
@@ -8,7 +9,6 @@ import Error from "../widget/error";
 import Raw from "../widget/raw";
 import WidgetLabel from "../widget/widget_label";
 
-import ResolvedIcon from "components/resolvedicon";
 import { formatValue, getValue } from "widgets/customapi/utils";
 
 export default function CustomApi({ options }) {

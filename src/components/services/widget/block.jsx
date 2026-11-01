@@ -1,10 +1,10 @@
 import classNames from "classnames";
 import { useTranslation } from "next-i18next/pages";
 import { useContext, useMemo } from "react";
+import { SettingsContext } from "utils/contexts/settings";
 
 import { BlockHighlightContext } from "./highlight-context";
 
-import { SettingsContext } from "utils/contexts/settings";
 import { evaluateHighlight, getHighlightClass } from "utils/highlights";
 
 export default function Block({ value, highlightValue, label, field }) {
