@@ -47,6 +47,7 @@ export default function Component({ service }) {
   }
 
   const leech = keys.length - completed || 0;
+  leechTorrents.sort((firstTorrent, secondTorrent) => secondTorrent.progress - firstTorrent.progress);
 
   return (
     <>
