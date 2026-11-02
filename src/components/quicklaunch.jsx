@@ -290,7 +290,10 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
         <div className="fixed inset-0 bg-gray-500 opacity-50" />
         <div className="fixed inset-0 z-20 overflow-y-auto">
           <div className="flex min-h-full min-w-full items-start justify-center text-center">
-            <dialog className="mt-[10%] mx-auto min-w-[90%] max-w-[90%] md:min-w-[40%] md:max-w-[40%] rounded-md p-0 block font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-50 dark:bg-theme-800">
+            <dialog
+              open
+              className="mt-[10%] mx-auto min-w-[90%] max-w-[90%] md:min-w-[40%] md:max-w-[40%] rounded-md p-0 block font-medium text-theme-700 dark:text-theme-200 dark:hover:text-theme-300 shadow-md shadow-theme-900/10 dark:shadow-theme-900/20 bg-theme-50 dark:bg-theme-800"
+            >
               <input
                 placeholder="Search"
                 className={classNames(
