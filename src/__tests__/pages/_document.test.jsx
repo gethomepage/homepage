@@ -2,7 +2,11 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it, vi } from "vitest";
 
 vi.mock("next/document", () => ({
-  Html: ({ children }) => <div data-testid="html">{children}</div>,
+  Html: ({ children, lang }) => (
+    <div data-testid="html" lang={lang}>
+      {children}
+    </div>
+  ),
   Head: ({ children }) => <div data-testid="head">{children}</div>,
   Main: () => <main data-testid="main" />,
   NextScript: () => <script data-testid="nextscript" />,
@@ -20,5 +24,13 @@ describe("pages/_document", () => {
     expect(html).toContain('link rel="stylesheet" href="/api/config/custom.css"');
     expect(html).toContain('data-testid="main"');
     expect(html).toContain('data-testid="nextscript"');
+    expect(html).toContain('lang="en"');
+  });
+
+  it("sets lang from the server-side i18n locale", () => {
+    const nextData = { props: { pageProps: { _nextI18Next: { initialLocale: "zh-Hans" } } } };
+    const html = renderToStaticMarkup(<Document __NEXT_DATA__={nextData} />);
+
+    expect(html).toContain('lang="zh-Hans"');
   });
 });
