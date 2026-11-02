@@ -21,7 +21,16 @@
         "seconds": "δ"
     },
     "auth": {
-        "signout": "Αποσύνδεση"
+        "signout": "Αποσύνδεση",
+        "loginRequired": "Login Required",
+        "loginDescription": "Login to view your dashboard.",
+        "signIn": "Sign in",
+        "password": "Password",
+        "loginVia": "Login via {{provider}}",
+        "redirecting": "Redirecting to {{provider}}",
+        "invalidPassword": "Invalid password. Please try again.",
+        "authenticationError": "Authentication error",
+        "authenticationErrorDescription": "Auth is disabled or misconfigured."
     },
     "widget": {
         "missing_type": "Λείπει ο τύπος widget: {{type}}",
@@ -358,7 +367,10 @@
     "portainer": {
         "running": "Εκτελείται",
         "stopped": "Σταματημένο",
-        "total": "Σύνολο"
+        "total": "Σύνολο",
+        "applications": "Applications",
+        "services": "Services",
+        "namespaces": "Namespaces"
     },
     "suwayomi": {
         "download": "Ελήφθησαν",
@@ -1131,7 +1143,15 @@
         "cpu": "CPU",
         "memory": "MEM",
         "disk": "Δίσκος",
-        "network": "Δίκτυο"
+        "network": "Δίκτυο",
+        "temp": "Temp",
+        "load": "Load",
+        "gpu": "GPU",
+        "uptime": "Uptime",
+        "services": "Services",
+        "updates": "Updates",
+        "battery": "Battery",
+        "agent": "Agent"
     },
     "argocd": {
         "apps": "Εφαρμογές",
