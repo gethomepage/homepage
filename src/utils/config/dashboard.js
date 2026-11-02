@@ -3,6 +3,7 @@ import { serverSideTranslations } from "next-i18next/pages/serverSideTranslation
 
 import { bookmarksResponse, servicesResponse, widgetsResponse } from "utils/config/api-response";
 import { getSettings } from "utils/config/config";
+import normalizeLanguage from "utils/language";
 import createLogger from "utils/logger";
 
 const cacheKey = "homepageDashboardData";
@@ -13,7 +14,7 @@ export function invalidateDashboardData() {
 
 async function loadDashboardData() {
   const { providers, ...settings } = getSettings();
-  const language = settings.language?.toLowerCase() === "zh-cn" ? "zh-Hans" : settings.language || "en";
+  const language = normalizeLanguage(settings.language);
   const [services, bookmarks, widgets, translations] = await Promise.all([
     servicesResponse(),
     bookmarksResponse(),

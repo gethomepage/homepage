@@ -7,6 +7,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { BiShieldQuarter } from "react-icons/bi";
 
 import { getSettings } from "utils/config/config";
+import normalizeLanguage from "utils/language";
 
 const PUBLIC_SIGN_IN_SETTINGS = ["theme", "color", "title", "background", "backgroundOpacity"];
 const AUTO_LOGIN_KEY = "homepage-autologin-attempt";
@@ -258,7 +259,7 @@ export async function getServerSideProps(context) {
   }
 
   const homepageSettings = getSettings();
-  const language = homepageSettings.language?.toLowerCase() === "zh-cn" ? "zh-Hans" : homepageSettings.language || "en";
+  const language = normalizeLanguage(homepageSettings.language);
   const settings = Object.fromEntries(
     PUBLIC_SIGN_IN_SETTINGS.filter((key) => Object.prototype.hasOwnProperty.call(homepageSettings, key)).map((key) => [
       key,

@@ -22,6 +22,7 @@ import { ThemeContext } from "utils/contexts/theme";
 import { withPageAuth } from "utils/auth";
 import { getDashboardData } from "utils/config/dashboard";
 import useWindowFocus from "utils/hooks/window-focus";
+import normalizeLanguage from "utils/language";
 import themes from "utils/styles/themes";
 
 const ThemeToggle = dynamic(() => import("components/toggles/theme"), {
@@ -41,17 +42,6 @@ const Version = dynamic(() => import("components/version"), {
 });
 
 const rightAlignedWidgets = ["weatherapi", "openweathermap", "weather", "openmeteo", "search", "datetime"];
-
-// Normalize language codes so older config values like zh-CN still point to Crowdin-provided ones
-const LANGUAGE_ALIASES = {
-  "zh-cn": "zh-Hans",
-};
-
-const normalizeLanguage = (language) => {
-  if (!language) return "en";
-  const alias = LANGUAGE_ALIASES[language.toLowerCase()];
-  return alias || language;
-};
 
 export const getServerSideProps = withPageAuth(async () => ({ props: await getDashboardData() }));
 
