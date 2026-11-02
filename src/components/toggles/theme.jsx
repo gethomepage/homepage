@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { MdDarkMode, MdLightMode, MdToggleOff, MdToggleOn } from "react-icons/md";
-
 import { ThemeContext } from "utils/contexts/theme";
 
 export default function ThemeToggle() {

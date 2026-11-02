@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import classNames from "classnames";
+import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 import { useContext } from "react";
-
-import Container from "components/services/widget/container";
 import { SettingsContext } from "utils/contexts/settings";
+
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 const rowClassName = "rounded-md bg-theme-200/50 dark:bg-theme-900/20 text-theme-700 dark:text-theme-200 text-xs";

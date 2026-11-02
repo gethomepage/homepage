@@ -1,8 +1,7 @@
 import classNames from "classnames";
+import Item from "components/bookmarks/item";
 
 import { columnMap } from "../../utils/layout/columns";
-
-import Item from "components/bookmarks/item";
 
 export default function List({ bookmarks, layout, bookmarksStyle }) {
   let classes = layout?.style === "row" ? `grid ${columnMap[layout?.columns]} gap-x-2` : "flex flex-col bookmark-list";
