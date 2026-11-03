@@ -132,7 +132,11 @@ vi.mock("utils/hooks/window-focus", () => ({
 }));
 
 vi.mock("components/bookmarks/group", () => ({
-  default: ({ bookmarks }) => <div data-testid="bookmarks-group">{bookmarks?.name}</div>,
+  default: ({ bookmarks, bookmarksStyle }) => (
+    <div data-testid="bookmarks-group" data-bookmarks-style={bookmarksStyle ?? ""}>
+      {bookmarks?.name}
+    </div>
+  ),
 }));
 
 vi.mock("components/services/group", () => ({
@@ -480,6 +484,23 @@ describe("pages/index Home behavior", () => {
 
     expect(await screen.findByTestId("services-group")).toHaveTextContent("Services");
     expect(screen.getByTestId("bookmarks-group")).toHaveTextContent("Bookmarks");
+  });
+
+  it("passes bookmarksStyle to bookmark groups both inside and outside the layout", async () => {
+    state.bookmarksData = [
+      { name: "In Layout", bookmarks: [] },
+      { name: "Bottom Section", bookmarks: [] },
+    ];
+
+    await renderIndex({
+      initialSettings: { title: "Homepage", layout: { "In Layout": {} } },
+      settings: { title: "Homepage", layout: { "In Layout": {} }, bookmarksStyle: "icons", language: "en" },
+    });
+
+    const groups = await screen.findAllByTestId("bookmarks-group");
+    for (const group of groups) {
+      expect(group).toHaveAttribute("data-bookmarks-style", "icons");
+    }
   });
 
   it("renders tab navigation and filters groups by active tab", async () => {
