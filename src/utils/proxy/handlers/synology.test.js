@@ -188,7 +188,7 @@ describe("utils/proxy/handlers/synology", () => {
     expect(res.body).toEqual({ error: "Unrecognized API name: SYNO.DownloadStation2.Task" });
   });
 
-  it("includes a 2FA hint when authentication fails with a 403+ error code", async () => {
+  it("reports a generic login failure with the DSM error code", async () => {
     getServiceWidget.mockResolvedValue({ type: "synology", url: "http://nas", username: "u", password: "p" });
 
     httpProxy
@@ -217,11 +217,11 @@ describe("utils/proxy/handlers/synology", () => {
         "application/json",
         Buffer.from(JSON.stringify({ data: { "SYNO.API.Auth": { path: "auth.cgi", maxVersion: 7 } } })),
       ])
-      // login returns success false with 2fa-required code
+      // login returns success false
       .mockResolvedValueOnce([
         200,
         "application/json",
-        Buffer.from(JSON.stringify({ success: false, error: { code: 403 } })),
+        Buffer.from(JSON.stringify({ success: false, error: { code: 407 } })),
       ]);
 
     const req = { query: { group: "g", service: "svc", endpoint: "download", index: "0" } };
@@ -230,7 +230,12 @@ describe("utils/proxy/handlers/synology", () => {
     await synologyProxyHandler(req, res);
 
     expect(res.statusCode).toBe(500);
-    expect(res.body).toEqual(expect.objectContaining({ code: 403, error: expect.stringContaining("2FA") }));
+    expect(res.body).toEqual(
+      expect.objectContaining({
+        code: 407,
+        error: "Authentication failed (DSM error code 407). Check the DSM logs for details.",
+      }),
+    );
   });
 
   it("handles non-200 login responses and surfaces a synology error code", async () => {
