@@ -311,6 +311,7 @@ function Home({ initialSettings }) {
                   disableCollapse={settings.disableCollapse}
                   maxGroupColumns={settings.maxBookmarkGroupColumns ?? settings.maxGroupColumns}
                   groupsInitiallyCollapsed={settings.groupsInitiallyCollapsed}
+                  bookmarksStyle={settings.bookmarksStyle}
                 />
               ),
             )}
