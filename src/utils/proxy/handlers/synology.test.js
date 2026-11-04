@@ -188,7 +188,7 @@ describe("utils/proxy/handlers/synology", () => {
     expect(res.body).toEqual({ error: "Unrecognized API name: SYNO.DownloadStation2.Task" });
   });
 
-  it("includes a 2FA hint when authentication fails with a 403+ error code", async () => {
+  it("returns a generic authentication error when login fails", async () => {
     getServiceWidget.mockResolvedValue({ type: "synology", url: "http://nas", username: "u", password: "p" });
 
     httpProxy
@@ -230,7 +230,7 @@ describe("utils/proxy/handlers/synology", () => {
     await synologyProxyHandler(req, res);
 
     expect(res.statusCode).toBe(500);
-    expect(res.body).toEqual(expect.objectContaining({ code: 403, error: expect.stringContaining("2FA") }));
+    expect(res.body).toEqual({ code: 403, error: "Authentication failed, check the DSM logs for details." });
   });
 
   it("handles non-200 login responses and surfaces a synology error code", async () => {
