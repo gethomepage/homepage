@@ -76,7 +76,13 @@ async function handleUnsuccessfulResponse(serviceWidget, url, serviceName) {
 
   const [apiPath, maxVersion] = await getApiInfo(serviceWidget, AUTH_API_NAME, serviceName);
 
-  const authArgs = { path: apiPath ?? "entry.cgi", maxVersion: maxVersion ?? 7, ...serviceWidget };
+  const authArgs = {
+    path: apiPath ?? "entry.cgi",
+    maxVersion: maxVersion ?? 7,
+    ...serviceWidget,
+    username: encodeURIComponent(serviceWidget.username ?? ""),
+    password: encodeURIComponent(serviceWidget.password ?? ""),
+  };
   const loginUrl = formatApiCall(AUTH_ENDPOINT, authArgs);
 
   const [status, contentType, data] = await login(loginUrl);
