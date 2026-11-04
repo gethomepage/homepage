@@ -188,7 +188,7 @@ describe("utils/proxy/handlers/synology", () => {
     expect(res.body).toEqual({ error: "Unrecognized API name: SYNO.DownloadStation2.Task" });
   });
 
-  it("includes a 2FA hint when authentication fails with a 403+ error code", async () => {
+  it("returns a generic authentication error when login fails", async () => {
     getServiceWidget.mockResolvedValue({ type: "synology", url: "http://nas", username: "u", password: "p" });
 
     httpProxy
@@ -230,7 +230,7 @@ describe("utils/proxy/handlers/synology", () => {
     await synologyProxyHandler(req, res);
 
     expect(res.statusCode).toBe(500);
-    expect(res.body).toEqual(expect.objectContaining({ code: 403, error: expect.stringContaining("2FA") }));
+    expect(res.body).toEqual({ code: 403, error: "Authentication failed, check the DSM logs for details." });
   });
 
   it("handles non-200 login responses and surfaces a synology error code", async () => {
@@ -323,6 +323,57 @@ describe("utils/proxy/handlers/synology", () => {
 
     expect(res.statusCode).toBe(500);
     expect(res.body).toEqual({ code: 106, error: "Session timeout." });
+  });
+
+  it("url-encodes the username and password in the login request", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "synology",
+      url: "http://nas",
+      username: "us&er",
+      password: "p&a+s s#%{url}",
+    });
+
+    httpProxy
+      // info query for mapping api name
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(
+          JSON.stringify({
+            data: {
+              "SYNO.DownloadStation2.Task": { path: "entry.cgi", maxVersion: 2 },
+              "SYNO.API.Auth": { path: "auth.cgi", maxVersion: 7 },
+            },
+          }),
+        ),
+      ])
+      // api call returns success false -> triggers login
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ success: false, error: { code: 106 } })),
+      ])
+      // info query for auth api name
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        Buffer.from(JSON.stringify({ data: { "SYNO.API.Auth": { path: "auth.cgi", maxVersion: 7 } } })),
+      ])
+      // login success
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ success: true }))])
+      // retry succeeds
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ success: true, data: {} }))]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "download", index: "0" } };
+    const res = createMockRes();
+
+    await synologyProxyHandler(req, res);
+
+    const loginUrl = httpProxy.mock.calls[3][0];
+    const params = new URL(loginUrl).searchParams;
+    expect(params.get("account")).toBe("us&er");
+    expect(params.get("passwd")).toBe("p&a+s s#%{url}");
+    expect(loginUrl).toContain("&account=us%26er&passwd=p%26a%2Bs%20s%23%25%7Burl%7D&");
   });
 
   it.each([
