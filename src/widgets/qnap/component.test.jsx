@@ -119,10 +119,9 @@ describe("widgets/qnap/component", () => {
       error: undefined,
     });
 
-    const second = renderWithProviders(
-      <Component service={{ widget: { type: "qnap", volume: "Apps" } }} />,
-      { settings: { hideErrors: false } },
-    );
+    const second = renderWithProviders(<Component service={{ widget: { type: "qnap", volume: "Apps" } }} />, {
+      settings: { hideErrors: false },
+    });
     // volume% = ((740-620)/740)*100 ≈ 16.2, rendered without decimals
     expectBlockValue(second.container, "qnap.volumeUsage", "16");
   });
