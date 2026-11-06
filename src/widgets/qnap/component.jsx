@@ -38,9 +38,7 @@ export default function Component({ service }) {
 
   if (Array.isArray(statusData.volume.volumeUseList.volumeUse)) {
     if (widget.volume) {
-      const volumeSelected = statusData.volume.volumeList.volume.find(
-        (vl) => vl.volumeLabel._cdata === widget.volume,
-      );
+      const volumeSelected = statusData.volume.volumeList.volume.find((vl) => vl.volumeLabel._cdata === widget.volume);
       // volumeList and volumeUseList are not guaranteed to share an order;
       // match the selected volume by its volumeValue instead of index
       const volumeUse = volumeSelected
