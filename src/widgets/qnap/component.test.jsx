@@ -185,4 +185,34 @@ describe("widgets/qnap/component", () => {
     expect(container.textContent).toContain("qnap.volumeUsage");
     expect(container.textContent).not.toContain("common.percent");
   });
+
+  it("reports an invalid volume when the label is not found", () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        system: {
+          cpu_usage: { _cdata: "10 %" },
+          total_memory: { _cdata: 100 },
+          free_memory: { _cdata: 25 },
+          sys_tempc: { _text: 40 },
+        },
+        volume: {
+          volumeUseList: {
+            volumeUse: [{ volumeValue: { _cdata: 1 }, total_size: { _cdata: "4790" }, free_size: { _cdata: "1480" } }],
+          },
+          volumeList: {
+            volume: [{ volumeValue: { _cdata: 1 }, volumeLabel: { _cdata: "FileStore" } }],
+          },
+        },
+      },
+      error: undefined,
+    });
+
+    const { container } = renderWithProviders(
+      <Component service={{ widget: { type: "qnap", volume: "NoSuchVolume" } }} />,
+      { settings: { hideErrors: false } },
+    );
+
+    expect(container.textContent).toContain("qnap.volumeUsage");
+    expect(container.textContent).not.toContain("common.percent");
+  });
 });
