@@ -155,4 +155,34 @@ describe("widgets/qnap/component", () => {
     expect(container.textContent).toContain("qnap.volumeUsage");
     expect(container.textContent).not.toContain("common.percent");
   });
+
+  it("treats mismatched volumeValue presence as an invalid volume", () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        system: {
+          cpu_usage: { _cdata: "10 %" },
+          total_memory: { _cdata: 100 },
+          free_memory: { _cdata: 25 },
+          sys_tempc: { _text: 40 },
+        },
+        volume: {
+          volumeUseList: {
+            volumeUse: [{ total_size: { _cdata: "100" }, free_size: { _cdata: "50" } }],
+          },
+          volumeList: {
+            volume: [{ volumeValue: { _cdata: 1 }, volumeLabel: { _cdata: "DataVol1" } }],
+          },
+        },
+      },
+      error: undefined,
+    });
+
+    const { container } = renderWithProviders(
+      <Component service={{ widget: { type: "qnap", volume: "DataVol1" } }} />,
+      { settings: { hideErrors: false } },
+    );
+
+    expect(container.textContent).toContain("qnap.volumeUsage");
+    expect(container.textContent).not.toContain("common.percent");
+  });
 });
