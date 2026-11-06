@@ -38,12 +38,19 @@ export default function Component({ service }) {
 
   if (Array.isArray(statusData.volume.volumeUseList.volumeUse)) {
     if (widget.volume) {
-      const volumeSelected = statusData.volume.volumeList.volume.findIndex(
+      const volumeSelected = statusData.volume.volumeList.volume.find(
         (vl) => vl.volumeLabel._cdata === widget.volume,
       );
-      if (volumeSelected !== -1) {
-        volumeTotalSize = statusData.volume.volumeUseList.volumeUse[volumeSelected].total_size._cdata;
-        volumeFreeSize = statusData.volume.volumeUseList.volumeUse[volumeSelected].free_size._cdata;
+      // volumeList and volumeUseList are not guaranteed to share an order;
+      // match the selected volume by its volumeValue instead of index
+      const volumeUse = volumeSelected
+        ? statusData.volume.volumeUseList.volumeUse.find(
+            (vu) => vu.volumeValue?._cdata === volumeSelected.volumeValue?._cdata,
+          )
+        : undefined;
+      if (volumeSelected && volumeUse) {
+        volumeTotalSize = volumeUse.total_size._cdata;
+        volumeFreeSize = volumeUse.free_size._cdata;
       } else {
         validVolume = false;
       }
