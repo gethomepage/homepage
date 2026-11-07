@@ -154,6 +154,7 @@ You can also find a list of all available service widgets in the sidebar navigat
 - [Wallos](wallos.md)
 - [Watchtower](watchtower.md)
 - [WGEasy](wgeasy.md)
+- [Wiki.js](wikijs.md)
 - [WhatsUpDocker](whatsupdocker.md)
 - [xTeVe](xteve.md)
 - [Zabbix](zabbix.md)

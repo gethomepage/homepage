@@ -13,6 +13,10 @@ export default function validateWidgetData(widget, endpoint, data) {
     mapping = Object.values(mappings).find((m) => m.endpoint === endpoint);
   }
 
+  if (mapping?.rawText) {
+    return Buffer.isBuffer(data) || typeof data === "string";
+  }
+
   if (mapping?.allowEmpty && Buffer.isBuffer(data) && data.length === 0) return true;
 
   if (Buffer.isBuffer(data)) {

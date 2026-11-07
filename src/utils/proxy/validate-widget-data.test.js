@@ -22,6 +22,10 @@ vi.mock("widgets/widgets", () => ({
           endpoint: "empty",
           allowEmpty: true,
         },
+        raw: {
+          endpoint: "raw",
+          rawText: true,
+        },
       },
     },
   },
@@ -53,5 +57,12 @@ describe("utils/proxy/validate-widget-data", () => {
   it("allows empty buffer responses for mappings that explicitly allow them", () => {
     expect(validateWidgetData({ type: "test" }, "empty", Buffer.from(""))).toBe(true);
     expect(loggerError).not.toHaveBeenCalled();
+  });
+
+  it("accepts text responses only for mappings that explicitly allow raw text", () => {
+    expect(validateWidgetData({ type: "test" }, "raw", Buffer.from("wiki_pages_total 50\n"))).toBe(true);
+    expect(validateWidgetData({ type: "test" }, "raw", "wiki_pages_total 50\n")).toBe(true);
+    expect(validateWidgetData({ type: "test" }, "raw", 50)).toBe(false);
+    expect(validateWidgetData({ type: "test" }, "foo", Buffer.from("wiki_pages_total 50\n"))).toBe(false);
   });
 });

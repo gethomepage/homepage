@@ -41,6 +41,11 @@
         "raw_error": "Raw Error",
         "response_data": "Response Data"
     },
+    "wikijs": {
+        "pages": "Pages",
+        "users": "Users",
+        "groups": "Groups"
+    },
     "weather": {
         "current": "Current Location",
         "allow": "Click to allow",

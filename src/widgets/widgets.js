@@ -158,6 +158,7 @@ import wallos from "./wallos/widget";
 import watchtower from "./watchtower/widget";
 import wgeasy from "./wgeasy/widget";
 import whatsupdocker from "./whatsupdocker/widget";
+import wikijs from "./wikijs/widget";
 import xteve from "./xteve/widget";
 import yourspotify from "./yourspotify/widget";
 import zabbix from "./zabbix/widget";
@@ -328,6 +329,7 @@ const widgets = {
   watchtower,
   wgeasy,
   whatsupdocker,
+  wikijs,
   xteve,
   yourspotify,
   zabbix,
