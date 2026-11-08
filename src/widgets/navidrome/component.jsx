@@ -4,11 +4,15 @@ import { useTranslation } from "next-i18next/pages";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 function SinglePlayingEntry({ entry }) {
-  const { username, artist, title, album } = entry;
+  const { username, playerName, artist, title, album } = entry;
   let fullTitle = title;
   if (artist) fullTitle = `${artist} - ${title}`;
   if (album) fullTitle += ` — ${album}`;
-  if (username) fullTitle += ` (${username})`;
+
+  // Navidrome also reports the client that started playback as `playerName`
+  // (e.g. Feishin, Sonora, Amperfy). Servers that omit it just show the username.
+  const listeners = [...new Set([username, playerName].filter(Boolean))];
+  if (listeners.length) fullTitle += ` (${listeners.join(" · ")})`;
 
   return (
     <div className="text-theme-700 dark:text-theme-200 relative h-5 w-full rounded-md bg-theme-200/50 dark:bg-theme-900/20 mt-1 flex">
