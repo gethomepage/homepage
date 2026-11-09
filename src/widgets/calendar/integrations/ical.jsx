@@ -59,8 +59,36 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
 
     const jCal = ICAL.parse(icalData.data);
     const vCalendar = new ICAL.Component(jCal);
+
+    // Use RECURRENCE-ID to keep track of exceptions and relate them to their recurring master events
+    const recurringMasters = new Map();
+    const exceptionEvents = [];
+    const plainComponents = [];
+    vCalendar.getAllSubcomponents("vevent").forEach((component) => {
+      const icalEvent = new ICAL.Event(component);
+      if (icalEvent.isRecurrenceException()) {
+        exceptionEvents.push(icalEvent);
+      } else if (icalEvent.isRecurring()) {
+        recurringMasters.set(icalEvent.uid, icalEvent);
+      } else {
+        plainComponents.push(component);
+      }
+    });
+    exceptionEvents.forEach((exception) => {
+      const master = recurringMasters.get(exception.uid);
+      if (master) {
+        master.relateException(exception);
+      } else {
+        plainComponents.push(exception.component); // e.g. override so show on its own
+      }
+    });
+
     const parsedEvents = [
-      ...vCalendar.getAllSubcomponents("vevent").map((event) => buildEvent(event, "vevent")),
+      ...[...recurringMasters.values()].map((icalEvent) => ({
+        ...buildEvent(icalEvent.component, "vevent"),
+        recurringEvent: icalEvent,
+      })),
+      ...plainComponents.map((component) => buildEvent(component, "vevent")),
       ...vCalendar.getAllSubcomponents("vtodo").map((todo) => buildEvent(todo, "vtodo")),
     ];
 
@@ -85,6 +113,21 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
     const rangeEnd = ICAL.Time.fromJSDate(endDate.toJSDate());
 
     const getOcurrencesFromRange = (event) => {
+      // Get all occurrences of the event within the specified range, including moved instances (exceptions)
+      if (event.recurringEvent) {
+        const iterator = event.recurringEvent.iterator();
+
+        const occurrences = [];
+        for (let next = iterator.next(); next && next.compare(rangeEnd) < 0; next = iterator.next()) {
+          const { startDate: start } = event.recurringEvent.getOccurrenceDetails(next);
+          if (start.compare(rangeStart) >= 0 && start.compare(rangeEnd) < 0) {
+            occurrences.push(start);
+          }
+        }
+
+        return occurrences;
+      }
+
       if (!event.rrule) {
         if (event.dtstart.compare(rangeStart) >= 0 && event.dtend.compare(rangeEnd) <= 0) {
           if (event.type === "vevent" && event.dtstart.isDate && event.dtend.isDate) {

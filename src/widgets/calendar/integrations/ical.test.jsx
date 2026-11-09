@@ -101,6 +101,104 @@ describe("widgets/calendar/integrations/ical", () => {
     expect(event.isCompleted).toBe(false);
   });
 
+  it("folds RECURRENCE-ID overrides into the series instead of duplicating moved occurrences", async () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        data: [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Test//EN",
+          "BEGIN:VEVENT",
+          "UID:series@test",
+          "SUMMARY:Weekly test event",
+          "DTSTART;TZID=America/New_York:20261106T104500",
+          "DTEND;TZID=America/New_York:20261106T111000",
+          "RRULE:FREQ=WEEKLY;WKST=SU;UNTIL=20261114T045959Z;INTERVAL=1;BYDAY=FR",
+          "SEQUENCE:2",
+          "END:VEVENT",
+          "BEGIN:VEVENT",
+          "UID:series@test",
+          "SUMMARY:Weekly test event",
+          "DTSTART;TZID=America/New_York:20261106T103000",
+          "DTEND;TZID=America/New_York:20261106T105500",
+          "RECURRENCE-ID;TZID=America/New_York:20261106T104500",
+          "SEQUENCE:3",
+          "END:VEVENT",
+          "BEGIN:VEVENT",
+          "UID:series@test",
+          "SUMMARY:Weekly test event",
+          "DTSTART;TZID=America/New_York:20261112T100000",
+          "DTEND;TZID=America/New_York:20261112T102500",
+          "RECURRENCE-ID;TZID=America/New_York:20261113T104500",
+          "SEQUENCE:3",
+          "END:VEVENT",
+          "END:VCALENDAR",
+          "",
+        ].join("\n"),
+      },
+      error: undefined,
+    });
+
+    const setEvents = vi.fn();
+    render(
+      <Integration
+        config={{ name: "Family", type: "ical", color: "blue" }}
+        params={{ start: "2026-11-01T00:00:00.000Z", end: "2026-11-20T00:00:00.000Z" }}
+        setEvents={setEvents}
+        hideErrors
+        timezone="America/New_York"
+      />,
+    );
+
+    await waitFor(() => expect(setEvents).toHaveBeenCalled());
+
+    const entries = Object.values(setEvents.mock.calls[0][0]({}));
+    const times = entries.map((event) => event.date.toFormat("yyyy-MM-dd'T'HH:mm")).sort();
+
+    // Each moved occurrence appears once, at its new time; the original 10:45 slot is gone
+    expect(times).toEqual(["2026-11-06T10:30", "2026-11-12T10:00"]);
+    expect(entries.every((event) => event.title === "Weekly test event")).toBe(true);
+  });
+
+  it("omits a recurring occurrence cancelled with EXDATE", async () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        data: [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Test//EN",
+          "BEGIN:VEVENT",
+          "UID:standup@test",
+          "SUMMARY:Standup",
+          "DTSTART;TZID=America/New_York:20261102T090000",
+          "DTEND;TZID=America/New_York:20261102T091500",
+          "RRULE:FREQ=DAILY;COUNT=3",
+          "EXDATE;TZID=America/New_York:20261103T090000",
+          "END:VEVENT",
+          "END:VCALENDAR",
+          "",
+        ].join("\n"),
+      },
+      error: undefined,
+    });
+
+    const setEvents = vi.fn();
+    render(
+      <Integration
+        config={{ name: "Work", type: "ical", color: "blue" }}
+        params={{ start: "2026-11-01T00:00:00.000Z", end: "2026-11-10T00:00:00.000Z" }}
+        setEvents={setEvents}
+        hideErrors
+        timezone="America/New_York"
+      />,
+    );
+
+    await waitFor(() => expect(setEvents).toHaveBeenCalled());
+
+    const entries = Object.values(setEvents.mock.calls[0][0]({}));
+    expect(entries.map((event) => event.date.toUTC().toISODate()).sort()).toEqual(["2026-11-02", "2026-11-04"]);
+  });
+
   it("adds an all-day event on every day before its exclusive end date", async () => {
     useWidgetAPI.mockReturnValue({
       data: {
