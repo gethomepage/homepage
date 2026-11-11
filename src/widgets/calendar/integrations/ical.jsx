@@ -6,6 +6,22 @@ import { useEffect, useMemo } from "react";
 import Error from "../../../components/services/widget/error";
 import useWidgetAPI from "../../../utils/proxy/use-widget-api";
 
+export function toDateTime(icalDate, timezone, sourceTimezone) {
+  const zone = timezone || "local";
+  if (!icalDate.isDate && icalDate.zone.tzid !== "floating") {
+    return DateTime.fromJSDate(icalDate.toJSDate(), { zone });
+  }
+
+  // Handle missing VTIMEZONE
+  const value = icalDate.toString();
+  const sourceZone = icalDate.isDate ? zone : sourceTimezone || zone;
+  const date = DateTime.fromISO(value, { zone: sourceZone });
+  if (!date.isValid) {
+    return DateTime.fromISO(value, { zone });
+  }
+  return date.setZone(zone);
+}
+
 function simpleHash(str) {
   let hash = 0;
   const prime = 31;
@@ -18,16 +34,16 @@ function simpleHash(str) {
 }
 
 function buildEvent(event, type) {
+  const startProperty =
+    event.getFirstProperty("dtstart") || event.getFirstProperty("due") || event.getFirstProperty("completed");
+
   return {
     id: event.getFirstPropertyValue("uid"),
     type,
     title: event.getFirstPropertyValue("summary"),
     rrule: event.getFirstPropertyValue("rrule"),
-    dtstart:
-      event.getFirstPropertyValue("dtstart") ||
-      event.getFirstPropertyValue("due") ||
-      event.getFirstPropertyValue("completed") ||
-      ICAL.Time.now(), // handles events without a date
+    dtstart: startProperty?.getFirstValue() || ICAL.Time.now(), // handles events without a date
+    sourceTimezone: startProperty?.getParameter("tzid"),
     dtend:
       event.getFirstPropertyValue("dtend") ||
       event.getFirstPropertyValue("due") ||
@@ -163,9 +179,9 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
       const occurrences = getOcurrencesFromRange(event);
 
       occurrences.forEach((icalDate) => {
-        const date = icalDate.toJSDate();
+        const eventDate = toDateTime(icalDate, timezone, event.sourceTimezone);
 
-        const occurrenceTimestamp = date.getTime();
+        const occurrenceTimestamp = icalDate.toJSDate().getTime();
         const eventIdentifier =
           event.id ??
           simpleHash(
@@ -183,12 +199,12 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
             return event.status === "COMPLETED";
           }
 
-          return DateTime.fromJSDate(date) < DateTime.now();
+          return eventDate < DateTime.now();
         };
 
         eventsToAdd[hash] = {
           title,
-          date: DateTime.fromJSDate(date),
+          date: eventDate,
           color: config?.color ?? "zinc",
           isCompleted: getIsCompleted(),
           additional: event.location,
