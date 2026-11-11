@@ -199,6 +199,57 @@ describe("widgets/calendar/integrations/ical", () => {
     expect(entries.map((event) => event.date.toUTC().toISODate()).sort()).toEqual(["2026-11-02", "2026-11-04"]);
   });
 
+  it("applies the configured timezone to timed events across daylight-saving time", async () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        data: [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Homepage Test//iCal Timezone//EN",
+          "BEGIN:VEVENT",
+          "UID:winter@test",
+          "DTSTART;TZID=Europe/Berlin:20261027T140000",
+          "DTEND;TZID=Europe/Berlin:20261027T150000",
+          "SUMMARY:Winter event",
+          "END:VEVENT",
+          "BEGIN:VEVENT",
+          "UID:summer@test",
+          "DTSTART;TZID=Europe/Berlin:20260727T140000",
+          "DTEND;TZID=Europe/Berlin:20260727T150000",
+          "SUMMARY:Summer event",
+          "END:VEVENT",
+          "END:VCALENDAR",
+          "",
+        ].join("\\n"),
+      },
+      error: undefined,
+    });
+
+    const setEvents = vi.fn();
+    render(
+      <Integration
+        config={{ name: "Work", type: "ical", color: "blue" }}
+        params={{ start: "2026-07-01T00:00:00.000Z", end: "2026-11-01T00:00:00.000Z" }}
+        setEvents={setEvents}
+        hideErrors
+        timezone="Europe/Berlin"
+      />,
+    );
+
+    await waitFor(() => expect(setEvents).toHaveBeenCalled());
+
+    const entries = Object.values(setEvents.mock.calls[0][0]({}));
+    const byTitle = Object.fromEntries(entries.map((event) => [event.title, event.date]));
+
+    expect(byTitle["Winter event"].zoneName).toBe("Europe/Berlin");
+    expect(byTitle["Winter event"].toFormat("yyyy-MM-dd'T'HH:mm")).toBe("2026-10-27T14:00");
+    expect(byTitle["Winter event"].toUTC().toISO()).toBe("2026-10-27T13:00:00.000Z");
+
+    expect(byTitle["Summer event"].zoneName).toBe("Europe/Berlin");
+    expect(byTitle["Summer event"].toFormat("yyyy-MM-dd'T'HH:mm")).toBe("2026-07-27T14:00");
+    expect(byTitle["Summer event"].toUTC().toISO()).toBe("2026-07-27T12:00:00.000Z");
+  });
+
   it("adds an all-day event on every day before its exclusive end date", async () => {
     useWidgetAPI.mockReturnValue({
       data: {
