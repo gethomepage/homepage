@@ -21,7 +21,16 @@
         "seconds": "초"
     },
     "auth": {
-        "signout": "로그아웃"
+        "signout": "로그아웃",
+        "loginRequired": "로그인이 필요합니다",
+        "loginDescription": "대시보드를 보려면 로그인하십시오.",
+        "signIn": "로그인",
+        "password": "비밀번호",
+        "loginVia": "{{provider}}(으)로 로그인",
+        "redirecting": "{{provider}}(으)로 리다이렉트 중",
+        "invalidPassword": "잘못된 비밀번호. 다시 시도하십시오.",
+        "authenticationError": "인증 오류",
+        "authenticationErrorDescription": "인증이 비활성화 또는 잘못 설정되었습니다."
     },
     "widget": {
         "missing_type": "없는 위젯 유형: {{type}}",
@@ -358,7 +367,10 @@
     "portainer": {
         "running": "실행 중",
         "stopped": "중지됨",
-        "total": "전체"
+        "total": "전체",
+        "applications": "Applications",
+        "services": "Services",
+        "namespaces": "Namespaces"
     },
     "suwayomi": {
         "download": "다운로드됨",
@@ -1131,7 +1143,15 @@
         "cpu": "CPU",
         "memory": "메모리",
         "disk": "디스크",
-        "network": "네트워크"
+        "network": "네트워크",
+        "temp": "Temp",
+        "load": "Load",
+        "gpu": "GPU",
+        "uptime": "Uptime",
+        "services": "Services",
+        "updates": "Updates",
+        "battery": "Battery",
+        "agent": "Agent"
     },
     "argocd": {
         "apps": "앱",
