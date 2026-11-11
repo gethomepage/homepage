@@ -21,7 +21,16 @@
         "seconds": "s"
     },
     "auth": {
-        "signout": "Wyloguj się"
+        "signout": "Wyloguj się",
+        "loginRequired": "Wymagany login",
+        "loginDescription": "Zaloguj się, aby wyświetlić panel nawigacyjny.",
+        "signIn": "Zaloguj się",
+        "password": "Hasło",
+        "loginVia": "Zaloguj przez {{provider}}",
+        "redirecting": "Przekierowanie do {{provider}}",
+        "invalidPassword": "Błędne hasło. Spróbuj ponownie.",
+        "authenticationError": "Błąd uwierzytelnienia",
+        "authenticationErrorDescription": "Auth jest wyłączony lub nieprawidłowo skonfigurowany."
     },
     "widget": {
         "missing_type": "Brakujący typ widżetu: {{type}}",
@@ -358,7 +367,10 @@
     "portainer": {
         "running": "Działa",
         "stopped": "Zatrzymane",
-        "total": "Razem"
+        "total": "Razem",
+        "applications": "Aplikacje",
+        "services": "Usługi",
+        "namespaces": "Przestrzenie nazw"
     },
     "suwayomi": {
         "download": "Pobrano",
@@ -1131,7 +1143,15 @@
         "cpu": "Procesor",
         "memory": "PAM",
         "disk": "Dysk",
-        "network": "NET"
+        "network": "NET",
+        "temp": "Temperatura",
+        "load": "Obciążenie",
+        "gpu": "GPU",
+        "uptime": "Czas pracy",
+        "services": "Usługi",
+        "updates": "Aktualizacje",
+        "battery": "Bateria",
+        "agent": "Agent"
     },
     "argocd": {
         "apps": "Aplikacje",

@@ -21,7 +21,16 @@
         "seconds": "s"
     },
     "auth": {
-        "signout": "Tanca la sessió"
+        "signout": "Tanca la sessió",
+        "loginRequired": "Cal iniciar la sessió",
+        "loginDescription": "Inicieu la sessió per veure el vostre tauler.",
+        "signIn": "Inicia la sessió",
+        "password": "Contrasenya",
+        "loginVia": "Inicia la sessió amb {{provider}}",
+        "redirecting": "S'està redirigint a {{provider}}",
+        "invalidPassword": "La contrasenya no és vàlida. Torneu-ho a provar.",
+        "authenticationError": "Error d'autenticació",
+        "authenticationErrorDescription": "L'autenticació està desactivada o mal configurada."
     },
     "widget": {
         "missing_type": "Falta el tipus de widget: {{type}}",
@@ -358,7 +367,10 @@
     "portainer": {
         "running": "En execució",
         "stopped": "Aturat",
-        "total": "Total"
+        "total": "Total",
+        "applications": "Aplicacions",
+        "services": "Serveis",
+        "namespaces": "Espais de noms"
     },
     "suwayomi": {
         "download": "Descarregat",
@@ -1131,7 +1143,15 @@
         "cpu": "CPU",
         "memory": "MEM",
         "disk": "Disc",
-        "network": "XARXA"
+        "network": "XARXA",
+        "temp": "Temp",
+        "load": "Càrrega",
+        "gpu": "GPU",
+        "uptime": "Temps en funcionament",
+        "services": "Serveis",
+        "updates": "Actualitzacions",
+        "battery": "Bateria",
+        "agent": "Agent"
     },
     "argocd": {
         "apps": "Apps",

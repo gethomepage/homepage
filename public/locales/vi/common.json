@@ -21,7 +21,16 @@
         "seconds": "giây"
     },
     "auth": {
-        "signout": "Đăng xuất"
+        "signout": "Đăng xuất",
+        "loginRequired": "Login Required",
+        "loginDescription": "Login to view your dashboard.",
+        "signIn": "Sign in",
+        "password": "Password",
+        "loginVia": "Login via {{provider}}",
+        "redirecting": "Redirecting to {{provider}}",
+        "invalidPassword": "Invalid password. Please try again.",
+        "authenticationError": "Authentication error",
+        "authenticationErrorDescription": "Auth is disabled or misconfigured."
     },
     "widget": {
         "missing_type": "Thiếu loại Widget: {{type}}",
@@ -358,7 +367,10 @@
     "portainer": {
         "running": "Đang chạy",
         "stopped": "Đã dừng",
-        "total": "Tổng cộng"
+        "total": "Tổng cộng",
+        "applications": "Applications",
+        "services": "Services",
+        "namespaces": "Namespaces"
     },
     "suwayomi": {
         "download": "Đã tải xuống",
@@ -1131,7 +1143,15 @@
         "cpu": "CPU",
         "memory": "MEM",
         "disk": "Ổ đĩa",
-        "network": "NET"
+        "network": "NET",
+        "temp": "Temp",
+        "load": "Load",
+        "gpu": "GPU",
+        "uptime": "Uptime",
+        "services": "Services",
+        "updates": "Updates",
+        "battery": "Battery",
+        "agent": "Agent"
     },
     "argocd": {
         "apps": "Ứng dụng",
