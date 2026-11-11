@@ -36,6 +36,7 @@ export default function Block({ value, highlightValue, label, field }) {
   }, [highlight, highlightConfig]);
 
   const applyToValueOnly = highlight?.valueOnly === true;
+  const translatedLabel = t(label, { returnObjects: true });
 
   return (
     <div
@@ -63,7 +64,7 @@ export default function Block({ value, highlightValue, label, field }) {
           "service-block-label",
         )}
       >
-        {t(label)}
+        {typeof translatedLabel === "string" ? translatedLabel : label}
       </div>
     </div>
   );

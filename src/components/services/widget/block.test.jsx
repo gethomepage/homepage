@@ -1,6 +1,16 @@
 // @vitest-environment jsdom
 
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
+
+vi.mock("next-i18next/pages", () => ({
+  useTranslation: () => ({
+    t: (key, options) => {
+      if (key === "plex") return options?.returnObjects ? { streams: "Active Streams" } : "translation error";
+      if (key === "test.translated") return "Translated label";
+      return key;
+    },
+  }),
+}));
 
 import Block from "./block";
 import { BlockHighlightContext } from "./highlight-context";
@@ -8,6 +18,18 @@ import { BlockHighlightContext } from "./highlight-context";
 import { renderWithProviders } from "test-utils/render-with-providers";
 
 describe("components/services/widget/block", () => {
+  it("shows a literal label when its translation key resolves to an object", () => {
+    const { container } = renderWithProviders(<Block label="plex" value="1" />, { settings: {} });
+
+    expect(container.querySelector(".service-block-label")).toHaveTextContent("plex");
+  });
+
+  it("still translates labels that resolve to strings", () => {
+    const { container } = renderWithProviders(<Block label="test.translated" value="1" />, { settings: {} });
+
+    expect(container.querySelector(".service-block-label")).toHaveTextContent("Translated label");
+  });
+
   it("renders a placeholder when value is undefined", () => {
     const { container } = renderWithProviders(<Block label="some.label" />, { settings: {} });
 
