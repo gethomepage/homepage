@@ -66,15 +66,20 @@ async function apiCall(widget, endpoint, service) {
   const request = async (accessToken) =>
     httpProxy(url, {
       method: "GET",
-      headers: { accept: "application/json", Authorization: `Bearer ${accessToken}` },
+      headers: widget.key
+        ? { accept: "application/json", "X-API-Key": widget.key }
+        : { accept: "application/json", Authorization: `Bearer ${accessToken}` },
     });
 
-  let accessToken = await loginOrRefresh(widget, service);
-  if (!accessToken) return { status: 401, data: null };
+  let accessToken;
+  if (!widget.key) {
+    accessToken = await loginOrRefresh(widget, service);
+    if (!accessToken) return { status: 401, data: null };
+  }
 
   let [status, , data] = await request(accessToken);
 
-  if (status === 401) {
+  if (status === 401 && !widget.key) {
     logger.debug("BookOrbit API rejected the request, attempting to obtain a new access token");
     cache.del(`${accessTokenCacheKey}.${service}`);
     accessToken = await loginOrRefresh(widget, service, true);
@@ -111,7 +116,7 @@ export default async function bookorbitProxyHandler(req, res) {
     return res.status(400).json({ error: "Invalid proxy service type" });
   }
 
-  if (!widget.username || !widget.password) {
+  if (!widget.key && (!widget.username || !widget.password)) {
     logger.debug("Missing credentials for BookOrbit widget in service '%s'", service);
     return res.status(400).json({ error: "Missing BookOrbit credentials" });
   }

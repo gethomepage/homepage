@@ -75,6 +75,23 @@ describe("widgets/bookorbit/proxy", () => {
     expect(res.body).toEqual({ books: 10, authors: 4, series: 2, storage: 2048, reading: 1, finished: 3 });
   });
 
+  it("uses an API key without attempting login", async () => {
+    getServiceWidget.mockResolvedValue({ type: "bookorbit", url: "http://bookorbit", key: "bok_test" });
+    httpProxy.mockResolvedValueOnce(json(summary)).mockResolvedValueOnce(json(userSummary));
+    const res = createMockRes();
+
+    await bookorbitProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(2);
+    expect(httpProxy.mock.calls[0][1]).toEqual({
+      method: "GET",
+      headers: { accept: "application/json", "X-API-Key": "bok_test" },
+    });
+    expect(httpProxy.mock.calls[1][1].headers["X-API-Key"]).toBe("bok_test");
+    expect(res.statusCode).toBe(200);
+    expect(res.body).toEqual({ books: 10, authors: 4, series: 2, storage: 2048, reading: 1, finished: 3 });
+  });
+
   it("reuses the cached access token", async () => {
     getServiceWidget.mockResolvedValue(widget);
     httpProxy
