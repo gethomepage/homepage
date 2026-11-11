@@ -220,7 +220,7 @@ describe("widgets/calendar/integrations/ical", () => {
           "END:VEVENT",
           "END:VCALENDAR",
           "",
-        ].join("\\n"),
+        ].join("\n"),
       },
       error: undefined,
     });
