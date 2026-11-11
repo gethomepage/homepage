@@ -6,6 +6,25 @@ import { useEffect, useMemo } from "react";
 import Error from "../../../components/services/widget/error";
 import useWidgetAPI from "../../../utils/proxy/use-widget-api";
 
+export function toDateTime(icalDate, timezone) {
+  const zone = timezone || "local";
+
+  // All-day events are calendar dates, not instants in time.
+  if (icalDate.isDate) {
+    return DateTime.fromObject(
+      {
+        year: icalDate.year,
+        month: icalDate.month,
+        day: icalDate.day,
+      },
+      { zone },
+    );
+  }
+
+  // Preserve the instant while assigning the calendar's display timezone.
+  return DateTime.fromJSDate(icalDate.toJSDate(), { zone });
+}
+
 function simpleHash(str) {
   let hash = 0;
   const prime = 31;
@@ -163,9 +182,9 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
       const occurrences = getOcurrencesFromRange(event);
 
       occurrences.forEach((icalDate) => {
-        const date = icalDate.toJSDate();
+        const eventDate = toDateTime(icalDate, timezone);
 
-        const occurrenceTimestamp = date.getTime();
+        const occurrenceTimestamp = icalDate.toJSDate().getTime();
         const eventIdentifier =
           event.id ??
           simpleHash(
@@ -183,12 +202,12 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
             return event.status === "COMPLETED";
           }
 
-          return DateTime.fromJSDate(date) < DateTime.now();
+          return eventDate < DateTime.now();
         };
 
         eventsToAdd[hash] = {
           title,
-          date: DateTime.fromJSDate(date),
+          date: eventDate,
           color: config?.color ?? "zinc",
           isCompleted: getIsCompleted(),
           additional: event.location,
