@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 
 import { render, screen, waitFor } from "@testing-library/react";
+import ICAL from "ical.js";
 import { describe, expect, it, vi } from "vitest";
 
 const { useWidgetAPI } = vi.hoisted(() => ({
@@ -9,7 +10,7 @@ const { useWidgetAPI } = vi.hoisted(() => ({
 
 vi.mock("utils/proxy/use-widget-api", () => ({ default: useWidgetAPI }));
 
-import Integration from "./ical";
+import Integration, { toDateTime } from "./ical";
 
 describe("widgets/calendar/integrations/ical", () => {
   it("reports a missing calendar payload without mutating the response", () => {
@@ -199,6 +200,17 @@ describe("widgets/calendar/integrations/ical", () => {
     expect(entries.map((event) => event.date.toUTC().toISODate()).sort()).toEqual(["2026-11-02", "2026-11-04"]);
   });
 
+  it.each([
+    ["winter TZID", "2026-10-27T14:00:00", "Europe/Berlin", "2026-10-27T06:00:00.000-07:00"],
+    ["summer TZID", "2026-07-27T14:00:00", "Europe/Berlin", "2026-07-27T05:00:00.000-07:00"],
+    ["UTC", "2026-10-27T01:00:00Z", undefined, "2026-10-26T18:00:00.000-07:00"],
+    ["floating time", "2026-10-27T09:00:00", undefined, "2026-10-27T09:00:00.000-07:00"],
+    ["all-day date", "2026-07-16", undefined, "2026-07-16T00:00:00.000-07:00"],
+  ])("converts %s to the configured timezone", (_name, value, sourceTimezone, expected) => {
+    const date = ICAL.Time.fromString(value);
+    expect(toDateTime(date, "America/Los_Angeles", sourceTimezone).toISO()).toBe(expected);
+  });
+
   it("adds an all-day event on every day before its exclusive end date", async () => {
     useWidgetAPI.mockReturnValue({
       data: {
@@ -236,5 +248,6 @@ describe("widgets/calendar/integrations/ical", () => {
     const updater = setEvents.mock.calls[0][0];
     const entries = Object.values(updater({}));
     expect(entries.map((event) => event.date.toISODate()).sort()).toEqual(["2026-07-16", "2026-07-17", "2026-07-18"]);
+    expect(entries.every((event) => event.date.zoneName === "America/Los_Angeles")).toBe(true);
   });
 });
