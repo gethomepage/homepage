@@ -6,13 +6,12 @@ import "styles/manrope.css";
 import "styles/plex-mono.css";
 import "styles/theme.css";
 import { SWRConfig } from "swr";
-
-import nextI18nextConfig from "../../next-i18next.config";
-
 import { ColorProvider } from "utils/contexts/color";
 import { SettingsProvider } from "utils/contexts/settings";
 import { TabProvider } from "utils/contexts/tab";
 import { ThemeProvider } from "utils/contexts/theme";
+
+import nextI18nextConfig from "../../next-i18next.config";
 
 const tailwindSafelist = [
   // TODO: remove pending https://github.com/tailwindlabs/tailwindcss/pull/17147

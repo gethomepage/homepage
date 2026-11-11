@@ -54,6 +54,16 @@ body:
       description: Please include output from your [troubleshooting steps](https://gethomepage.dev/troubleshooting/#service-widget-errors), if relevant.
     validations:
       required: true
+  - type: dropdown
+    id: ai-disclosure
+    attributes:
+      label: AI disclosure
+      description: Our [contributing guidelines](https://github.com/gethomepage/homepage/blob/main/CONTRIBUTING.md#use-of-ai-tools) require that any content generated in whole or in part by an AI tool or agent be clearly disclosed. Please indicate whether that applies to this request.
+      options:
+        - "No AI tools were used to generate this request"
+        - "AI tools were used to generate part or all of this request"
+    validations:
+      required: true
   - type: markdown
     attributes:
       value: |

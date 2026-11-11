@@ -132,7 +132,11 @@ vi.mock("utils/hooks/window-focus", () => ({
 }));
 
 vi.mock("components/bookmarks/group", () => ({
-  default: ({ bookmarks }) => <div data-testid="bookmarks-group">{bookmarks?.name}</div>,
+  default: ({ bookmarks, bookmarksStyle }) => (
+    <div data-testid="bookmarks-group" data-bookmarks-style={bookmarksStyle ?? ""}>
+      {bookmarks?.name}
+    </div>
+  ),
 }));
 
 vi.mock("components/services/group", () => ({
@@ -446,6 +450,17 @@ describe("pages/index Home behavior", () => {
     expect(screen.getByTestId("quicklaunch")).toHaveTextContent("closed:3");
   });
 
+  it("does not render QuickLaunch or listen for keys when disabled", async () => {
+    await renderIndex({
+      initialSettings: { title: "Homepage", layout: {} },
+      settings: { title: "Homepage", layout: {}, language: "en", quicklaunch: { disabled: true } },
+    });
+
+    expect(await screen.findByTestId("services-group")).toBeInTheDocument();
+    fireEvent.keyDown(document.body, { key: "a" });
+    expect(screen.queryByTestId("quicklaunch")).not.toBeInTheDocument();
+  });
+
   it("opens search on space without seeding the query with whitespace", async () => {
     await renderIndex({
       initialSettings: { title: "Homepage", layout: {} },
@@ -469,6 +484,23 @@ describe("pages/index Home behavior", () => {
 
     expect(await screen.findByTestId("services-group")).toHaveTextContent("Services");
     expect(screen.getByTestId("bookmarks-group")).toHaveTextContent("Bookmarks");
+  });
+
+  it("passes bookmarksStyle to bookmark groups both inside and outside the layout", async () => {
+    state.bookmarksData = [
+      { name: "In Layout", bookmarks: [] },
+      { name: "Bottom Section", bookmarks: [] },
+    ];
+
+    await renderIndex({
+      initialSettings: { title: "Homepage", layout: { "In Layout": {} } },
+      settings: { title: "Homepage", layout: { "In Layout": {} }, bookmarksStyle: "icons", language: "en" },
+    });
+
+    const groups = await screen.findAllByTestId("bookmarks-group");
+    for (const group of groups) {
+      expect(group).toHaveAttribute("data-bookmarks-style", "icons");
+    }
   });
 
   it("renders tab navigation and filters groups by active tab", async () => {

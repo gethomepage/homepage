@@ -1,10 +1,10 @@
 import classNames from "classnames";
 import { useTranslation } from "next-i18next/pages";
 import { useContext, useMemo } from "react";
+import { SettingsContext } from "utils/contexts/settings";
 
 import { BlockHighlightContext } from "./highlight-context";
 
-import { SettingsContext } from "utils/contexts/settings";
 import { evaluateHighlight, getHighlightClass } from "utils/highlights";
 
 export default function Block({ value, highlightValue, label, field }) {
@@ -36,6 +36,7 @@ export default function Block({ value, highlightValue, label, field }) {
   }, [highlight, highlightConfig]);
 
   const applyToValueOnly = highlight?.valueOnly === true;
+  const translatedLabel = t(label, { returnObjects: true });
 
   return (
     <div
@@ -63,7 +64,7 @@ export default function Block({ value, highlightValue, label, field }) {
           "service-block-label",
         )}
       >
-        {t(label)}
+        {typeof translatedLabel === "string" ? translatedLabel : label}
       </div>
     </div>
   );

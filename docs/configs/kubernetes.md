@@ -81,6 +81,10 @@ For instance, it can be utilized to roll multiple underlying deployments under o
 
 Homepage features automatic service discovery by Ingress annotations. All configuration options can be applied using typical annotation syntax, beginning with `gethomepage.dev/`.
 
+!!! danger
+
+    Discovery annotations are Homepage configuration. Users who can edit discovered resources should be trusted to configure Homepage, including widget request destinations and substitution of `HOMEPAGE_VAR_*` and `HOMEPAGE_FILE_*` values.
+
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress

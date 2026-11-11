@@ -1,10 +1,10 @@
 import classNames from "classnames";
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
 import { formatValue, getColor, getValue } from "./utils";
 
-import Block from "components/services/widget/block";
-import Container from "components/services/widget/container";
 import * as shvl from "utils/config/shvl";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 

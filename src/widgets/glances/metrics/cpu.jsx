@@ -21,7 +21,7 @@ export default function Component({ service }) {
   const { chart, refreshInterval = defaultInterval, pointsLimit = defaultPointsLimit, version = 3 } = widget;
   const apiVersion = parseVersionForUrl(version, 3);
 
-  const [dataPoints, addDataPoint] = useDataPoints(pointsLimit, { value: 0 });
+  const [dataPoints, addDataPoint] = useDataPoints(pointsLimit, { value: null });
 
   const handleData = useCallback(
     (newData) => {
@@ -57,6 +57,8 @@ export default function Component({ service }) {
     <Container chart={chart}>
       {chart && (
         <Chart
+          chartMin={widget.chartMin}
+          chartMax={widget.chartMax}
           dataPoints={dataPoints}
           label={[t("resources.used")]}
           formatter={(value) =>

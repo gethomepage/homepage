@@ -22,19 +22,10 @@ async function login(loginUrl) {
 
   const json = asJson(data);
   if (json?.success !== true) {
-    // from page 16: https://global.download.synology.com/download/Document/Software/DeveloperGuide/Os/DSM/All/enu/DSM_Login_Web_API_Guide_enu.pdf
-    /*
-      Code Description
-      400  No such account or incorrect password
-      401  Account disabled
-      402  Permission denied
-      403  2-step verification code required
-      404  Failed to authenticate 2-step verification code
-    */
-    let message = "Authentication failed.";
-    if (json?.error?.code >= 403) message += " 2FA enabled.";
-    logger.warn("Unable to login.  Code: %d", json?.error?.code);
-    return [401, "application/json", JSON.stringify({ code: json?.error?.code, message })];
+    const code = json?.error?.code;
+    logger.warn("Unable to login.  Code: %d", code);
+    const message = "Authentication failed, check the DSM logs for details.";
+    return [401, "application/json", JSON.stringify({ code, message })];
   }
 
   return [status, contentType, data];
@@ -76,7 +67,13 @@ async function handleUnsuccessfulResponse(serviceWidget, url, serviceName) {
 
   const [apiPath, maxVersion] = await getApiInfo(serviceWidget, AUTH_API_NAME, serviceName);
 
-  const authArgs = { path: apiPath ?? "entry.cgi", maxVersion: maxVersion ?? 7, ...serviceWidget };
+  const authArgs = {
+    path: apiPath ?? "entry.cgi",
+    maxVersion: maxVersion ?? 7,
+    ...serviceWidget,
+    username: encodeURIComponent(serviceWidget.username ?? ""),
+    password: encodeURIComponent(serviceWidget.password ?? ""),
+  };
   const loginUrl = formatApiCall(AUTH_ENDPOINT, authArgs);
 
   const [status, contentType, data] = await login(loginUrl);

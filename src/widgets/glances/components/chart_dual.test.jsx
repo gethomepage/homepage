@@ -15,6 +15,7 @@ vi.mock("recharts", () => ({
     </div>
   ),
   Area: ({ name, dataKey }) => <div data-testid="Area" data-name={name} data-key={dataKey} />,
+  YAxis: ({ domain, hide }) => <div data-testid="YAxis" data-domain={domain.join(",")} data-hide={hide} />,
   Tooltip: ({ content }) => <div data-testid="Tooltip">{content}</div>,
 }));
 
@@ -34,5 +35,14 @@ describe("widgets/glances/components/chart_dual", () => {
     expect(areas).toHaveLength(2);
     expect(areas[0]).toHaveAttribute("data-key", "a");
     expect(areas[1]).toHaveAttribute("data-key", "b");
+    expect(screen.queryByTestId("YAxis")).not.toBeInTheDocument();
+  });
+
+  it("applies a fixed range on a hidden Y axis", () => {
+    render(<ChartDual dataPoints={[{ a: 1, b: 2 }]} formatter={(v) => String(v)} label={["A", "B"]} chartMin={0} />);
+
+    const axis = screen.getByTestId("YAxis");
+    expect(axis).toHaveAttribute("data-domain", "0,auto");
+    expect(axis).toHaveAttribute("data-hide", "true");
   });
 });

@@ -1,9 +1,9 @@
+import Block from "components/services/widget/block";
+import Container from "components/services/widget/container";
 import { useTranslation } from "next-i18next/pages";
 
 import QueueEntry from "../../components/widgets/queue/queueEntry";
 
-import Block from "components/services/widget/block";
-import Container from "components/services/widget/container";
 import useWidgetAPI from "utils/proxy/use-widget-api";
 
 export default function Component({ service }) {
@@ -47,6 +47,7 @@ export default function Component({ service }) {
   }
 
   const leech = keys.length - completed || 0;
+  leechTorrents.sort((firstTorrent, secondTorrent) => secondTorrent.progress - firstTorrent.progress);
 
   return (
     <>

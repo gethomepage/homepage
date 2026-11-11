@@ -22,6 +22,8 @@ widget:
   diskUnits: bytes # optional, bytes (default) or bbytes. Only applies to disk
   refreshInterval: 5000 # optional - in milliseconds, defaults to 1000 or more, depending on the metric
   pointsLimit: 15 # optional, defaults to 15
+  chartMin: 0 # optional, see Chart range below
+  chartMax: 100 # optional, see Chart range below
 ```
 
 _Please note, this widget does not need an `href`, `icon` or `description` on its parent service. To achieve the same effect as the examples above, see as an example:_
@@ -62,6 +64,12 @@ The metric field in the configuration determines the type of system monitoring d
 `gpu:<gpu_id>`: GPU usage for the specified GPU. Replace `<gpu_id>` with the id of your GPU, e.g., `gpu:0`, as specified in glances.
 
 `fs:<mnt_point>`: Disk usage for the specified mount point. Replace `<mnt_point>` with the path of your disk, e.g., `/mnt/storage`, as specified in glances.
+
+## Chart range
+
+By default charts scale to fit the values shown. Set `chartMin` and / or `chartMax` to keep a fixed scale instead, e.g. `chartMax: 100` for `cpu`. Values are in the metric's base unit, e.g. bits per second for `network`.
+
+Note that min / max are not supported for `memory`, and a `chartMin` above 0 has no effect on `network`, `disk` and `gpu` (because their charts are stacked).
 
 ## Views
 

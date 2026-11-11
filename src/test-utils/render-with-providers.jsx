@@ -1,5 +1,4 @@
 import { render } from "@testing-library/react";
-
 import { SettingsContext } from "utils/contexts/settings";
 
 export function renderWithProviders(ui, { settings = {} } = {}) {

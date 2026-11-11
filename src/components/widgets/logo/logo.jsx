@@ -1,7 +1,7 @@
+import ResolvedIcon from "components/resolvedicon";
+
 import Container from "../widget/container";
 import Raw from "../widget/raw";
-
-import ResolvedIcon from "components/resolvedicon";
 
 export default function Logo({ options }) {
   return (

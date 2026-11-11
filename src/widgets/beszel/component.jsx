@@ -1,7 +1,7 @@
-import { useTranslation } from "next-i18next/pages";
-
 import Block from "components/services/widget/block";
 import Container from "components/services/widget/container";
+import { useTranslation } from "next-i18next/pages";
+
 import useWidgetAPI from "utils/proxy/use-widget-api";
 import withWidgetFields from "utils/widget-fields";
 
@@ -69,6 +69,43 @@ export default function Component({ service: configuredService }) {
           value={t("common.byterate", { value: system.info.bb, maximumFractionDigits: 2 })}
           highlightValue={system.info.bb}
         />
+        <Block
+          label="beszel.temp"
+          value={t("common.number", {
+            value: system.info.dt,
+            maximumFractionDigits: 1,
+            style: "unit",
+            unit: "celsius",
+          })}
+          highlightValue={system.info.dt}
+        />
+        <Block
+          label="beszel.load"
+          value={t("common.number", { value: system.info.la?.[0], maximumFractionDigits: 2 })}
+          highlightValue={system.info.la?.[0]}
+        />
+        <Block
+          label="beszel.gpu"
+          value={t("common.percent", { value: system.info.g, maximumFractionDigits: 2 })}
+          highlightValue={system.info.g}
+        />
+        <Block label="beszel.uptime" value={t("common.duration", { value: system.info.u })} />
+        <Block
+          label="beszel.services"
+          value={`${system.info.sv?.[0] - system.info.sv?.[1]} / ${system.info.sv?.[0]}`}
+          highlightValue={system.info.sv?.[1]}
+        />
+        <Block
+          label="beszel.updates"
+          value={t("common.number", { value: system.info.pu?.[0] })}
+          highlightValue={system.info.pu?.[0]}
+        />
+        <Block
+          label="beszel.battery"
+          value={t("common.percent", { value: system.info.bat?.[0] })}
+          highlightValue={system.info.bat?.[0]}
+        />
+        <Block label="beszel.agent" value={system.info.v} />
       </Container>
     );
   }

@@ -171,4 +171,90 @@ describe("widgets/pihole/proxy", () => {
     expect(res.statusCode).toBe(200);
     expect(res.body.dns_queries_today).toBe(4);
   });
+
+  it("logs in again and retries once when the cached SID is rejected", async () => {
+    getServiceWidget.mockResolvedValue({ type: "pihole", version: 6, url: "http://pi", key: "pw" });
+    cache.put("piholeProxyHandler__sessionSID.svc", "stale");
+    httpProxy
+      .mockResolvedValueOnce([401, "application/json", JSON.stringify({ error: { key: "unauthorized" } })])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ session: { sid: "fresh", validity: 1000 } })])
+      .mockResolvedValueOnce([
+        200,
+        "application/json",
+        JSON.stringify({
+          gravity: { domains_being_blocked: 1 },
+          queries: { blocked: 2, percent_blocked: 3, total: 4 },
+        }),
+      ]);
+
+    const req = { query: { group: "g", service: "svc", index: "0" } };
+    const res = createRes();
+
+    await piholeProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(3);
+    expect(httpProxy).toHaveBeenNthCalledWith(
+      1,
+      "http://pi/stats/summary",
+      expect.objectContaining({ headers: expect.objectContaining({ "X-FTL-SID": "stale" }) }),
+    );
+    expect(httpProxy).toHaveBeenNthCalledWith(2, "http://pi/auth", expect.objectContaining({ method: "POST" }));
+    expect(httpProxy).toHaveBeenNthCalledWith(
+      3,
+      "http://pi/stats/summary",
+      expect.objectContaining({ headers: expect.objectContaining({ "X-FTL-SID": "fresh" }) }),
+    );
+    expect(cache.get("piholeProxyHandler__sessionSID.svc")).toBe("fresh");
+    expect(res.statusCode).toBe(200);
+    expect(res.body.dns_queries_today).toBe(4);
+  });
+
+  it("returns 500 and drops the stale SID when logging in again fails", async () => {
+    getServiceWidget.mockResolvedValue({ type: "pihole", version: 6, url: "http://pi", key: "pw" });
+    cache.put("piholeProxyHandler__sessionSID.svc", "stale");
+    httpProxy
+      .mockResolvedValueOnce([401, "application/json", JSON.stringify({ error: { key: "unauthorized" } })])
+      .mockResolvedValueOnce([401, "application/json", JSON.stringify({ session: { valid: false } })]);
+
+    const req = { query: { group: "g", service: "svc", index: "0" } };
+    const res = createRes();
+
+    await piholeProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(2);
+    expect(cache.get("piholeProxyHandler__sessionSID.svc")).toBeUndefined();
+    expect(res.statusCode).toBe(500);
+    expect(res.body).toEqual({ error: "Failed to authenticate with Pi-hole" });
+  });
+
+  it("retries only once when the new SID is rejected too", async () => {
+    getServiceWidget.mockResolvedValue({ type: "pihole", version: 6, url: "http://pi", key: "pw" });
+    cache.put("piholeProxyHandler__sessionSID.svc", "stale");
+    httpProxy
+      .mockResolvedValueOnce([401, "application/json", "{}"])
+      .mockResolvedValueOnce([200, "application/json", JSON.stringify({ session: { sid: "fresh", validity: 1000 } })])
+      .mockResolvedValueOnce([401, "application/json", "{}"]);
+
+    const req = { query: { group: "g", service: "svc", index: "0" } };
+    const res = createRes();
+
+    await piholeProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(3);
+    expect(res.statusCode).toBe(401);
+    expect(res.body).toEqual({ error: "Pi-Hole API Error", data: "{}" });
+  });
+
+  it("does not try to log in on a 401 when no key is configured", async () => {
+    getServiceWidget.mockResolvedValue({ type: "pihole", version: 6, url: "http://pi" });
+    httpProxy.mockResolvedValueOnce([401, "application/json", "{}"]);
+
+    const req = { query: { group: "g", service: "svc", index: "0" } };
+    const res = createRes();
+
+    await piholeProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(1);
+    expect(res.statusCode).toBe(401);
+  });
 });
