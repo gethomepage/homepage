@@ -23,7 +23,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
     - name: crowdin action
-      uses: crowdin/github-action@959dc74ac104447731cba99a016f85d0ae719788 # v3.5.0
+      uses: crowdin/github-action@d651c77756acbe11a31d77a6fb79d8a239e1e05a # v3.6.0
       with:
         upload_translations: false
         download_translations: true
