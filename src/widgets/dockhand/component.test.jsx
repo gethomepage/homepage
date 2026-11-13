@@ -36,6 +36,30 @@ describe("widgets/dockhand/component", () => {
     expect(screen.getByText("dockhand.memory")).toBeInTheDocument();
   });
 
+  it.each([
+    [undefined, undefined],
+    [100, 1000],
+    [1500, 1500],
+  ])("passes refreshInterval %s to useWidgetAPI as %o", (refreshInterval, expectedRefreshInterval) => {
+    useWidgetAPI.mockReturnValue({ data: undefined, error: undefined });
+
+    const widget = { type: "dockhand" };
+    if (refreshInterval !== undefined) widget.refreshInterval = refreshInterval;
+    renderWithProviders(<Component service={{ widget }} />, { settings: { hideErrors: false } });
+
+    var config = undefined;
+    if (expectedRefreshInterval !== undefined) {
+      config = { refreshInterval: expectedRefreshInterval };
+    }
+
+    expect(useWidgetAPI).toHaveBeenCalledWith(
+      { ...widget, fields: ["running", "total", "cpu", "memory"] },
+      "dashboard/stats",
+      undefined,
+      config,
+    );
+  });
+
   it("renders environment-specific values when widget.environment matches", () => {
     useWidgetAPI.mockReturnValue({
       data: [
