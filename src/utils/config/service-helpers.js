@@ -373,7 +373,7 @@ export function cleanServiceGroups(groups) {
           chartMin,
           chartMax,
 
-          // glances, customapi, iframe, prometheusmetric
+          // glances, customapi, iframe, prometheusmetric, dockhand
           refreshInterval,
 
           // hdhomerun
@@ -694,6 +694,7 @@ export function cleanServiceGroups(groups) {
         }
         if (type === "dockhand") {
           if (environment) widget.environment = environment;
+          if (refreshInterval) widget.refreshInterval = refreshInterval;
         }
         if (type === "hdhomerun") {
           if (tuner !== undefined) widget.tuner = tuner;

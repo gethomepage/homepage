@@ -18,4 +18,5 @@ widget:
   username: your-user # required for local auth
   password: your-pass # required for local auth
   key: dockhandapikey # optional, if using API key auth instead of username/password
+  refreshInterval: 1000 # optional, refreshes the data live if specified
 ```
