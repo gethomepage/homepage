@@ -12,7 +12,7 @@ export default function Component({ service: configuredService }) {
   const service = withWidgetFields(configuredService, DEFAULT_FIELDS);
   const { widget } = service;
 
-  const { refreshInterval } = widget;
+  var { refreshInterval } = widget;
   refreshInterval = refreshInterval ? { refreshInterval: Math.max(1000, refreshInterval) } : undefined;
   const { data: stats, error: statsError } = useWidgetAPI(widget, "dashboard/stats", undefined, refreshInterval);
 

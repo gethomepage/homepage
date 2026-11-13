@@ -26,6 +26,8 @@ describe("widgets/dockhand/component", () => {
     expect(useWidgetAPI).toHaveBeenCalledWith(
       { type: "dockhand", fields: ["running", "total", "cpu", "memory"] },
       "dashboard/stats",
+      undefined,
+      undefined,
     );
     expect(container.querySelectorAll(".service-block")).toHaveLength(4);
     expect(screen.getByText("dockhand.running")).toBeInTheDocument();
