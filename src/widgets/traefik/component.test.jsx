@@ -29,7 +29,26 @@ describe("widgets/traefik/component", () => {
     expect(screen.getByText("traefik.middleware")).toBeInTheDocument();
   });
 
-  it("renders totals when loaded", () => {
+  it("renders combined HTTP, TCP, and UDP totals when loaded", () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        http: { routers: { total: 1 }, services: { total: 2 }, middlewares: { total: 3 } },
+        tcp: { routers: { total: 4 }, services: { total: 5 }, middlewares: { total: 6 } },
+        udp: { routers: { total: 7 }, services: { total: 8 } },
+      },
+      error: undefined,
+    });
+
+    const { container } = renderWithProviders(<Component service={{ widget: { type: "traefik" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expectBlockValue(container, "traefik.routers", 12);
+    expectBlockValue(container, "traefik.services", 15);
+    expectBlockValue(container, "traefik.middleware", 9);
+  });
+
+  it("renders HTTP totals when TCP and UDP data is unavailable", () => {
     useWidgetAPI.mockReturnValue({
       data: { http: { routers: { total: 1 }, services: { total: 2 }, middlewares: { total: 3 } } },
       error: undefined,

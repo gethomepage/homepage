@@ -22,11 +22,24 @@ export default function Component({ service }) {
     );
   }
 
+  const routers =
+    traefikData.http.routers.total +
+    (traefikData.tcp?.routers?.total ?? 0) +
+    (traefikData.udp?.routers?.total ?? 0);
+  const services =
+    traefikData.http.services.total +
+    (traefikData.tcp?.services?.total ?? 0) +
+    (traefikData.udp?.services?.total ?? 0);
+  const middlewares =
+    traefikData.http.middlewares.total +
+    (traefikData.tcp?.middlewares?.total ?? 0) +
+    (traefikData.udp?.middlewares?.total ?? 0);
+
   return (
     <Container service={service}>
-      <Block label="traefik.routers" value={traefikData.http.routers.total} />
-      <Block label="traefik.services" value={traefikData.http.services.total} />
-      <Block label="traefik.middleware" value={traefikData.http.middlewares.total} />
+      <Block label="traefik.routers" value={routers} />
+      <Block label="traefik.services" value={services} />
+      <Block label="traefik.middleware" value={middlewares} />
     </Container>
   );
 }
