@@ -19,3 +19,5 @@ widget:
 ```
 
 Using an API key for the widget requires permissions for: `containers:list`, `images:list`, and `image-updates:read`.
+
+Note: `image_updates` reports the number of containers with an available update.
