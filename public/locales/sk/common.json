@@ -22,14 +22,14 @@
     },
     "auth": {
         "signout": "Odhlásiť sa",
-        "loginRequired": "Login Required",
-        "loginDescription": "Login to view your dashboard.",
-        "signIn": "Sign in",
-        "password": "Password",
-        "loginVia": "Login via {{provider}}",
-        "redirecting": "Redirecting to {{provider}}",
-        "invalidPassword": "Invalid password. Please try again.",
-        "authenticationError": "Authentication error",
+        "loginRequired": "Vyžaduje sa prihlásenie",
+        "loginDescription": "Prihláste sa, aby ste mohli zobraziť svoj ovládací panel.",
+        "signIn": "Prihlásiť sa",
+        "password": "Heslo",
+        "loginVia": "Prihlásiť sa cez {{provider}}",
+        "redirecting": "Presmerovanie na {{provider}}",
+        "invalidPassword": "Neplatné heslo. Skúste to prosím znova.",
+        "authenticationError": "Chyba overenia",
         "authenticationErrorDescription": "Auth is disabled or misconfigured."
     },
     "widget": {
@@ -272,7 +272,7 @@
         "upload": "Upload",
         "total": "Celkom",
         "errored": "Errored",
-        "ratio": "Ratio",
+        "ratio": "Pomer",
         "freeSpace": "Free"
     },
     "qnap": {
