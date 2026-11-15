@@ -14,9 +14,14 @@ export default function Component({ service: configuredService }) {
 
   const envNotSet = widget.env == null || widget.env === "";
 
-  const { data: containers, error: containersError } = useWidgetAPI(widget, envNotSet ? "" : "containers");
-  const { data: images, error: imagesError } = useWidgetAPI(widget, envNotSet ? "" : "images");
-  const { data: updates, error: updatesError } = useWidgetAPI(widget, envNotSet ? "" : "updates");
+  const { version = 1 } = widget;
+  const containersEndpoint = version === 2 ? "containers_v2" : "containers";
+  const imagesEndpoint = version === 2 ? "images_v2" : "images";
+  const updatesEndpoint = version === 2 ? "updates_v2" : "updates";
+
+  const { data: containers, error: containersError } = useWidgetAPI(widget, envNotSet ? "" : containersEndpoint);
+  const { data: images, error: imagesError } = useWidgetAPI(widget, envNotSet ? "" : imagesEndpoint);
+  const { data: updates, error: updatesError } = useWidgetAPI(widget, envNotSet ? "" : updatesEndpoint);
 
   if (envNotSet) {
     return <Container service={service} error={t("arcane.environment_required")} />;
