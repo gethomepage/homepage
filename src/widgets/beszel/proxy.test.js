@@ -114,4 +114,30 @@ describe("widgets/beszel/proxy", () => {
     expect(httpProxy.mock.calls[2][1].headers.Authorization).toBe("Bearer new");
     expect(res.send).toHaveBeenCalledWith(Buffer.from(JSON.stringify({ items: [1] })));
   });
+
+  it("retries after a 401 by clearing cache and logging in again", async () => {
+    cache.put("beszelProxyHandler__token.svc", "expired");
+
+    getServiceWidget.mockResolvedValue({
+      type: "beszel",
+      url: "http://beszel",
+      username: "u",
+      password: "p",
+    });
+
+    httpProxy
+      .mockResolvedValueOnce([401, "application/json", Buffer.from("{}")])
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ token: "new" }))])
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ items: [1] }))]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "items", index: "0" } };
+    const res = createMockRes();
+
+    await beszelProxyHandler(req, res);
+
+    expect(httpProxy).toHaveBeenCalledTimes(3);
+    expect(httpProxy.mock.calls[0][1].headers.Authorization).toBe("Bearer expired");
+    expect(httpProxy.mock.calls[2][1].headers.Authorization).toBe("Bearer new");
+    expect(res.send).toHaveBeenCalledWith(Buffer.from(JSON.stringify({ items: [1] })));
+  });
 });
