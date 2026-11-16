@@ -362,7 +362,7 @@ export function cleanServiceGroups(groups) {
           // gamedig
           gameToken,
 
-          // authentik, beszel, glances, immich, komga, mealie, netalertx, pihole, pfsense, speedtest
+          // arcane, authentik, beszel, glances, immich, komga, mealie, netalertx, pihole, pfsense, speedtest
           version,
 
           // glances
@@ -619,6 +619,7 @@ export function cleanServiceGroups(groups) {
         }
         if (
           [
+            "arcane",
             "authentik",
             "beszel",
             "fileflows",

@@ -32,6 +32,18 @@ describe("widgets/arcane/component", () => {
     expect(screen.getByText("arcane.environment_required")).toBeInTheDocument();
   });
 
+  it("calls v2 API endpoints when version is 2", () => {
+    useWidgetAPI.mockImplementation(() => ({ data: undefined, error: undefined }));
+
+    renderWithProviders(<Component service={{ widget: { type: "arcane", env: "prod", version: 2 } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    expect(useWidgetAPI).toHaveBeenCalledTimes(3);
+    const endpoints = useWidgetAPI.mock.calls.map((call) => call[1]);
+    expect(endpoints).toEqual(["containers_v2", "images_v2", "updates_v2"]);
+  });
+
   it("shows an error when API calls return detail errors", () => {
     useWidgetAPI.mockImplementation(() => ({ data: { detail: "Specific API error" }, error: undefined }));
 
@@ -89,6 +101,28 @@ describe("widgets/arcane/component", () => {
 
     expect(container.querySelectorAll(".service-block")).toHaveLength(0);
     expect(screen.getByText("boom")).toBeInTheDocument();
+  });
+
+  it("queries the legacy endpoints by default", () => {
+    useWidgetAPI.mockImplementation(() => ({ data: undefined, error: undefined }));
+
+    renderWithProviders(<Component service={{ widget: { type: "arcane", env: "prod" } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    const endpoints = useWidgetAPI.mock.calls.map((call) => call[1]);
+    expect(endpoints).toEqual(["containers", "images", "updates"]);
+  });
+
+  it("queries the v3 endpoints when version is 2", () => {
+    useWidgetAPI.mockImplementation(() => ({ data: undefined, error: undefined }));
+
+    renderWithProviders(<Component service={{ widget: { type: "arcane", env: "prod", version: 2 } }} />, {
+      settings: { hideErrors: false },
+    });
+
+    const endpoints = useWidgetAPI.mock.calls.map((call) => call[1]);
+    expect(endpoints).toEqual(["containers_v2", "images_v2", "updates_v2"]);
   });
 
   it("renders values when API data is available", () => {
