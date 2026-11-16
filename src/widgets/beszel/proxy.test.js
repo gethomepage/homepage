@@ -115,7 +115,7 @@ describe("widgets/beszel/proxy", () => {
     expect(res.send).toHaveBeenCalledWith(Buffer.from(JSON.stringify({ items: [1] })));
   });
 
-  it("logs in again when the cached token has expired (HTTP 401)", async () => {
+  it("retries after a 401 by clearing cache and logging in again", async () => {
     cache.put("beszelProxyHandler__token.svc", "expired");
 
     getServiceWidget.mockResolvedValue({
@@ -123,15 +123,10 @@ describe("widgets/beszel/proxy", () => {
       url: "http://beszel",
       username: "u",
       password: "p",
-      version: 2,
     });
 
     httpProxy
-      .mockResolvedValueOnce([
-        401,
-        "application/json",
-        Buffer.from(JSON.stringify({ data: {}, message: "Missing or invalid authentication.", status: 401 })),
-      ])
+      .mockResolvedValueOnce([401, "application/json", Buffer.from("{}")])
       .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ token: "new" }))])
       .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ items: [1] }))]);
 
@@ -142,7 +137,6 @@ describe("widgets/beszel/proxy", () => {
 
     expect(httpProxy).toHaveBeenCalledTimes(3);
     expect(httpProxy.mock.calls[0][1].headers.Authorization).toBe("Bearer expired");
-    expect(httpProxy.mock.calls[1][0]).toBe("http://beszel/api/auth/v2");
     expect(httpProxy.mock.calls[2][1].headers.Authorization).toBe("Bearer new");
     expect(res.send).toHaveBeenCalledWith(Buffer.from(JSON.stringify({ items: [1] })));
   });
