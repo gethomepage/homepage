@@ -5,7 +5,7 @@ body:
         ### ⚠️ Before opening a discussion:
 
         - [Check the troubleshooting guide](https://gethomepage.dev/troubleshooting/) and include the output of all steps below.
-        - [Search existing issues](https://github.com/gethomepage/homepage/search?q=&type=issues) [and discussions](https://github.com/gethomepage/homepage/search?q=&type=discussions) (including closed ones!).
+        - Before posting, [search existing issues](https://github.com/gethomepage/homepage/search?q=&type=issues) and [discussions](https://github.com/gethomepage/homepage/search?q=&type=discussions), **including closed discussions**. If you find a related thread, read it and link it in your request; add new information there instead when possible.
   - type: textarea
     id: description
     attributes:

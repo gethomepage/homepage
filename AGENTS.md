@@ -21,6 +21,7 @@ That is exactly the problem. When writing the code is cheap, the scarce and valu
 
 ## Issue and security reports
 
+- Before opening a support discussion or suggesting a new feature, search existing issues and discussions, including closed discussions. If the topic has already been covered, link the relevant thread and add any new observations there when possible.
 - Issue reports must describe observed behavior only: what happened, how to reproduce it, and the relevant logs. Do not add speculative root causes, code analysis, or proposed fixes to agent-generated reports.
 - AI-assisted security reports must meet the requirements in [SECURITY.md](SECURITY.md#ai-assisted-reports). A human must reproduce a real Homepage code path, with realistic prerequisites and impact, before submission. Scanner output, affected dependency versions, or concerns without a demonstrated, reachable exploit do not meet this threshold. Disclose AI assistance and use the private reporting channel in [SECURITY.md](SECURITY.md#reporting-a-vulnerability).
 
