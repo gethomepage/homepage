@@ -486,6 +486,19 @@ describe("pages/index Home behavior", () => {
     expect(screen.getByTestId("bookmarks-group")).toHaveTextContent("Bookmarks");
   });
 
+  it("fetches dashboard data with the shared dashboard fetcher", async () => {
+    const { default: dashboardFetcher } = await import("utils/dashboard-fetcher");
+
+    await renderIndex({
+      initialSettings: { title: "Homepage", layout: {} },
+      settings: { title: "Homepage", layout: {}, language: "en" },
+    });
+
+    for (const key of ["/api/services", "/api/bookmarks", "/api/widgets"]) {
+      expect(useSWR).toHaveBeenCalledWith(key, dashboardFetcher);
+    }
+  });
+
   it("passes bookmarksStyle to bookmark groups both inside and outside the layout", async () => {
     state.bookmarksData = [
       { name: "In Layout", bookmarks: [] },

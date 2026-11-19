@@ -21,6 +21,7 @@ import { ThemeContext } from "utils/contexts/theme";
 
 import { withPageAuth } from "utils/auth";
 import { getDashboardData } from "utils/config/dashboard";
+import dashboardFetcher from "utils/dashboard-fetcher";
 import useWindowFocus from "utils/hooks/window-focus";
 import normalizeLanguage from "utils/language";
 import themes from "utils/styles/themes";
@@ -173,9 +174,9 @@ function Home({ initialSettings }) {
     setSettings(initialSettings);
   }, [initialSettings, setSettings]);
 
-  const { data: services } = useSWR("/api/services");
-  const { data: bookmarks } = useSWR("/api/bookmarks");
-  const { data: widgets } = useSWR("/api/widgets");
+  const { data: services } = useSWR("/api/services", dashboardFetcher);
+  const { data: bookmarks } = useSWR("/api/bookmarks", dashboardFetcher);
+  const { data: widgets } = useSWR("/api/widgets", dashboardFetcher);
 
   const servicesAndBookmarks = [...bookmarks.map((bg) => bg.bookmarks).flat(), ...getAllServices(services)].filter(
     (i) => i?.href,

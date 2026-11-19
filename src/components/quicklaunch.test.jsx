@@ -74,6 +74,14 @@ describe("components/quicklaunch", () => {
     state.widgets = {};
   });
 
+  it("fetches widgets with the shared dashboard fetcher so it cannot poison the SWR cache", async () => {
+    const { default: dashboardFetcher } = await import("utils/dashboard-fetcher");
+
+    renderWithProviders(<Wrapper />, { settings: {} });
+
+    expect(useSWR).toHaveBeenCalledWith("/api/widgets", dashboardFetcher);
+  });
+
   it("uses a custom provider from quicklaunch settings when configured", async () => {
     renderWithProviders(<Wrapper />, {
       settings: {

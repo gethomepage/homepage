@@ -8,6 +8,8 @@ import { SettingsContext } from "utils/contexts/settings";
 import ResolvedIcon from "./resolvedicon";
 import { getStoredProvider, searchProviders } from "./widgets/search/search";
 
+import dashboardFetcher from "utils/dashboard-fetcher";
+
 const MOBILE_BUTTON_POSITIONS = {
   "top-left": "top-4 left-4",
   "top-right": "top-4 right-4",
@@ -90,7 +92,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
   const url = parseUrl(searchString);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
 
-  const { data: widgets } = useSWR("/api/widgets");
+  const { data: widgets } = useSWR("/api/widgets", dashboardFetcher);
   const searchWidget = Object.values(widgets).find((w) => w.type === "search");
 
   let searchProvider;
