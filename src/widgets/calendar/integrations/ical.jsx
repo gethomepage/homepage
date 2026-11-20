@@ -81,7 +81,8 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
     const exceptionEvents = [];
     const plainComponents = [];
     vCalendar.getAllSubcomponents("vevent").forEach((component) => {
-      const icalEvent = new ICAL.Event(component);
+      // Empty list stops ical.js from relating every RECURRENCE-ID in the calendar, regardless of UID
+      const icalEvent = new ICAL.Event(component, { exceptions: [] });
       if (icalEvent.isRecurrenceException()) {
         exceptionEvents.push(icalEvent);
       } else if (icalEvent.isRecurring()) {
@@ -131,15 +132,23 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
     const getOcurrencesFromRange = (event) => {
       // Get all occurrences of the event within the specified range, including moved instances (exceptions)
       if (event.recurringEvent) {
-        const iterator = event.recurringEvent.iterator();
-
+        const master = event.recurringEvent;
+        const iterator = master.iterator();
+        const unvisited = { ...master.exceptions };
         const occurrences = [];
-        for (let next = iterator.next(); next && next.compare(rangeEnd) < 0; next = iterator.next()) {
-          const { startDate: start } = event.recurringEvent.getOccurrenceDetails(next);
-          if (start.compare(rangeStart) >= 0 && start.compare(rangeEnd) < 0) {
-            occurrences.push(start);
+        const addOccurrence = (date, item) => {
+          if (date.compare(rangeStart) >= 0 && date.compare(rangeEnd) < 0) {
+            occurrences.push({ date, source: item === master ? event : buildEvent(item.component, "vevent") });
           }
+        };
+
+        for (let next = iterator.next(); next && next.compare(rangeEnd) < 0; next = iterator.next()) {
+          delete unvisited[next.toString()];
+          const { startDate, item } = master.getOccurrenceDetails(next);
+          addOccurrence(startDate, item);
         }
+
+        Object.values(unvisited).forEach((exception) => addOccurrence(exception.startDate, exception));
 
         return occurrences;
       }
@@ -149,12 +158,12 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
           if (event.type === "vevent" && event.dtstart.isDate && event.dtend.isDate) {
             const occurrences = [];
             for (const date = event.dtstart.clone(); date.compare(event.dtend) < 0; date.day += 1) {
-              occurrences.push(date.clone());
+              occurrences.push({ date: date.clone() });
             }
             return occurrences;
           }
 
-          return [event.dtstart];
+          return [{ date: event.dtstart }];
         }
 
         return [];
@@ -168,7 +177,7 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
           continue;
         }
 
-        occurrences.push(next.clone());
+        occurrences.push({ date: next.clone() });
       }
 
       return occurrences;
@@ -178,8 +187,8 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
     events.forEach((event) => {
       const occurrences = getOcurrencesFromRange(event);
 
-      occurrences.forEach((icalDate) => {
-        const eventDate = toDateTime(icalDate, timezone, event.sourceTimezone);
+      occurrences.forEach(({ date: icalDate, source = event }) => {
+        const eventDate = toDateTime(icalDate, timezone, source.sourceTimezone);
 
         const occurrenceTimestamp = icalDate.toJSDate().getTime();
         const eventIdentifier =
@@ -189,7 +198,7 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
           );
         const hash = simpleHash(`${eventIdentifier}-${occurrenceTimestamp}`);
 
-        let title = event.title;
+        let title = source.title;
         if (showName) {
           title = `${config.name}: ${title}`;
         }
@@ -207,9 +216,9 @@ export default function Integration({ config, params, setEvents, hideErrors, tim
           date: eventDate,
           color: config?.color ?? "zinc",
           isCompleted: getIsCompleted(),
-          additional: event.location,
+          additional: source.location,
           type: "ical",
-          url: event.url,
+          url: source.url,
         };
       });
     });

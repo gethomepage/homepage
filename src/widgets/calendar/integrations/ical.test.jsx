@@ -161,6 +161,74 @@ describe("widgets/calendar/integrations/ical", () => {
     expect(entries.every((event) => event.title === "Weekly test event")).toBe(true);
   });
 
+  it("shows overrides with their own details, even when the series rule ends before it starts", async () => {
+    useWidgetAPI.mockReturnValue({
+      data: {
+        data: [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Test//EN",
+          "BEGIN:VEVENT",
+          "UID:ended@test",
+          "DTSTART;TZID=America/New_York:20261120T150000",
+          "DTEND;TZID=America/New_York:20261120T153000",
+          "RRULE:FREQ=WEEKLY;UNTIL=20261114T045959Z;BYDAY=FR",
+          "SUMMARY:Ended",
+          "END:VEVENT",
+          "BEGIN:VEVENT",
+          "UID:ended@test",
+          "RECURRENCE-ID;TZID=America/New_York:20261120T150000",
+          "DTSTART;TZID=America/New_York:20261120T150000",
+          "DTEND;TZID=America/New_York:20261120T153000",
+          "SUMMARY:Ended override",
+          "END:VEVENT",
+          "BEGIN:VEVENT",
+          "UID:daily@test",
+          "DTSTART;TZID=America/New_York:20261121T203000",
+          "DTEND;TZID=America/New_York:20261121T213000",
+          "RRULE:FREQ=DAILY;COUNT=3",
+          "SUMMARY:Daily",
+          "LOCATION:Home",
+          "END:VEVENT",
+          "BEGIN:VEVENT",
+          "UID:daily@test",
+          "RECURRENCE-ID;TZID=America/New_York:20261122T203000",
+          "DTSTART;TZID=America/New_York:20261122T203000",
+          "DTEND;TZID=America/New_York:20261122T213000",
+          "SUMMARY:Daily edited",
+          "LOCATION:Office",
+          "END:VEVENT",
+          "END:VCALENDAR",
+          "",
+        ].join("\n"),
+      },
+      error: undefined,
+    });
+
+    const setEvents = vi.fn();
+    render(
+      <Integration
+        config={{ name: "Family", type: "ical", color: "blue" }}
+        params={{ start: "2026-11-15T00:00:00.000Z", end: "2026-11-30T00:00:00.000Z" }}
+        setEvents={setEvents}
+        hideErrors
+        timezone="America/New_York"
+      />,
+    );
+
+    await waitFor(() => expect(setEvents).toHaveBeenCalled());
+
+    const entries = Object.values(setEvents.mock.calls[0][0]({}))
+      .map((event) => [event.date.toFormat("yyyy-MM-dd'T'HH:mm"), event.title, event.additional])
+      .sort();
+    expect(entries).toEqual([
+      ["2026-11-20T15:00", "Ended override", null],
+      ["2026-11-21T20:30", "Daily", "Home"],
+      ["2026-11-22T20:30", "Daily edited", "Office"],
+      ["2026-11-23T20:30", "Daily", "Home"],
+    ]);
+  });
+
   it("omits a recurring occurrence cancelled with EXDATE", async () => {
     useWidgetAPI.mockReturnValue({
       data: {
