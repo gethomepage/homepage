@@ -883,12 +883,12 @@
         "finished": "Finalizado"
     },
     "bookorbit": {
-        "books": "Books",
-        "authors": "Authors",
-        "series": "Series",
-        "storage": "Storage",
-        "reading": "Reading",
-        "finished": "Finished"
+        "books": "Livros",
+        "authors": "Autores",
+        "series": "Séries",
+        "storage": "Armazenamento",
+        "reading": "Lendo",
+        "finished": "Finalizado"
     },
     "jdownloader": {
         "downloadCount": "Fila de espera",

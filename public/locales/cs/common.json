@@ -22,7 +22,7 @@
     },
     "auth": {
         "signout": "Odhlásit se",
-        "loginRequired": "Login Required",
+        "loginRequired": "Vyžadováno Přihlášení",
         "loginDescription": "Login to view your dashboard.",
         "signIn": "Sign in",
         "password": "Password",
