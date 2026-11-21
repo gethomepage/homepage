@@ -39,7 +39,10 @@ describe("widgets/vibenvr/component", () => {
 
   it("renders stats when data available", () => {
     useWidgetAPI
-      .mockReturnValueOnce({ data: { active_cameras: 10, storage: { used_gb: 4.34 }, uptime: "18h 34m" }, error: undefined })
+      .mockReturnValueOnce({
+        data: { active_cameras: 10, storage: { used_gb: 4.34 }, uptime: "18h 34m" },
+        error: undefined,
+      })
       .mockReturnValueOnce({ data: [{ id: 1 }, { id: 2 }], error: undefined });
 
     const { container } = renderWithProviders(
