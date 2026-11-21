@@ -52,6 +52,7 @@ import grafana from "./grafana/widget";
 import hdhomerun from "./hdhomerun/widget";
 import headscale from "./headscale/widget";
 import healthchecks from "./healthchecks/widget";
+import vibenvr from "./vibenvr/widget";
 import homeassistant from "./homeassistant/widget";
 import homebox from "./homebox/widget";
 import homebridge from "./homebridge/widget";
@@ -221,6 +222,7 @@ const widgets = {
   homebox,
   homebridge,
   healthchecks,
+  vibenvr,
   ical: calendar,
   immich,
   jackett,
