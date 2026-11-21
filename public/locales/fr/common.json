@@ -22,15 +22,15 @@
     },
     "auth": {
         "signout": "Se déconnecter",
-        "loginRequired": "Login Required",
-        "loginDescription": "Login to view your dashboard.",
-        "signIn": "Sign in",
-        "password": "Password",
-        "loginVia": "Login via {{provider}}",
-        "redirecting": "Redirecting to {{provider}}",
-        "invalidPassword": "Invalid password. Please try again.",
-        "authenticationError": "Authentication error",
-        "authenticationErrorDescription": "Auth is disabled or misconfigured."
+        "loginRequired": "Connexion requise",
+        "loginDescription": "Connectez-vous pour afficher votre tableau de bord.",
+        "signIn": "Se connecter",
+        "password": "Mot de passe",
+        "loginVia": "Se connecter via {{provider}}",
+        "redirecting": "Redirection vers {{provider}}",
+        "invalidPassword": "Mot de passe invalide Veuillez essayer à nouveau.",
+        "authenticationError": "Erreur d'authentification",
+        "authenticationErrorDescription": "L'authentification est désactivée ou mal configurée."
     },
     "widget": {
         "missing_type": "Type de widget manquant : {{type}}",
@@ -189,7 +189,7 @@
         "maxDown": "Réception max",
         "maxUp": "Envoi max",
         "down": "Réception",
-        "up": "Envoi",
+        "up": "En ligne",
         "received": "Reçu",
         "sent": "Envoyé",
         "externalIPAddress": "IP externe",
@@ -266,14 +266,14 @@
         "seed": "En partage"
     },
     "qui": {
-        "leech": "Leech",
-        "download": "Download",
-        "seed": "Seed",
-        "upload": "Upload",
+        "leech": "En téléchargement",
+        "download": "Téléchargement",
+        "seed": "En partage",
+        "upload": "Téléverser",
         "total": "Total",
-        "errored": "Errored",
+        "errored": "Erreur",
         "ratio": "Ratio",
-        "freeSpace": "Free"
+        "freeSpace": "Gratuit"
     },
     "qnap": {
         "cpuUsage": "Utilisation CPU",
@@ -337,7 +337,7 @@
         "pending": "En attente",
         "approved": "Validées",
         "available": "Disponibles",
-        "completed": "Complétées",
+        "completed": "Complété",
         "processing": "En traitement",
         "issues": "Problèmes non résolus"
     },
@@ -370,7 +370,7 @@
         "total": "Total",
         "applications": "Applications",
         "services": "Services",
-        "namespaces": "Namespaces"
+        "namespaces": "Espaces de noms"
     },
     "suwayomi": {
         "download": "Téléchargé",
@@ -803,7 +803,7 @@
         "processing": "En traitement",
         "processed": "Traité",
         "time": "Temps",
-        "failed": "Failed"
+        "failed": "Échoué"
     },
     "firefly": {
         "networth": "Valeur Nette",
@@ -883,12 +883,12 @@
         "finished": "Terminés"
     },
     "bookorbit": {
-        "books": "Books",
-        "authors": "Authors",
-        "series": "Series",
-        "storage": "Storage",
-        "reading": "Reading",
-        "finished": "Finished"
+        "books": "Livres",
+        "authors": "Auteurs",
+        "series": "Séries",
+        "storage": "Stockage",
+        "reading": "Lecture",
+        "finished": "Terminé"
     },
     "jdownloader": {
         "downloadCount": "File d'attente",
@@ -961,7 +961,7 @@
         "sitesUp": "Sites actifs",
         "sitesDown": "Sites inactifs",
         "paused": "En pause",
-        "notyetchecked": "Non vérifié",
+        "notyetchecked": "Pas encore vérifié",
         "up": "En ligne",
         "seemsdown": "Semble hors ligne",
         "down": "Hors ligne",
@@ -1001,9 +1001,9 @@
         "totalCapacity": "Capacité totale"
     },
     "netbird": {
-        "online": "Online Peers",
-        "users": "Users",
-        "login_expired": "Login Expired"
+        "online": "Pairs en ligne",
+        "users": "Utilisateurs",
+        "login_expired": "Connexion expirée"
     },
     "netdata": {
         "warnings": "Avertissements",
@@ -1099,7 +1099,7 @@
     "linkwarden": {
         "links": "Liens",
         "collections": "Collections",
-        "tags": "Tags"
+        "tags": "Balises"
     },
     "zabbix": {
         "unclassified": "Non classé",
@@ -1145,12 +1145,12 @@
         "disk": "Disque",
         "network": "Réseau",
         "temp": "Temp",
-        "load": "Load",
-        "gpu": "GPU",
-        "uptime": "Uptime",
+        "load": "Charge",
+        "gpu": "Carte Graphique",
+        "uptime": "Démarré depuis",
         "services": "Services",
-        "updates": "Updates",
-        "battery": "Battery",
+        "updates": "Mises à jour",
+        "battery": "Batterie",
         "agent": "Agent"
     },
     "argocd": {
@@ -1304,6 +1304,6 @@
         "leagues": "Ligues"
     },
     "feed": {
-        "noItems": "No items"
+        "noItems": "Aucun objet"
     }
 }
