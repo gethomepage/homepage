@@ -7,10 +7,12 @@ export default function Component({ service }) {
   const { data: stats, error: statsError } = useWidgetAPI(service.widget, "stats");
   const { data: events, error: eventsError } = useWidgetAPI(service.widget, "events");
 
-  const error = statsError || eventsError;
+  if (statsError) {
+    return <Container service={service} error={statsError} />;
+  }
 
-  if (error) {
-    return <Container service={service} error={error} />;
+  if (eventsError) {
+    return <Container service={service} error={eventsError} />;
   }
 
   if (!stats) {
