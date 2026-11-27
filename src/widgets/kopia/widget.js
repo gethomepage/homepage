@@ -1,8 +1,8 @@
-import genericProxyHandler from "utils/proxy/handlers/generic";
+import kopiaProxyHandler from "./proxy";
 
 const widget = {
   api: "{url}/{endpoint}",
-  proxyHandler: genericProxyHandler,
+  proxyHandler: kopiaProxyHandler,
 
   mappings: {
     status: {
