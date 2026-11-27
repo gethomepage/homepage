@@ -9,8 +9,30 @@ import widgets from "widgets/widgets";
 const proxyName = "beszelProxyHandler";
 const tokenCacheKey = `${proxyName}__token`;
 const logger = createLogger(proxyName);
+const AUTH_COLLECTION_PATTERN = /^[A-Za-z_][A-Za-z0-9_]*$/;
 
-async function login(loginUrl, username, password, service) {
+function sanitizedAuthCollection(authCollection) {
+  if (typeof authCollection === "string" && AUTH_COLLECTION_PATTERN.test(authCollection)) {
+    return authCollection;
+  }
+  return null;
+}
+
+function getAuthEndpoint(widget) {
+  const collection = sanitizedAuthCollection(widget.authCollection);
+  if (collection) {
+    return `collections/${collection}/auth-with-password`;
+  }
+  const authEndpointVersion = widget.version === 2 ? "authv2" : "authv1";
+  return widgets[widget.type].mappings[authEndpointVersion].endpoint;
+}
+
+function getTokenCacheKey(service, widget) {
+  const collection = sanitizedAuthCollection(widget.authCollection);
+  return collection ? `${tokenCacheKey}.${service}.${collection}` : `${tokenCacheKey}.${service}`;
+}
+
+async function login(loginUrl, username, password, cachedTokenKey) {
   const authResponse = await httpProxy(loginUrl, {
     method: "POST",
     body: JSON.stringify({ identity: username, password }),
@@ -25,7 +47,7 @@ async function login(loginUrl, username, password, service) {
     data = JSON.parse(Buffer.from(authResponse[2]).toString());
 
     if (status === 200) {
-      cache.put(`${tokenCacheKey}.${service}`, data.token);
+      cache.put(cachedTokenKey, data.token);
     }
   } catch (e) {
     logger.error(`Error ${status} logging into beszel`, JSON.stringify(authResponse[2]));
@@ -45,19 +67,18 @@ export default async function beszelProxyHandler(req, res) {
 
     if (widget) {
       const url = new URL(formatApiCall(widgets[widget.type].api, { endpoint, ...widget }));
-      let authEndpointVersion = "authv1";
-      if (widget.version === 2) authEndpointVersion = "authv2";
       const loginUrl = formatApiCall(widgets[widget.type].api, {
-        endpoint: widgets[widget.type].mappings[authEndpointVersion].endpoint,
+        endpoint: getAuthEndpoint(widget),
         ...widget,
       });
 
       let status;
       let data;
 
-      let token = cache.get(`${tokenCacheKey}.${service}`);
+      const cachedTokenKey = getTokenCacheKey(service, widget);
+      let token = cache.get(cachedTokenKey);
       if (!token) {
-        [status, token] = await login(loginUrl, widget.username, widget.password, service);
+        [status, token] = await login(loginUrl, widget.username, widget.password, cachedTokenKey);
         if (status !== 200) {
           logger.debug(`HTTP ${status} logging into Beszel: ${JSON.stringify(token)}`);
           return res.status(status).send(token);
@@ -89,8 +110,8 @@ export default async function beszelProxyHandler(req, res) {
         } else {
           logger.debug(`Received empty list from Beszel, logging in and trying again.`);
         }
-        cache.del(`${tokenCacheKey}.${service}`);
-        [status, token] = await login(loginUrl, widget.username, widget.password, service);
+        cache.del(cachedTokenKey);
+        [status, token] = await login(loginUrl, widget.username, widget.password, cachedTokenKey);
 
         if (status !== 200) {
           logger.debug(`HTTP ${status} logging into Beszel: ${JSON.stringify(data)}`);

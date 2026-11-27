@@ -9,7 +9,9 @@ The widget has two modes, a single system with detailed info if `systemId` is pr
 
 The `systemID` is the `id` field on the collections page of Beszel under the PocketBase admin panel. You can also use the 'nice name' from the Beszel UI.
 
-A "superuser" is currently required to access the data from the Beszel API.
+By default the widget authenticates as a PocketBase superuser (`collections/_superusers` for `version: 2`, or `admins` for `version: 1`).
+
+Regular Beszel users (roles `user`, `admin`, or `readonly`) live in the `users` collection and can still read `systems` records, filtered to the systems they can access. To sign in as one of those users, set `authCollection` to `users`.
 
 Allowed fields for 'overview' mode: `["systems", "up"]`
 Allowed fields for a single system (max 4): `["name", "status", "updated", "cpu", "memory", "disk", "network", "temp", "load", "gpu", "uptime", "services", "updates", "battery", "agent"]`
@@ -27,4 +29,5 @@ widget:
   password: password
   systemId: systemId # optional
   version: 2 # optional, default is 1
+  authCollection: users # optional, default is the superuser collection for the chosen version
 ```

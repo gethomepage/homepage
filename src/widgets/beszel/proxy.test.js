@@ -140,4 +140,72 @@ describe("widgets/beszel/proxy", () => {
     expect(httpProxy.mock.calls[2][1].headers.Authorization).toBe("Bearer new");
     expect(res.send).toHaveBeenCalledWith(Buffer.from(JSON.stringify({ items: [1] })));
   });
+
+  it("uses the v2 auth endpoint when version is 2", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "beszel",
+      url: "http://beszel",
+      username: "u",
+      password: "p",
+      version: 2,
+    });
+
+    httpProxy
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ token: "t2" }))])
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ items: [1] }))]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "items", index: "0" } };
+    const res = createMockRes();
+
+    await beszelProxyHandler(req, res);
+
+    expect(httpProxy.mock.calls[0][0]).toBe("http://beszel/api/auth/v2");
+    expect(res.send).toHaveBeenCalledWith(Buffer.from(JSON.stringify({ items: [1] })));
+  });
+
+  it("authenticates against a custom PocketBase collection when authCollection is set", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "beszel",
+      url: "http://beszel",
+      username: "u",
+      password: "p",
+      version: 2,
+      authCollection: "users",
+    });
+
+    httpProxy
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ token: "user-token" }))])
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ items: [1] }))]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "items", index: "0" } };
+    const res = createMockRes();
+
+    await beszelProxyHandler(req, res);
+
+    expect(httpProxy.mock.calls[0][0]).toBe("http://beszel/collections/users/auth-with-password");
+    expect(httpProxy.mock.calls[1][1].headers.Authorization).toBe("Bearer user-token");
+    expect(res.send).toHaveBeenCalledWith(Buffer.from(JSON.stringify({ items: [1] })));
+  });
+
+  it("ignores an invalid authCollection and falls back to the version default", async () => {
+    getServiceWidget.mockResolvedValue({
+      type: "beszel",
+      url: "http://beszel",
+      username: "u",
+      password: "p",
+      version: 2,
+      authCollection: "../users",
+    });
+
+    httpProxy
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ token: "t2" }))])
+      .mockResolvedValueOnce([200, "application/json", Buffer.from(JSON.stringify({ items: [1] }))]);
+
+    const req = { query: { group: "g", service: "svc", endpoint: "items", index: "0" } };
+    const res = createMockRes();
+
+    await beszelProxyHandler(req, res);
+
+    expect(httpProxy.mock.calls[0][0]).toBe("http://beszel/api/auth/v2");
+  });
 });

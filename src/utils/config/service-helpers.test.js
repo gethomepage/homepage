@@ -379,7 +379,7 @@ describe("utils/config/service-helpers", () => {
             weight: 100,
             widgets: [
               { type: "azuredevops", userEmail: "u@example.com", repositoryId: "r" },
-              { type: "beszel", version: "2", systemId: "sys" },
+              { type: "beszel", version: "2", systemId: "sys", authCollection: "users" },
               { type: "pulse", version: "2" },
               { type: "coinmarketcap", currency: "USD", symbols: "BTC", slugs: "bitcoin", defaultinterval: "1d" },
               { type: "crowdsec", limit24h: "true" },
@@ -460,7 +460,9 @@ describe("utils/config/service-helpers", () => {
     expect(widgets.find((w) => w.type === "azuredevops")).toEqual(
       expect.objectContaining({ userEmail: "u@example.com", repositoryId: "r" }),
     );
-    expect(widgets.find((w) => w.type === "beszel")).toEqual(expect.objectContaining({ version: 2, systemId: "sys" }));
+    expect(widgets.find((w) => w.type === "beszel")).toEqual(
+      expect.objectContaining({ version: 2, systemId: "sys", authCollection: "users" }),
+    );
     expect(widgets.find((w) => w.type === "pulse")).toEqual(expect.objectContaining({ version: 2 }));
     expect(widgets.find((w) => w.type === "crowdsec")).toEqual(expect.objectContaining({ limit24h: true }));
     expect(widgets.find((w) => w.type === "docker")).toEqual(

@@ -303,6 +303,7 @@ export function cleanServiceGroups(groups) {
 
           // beszel
           systemId,
+          authCollection,
 
           // calendar
           firstDayInWeek,
@@ -525,6 +526,7 @@ export function cleanServiceGroups(groups) {
 
         if (type === "beszel") {
           if (systemId) widget.systemId = systemId;
+          if (authCollection) widget.authCollection = authCollection;
         }
 
         if (type === "coinmarketcap") {
