@@ -45,6 +45,7 @@ nav:
           - widgets/services/bazarr.md
           - widgets/services/booklore.md
           - widgets/services/bookorbit.md
+          - widgets/services/bookstack.md
           - widgets/services/beszel.md
           - widgets/services/caddy.md
           - widgets/services/calendar.md

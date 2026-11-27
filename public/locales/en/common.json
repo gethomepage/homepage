@@ -890,6 +890,12 @@
         "reading": "Reading",
         "finished": "Finished"
     },
+    "bookstack": {
+        "shelves": "Shelves",
+        "books": "Books",
+        "chapters": "Chapters",
+        "pages": "Pages"
+    },
     "jdownloader": {
         "downloadCount": "Queue",
         "downloadBytesRemaining": "Remaining",
