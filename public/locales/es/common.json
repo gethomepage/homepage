@@ -22,15 +22,15 @@
     },
     "auth": {
         "signout": "Cerrar sesión",
-        "loginRequired": "Login Required",
-        "loginDescription": "Login to view your dashboard.",
-        "signIn": "Sign in",
-        "password": "Password",
-        "loginVia": "Login via {{provider}}",
-        "redirecting": "Redirecting to {{provider}}",
-        "invalidPassword": "Invalid password. Please try again.",
-        "authenticationError": "Authentication error",
-        "authenticationErrorDescription": "Auth is disabled or misconfigured."
+        "loginRequired": "Se requiere inicio de sesión",
+        "loginDescription": "Inicia sesión para ver tu panel de control.",
+        "signIn": "Registrarse",
+        "password": "Contraseña",
+        "loginVia": "Iniciar sesión vía {{provider}}",
+        "redirecting": "Redirigiendo a {{provider}}",
+        "invalidPassword": "Contraseña incorrecta. Inténtelo de nuevo.",
+        "authenticationError": "Error de autenticación",
+        "authenticationErrorDescription": "La autenticación está deshabilitada o mal configurada."
     },
     "widget": {
         "missing_type": "Falta el tipo de widget: {{type}}",
@@ -368,9 +368,9 @@
         "running": "En ejecución",
         "stopped": "Detenido",
         "total": "Total",
-        "applications": "Applications",
-        "services": "Services",
-        "namespaces": "Namespaces"
+        "applications": "Aplicaciones",
+        "services": "Servicios",
+        "namespaces": "Espacios de nombres"
     },
     "suwayomi": {
         "download": "Descargado",
@@ -1144,14 +1144,14 @@
         "memory": "MEM",
         "disk": "Disco",
         "network": "RED",
-        "temp": "Temp",
-        "load": "Load",
+        "temp": "Temperatura",
+        "load": "Carga",
         "gpu": "GPU",
-        "uptime": "Uptime",
-        "services": "Services",
-        "updates": "Updates",
-        "battery": "Battery",
-        "agent": "Agent"
+        "uptime": "Tiempo activo",
+        "services": "Servicios",
+        "updates": "Actualizaciones",
+        "battery": "Batería",
+        "agent": "Agente"
     },
     "argocd": {
         "apps": "Apps",

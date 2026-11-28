@@ -22,15 +22,15 @@
     },
     "auth": {
         "signout": "Abmelden",
-        "loginRequired": "Login Required",
-        "loginDescription": "Login to view your dashboard.",
-        "signIn": "Sign in",
-        "password": "Password",
-        "loginVia": "Login via {{provider}}",
-        "redirecting": "Redirecting to {{provider}}",
-        "invalidPassword": "Invalid password. Please try again.",
-        "authenticationError": "Authentication error",
-        "authenticationErrorDescription": "Auth is disabled or misconfigured."
+        "loginRequired": "Anmeldung erforderlich",
+        "loginDescription": "Anmelden, um das Dashboard anzuzeigen.",
+        "signIn": "Anmelden",
+        "password": "Passwort",
+        "loginVia": "Anmelden über {{provider}}",
+        "redirecting": "Weiterleitung zu {{provider}}",
+        "invalidPassword": "Ungültiges Passwort. Bitte erneut versuchen.",
+        "authenticationError": "Authentifizierungsfehler",
+        "authenticationErrorDescription": "Die Authentifizierung ist deaktiviert oder falsch konfiguriert."
     },
     "widget": {
         "missing_type": "Fehlender Widget-Typ: {{type}}",
@@ -88,7 +88,7 @@
     "duplicati": {
         "jobs": "Aufgaben",
         "stored": "Gespeichert",
-        "lastBackup": "Zuletzt ausgeführt",
+        "lastBackup": "Letzte Sicherung",
         "nextRun": "Nächste Ausführung",
         "running": "Wird ausgeführt",
         "warnings": "Warnungen",
@@ -109,7 +109,7 @@
         "not_found": "Nicht gefunden",
         "exited": "Beendet",
         "partial": "Teilweise",
-        "created": "Erstellt am",
+        "created": "Erstellt",
         "paused": "Pausiert",
         "restarting": "Wird neu gestartet",
         "removing": "Wird entfernt",
@@ -132,7 +132,7 @@
     },
     "emby": {
         "playing": "Wiedergabe",
-        "transcoding": "Transcodiert",
+        "transcoding": "Transkodierung",
         "bitrate": "Bitrate",
         "no_active": "Keine aktiven Streams",
         "movies": "Filme",
@@ -155,7 +155,7 @@
         "offline": "Offline",
         "offline_alt": "Offline",
         "online": "Online",
-        "total": "Total",
+        "total": "Gesamt",
         "unknown": "Unbekannt"
     },
     "evcc": {
@@ -212,8 +212,8 @@
         "passes": "Durchläufe"
     },
     "tautulli": {
-        "playing": "Spielt",
-        "transcoding": "Transcodiert",
+        "playing": "Wiedergabe",
+        "transcoding": "Transkodierung",
         "bitrate": "Bitrate",
         "no_active": "Keine aktiven Streams",
         "plex_connection_error": "Prüfe Plex-Verbindung"
@@ -221,7 +221,7 @@
     "tracearr": {
         "no_active": "Keine aktiven Streams",
         "streams": "Streams",
-        "transcodes": "Transkodieren",
+        "transcodes": "Transkodierungen",
         "directplay": "Direkte Wiedergabe",
         "bitrate": "Bitrate"
     },
@@ -270,10 +270,10 @@
         "download": "Download",
         "seed": "Seed",
         "upload": "Upload",
-        "total": "Total",
-        "errored": "Errored",
+        "total": "Gesamt",
+        "errored": "Fehlerhaft",
         "ratio": "Ratio",
-        "freeSpace": "Free"
+        "freeSpace": "Frei"
     },
     "qnap": {
         "cpuUsage": "CPU-Nutzung",
@@ -290,8 +290,8 @@
         "seed": "Seed"
     },
     "develancacheui": {
-        "cachehitbytes": "Cache-Trefferbytes",
-        "cachemissbytes": "Cache-Fehlbytes"
+        "cachehitbytes": "Cache-Hit-Bytes",
+        "cachemissbytes": "Cache-Miss-Bytes"
     },
     "downloadstation": {
         "download": "Download",
@@ -342,10 +342,10 @@
         "issues": "Offene Probleme"
     },
     "netalertx": {
-        "total": "Total",
+        "total": "Gesamt",
         "connected": "Verbunden",
         "new_devices": "Neue Geräte",
-        "down_alerts": "Down-Warnungen"
+        "down_alerts": "Offline-Warnungen"
     },
     "pihole": {
         "queries": "Anfragen",
@@ -367,9 +367,9 @@
     "portainer": {
         "running": "Wird ausgeführt",
         "stopped": "Gestoppt",
-        "total": "Total",
-        "applications": "Applications",
-        "services": "Services",
+        "total": "Gesamt",
+        "applications": "Anwendungen",
+        "services": "Dienste",
         "namespaces": "Namespaces"
     },
     "suwayomi": {
@@ -398,7 +398,7 @@
         "tags": "Tags",
         "last_seen": "Zuletzt gesehen",
         "now": "Jetzt",
-        "years": "{{number}}a",
+        "years": "{{number}} J.",
         "weeks": "{{number}} Woche(n)",
         "days": "{{number}}d",
         "hours": "{{number}}h",
@@ -445,7 +445,7 @@
     "npm": {
         "enabled": "Aktiviert",
         "disabled": "Deaktiviert",
-        "total": "Total"
+        "total": "Gesamt"
     },
     "coinmarketcap": {
         "configure": "Konfiguriere eine oder mehrere Kryptowährungen zur Beobachtung",
@@ -455,15 +455,15 @@
         "30days": "30 Tage"
     },
     "gotify": {
-        "apps": "Programme",
+        "apps": "Apps",
         "clients": "Endgeräte",
         "messages": "Nachrichten"
     },
     "prowlarr": {
         "enableIndexers": "Indexer",
-        "numberOfGrabs": "Abrufungen",
+        "numberOfGrabs": "Abrufe",
         "numberOfQueries": "Anfragen",
-        "numberOfFailGrabs": "Fehlgeschlagene Abrufungen",
+        "numberOfFailGrabs": "Fehlgeschlagene Abrufe",
         "numberOfFailQueries": "Fehlgeschlagene Anfragen"
     },
     "jackett": {
@@ -501,7 +501,7 @@
         "users": "Benutzer",
         "loginsLast24H": "Anmeldungen (24 h)",
         "failedLoginsLast24H": "Fehlversuche (24 h)",
-        "authorizationsLast24H": "Autorisierungen (24h)"
+        "authorizationsLast24H": "Autorisierungen (24 h)"
     },
     "proxmox": {
         "mem": "RAM",
@@ -522,12 +522,12 @@
         "_temp": "Temperatur",
         "warn": "Warnung",
         "uptime": "Betriebszeit",
-        "total": "Total",
+        "total": "Gesamt",
         "free": "Frei",
-        "used": "Benutzt",
+        "used": "Belegt",
         "days": "d",
         "hours": "h",
-        "crit": "Krit",
+        "crit": "Krit.",
         "read": "Lesen",
         "write": "Schreiben",
         "gpu": "GPU",
@@ -554,8 +554,8 @@
         "3-night": "Bewölkt",
         "45-day": "neblig",
         "45-night": "Nebel",
-        "48-day": "Nebel",
-        "48-night": "Nebel",
+        "48-day": "Raureifnebel",
+        "48-night": "Raureifnebel",
         "51-day": "leichter Nieselregen",
         "51-night": "Leichter Nieselregen",
         "53-day": "Nieselregen",
@@ -563,7 +563,7 @@
         "55-day": "starker Nieselregen",
         "55-night": "Starker Nieselregen",
         "56-day": "leichter gefrierender Nieselregen",
-        "56-night": "Leicht gefrierender Nieselregen",
+        "56-night": "Leichter gefrierender Nieselregen",
         "57-day": "gefrierender Nieselregen",
         "57-night": "Gefrierender Nieselregen",
         "61-day": "leichter Regen",
@@ -573,15 +573,15 @@
         "65-day": "starker Regen",
         "65-night": "Starker Regen",
         "66-day": "Gefrierender Regen",
-        "66-night": "Gefrierender Regen",
-        "67-day": "Gefrierender Regen",
-        "67-night": "Gefrierender Regen",
+        "66-night": "Leichter gefrierender Regen",
+        "67-day": "Starker gefrierender Regen",
+        "67-night": "Starker gefrierender Regen",
         "71-day": "Leichter Schneefall",
-        "71-night": "Leichter Schnee",
+        "71-night": "Leichter Schneefall",
         "73-day": "Schnee",
-        "73-night": "Schnee",
+        "73-night": "Schneefall",
         "75-day": "Starker Schneefall",
-        "75-night": "Starker Schnee",
+        "75-night": "Starker Schneefall",
         "77-day": "Schneegriesel",
         "77-night": "Schneekörner",
         "80-day": "Leichte Schauer",
@@ -591,15 +591,15 @@
         "82-day": "Starke Schauer",
         "82-night": "Starke Schauer",
         "85-day": "Schneeschauer",
-        "85-night": "Schneeschauer",
-        "86-day": "Schneeschauer",
-        "86-night": "Schneeschauer",
+        "85-night": "Leichte Schneeschauer",
+        "86-day": "Starke Schneeschauer",
+        "86-night": "Starke Schneeschauer",
         "95-day": "Gewitter",
-        "95-night": "Sturm",
+        "95-night": "Gewitter",
         "96-day": "Gewitter mit Hagel",
-        "96-night": "Sturm mit Hagel",
-        "99-day": "Sturm mit Hagel",
-        "99-night": "Sturm mit Hagel"
+        "96-night": "Gewitter mit Hagel",
+        "99-day": "Gewitter mit starkem Hagel",
+        "99-night": "Gewitter mit starkem Hagel"
     },
     "homebridge": {
         "available_update": "System",
@@ -632,7 +632,7 @@
         "approvedPushes": "Genehmigt",
         "rejectedPushes": "Abgelehnt",
         "filters": "Filter",
-        "indexers": "Indexierer"
+        "indexers": "Indexer"
     },
     "tubearchivist": {
         "downloads": "Warteschlange",
@@ -649,7 +649,7 @@
         "speed": "Datenrate",
         "active": "Aktiv",
         "queue": "Warteschlange",
-        "total": "Total"
+        "total": "Gesamt"
     },
     "gluetun": {
         "public_ip": "Öffentliche IP",
@@ -660,12 +660,12 @@
     "hdhomerun": {
         "channels": "Kanäle",
         "hd": "HD",
-        "tunerCount": "Empfänger",
+        "tunerCount": "Tuner",
         "channelNumber": "Kanal",
         "channelNetwork": "Netzwerk",
         "signalStrength": "Stärke",
         "signalQuality": "Qualität",
-        "symbolQuality": "Qualität",
+        "symbolQuality": "Symbolqualität",
         "networkRate": "Bitrate",
         "clientIP": "Client"
     },
@@ -676,11 +676,11 @@
     },
     "paperlessngx": {
         "inbox": "Posteingang",
-        "total": "Total"
+        "total": "Gesamt"
     },
     "pangolin": {
         "orgs": "Organisationen",
-        "sites": "Seiten",
+        "sites": "Standorte",
         "resources": "Ressourcen",
         "targets": "Ziele",
         "traffic": "Traffic",
@@ -706,7 +706,7 @@
         "numberOfLeases": "Leases"
     },
     "xteve": {
-        "streams_all": "Keine Übertragungen",
+        "streams_all": "Alle Streams",
         "streams_active": "Aktive Streams",
         "streams_xepg": "XEPG-Kanäle"
     },
@@ -735,12 +735,12 @@
         "job_completion": "Fortschritt"
     },
     "cloudflared": {
-        "origin_ip": "Ursprüngliche IP",
+        "origin_ip": "Origin-IP",
         "status": "Status"
     },
     "pfsense": {
         "load": "Durchschnittliche Last",
-        "memory": "Speichernutzung",
+        "memory": "RAM-Nutzung",
         "wanStatus": "WAN-Status",
         "up": "Online",
         "down": "Offline",
@@ -761,8 +761,8 @@
         "storage": "Speicher"
     },
     "uptimekuma": {
-        "up": "Up",
-        "down": "Down",
+        "up": "Online",
+        "down": "Offline",
         "uptime": "Betriebszeit",
         "incident": "Vorfall",
         "m": "m"
@@ -801,12 +801,12 @@
     "fileflows": {
         "queue": "Warteschlange",
         "processing": "Wird verarbeitet",
-        "processed": "Wird verarbeitet",
+        "processed": "Verarbeitet",
         "time": "Zeit",
-        "failed": "Failed"
+        "failed": "Fehlgeschlagen"
     },
     "firefly": {
-        "networth": "Reinvermögen",
+        "networth": "Nettovermögen",
         "budget": "Budget"
     },
     "grafana": {
@@ -828,21 +828,21 @@
         "size": "Größe",
         "lastrun": "Letzter Durchlauf",
         "nextrun": "Nächster Durchlauf",
-        "failed": "Fehlerhaft"
+        "failed": "Fehlgeschlagen"
     },
     "unmanic": {
         "active_workers": "Aktive Worker",
         "total_workers": "Alle Worker",
-        "records_total": "Länge der Warteschlange"
+        "records_total": "Warteschlange"
     },
     "pterodactyl": {
         "servers": "Server",
-        "nodes": "Knotenpunkte"
+        "nodes": "Knoten"
     },
     "prometheus": {
-        "targets_up": "Ziele Up",
-        "targets_down": "Ziele Down",
-        "targets_total": "Alle Ziele"
+        "targets_up": "Ziele online",
+        "targets_down": "Ziele offline",
+        "targets_total": "Ziele gesamt"
     },
     "gatus": {
         "up": "Seiten online",
@@ -853,7 +853,7 @@
         "gross_percent_today": "Heute",
         "gross_percent_1y": "Ein Jahr",
         "gross_percent_max": "Gesamt",
-        "net_worth": ""
+        "net_worth": "Nettovermögen"
     },
     "audiobookshelf": {
         "podcasts": "Podcasts",
@@ -880,15 +880,15 @@
         "libraries": "Bibliotheken",
         "books": "Bücher",
         "reading": "Am Lesen",
-        "finished": "Fertig"
+        "finished": "Gelesen"
     },
     "bookorbit": {
         "books": "Bücher",
         "authors": "Autoren",
         "series": "Serien",
-        "storage": "Storage",
-        "reading": "Reading",
-        "finished": "Beendet"
+        "storage": "Speicher",
+        "reading": "Am Lesen",
+        "finished": "Gelesen"
     },
     "jdownloader": {
         "downloadCount": "Warteschlange",
@@ -906,7 +906,7 @@
         "buildId": "Build-ID",
         "succeeded": "Erfolgreich",
         "notStarted": "Nicht gestartet",
-        "failed": "Fehlerhaft",
+        "failed": "Fehlgeschlagen",
         "canceled": "Abgebrochen",
         "inProgress": "In Bearbeitung",
         "totalPrs": "PRs gesamt",
@@ -939,11 +939,11 @@
     },
     "openmediavault": {
         "downloading": "Wird heruntergeladen",
-        "total": "Total",
+        "total": "Gesamt",
         "running": "Wird ausgeführt",
         "stopped": "Gestoppt",
         "passed": "Erfolgreich",
-        "failed": "Fehlerhaft"
+        "failed": "Fehlgeschlagen"
     },
     "openwrt": {
         "uptime": "Betriebszeit",
@@ -963,8 +963,8 @@
         "paused": "Pausiert",
         "notyetchecked": "Noch nicht geprüft",
         "up": "Online",
-        "seemsdown": "Scheint nicht verfügbar",
-        "down": "Unbekannt",
+        "seemsdown": "Scheinbar offline",
+        "down": "Offline",
         "unknown": "Unbekannt"
     },
     "calendar": {
@@ -990,20 +990,20 @@
         "storage": "Speicher"
     },
     "maintainerr": {
-        "itemsHandled": "Items bearbeitet",
-        "episodesHandled": "Episoden behandelt",
-        "moviesHandled": "Filme behandelt",
-        "showsHandled": "Serien behandelt",
+        "itemsHandled": "Elemente bearbeitet",
+        "episodesHandled": "Episoden bearbeitet",
+        "moviesHandled": "Filme bearbeitet",
+        "showsHandled": "Serien bearbeitet",
         "seasonsHandled": "Staffeln bearbeitet",
-        "reclaimable": "Zurückforderbar",
-        "movieReclaimable": "Film zurückforderbar",
-        "showReclaimable": "Serie zurückforderbar",
+        "reclaimable": "Freigebbar",
+        "movieReclaimable": "Filme freigebbar",
+        "showReclaimable": "Serien freigebbar",
         "totalCapacity": "Gesamte Kapazität"
     },
     "netbird": {
-        "online": "Online Peers",
-        "users": "Users",
-        "login_expired": "Login Expired"
+        "online": "Online-Peers",
+        "users": "Benutzer",
+        "login_expired": "Anmeldung abgelaufen"
     },
     "netdata": {
         "warnings": "Warnungen",
@@ -1036,7 +1036,7 @@
     },
     "stash": {
         "scenes": "Szenen",
-        "scenesPlayed": "Gespielte Szenen",
+        "scenesPlayed": "Abgespielte Szenen",
         "playCount": "Wiedergaben gesamt",
         "playDuration": "Zeit angesehen",
         "sceneSize": "Szenengröße",
@@ -1071,10 +1071,10 @@
         "connected": "Verbunden",
         "enabled": "Aktiviert",
         "disabled": "Deaktiviert",
-        "total": "Total"
+        "total": "Gesamt"
     },
     "swagdashboard": {
-        "proxied": "Proxied",
+        "proxied": "Über Proxy",
         "auth": "Mit Auth",
         "outdated": "Veraltet",
         "banned": "Gebannt"
@@ -1087,8 +1087,8 @@
     "stocks": {
         "stocks": "Aktien",
         "loading": "Wird geladen",
-        "open": "Offen - US-Markt",
-        "closed": "Geschlossen - US-Markt",
+        "open": "Geöffnet – US-Markt",
+        "closed": "Geschlossen – US-Markt",
         "invalidConfiguration": "Ungültige Konfiguration"
     },
     "frigate": {
@@ -1105,7 +1105,7 @@
         "unclassified": "Nicht klassifiziert",
         "information": "Information",
         "warning": "Warnung",
-        "average": "Durchschnitt",
+        "average": "Durchschnittlich",
         "high": "Hoch",
         "disaster": "Katastrophe"
     },
@@ -1139,32 +1139,32 @@
         "paused": "Pausiert",
         "pending": "Wartend",
         "status": "Status",
-        "updated": "Aktuell",
+        "updated": "Aktualisiert",
         "cpu": "CPU",
         "memory": "RAM",
         "disk": "Festplatte",
         "network": "NET",
         "temp": "Temp",
-        "load": "Load",
+        "load": "Last",
         "gpu": "GPU",
-        "uptime": "Uptime",
-        "services": "Services",
-        "updates": "Updates",
-        "battery": "Battery",
+        "uptime": "Betriebszeit",
+        "services": "Dienste",
+        "updates": "Aktualisierungen",
+        "battery": "Akku",
         "agent": "Agent"
     },
     "argocd": {
         "apps": "Anwendungen",
         "synced": "Synchronisiert",
-        "outOfSync": "Nicht mehr synchronisiert",
+        "outOfSync": "Nicht synchronisiert",
         "healthy": "Gesund",
         "degraded": "Beeinträchtigt",
-        "progressing": "Fortschritt",
+        "progressing": "In Bearbeitung",
         "missing": "Fehlend",
-        "suspended": "Unterbrochen"
+        "suspended": "Angehalten"
     },
     "spoolman": {
-        "loading": "Lädt"
+        "loading": "Wird geladen"
     },
     "gitlab": {
         "groups": "Gruppen",
@@ -1198,7 +1198,7 @@
         "sharedFiles": "Dateien"
     },
     "jellystat": {
-        "songs": "Songs",
+        "songs": "Titel",
         "movies": "Filme",
         "episodes": "Episoden",
         "other": "Andere"
@@ -1220,14 +1220,14 @@
     },
     "filebrowser": {
         "available": "Verfügbar",
-        "used": "Benutzt",
-        "total": "Total"
+        "used": "Belegt",
+        "total": "Gesamt"
     },
     "wallos": {
         "activeSubscriptions": "Abonnements",
         "thisMonthlyCost": "Dieser Monat",
         "nextMonthlyCost": "Nächster Monat",
-        "previousMonthlyCost": "Vorh. Monat",
+        "previousMonthlyCost": "Vormonat",
         "nextRenewingSubscription": "Nächste Zahlung"
     },
     "unraid": {
@@ -1236,17 +1236,17 @@
         "NEW_ARRAY": "Neues Array",
         "RECON_DISK": "Festplatte wird neu aufgebaut",
         "DISABLE_DISK": "Festplatte deaktiviert",
-        "SWAP_DSBL": "Swap deaktivieren",
-        "INVALID_EXPANSION": "Üngültige Erweiterung",
-        "PARITY_NOT_BIGGEST": "Parity Not Biggest",
+        "SWAP_DSBL": "Tausch deaktivierter Festplatte",
+        "INVALID_EXPANSION": "Ungültige Erweiterung",
+        "PARITY_NOT_BIGGEST": "Paritätsfestplatte nicht die größte",
         "TOO_MANY_MISSING_DISKS": "Zu viele fehlende Festplatten",
         "NEW_DISK_TOO_SMALL": "Neue Festplatte zu klein",
         "NO_DATA_DISKS": "Keine Datenträger",
-        "notifications": "Mitteilungen",
+        "notifications": "Benachrichtigungen",
         "status": "Status",
         "cpu": "CPU",
-        "memoryUsed": "Speichernutzung",
-        "memoryAvailable": "Verfügbarer Speicher",
+        "memoryUsed": "RAM-Nutzung",
+        "memoryAvailable": "Verfügbarer RAM",
         "arrayUsed": "Array verwendet",
         "arrayFree": "Array frei",
         "poolUsed": "{{pool}} verwendet",
@@ -1255,10 +1255,10 @@
     "backrest": {
         "num_plans": "Pläne",
         "num_success_30": "Erfolgreich",
-        "num_failure_30": "Fehlerhaft",
+        "num_failure_30": "Fehlgeschlagen",
         "num_success_latest": "Erfolgreich",
         "num_failure_latest": "Fehlgeschlagen",
-        "bytes_added_30": "Bytes hinzugefügt"
+        "bytes_added_30": "Hinzugefügt"
     },
     "yourspotify": {
         "songs": "Titel",
@@ -1287,7 +1287,7 @@
         "environment_not_found": "Umgebung nicht gefunden"
     },
     "sparkyfitness": {
-        "eaten": "",
+        "eaten": "Gegessen",
         "burned": "Verbrannt",
         "remaining": "Verbleibend",
         "steps": "Schritte"
@@ -1299,11 +1299,11 @@
         "storage": "Speicher"
     },
     "sportarr": {
-        "wanted": "Wanted",
-        "queued": "Queued",
-        "leagues": "Leagues"
+        "wanted": "Gesucht",
+        "queued": "In Warteschlange",
+        "leagues": "Ligen"
     },
     "feed": {
-        "noItems": "No items"
+        "noItems": "Keine Einträge"
     }
 }
